@@ -1,0 +1,5 @@
+/.bundler
+/node_modules
+/public/assets
+/config/master.key
+bundle.js
