@@ -3373,3 +3373,350 @@ Processing by Api::SessionsController#destroy as JSON
 Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.6ms)
 
 
+Started GET "/" for ::1 at 2020-08-18 21:47:31 -0700
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/shanellevalencia/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (138.9ms)
+Completed 500 Internal Server Error in 150ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `logged_in?' for #<#<Class:0x00007fcde2ca8520>:0x00007fcde2c9b140>
+Did you mean?  logger?):
+    1:  <% if logged_in? %>
+    2:   <script type="text/javascript">
+    3:     window.currentUser = <%= render("api/users/show.json.jbuilder",
+    4:         user: current_user
+  
+app/views/static_pages/root.html.erb:1:in `_app_views_static_pages_root_html_erb__308051802106256703_70261124976980'
+Started GET "/" for ::1 at 2020-08-18 21:48:26 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (7.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 1359ms (Views: 1344.0ms | ActiveRecord: 13.7ms)
+
+
+Started GET "/" for ::1 at 2020-08-18 21:49:36 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 344ms (Views: 340.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2020-08-18 21:51:00 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 353ms (Views: 350.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-08-18 21:52:17 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 357ms (Views: 354.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/session" for ::1 at 2020-08-18 21:52:45 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test4", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test4"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:47
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "G8DqRZzsmPUtAgFFg0vSfg"], ["id", 11], ["LIMIT", 1]]
+  ↳ app/models/user.rb:47
+  [1m[36mUser Update (10.0ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "G8DqRZzsmPUtAgFFg0vSfg"], ["updated_at", "2020-08-19 04:52:45.495898"], ["id", 11]]
+  ↳ app/models/user.rb:47
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:47
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (0.8ms)
+Completed 200 OK in 271ms (Views: 9.5ms | ActiveRecord: 26.6ms)
+
+
+Started DELETE "/api/session" for ::1 at 2020-08-18 21:52:52 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "G8DqRZzsmPUtAgFFg0vSfg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:47
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "N-6PQ7I2Zb_LHA_sLbl8pw"], ["id", 11], ["LIMIT", 1]]
+  ↳ app/models/user.rb:47
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "N-6PQ7I2Zb_LHA_sLbl8pw"], ["updated_at", "2020-08-19 04:52:52.658160"], ["id", 11]]
+  ↳ app/models/user.rb:47
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:47
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/api/session" for ::1 at 2020-08-18 21:53:07 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test4", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test4"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:47
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "j-wvNbAZsq-f-YpLUpXhxw"], ["id", 11], ["LIMIT", 1]]
+  ↳ app/models/user.rb:47
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "j-wvNbAZsq-f-YpLUpXhxw"], ["updated_at", "2020-08-19 04:53:08.162127"], ["id", 11]]
+  ↳ app/models/user.rb:47
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:47
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (0.3ms)
+Completed 200 OK in 241ms (Views: 6.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2020-08-18 21:53:13 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "j-wvNbAZsq-f-YpLUpXhxw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (6.3ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (Missing partial api/users/_show.json.jbuilder with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/shanellevalencia/Desktop/fullstack_project/Aesop/app/views"
+):
+    1:  <% if logged_in? %>
+    2:   <script type="text/javascript">
+    3:     window.currentUser = <%= render("api/users/show.json.jbuilder",
+    4:         user: current_user
+    5:     ).html_safe %>
+    6:   </script>
+  
+app/views/static_pages/root.html.erb:3:in `_app_views_static_pages_root_html_erb__308051802106256703_70261195822540'
+Started GET "/" for ::1 at 2020-08-18 21:57:17 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "j-wvNbAZsq-f-YpLUpXhxw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (8.4ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (Missing partial api/users/_show.json.jbuilder with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/shanellevalencia/Desktop/fullstack_project/Aesop/app/views"
+):
+    1:  <% if logged_in? %>
+    2:   <script type="text/javascript">
+    3:     window.currentUser = <%= render("api/users/show.json.jbuilder",
+    4:         user: current_user
+    5:     ).html_safe %>
+    6:   </script>
+  
+app/views/static_pages/root.html.erb:3:in `_app_views_static_pages_root_html_erb__308051802106256703_70261113703460'
+Started GET "/" for ::1 at 2020-08-18 21:57:50 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/shanellevalencia/Desktop/fullstack_project/Aesop/app/views/static_pages/root.html.erb:4: syntax error, unexpected ':', expecting ')'
+        @user: current_user
+             ^
+/Users/shanellevalencia/Desktop/fullstack_project/Aesop/app/views/static_pages/root.html.erb:5: syntax error, unexpected ')', expecting keyword_end
+    ).html_safe );@output_buffer.safe_append='
+                ^):
+  
+app/views/static_pages/root.html.erb:4: syntax error, unexpected ':', expecting ')'
+app/views/static_pages/root.html.erb:5: syntax error, unexpected ')', expecting keyword_end
+Started GET "/" for ::1 at 2020-08-18 21:58:02 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "j-wvNbAZsq-f-YpLUpXhxw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (Missing partial api/users/_show.json.jbuilder with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/shanellevalencia/Desktop/fullstack_project/Aesop/app/views"
+):
+    1:  <% if logged_in? %>
+    2:   <script type="text/javascript">
+    3:     window.currentUser = <%= render("api/users/show.json.jbuilder",
+    4:         user: current_user
+    5:     ).html_safe %>
+    6:   </script>
+  
+app/views/static_pages/root.html.erb:3:in `_app_views_static_pages_root_html_erb__308051802106256703_70261203315600'
+Started GET "/" for ::1 at 2020-08-18 21:59:18 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "j-wvNbAZsq-f-YpLUpXhxw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (5.3ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (Missing partial api/users/_show.json.jbuilder with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/shanellevalencia/Desktop/fullstack_project/Aesop/app/views"
+):
+    1:  <% if logged_in? %>
+    2:   <script type="text/javascript">
+    3:     window.currentUser = <%= render("api/users/show.json.jbuilder",
+    4:         user: current_user
+    5:     ).html_safe %>
+    6:   </script>
+  
+app/views/static_pages/root.html.erb:3:in `_app_views_static_pages_root_html_erb__308051802106256703_70261130395200'
+Started GET "/" for ::1 at 2020-08-18 22:41:55 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "j-wvNbAZsq-f-YpLUpXhxw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered api/users/_user.json.jbuilder (5.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (17.9ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: json.extract! @user, :id, :first_name, :last_name, :email
+  
+app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder___2325378395766306403_70261194581540'
+app/views/static_pages/root.html.erb:3:in `_app_views_static_pages_root_html_erb__308051802106256703_70261139400280'
+Started GET "/" for ::1 at 2020-08-18 22:44:20 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "j-wvNbAZsq-f-YpLUpXhxw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered api/users/_user.json.jbuilder (3.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.7ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: json.extract! @user, :id, :first_name, :last_name, :email
+  
+app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder___2325378395766306403_70261202838000'
+app/views/static_pages/root.html.erb:3:in `_app_views_static_pages_root_html_erb__308051802106256703_70261202888740'
+Started GET "/" for ::1 at 2020-08-18 22:44:23 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "j-wvNbAZsq-f-YpLUpXhxw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered api/users/_user.json.jbuilder (2.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.4ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: json.extract! @user, :id, :first_name, :last_name, :email
+  
+app/views/api/users/_user.json.jbuilder:1:in `_app_views_api_users__user_json_jbuilder___2325378395766306403_70261195087540'
+app/views/static_pages/root.html.erb:3:in `_app_views_static_pages_root_html_erb__308051802106256703_70261195165800'
+Started GET "/" for ::1 at 2020-08-18 22:44:35 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "j-wvNbAZsq-f-YpLUpXhxw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 33ms (Views: 30.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-08-18 22:45:01 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "j-wvNbAZsq-f-YpLUpXhxw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 321ms (Views: 318.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-08-18 22:45:04 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "j-wvNbAZsq-f-YpLUpXhxw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 27ms (Views: 24.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-08-18 22:46:08 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "j-wvNbAZsq-f-YpLUpXhxw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (5.7ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (Missing partial api/users/_show.json.jbuilder with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/shanellevalencia/Desktop/fullstack_project/Aesop/app/views"
+):
+    1:  <% if logged_in? %>
+    2:   <script type="text/javascript">
+    3:     window.currentUser = <%= render("api/users/show.json.jbuilder",
+    4:         user: current_user
+    5:     ).html_safe %>
+    6:   </script>
+  
+app/views/static_pages/root.html.erb:3:in `_app_views_static_pages_root_html_erb__308051802106256703_70261111955840'
+Started GET "/" for ::1 at 2020-08-18 22:46:28 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/shanellevalencia/Desktop/fullstack_project/Aesop/app/views/static_pages/root.html.erb:4: syntax error, unexpected ':', expecting ')'
+        @user: current_user
+             ^
+/Users/shanellevalencia/Desktop/fullstack_project/Aesop/app/views/static_pages/root.html.erb:5: syntax error, unexpected ')', expecting keyword_end
+    ).html_safe );@output_buffer.safe_append='
+                ^):
+  
+app/views/static_pages/root.html.erb:4: syntax error, unexpected ':', expecting ')'
+app/views/static_pages/root.html.erb:5: syntax error, unexpected ')', expecting keyword_end
+Started GET "/" for ::1 at 2020-08-18 22:46:50 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "j-wvNbAZsq-f-YpLUpXhxw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 28ms (Views: 26.1ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/api/session" for ::1 at 2020-08-18 22:46:53 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "j-wvNbAZsq-f-YpLUpXhxw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:47
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "3zOMONTzUSheEZjQZHttDQ"], ["id", 11], ["LIMIT", 1]]
+  ↳ app/models/user.rb:47
+  [1m[36mUser Update (2.0ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "3zOMONTzUSheEZjQZHttDQ"], ["updated_at", "2020-08-19 05:46:53.356065"], ["id", 11]]
+  ↳ app/models/user.rb:47
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:47
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 4.3ms)
+
+

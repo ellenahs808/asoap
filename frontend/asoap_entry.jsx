@@ -4,8 +4,8 @@ import Root from "./components/root";
 import * as SessionActions from './actions/session_actions';
 import configureStore from "./store/store";
 
-document.addEventListener("DOMContentLoaded", () => {
 
+document.addEventListener("DOMContentLoaded", () => {
     let store;
     if (window.currentUser) {
         const preloadedState = {
@@ -30,11 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
     window.signup = SessionActions.signup;
     window.logout = SessionActions.logout;
 
-    
     // end of testing
-    debugger
+
     const root = document.getElementById('root')
-    ReactDOM.render(<Root store={store}  />, root);
+    ReactDOM.render(<Root store={store} />, root);
 });
 
 

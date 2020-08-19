@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 const Navbar = props => {
-    const loggedIn = (
+    const loggedIn = () => (
         <div>
             <h1>Hi, {props.currentUser.first_name} {props.currentUser.last_name}</h1>
             <button onClick={props.logout}>Log Out</button>
@@ -12,7 +12,7 @@ const Navbar = props => {
 
     //&nbsp; - non-breaking space
 
-    const loggedOut = (
+    const loggedOut = () => (
         <nav>
             <Link to="/login">Login</Link> 
             {/* &nbsp;or&nbsp; */}
@@ -21,7 +21,7 @@ const Navbar = props => {
         </nav>
     )
 
-    return props.currentUser ? loggedIn : loggedOut;
+    return props.currentUser ? loggedIn() : loggedOut();
 
 };
 

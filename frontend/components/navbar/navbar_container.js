@@ -6,7 +6,7 @@ import Navbar from './navbar';
 
 
 const mapStateToProps = ({entities, session}) => {
-    debugger
+    // debugger
     return {
         currentUser: entities.users[session.id]
     }

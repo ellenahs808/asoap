@@ -206,7 +206,6 @@ document.addEventListener("DOMContentLoaded", function () {
   window.signup = _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["signup"];
   window.logout = _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["logout"]; // end of testing
 
-  debugger;
   var root = document.getElementById('root');
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
     store: store
@@ -241,7 +240,7 @@ __webpack_require__.r(__webpack_exports__);
 var App = function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
     to: "/"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome to Asoap")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_4__["AuthRoute"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome to Asoap!!!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_4__["AuthRoute"], {
     path: "/login",
     component: _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_2__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_4__["AuthRoute"], {
@@ -270,16 +269,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Navbar = function Navbar(props) {
-  var loggedIn = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hi, ", props.currentUser.first_name, " ", props.currentUser.last_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: props.logout
-  }, "Log Out")); //&nbsp; - non-breaking space
+  var loggedIn = function loggedIn() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hi, ", props.currentUser.first_name, " ", props.currentUser.last_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      onClick: props.logout
+    }, "Log Out"));
+  }; //&nbsp; - non-breaking space
 
-  var loggedOut = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/login"
-  }, "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/signup"
-  }, "Sign Up"));
-  return props.currentUser ? loggedIn : loggedOut;
+
+  var loggedOut = function loggedOut() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      to: "/login"
+    }, "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      to: "/signup"
+    }, "Sign Up"));
+  };
+
+  return props.currentUser ? loggedIn() : loggedOut();
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Navbar);
@@ -305,7 +310,7 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(_ref) {
   var entities = _ref.entities,
       session = _ref.session;
-  debugger;
+  // debugger
   return {
     currentUser: entities.users[session.id]
   };
@@ -662,8 +667,7 @@ var sessionReducer = function sessionReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
-      debugger; // return Object.assign({}, {  id: action.currentUser.id  });
-
+      // return Object.assign({}, {  id: action.currentUser.id  });
       return {
         id: action.currentUser.id
       };
@@ -700,7 +704,6 @@ var usersReducer = function usersReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
-      debugger;
       nextState[action.currentUser.id] = action.currentUser;
       return nextState;
 
