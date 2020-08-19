@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 const Navbar = props => {
+ 
     const loggedIn = () => (
         <div>
             <h1>Hi, {props.currentUser.first_name} {props.currentUser.last_name}</h1>
@@ -13,11 +14,14 @@ const Navbar = props => {
     //&nbsp; - non-breaking space
 
     const loggedOut = () => (
-        <nav>
-            <Link to="/login">Login</Link> 
-            {/* &nbsp;or&nbsp; */}
-            <br/>
-            <Link to="/signup">Sign Up</Link>
+        <nav className="nav-list-login-register">
+            <div className="logged-out">
+                <ul className="login-register">
+                    <li><Link className="login-link" to="/login" >Login</Link> </li>
+                    &nbsp;or&nbsp;
+                    <li><Link className="signup-link" to="/signup">Register</Link></li>
+                </ul>
+            </div>
         </nav>
     )
 

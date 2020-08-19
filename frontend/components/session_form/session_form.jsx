@@ -26,6 +26,9 @@ class SessionForm extends React.Component {
     };
 
 
+
+
+
     render() {
         return (
             <div>
@@ -52,8 +55,14 @@ class SessionForm extends React.Component {
                     <input type="submit" value={this.props.formType} />
                 </form>
             </div>
+            
+
+
         )
     }
+
+
+
 };
 
 
