@@ -10,7 +10,7 @@ const App = () => (
     <div>
         <header>
             <Link to="/">
-                <h1>Welcome to Asoap</h1>
+                <h1>Asõap</h1>
             </Link>
             <NavbarContainer />
         </header>

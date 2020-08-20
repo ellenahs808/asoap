@@ -42,3 +42,7 @@ export const signup = user => dispatch => (
         .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
 );
 
+
+
+
+

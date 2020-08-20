@@ -8,8 +8,8 @@ class Api::UsersController < ApplicationController
             login!(@user)
             # redirect_to api_user_url(@user)
             # render "api/users/show"
-            render json: ["You are now logged in."]
-            # render "api/users/show"
+            # render json: ["You are now logged in."]
+            render "api/users/show"
         else 
             render json: @user.errors.full_messages, status: 422
         end

@@ -1,0 +1,58 @@
+ .nav-list-login-register {
+    /* background-color: rgb(221, 171, 79); */
+    color: #000;
+    display: flex;
+    float: right;
+ }
+
+
+ .login-register {
+    list-style-type: none;
+    display: flex;
+ 
+    
+ }
+
+ .login-register > li {
+    display: inline;
+    position: relative;
+    overflow: hidden;
+ }
+
+ .login-register > li:hover {
+    color: #000;
+ }
+
+ /* underline */
+.login-register > li::after {
+  content: '';
+  width: 0px;
+  height: 1.3px;
+  display: block;
+  background: black;
+  transition: 300ms;
+}
+
+
+.login-register > li:hover::after {
+  width: 100%;
+}
+
+
+.login-link:link {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.signup-link:link {
+    text-decoration: none;
+}
+
+.signup-link {
+    color: black;
+}
+
+.login-link {
+    color: black;
+}
