@@ -13,7 +13,8 @@
 #
 class User < ApplicationRecord
     # AASPIRE
-    validates :email, :password_digest, presence: true
+    validates :email, :password_digest, :first_name, :last_name, presence: true
+    validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
     validates :session_token, presence: true, uniqueness: true
     validates :password, length: { minimum: 6, allow_nil: true }
 

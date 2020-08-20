@@ -14,15 +14,16 @@ const Navbar = props => {
     //&nbsp; - non-breaking space
 
     const loggedOut = () => (
-        <nav className="nav-list-login-register">
-            <div className="logged-out">
-                <ul className="login-register">
-                    <li><Link className="login-link" to="/login" >Login</Link> </li>
-                    &nbsp;or&nbsp;
-                    <li><Link className="signup-link" to="/signup">Register</Link></li>
-                </ul>
-            </div>
-        </nav>
+        <nav className="left-nav">
+            <nav>
+                <div className="logged-out">
+                    <ul className="login-register">
+                        <li><Link className="login-link" to="/login" onClick={() => dispatch(props.clearSessionErrors())}>Login</Link> </li>
+                        <li><Link className="signup-link" to="/signup" onClick={() => dispatch(props.clearSessionErrors())}>Register</Link></li>
+                    </ul>
+                </div>
+            </nav>
+       </nav>
     )
 
     return props.currentUser ? loggedIn() : loggedOut();

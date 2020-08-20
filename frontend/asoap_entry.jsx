@@ -26,11 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
     
     //for testing
     window.getState = store.getState;
-    window.dispatch = store.dispatch; 
+    window.dispatch = store.dispatch;
     window.login = SessionActions.login;
     window.signup = SessionActions.signup;
     window.logout = SessionActions.logout;
-    window.loginDemo = SessionActions.loginDemo;
+    window.loginDemo = loginDemo;
 
     // end of testing
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { clearSessionErrors } from '../../actions/session_actions';
 
 
 
@@ -20,8 +21,6 @@ class SignupForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-
-        //compare password to confirm password else render error
         const { password, confirm_password } = this.state;
         if (password !== confirm_password) {
             alert("Passwords do not match");
@@ -44,9 +43,11 @@ class SignupForm extends React.Component {
 
 
     render() {
+        const { formType, errors, clearSessionErrors } = this.props;
+
         return (
             <div className="signup-modal-form">
-                <Link to="/" className="fas fa-times"></Link>
+                <Link to="/" className="close-btn" onClick={() => dispatch(clearSessionErrors())}>x</Link>
                 <h1 className="signup-header">Welcome to Asõap</h1>
                     <p className="signup-par">To create an account, please enter your details below</p>
                     <form onSubmit={this.handleSubmit}>
@@ -78,30 +79,43 @@ class SignupForm extends React.Component {
                                 />
                             </label>
                             <br/>
-                            <label className="signup-firstname-label">
-                                <input
-                                    type="text"
-                                    value={this.state.first_name}
-                                    onChange={this.update('first_name')}
-                                    placeholder="First name"
-                                />
-                            </label>
-                            <br/>
-                            <label className="signup-lastname-label">
-                                <input
-                                    type="text"
-                                    value={this.state.last_name}
-                                    onChange={this.update('last_name')}
-                                    placeholder="Last name"
-                                />
-                            </label>
+                            <div className="signup-name-label">
+                                <label className="signup-firstname-label">
+                                    <input
+                                        type="text"
+                                        value={this.state.first_name}
+                                        onChange={this.update('first_name')}
+                                        placeholder="First name"
+                                    />
+                                </label>
+                                <br/>
+                                <label className="signup-lastname-label">
+                                    <input
+                                        type="text"
+                                        value={this.state.last_name}
+                                        onChange={this.update('last_name')}
+                                        placeholder="Last name"
+                                    />
+                                </label>
+                            </div>
+                            <div className="session-errors-li">
+                                <ul>
+                                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                                </ul>
+                            </div>
                         </ul>
-                        <br/><br/>
-
-
-                        <input className="signup-btn" type="submit" value={this.props.formType} />
                         <br/>
-                        <Link className="signup-footer" to="/login"><p>Do you already have an Asõap account?</p></Link>
+                    <input 
+                        onClick={() => dispatch(clearSessionErrors())} 
+                        className="signup-btn" 
+                        type="submit" value={formType} 
+                    />
+                        <br/>
+                        <Link 
+                            className="signup-footer" to="/login"
+                            onClick={() => dispatch(clearSessionErrors())}>
+                                <p>Do you already have an Asõap account?</p>
+                        </Link>
                     </form>
             </div>
 

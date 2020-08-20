@@ -10,12 +10,12 @@ input {
 
 
 .login-modal-form {
-    position: relative;
+    position: absolute;
     top: 100px;
     left: 50%;
-    margin-left: -240px;
-    width: 400px;
-    padding: 70px;
+    margin-left: -300px;
+    width: 500px;
+    padding: 60px;
     z-index: 3;
     border: 1px solid rgb(173, 172, 172);
     background: #FFFEF2;
@@ -25,18 +25,16 @@ input {
 
 
 
-.fa-times {
-    // margin-right: auto;
-    position: relative;
-    // margin-right: auto;
+.close-btn {
     text-align: right;
-    height: 20px;
-    width: 98%;
-    font-size: 25px;
+    height: 30px;
+    width: 105%;
+    font-size: 30px;
     color: black;
+    float: right;
 }
 
-.fa-times:link {
+.close-btn:link {
     text-decoration: none;
 }
 
@@ -62,12 +60,14 @@ input {
 .login-email-label {
     border-bottom: 1px solid #999;
     padding: 7px;
+    margin-bottom: 8%;
 }
 
 
 .login-password-label {
     border-bottom: 1px solid #999;
     padding: 7px;
+    margin-bottom: 8%;
 }
 
 
@@ -102,15 +102,14 @@ input {
     position: absolute;
     top: 100px;
     left: 50%;
-    margin-left: -250px;
-    width: 400px;
-    padding: 80px;
+    margin-left: -300px;
+    width: 500px;
+    padding: 60px;
     background: #FFFEF2;
     z-index: 3;
     border: 1px solid rgb(173, 172, 172);
     font-family: 'Open Sans', sans-serif;
 }
-
 
 
 
@@ -144,18 +143,28 @@ input {
 .signup-email-label {
     border-bottom: 1px solid #999;
     padding: 7px;
+    margin-bottom: 8%;
 }
 
 .signup-password-label {
     border-bottom: 1px solid #999;
     padding: 7px;
-
+    margin-bottom: 8%;
 }
 
 .signup-confirm-password-label {
     border: none;
     border-bottom: 1px solid #999;
     padding: 7px;
+    margin-bottom: 8%;
+}
+
+
+.signup-name-label {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8%;
 }
 
 
@@ -163,13 +172,19 @@ input {
     border-bottom: 1px solid #999;
     padding: 7px;
     text-transform: none;
+    margin-bottom: 2%;
+    width: 45%;
 }
 
 
 .signup-lastname-label {
     border-bottom: 1px solid #999;
     padding: 7px;
+    text-transform: none;
+    margin-bottom: 2%;
+    width: 45%;
 }
+
 
 
 .signup-btn {
@@ -196,4 +211,9 @@ input {
 
 .signup-footer:hover {
     cursor: pointer;
+}
+
+
+.session-errors-li {
+    color: rgb(83, 83, 83);
 }

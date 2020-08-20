@@ -1,16 +1,33 @@
- .nav-list-login-register {
+// .splash-image {
+//     // background-size: auto;
+//     background-position: center;
+//     background-repeat: no-repeat;
+// }
+
+
+.main-nav {
+    display: flex;
+    background-color: rgb(226, 180, 94);
+    justify-content: space-between;
+}
+
+
+ 
+ 
+ .left-nav {
     /* background-color: rgb(221, 171, 79); */
     color: #000;
-    display: flex;
+    // display: flex;
     float: right;
+    background-color: rgb(226, 180, 94);
  }
 
 
  .login-register {
-    list-style-type: none;
+    // list-style-type: none;
     display: flex;
- 
-    
+    padding-top: 30px;
+    justify-content: space-evenly;
  }
 
  .login-register > li {
@@ -39,6 +56,8 @@
 }
 
 
+
+
 .login-link:link {
     text-decoration: none;
     color: inherit;
@@ -51,8 +70,11 @@
 
 .signup-link {
     color: black;
+    font-size: 24px;
+    margin: 30px
 }
 
 .login-link {
     color: black;
+    font-size: 24px;
 }
