@@ -8,30 +8,40 @@ input {
 
 
 
-.fas fa-times {
-    // display: flex;
-    // justify-content: space-between;
-    // margin-left: auto;
-    right: 20px;
-}
-
-.fas fa-times:link {
-    text-decoration: none;
-}
-
 
 .login-modal-form {
     position: relative;
     top: 100px;
     left: 50%;
-    margin-left: -220px;
+    margin-left: -240px;
     width: 400px;
-    padding: 30px;
+    padding: 70px;
     z-index: 3;
     border: 1px solid rgb(173, 172, 172);
     background: #FFFEF2;
     font-family: 'Open Sans', sans-serif;
 }
+
+
+
+
+.fa-times {
+    // margin-right: auto;
+    position: relative;
+    // margin-right: auto;
+    text-align: right;
+    height: 20px;
+    width: 98%;
+    font-size: 25px;
+    color: black;
+}
+
+.fa-times:link {
+    text-decoration: none;
+}
+
+
+
 
 .login-header {
     font-size: 30px;
@@ -50,18 +60,18 @@ input {
 }
 
 .login-email-label {
-    border-bottom: 1px solid rgb(202, 172, 177);
+    border-bottom: 1px solid #999;
     padding: 7px;
 }
 
 
 .login-password-label {
-    border-bottom: 1px solid rgb(202, 172, 177);
+    border-bottom: 1px solid #999;
     padding: 7px;
 }
 
 
-.login-button {
+.login-btn {
     background-color: #999;
     color: white;
     padding: 15px 20px;
@@ -69,6 +79,20 @@ input {
     border: none;
     cursor: pointer;
     width: 100%;
+    font-size: 17px;
+}
+
+
+
+.demo-login-btn {
+    background-color: #999;
+    color: white;
+    padding: 15px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 17px;
 }
 
 
@@ -78,9 +102,9 @@ input {
     position: absolute;
     top: 100px;
     left: 50%;
-    margin-left: -220px;
+    margin-left: -250px;
     width: 400px;
-    padding: 30px;
+    padding: 80px;
     background: #FFFEF2;
     z-index: 3;
     border: 1px solid rgb(173, 172, 172);
@@ -89,9 +113,6 @@ input {
 
 
 
-.fas fa-times {
-    padding: 10px;
-}
 
 
 .signup-form {
@@ -108,7 +129,9 @@ input {
     font-size: 30px;
     font-weight: 900;
     padding: 30px 0px 20px;
+    text-align: justify;
 }
+
 
 
 .signup-par {
@@ -119,37 +142,37 @@ input {
 
 
 .signup-email-label {
-    border-bottom: 1px solid rgb(202, 172, 177);
+    border-bottom: 1px solid #999;
     padding: 7px;
 }
 
 .signup-password-label {
-    border-bottom: 1px solid rgb(202, 172, 177);
+    border-bottom: 1px solid #999;
     padding: 7px;
 
 }
 
 .signup-confirm-password-label {
     border: none;
-    border-bottom: 1px solid rgb(202, 172, 177);
+    border-bottom: 1px solid #999;
     padding: 7px;
 }
 
 
 .signup-firstname-label {
-    border-bottom: 1px solid rgb(202, 172, 177);
+    border-bottom: 1px solid #999;
     padding: 7px;
     text-transform: none;
 }
 
 
 .signup-lastname-label {
-    border-bottom: 1px solid rgb(202, 172, 177);
+    border-bottom: 1px solid #999;
     padding: 7px;
 }
 
 
-.signup-button {
+.signup-btn {
     background-color: #999;
     color: white;
     padding: 15px 20px;
@@ -157,6 +180,7 @@ input {
     border: none;
     cursor: pointer;
     width: 100%;
+    font-size: 17px;
 }
 
 .signup-footer {

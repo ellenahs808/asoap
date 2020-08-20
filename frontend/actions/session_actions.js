@@ -44,5 +44,9 @@ export const signup = user => dispatch => (
 
 
 
+export const loginDemo = () => dispatch => (
+    SessionAPIUtil.loginDemo()
+        .then(currentUser => dispatch(receiveCurrentUser(currentUser)))
+);
 
 

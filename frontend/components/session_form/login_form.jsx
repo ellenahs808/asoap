@@ -10,6 +10,7 @@ class LoginForm extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
     };
 
 
@@ -17,7 +18,18 @@ class LoginForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user);
-    }
+    };
+
+
+
+
+    handleDemoSubmit(e) {
+        e.preventDefault();
+        this.props.loginDemo()
+        .then(() => this.props.history.push('/'))
+    };
+
+
 
     update(field) {
         return e => {
@@ -32,7 +44,7 @@ class LoginForm extends React.Component {
     render() {
         return (
             <div className="login-modal-form">
-                
+                <Link to="/" className="fas fa-times"></Link>
                 <h1 className="login-header">Welcome back to Asõap</h1>
                 <form className="login-form" onSubmit={this.handleSubmit}>
                     <label className="login-email-label">
@@ -53,7 +65,8 @@ class LoginForm extends React.Component {
                         />
                     </label>
                     <br/><br/>
-                    <input className="login-button" type="submit" value={this.props.formType} />
+                    <input className="login-btn" type="submit" value={this.props.formType} />
+                    <button className='demo-login-btn' onClick={this.handleDemoSubmit}>Demo Login</button>
                 </form>
             </div>
             

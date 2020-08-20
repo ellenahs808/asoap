@@ -46,7 +46,7 @@ class SignupForm extends React.Component {
     render() {
         return (
             <div className="signup-modal-form">
-                <Link to="/"><i class="fas fa-times"></i></Link>
+                <Link to="/" className="fas fa-times"></Link>
                 <h1 className="signup-header">Welcome to Asõap</h1>
                     <p className="signup-par">To create an account, please enter your details below</p>
                     <form onSubmit={this.handleSubmit}>
@@ -99,7 +99,7 @@ class SignupForm extends React.Component {
                         <br/><br/>
 
 
-                        <input className="signup-button" type="submit" value={this.props.formType} />
+                        <input className="signup-btn" type="submit" value={this.props.formType} />
                         <br/>
                         <Link className="signup-footer" to="/login"><p>Do you already have an Asõap account?</p></Link>
                     </form>

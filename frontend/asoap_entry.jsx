@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import Root from "./components/root";
 import * as SessionActions from './actions/session_actions';
 import configureStore from "./store/store";
+import { loginDemo } from './actions/session_actions';
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -29,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.login = SessionActions.login;
     window.signup = SessionActions.signup;
     window.logout = SessionActions.logout;
+    window.loginDemo = SessionActions.loginDemo;
 
     // end of testing
 
