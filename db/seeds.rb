@@ -11,3 +11,25 @@ User.destroy_all
 demo = { email: 'test@testing.com', password: 'hunter12', first_name: 'Mister', last_name: 'Clean' }
 User.create(demo)
 
+
+
+Product.destroy_all
+
+
+
+
+
+
+
+
+
+Category.destroy_all
+
+
+
+
+
+
+
+
+SubCategory.destroy_all
