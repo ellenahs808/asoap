@@ -10,12 +10,12 @@ import Splash from './splash/splash';
 const App = () => (
     <div>
         <header className="main-nav">
-            <nav className="right-nav">
+            <nav className="left-nav">
                 <Link to="/">
                     <img src={window.images.logo} height='100%' width='100%' />
                 </Link>
             </nav>
-            <nav className="left-nav">
+            <nav className="right-nav">
                 <NavbarContainer />
             </nav>
         </header>

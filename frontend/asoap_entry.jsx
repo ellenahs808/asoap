@@ -21,18 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         store = configureStore();
     }
 
-
-    // let store = configureStore();
     
-    //for testing
-    window.getState = store.getState;
-    window.dispatch = store.dispatch;
-    window.login = SessionActions.login;
-    window.signup = SessionActions.signup;
-    window.logout = SessionActions.logout;
-    window.loginDemo = loginDemo;
-
-    // end of testing
 
     const root = document.getElementById('root')
     ReactDOM.render(<Root store={store} />, root);

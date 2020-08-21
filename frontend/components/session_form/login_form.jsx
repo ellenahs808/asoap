@@ -32,6 +32,11 @@ class LoginForm extends React.Component {
 
 
 
+    componentWillUnmount() {
+        this.props.clearSessionErrors()
+    };
+
+
 
 
     update(field) {
@@ -49,7 +54,7 @@ class LoginForm extends React.Component {
 
         return (
             <div className="login-modal-form">
-                <Link to="/" className="close-btn" onClick={() => dispatch(clearSessionErrors())}>x</Link>
+                <Link to="/" className="close-btn">x</Link>
                 <h1 className="login-header">Welcome back to Asõap</h1>
                 <form className="login-form" onSubmit={this.handleSubmit}>
                     <label className="login-email-label">
@@ -77,7 +82,6 @@ class LoginForm extends React.Component {
                         className="login-btn" 
                         type="submit" 
                         value={formType} 
-                        onClick={() => dispatch(clearSessionErrors())}
                         />
                     <button 
                         className='demo-login-btn' 

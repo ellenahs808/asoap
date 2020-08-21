@@ -13,13 +13,18 @@ const Navbar = props => {
 
     //&nbsp; - non-breaking space
 
+
+
+
+
+
     const loggedOut = () => (
-        <nav className="left-nav">
+        <nav className="right-nav">
             <nav>
                 <div className="logged-out">
                     <ul className="login-register">
-                        <li><Link className="login-link" to="/login" onClick={() => dispatch(props.clearSessionErrors())}>Login</Link> </li>
-                        <li><Link className="signup-link" to="/signup" onClick={() => dispatch(props.clearSessionErrors())}>Register</Link></li>
+                        <li><Link className="login-link" to="/login" >Login</Link> </li>
+                        <li><Link className="signup-link" to="/signup" >Register</Link></li>
                     </ul>
                 </div>
             </nav>

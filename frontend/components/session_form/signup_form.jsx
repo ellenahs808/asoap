@@ -41,13 +41,18 @@ class SignupForm extends React.Component {
 
 
 
+    componentWillUnmount() {
+        this.props.clearSessionErrors()
+    };
+
+
 
     render() {
-        const { formType, errors, clearSessionErrors } = this.props;
+        const { formType, errors } = this.props;
 
         return (
             <div className="signup-modal-form">
-                <Link to="/" className="close-btn" onClick={() => dispatch(clearSessionErrors())}>x</Link>
+                <Link to="/" className="close-btn">x</Link>
                 <h1 className="signup-header">Welcome to Asõap</h1>
                     <p className="signup-par">To create an account, please enter your details below</p>
                     <form onSubmit={this.handleSubmit}>
@@ -105,16 +110,10 @@ class SignupForm extends React.Component {
                             </div>
                         </ul>
                         <br/>
-                    <input 
-                        onClick={() => dispatch(clearSessionErrors())} 
-                        className="signup-btn" 
-                        type="submit" value={formType} 
-                    />
+                    <input className="signup-btn" type="submit" value={formType} />
                         <br/>
-                        <Link 
-                            className="signup-footer" to="/login"
-                            onClick={() => dispatch(clearSessionErrors())}>
-                                <p>Do you already have an Asõap account?</p>
+                        <Link className="signup-footer" to="/login">
+                            <p>Do you already have an Asõap account?</p>
                         </Link>
                     </form>
             </div>
