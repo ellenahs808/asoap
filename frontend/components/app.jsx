@@ -11,9 +11,17 @@ const App = () => (
     <div>
         <header className="main-nav">
             <nav className="left-nav">
-                <Link to="/">
+                <div>
+                    <ul className="left-nav-li">
+                        <li><Link className="shop-link">Shop</Link></li>
+                        <li><Link className="read-link">Read</Link></li>
+                        <li><Link className="stores-link">Stores</Link></li>
+                        <li><Link className="search-link">Search</Link></li>
+                    </ul>
+                </div>
+                {/* <Link to="/">
                     <img src={window.images.logo} height='100%' width='100%' />
-                </Link>
+                </Link> */}
             </nav>
             <nav className="right-nav">
                 <NavbarContainer />
