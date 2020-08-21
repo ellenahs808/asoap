@@ -20,7 +20,7 @@ const App = () => (
                     </ul>
                 </div>
                 {/* <Link to="/">
-                    <img src={window.images.logo} height='100%' width='100%' />
+                    <img src={window.logo} height='100%' width='100%' />
                 </Link> */}
             </nav>
             <nav className="right-nav">

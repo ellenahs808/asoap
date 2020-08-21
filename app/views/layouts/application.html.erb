@@ -6,12 +6,12 @@
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <script type="text/javascript">
-      window.images = {
-        logo: "<%= image_url('logo.png')%>",
-        splash_img: "<%= image_url('splash_img.jpeg') %>"
-      }
+ 
+    window.logo = "<%= image_url('logo.png')%>"
+    window.splash_img = "<%= image_url('splash_img.jpg')%>"
+ 
     </script>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
