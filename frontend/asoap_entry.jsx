@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Root from "./components/root";
 import * as SessionActions from './actions/session_actions';
+import * as ProductActions from './actions/product_actions';
 import configureStore from "./store/store";
 import { loginDemo } from './actions/session_actions';
 
@@ -21,6 +22,13 @@ document.addEventListener("DOMContentLoaded", () => {
         store = configureStore();
     }
 
+
+    //for testing only
+    window.fetchProducts = ProductActions.fetchProducts
+    window.fetchProduct = ProductActions.fetchProduct
+
+
+    //
     
 
     const root = document.getElementById('root')

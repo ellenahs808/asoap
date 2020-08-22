@@ -13,27 +13,27 @@ User.create(demo)
 
 
 
-# Product.destroy_all
+Product.destroy_all
 
-# #Skin - Cleanse
+#Skin - Cleanse
 
-# amazing_face_cleanser = Product.create!(
-#     name: "Amazing Face Cleanser",
-#     category: "Skin",
-#     sub_category: "Cleanse",
-#     description: "A non-drying daily cleanser enhanced with purifying Mandarin Rind to effectively cleanse the skin without disturbing its natural balance.",
-#     size: "6.8 fl oz",
-#     price: 33.00,
-#     suited_to: "Oily, combination and open-pored skin, for those in warm and humid climates",
-#     skin_feel: "Refreshed, balanced and scrupulously clean",
-#     key_ingredients: "Mandarin Rind, Ylang Ylang, Lavender Oil",
-#     how_to_use: "Morning and evening, pour into clean hands and lather. Massage over face and neck, then rinse thoroughly with warm water.",
-#     dosage: "Half a teaspoon",
-#     texture: "Clear, low foaming gel",
-#     aroma: "Citrus, floral, fresh"
-# )
+amazing_face_cleanser = Product.create!(
+    name: "Amazing Face Cleanser",
+    category: "Skin",
+    sub_category: "Cleanse",
+    description: "A non-drying daily cleanser enhanced with purifying Mandarin Rind to effectively cleanse the skin without disturbing its natural balance.",
+    size: "6.8 fl oz",
+    price: 33.00,
+    suited_to: "Oily, combination and open-pored skin, for those in warm and humid climates",
+    skin_feel: "Refreshed, balanced and scrupulously clean",
+    key_ingredients: "Mandarin Rind, Ylang Ylang, Lavender Oil",
+    how_to_use: "Morning and evening, pour into clean hands and lather. Massage over face and neck, then rinse thoroughly with warm water.",
+    dosage: "Half a teaspoon",
+    texture: "Clear, low foaming gel",
+    aroma: "Citrus, floral, fresh"
+)
 
-# https://www.aesop.com/us/p/skin/cleanse/amazing-face-cleanser/
+# # https://www.aesop.com/us/p/skin/cleanse/amazing-face-cleanser/
 
 
 
@@ -54,7 +54,7 @@ User.create(demo)
 # )
 
 
-# https://www.aesop.com/us/p/skin/cleanse/parsley-seed-facial-cleansing-oil/
+# # https://www.aesop.com/us/p/skin/cleanse/parsley-seed-facial-cleansing-oil/
 
 
 # purifying_facial_cream_cleanser = Product.create!(
@@ -73,7 +73,7 @@ User.create(demo)
 #     aroma: "Mild, hint of rose"
 # )
 
-# https://www.aesop.com/us/p/skin/cleanse/purifying-facial-cream-cleanser/
+# # https://www.aesop.com/us/p/skin/cleanse/purifying-facial-cream-cleanser/
 
 
 # #Skin - Exfoliate
@@ -93,7 +93,7 @@ User.create(demo)
 #     aroma: "Herbaceous, smoky, green"
 # )
 
-# https://www.aesop.com/us/p/skin/exfoliate/tea-tree-leaf-facial-exfoliant/
+# # https://www.aesop.com/us/p/skin/exfoliate/tea-tree-leaf-facial-exfoliant/
 
 
 # purifying_facial_exfoliant_paste = Product.create!(
@@ -112,7 +112,7 @@ User.create(demo)
 #     aroma: "Herbaceous, floral, earthy"
 # )
 
-# https://www.aesop.com/us/p/skin/exfoliate/purifying-facial-exfoliant-paste/
+# # https://www.aesop.com/us/p/skin/exfoliate/purifying-facial-exfoliant-paste/
 
 
 
@@ -136,7 +136,7 @@ User.create(demo)
 # )
 
 
-# https://www.aesop.com/us/p/skin/skin-care-gifts/b-tea-balancing-toner/
+# # https://www.aesop.com/us/p/skin/skin-care-gifts/b-tea-balancing-toner/
 
 
 # parsley_seed_anti_oxidant_facial_toner = Product.create!(
@@ -156,7 +156,7 @@ User.create(demo)
 # )
 
 
-# https://www.aesop.com/us/p/skin/tone/parsley-seed-anti-oxidant-facial-toner/
+# # https://www.aesop.com/us/p/skin/tone/parsley-seed-anti-oxidant-facial-toner/
 
 # #Skin - Treat & Masque
 # fabulous_face_oil = Product.create!(
@@ -175,7 +175,7 @@ User.create(demo)
 #     aroma: "Floral, herbaceous"
 # )
 
-# https://www.aesop.com/us/p/skin/hydrate/fabulous-face-oil/
+# # https://www.aesop.com/us/p/skin/hydrate/fabulous-face-oil/
 
 
 # damascan_rose_facial_treatment = Product.create!(
@@ -195,7 +195,7 @@ User.create(demo)
 # )
 
 
-# https://www.aesop.com/us/p/skin/hydrate/damascan-rose-facial-treatment/
+# # https://www.aesop.com/us/p/skin/hydrate/damascan-rose-facial-treatment/
 
 
 
@@ -215,7 +215,7 @@ User.create(demo)
 #     aroma: "Herbaceous, citrus, earthy"
 # )
 
-# https://www.aesop.com/us/p/skin/treat-masque/chamomile-concentrate-anti-blemish-masque/
+# # https://www.aesop.com/us/p/skin/treat-masque/chamomile-concentrate-anti-blemish-masque/
 
 
 
@@ -236,7 +236,7 @@ User.create(demo)
 #     aroma: "Camphorous, herbaceous, fresh"
 # )
 
-# https://www.aesop.com/us/p/hair/hair-cleanse/equalising-shampoo/
+# # https://www.aesop.com/us/p/hair/hair-cleanse/equalising-shampoo/
 
 
 # nurturing_shampoo = Product.create!(
@@ -254,7 +254,7 @@ User.create(demo)
 #     aroma: "Mint, herbaceous, nutty"
 # )
 
-# https://www.aesop.com/us/p/hair/hair-cleanse/nurturing-shampoo/
+# # https://www.aesop.com/us/p/hair/hair-cleanse/nurturing-shampoo/
 
 
 # calming_shampoo = Product.create!(
@@ -273,7 +273,7 @@ User.create(demo)
 # )
 
 
-# https://www.aesop.com/us/p/hair/hair-cleanse/calming-shampoo/
+# # https://www.aesop.com/us/p/hair/hair-cleanse/calming-shampoo/
 
 
 # volumising_shampoo = Product.create!(
@@ -291,7 +291,7 @@ User.create(demo)
 #     aroma: "Mint, herbaceous"
 # )
 
-# https://www.aesop.com/us/p/hair/hair-cleanse/volumising-shampoo/
+# # https://www.aesop.com/us/p/hair/hair-cleanse/volumising-shampoo/
 
 
 # # Hair - Condition
@@ -312,7 +312,7 @@ User.create(demo)
 # )
 
 
-# https://www.aesop.com/us/p/hair/condition/classic-conditioner/
+# # https://www.aesop.com/us/p/hair/condition/classic-conditioner/
 
 
 
@@ -332,7 +332,7 @@ User.create(demo)
 # )
 
 
-# https://www.aesop.com/us/p/hair/condition/volumising-conditioner/
+# # https://www.aesop.com/us/p/hair/condition/volumising-conditioner/
 
 
 # # Hair - Treat
@@ -353,7 +353,7 @@ User.create(demo)
 # )
 
 
-# https://www.aesop.com/us/p/hair/treat/sage-cedar-scalp-treatment/
+# # https://www.aesop.com/us/p/hair/treat/sage-cedar-scalp-treatment/
 
 
 
@@ -373,7 +373,7 @@ User.create(demo)
 # )
 
 
-# https://www.aesop.com/us/p/hair/treat/rose-hair-scalp-moisturising-masque/
+# # https://www.aesop.com/us/p/hair/treat/rose-hair-scalp-moisturising-masque/
 
 # # Body & Hand - Hand
 
@@ -394,7 +394,7 @@ User.create(demo)
 # )
 
 
-# https://www.aesop.com/us/p/body-hand/hand-and-body-gifts/reverence-aromatique-hand-wash/
+# # https://www.aesop.com/us/p/body-hand/hand-and-body-gifts/reverence-aromatique-hand-wash/
 
 
 # reverence_aromatique_hand_balm = Product.create!(
@@ -414,7 +414,7 @@ User.create(demo)
 # )
 
 
-# https://www.aesop.com/us/p/body-hand/hand-and-body-gifts/reverence-aromatique-hand-balm/
+# # https://www.aesop.com/us/p/body-hand/hand-and-body-gifts/reverence-aromatique-hand-balm/
 
 
 
@@ -435,4 +435,4 @@ User.create(demo)
 # )
 
 
-# https://www.aesop.com/us/p/body-hand/hand-and-body-gifts/resurrection-aromatique-hand-balm/
+# # https://www.aesop.com/us/p/body-hand/hand-and-body-gifts/resurrection-aromatique-hand-balm/
