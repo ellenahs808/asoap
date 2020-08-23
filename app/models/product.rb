@@ -23,6 +23,6 @@ class Product < ApplicationRecord
     validates :name, presence: true, uniqueness: true
     validates :category, :sub_category, :description, :size, :price, :how_to_use, :key_ingredients, presence: true 
 
-    has_one_attached :photo
+    has_many_attached :photos
     
 end

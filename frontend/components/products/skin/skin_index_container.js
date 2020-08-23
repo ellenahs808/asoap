@@ -6,6 +6,7 @@ import { skinCategory } from '../../../reducers/selectors';
 
 const mapSTP = state => ({
     skinProducts: skinCategory(state),
+    categories: Object.values(state.entities.products.category),
     category: "Skin",
 });
 

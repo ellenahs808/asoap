@@ -37,21 +37,21 @@ amazing_face_cleanser = Product.create!(
 
 
 
-# parsley_seed_facial_cleansing_oil = Product.create!(
-#     name: "Parsley Seed Facial Cleansing Oil",
-#     category: "Skin",
-#     sub_category: "Cleanse",
-#     description: "A fatty-acid rich, make-up removing formulation, with skin-calming properties. Cleanses thoroughly while gently nourishing skin.",
-#     size: "6.8 fl oz",
-#     price: 60.00,
-#     suited_to: "Normal, combination, dry and sensitive skin",
-#     skin_feel: "Calm, softened and gently cleansed",
-#     key_ingredients: "Macadamia Seed, Tocopherol, Beta-Carotene",
-#     how_to_use: "Morning and evening, blend mixture in the palm of your hand to form a milky emulsion. Massage over damp face and neck, then rinse thoroughly.",
-#     dosage: "One teaspoon blended with three to five drops of water",
-#     texture: "Water-soluble oil",
-#     aroma: "Floral, herbaceous, nutty"
-# )
+parsley_seed_facial_cleansing_oil = Product.create!(
+    name: "Parsley Seed Facial Cleansing Oil",
+    category: "Skin",
+    sub_category: "Cleanse",
+    description: "A fatty-acid rich, make-up removing formulation, with skin-calming properties. Cleanses thoroughly while gently nourishing skin.",
+    size: "6.8 fl oz",
+    price: 60.00,
+    suited_to: "Normal, combination, dry and sensitive skin",
+    skin_feel: "Calm, softened and gently cleansed",
+    key_ingredients: "Macadamia Seed, Tocopherol, Beta-Carotene",
+    how_to_use: "Morning and evening, blend mixture in the palm of your hand to form a milky emulsion. Massage over damp face and neck, then rinse thoroughly.",
+    dosage: "One teaspoon blended with three to five drops of water",
+    texture: "Water-soluble oil",
+    aroma: "Floral, herbaceous, nutty"
+)
 
 
 # # https://www.aesop.com/us/p/skin/cleanse/parsley-seed-facial-cleansing-oil/
@@ -76,7 +76,7 @@ amazing_face_cleanser = Product.create!(
 # # https://www.aesop.com/us/p/skin/cleanse/purifying-facial-cream-cleanser/
 
 
-# #Skin - Exfoliate
+#Skin - Exfoliate
 # tea_tree_leaf_facial_exfoliant = Product.create!(
 #     name: "Tea Tree Leaf Facial Exfoliant",
 #     category: "Skin",
@@ -158,7 +158,7 @@ amazing_face_cleanser = Product.create!(
 
 # # https://www.aesop.com/us/p/skin/tone/parsley-seed-anti-oxidant-facial-toner/
 
-# #Skin - Treat & Masque
+#Skin - Treat & Masque
 # fabulous_face_oil = Product.create!(
 #     name: "Fabulous Face Oil",
 #     category: "Skin",
@@ -216,6 +216,11 @@ amazing_face_cleanser = Product.create!(
 # )
 
 # # https://www.aesop.com/us/p/skin/treat-masque/chamomile-concentrate-anti-blemish-masque/
+
+
+
+
+
 
 
 

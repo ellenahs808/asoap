@@ -41,6 +41,38 @@ input {
 
 
 
+.right-header {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+
+.login-greeting {
+  color: black;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-right: 40px;
+  padding-top: 22px;
+}
+
+
+.logout-btn-div {
+  display: flex;
+  padding-top: 10px;
+  margin-right: 10px;
+  padding-top: 22px;
+}
+
+
+.logout-btn {
+    background-color: #f6f5e3;
+    cursor: pointer;
+    border-width: 0.2px;
+}
+
+
+
 .login-header {
     font-size: 30px;
     font-weight: 900;

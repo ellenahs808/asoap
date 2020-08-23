@@ -14,9 +14,13 @@ class SkinIndex extends React.Component {
 
 
     render() {
+        const { skinProducts, categories } = this.props;
+
         return (
             <div>
-
+                <ul>
+                    <img src={product.photoUrls[0]} />
+                </ul>
             </div>
         )
     }

@@ -1,6 +1,6 @@
 json.partial! "api/products/product", product: @product
 
-json.photoUrl url_for(@product.photo) 
+json.photoUrls @product.photos.map { |file| url_for(file) }
 
 
 # json.extract! product,

@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const Navbar = props => {
+const RightNavbar = props => {
  
     const loggedIn = () => (
-        <div>
-            <h1>Hi, {props.currentUser.first_name} {props.currentUser.last_name}</h1>
-            <button onClick={props.logout}>Log Out</button>
+        <div className="right-header">
+            <h1 className="login-greeting">Hi, {props.currentUser.first_name} {props.currentUser.last_name}</h1>
+            <div className="logout-btn-div"><button className="logout-btn" onClick={props.logout}>Log Out</button></div>
         </div>
     )
 
@@ -36,4 +36,4 @@ const Navbar = props => {
 };
 
 
-export default Navbar;
+export default RightNavbar;
