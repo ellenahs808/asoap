@@ -1056,7 +1056,6 @@ var ProductIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // debugger
       var _this$props = this.props,
           product = _this$props.product,
           categories = _this$props.categories,
@@ -1091,10 +1090,12 @@ var ProductIndex = /*#__PURE__*/function (_React$Component) {
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "skin-subheader"
       }, "Skin")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sub-category-products"
+        className: "sub-category-products1"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sub-category-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Cleanse"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Cleansing skin of daily grime, sweat and other impurities forms the foundation of an intelligent skin care regimen."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Cleanse"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sub-category-par"
+      }, "Cleansing skin of daily grime, sweat and other impurities forms the foundation of an intelligent skin care regimen."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sub-category-container"
       }, cleanse.map(function (product) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_product_index_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -1102,10 +1103,12 @@ var ProductIndex = /*#__PURE__*/function (_React$Component) {
           key: product.id
         });
       })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sub-category-products"
+        className: "sub-category-products2"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sub-category-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Exfoliate"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Effective exfoliation liberates skin of grime, excess oil and dead skin cells to reveal soft, fresh and smooth skin."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Exfoliate"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sub-category-par"
+      }, "Effective exfoliation liberates skin of grime, excess oil and dead skin cells to reveal soft, fresh and smooth skin."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sub-category-container"
       }, exfoliate.map(function (product) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_product_index_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -1113,10 +1116,12 @@ var ProductIndex = /*#__PURE__*/function (_React$Component) {
           key: product.id
         });
       })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sub-category-products"
+        className: "sub-category-products1"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sub-category-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Treat & Masque"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Formulations to supplement any regimen, from deep-cleansing masques to hydrating treatments and nourishing facial oils."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Treat & Masque"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sub-category-par"
+      }, "Formulations to supplement any regimen, from deep-cleansing masques to hydrating treatments and nourishing facial oils."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sub-category-container"
       }, treat.map(function (product) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_product_index_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -1124,10 +1129,12 @@ var ProductIndex = /*#__PURE__*/function (_React$Component) {
           key: product.id
         });
       })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sub-category-products"
+        className: "sub-category-products2"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sub-category-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Tone"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "The ever-important connection between cleansing and hydrating, toning balances skin to ensure it derives maximum benefits from hydration."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Tone"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "sub-category-par"
+      }, "The ever-important connection between cleansing and hydrating, toning balances skin to ensure it derives maximum benefits from hydration."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sub-category-container"
       }, toner.map(function (product) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_product_index_item__WEBPACK_IMPORTED_MODULE_2__["default"], {

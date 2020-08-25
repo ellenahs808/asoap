@@ -25,9 +25,18 @@
 
 
 
-.sub-category-products {
+.sub-category-products1 {
     display: flex;
     flex-wrap: wrap;
+    // overflow-x: scroll; 
+    // overflow-y: hidden;
+}
+
+
+.sub-category-products2 {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #ebeade;
 }
 
 
@@ -38,4 +47,26 @@
     flex-basis: 16%;
     display: flex;
 }
+
+
+// .sub-category-container2 {
+//     padding: 2%;
+//     flex-grow: 1;
+//     flex-basis: 16%;
+//     display: flex;
+//     background-color: #ebeade;
+// }
+
+
+
+
+.sub-category-par {
+    font-size: medium;
+    width: 60%;
+    word-wrap: break-word;
+    padding: 10px;
+    margin: 0;
+
+}
+
 

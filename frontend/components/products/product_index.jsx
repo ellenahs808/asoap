@@ -19,7 +19,6 @@ class ProductIndex extends React.Component {
 
 
     render() {
-        // debugger
         const { product, categories, products, skinCategory } = this.props;
         if (!products) return null;
 
@@ -39,11 +38,11 @@ class ProductIndex extends React.Component {
                 </div>
                     
                 <div>
-                    <div className="sub-category-products">
+                    <div className="sub-category-products1">
                         <div className="sub-category-container">
                             <div>
                                 <h1>Cleanse</h1>
-                                <p>Cleansing skin of daily grime, sweat and other impurities forms the foundation of an intelligent skin care regimen.</p>
+                                <p className="sub-category-par">Cleansing skin of daily grime, sweat and other impurities forms the foundation of an intelligent skin care regimen.</p>
                             </div>
                         </div>
                         <div className="sub-category-container">
@@ -56,11 +55,11 @@ class ProductIndex extends React.Component {
 
 
                 <div>
-                    <div className="sub-category-products">
+                    <div className="sub-category-products2">
                         <div className="sub-category-container">
                             <div>
                                 <h1>Exfoliate</h1>
-                                <p>Effective exfoliation liberates skin of grime, excess oil and dead skin cells to reveal soft, fresh and smooth skin.</p>
+                                <p className="sub-category-par">Effective exfoliation liberates skin of grime, excess oil and dead skin cells to reveal soft, fresh and smooth skin.</p>
                             </div>
                         </div>
                         <div className="sub-category-container">
@@ -73,11 +72,11 @@ class ProductIndex extends React.Component {
 
 
                 <div>
-                    <div className="sub-category-products">
+                    <div className="sub-category-products1">
                         <div className="sub-category-container">
                             <div>
                                 <h1>Treat & Masque</h1>
-                                <p>Formulations to supplement any regimen, from deep-cleansing masques to hydrating treatments and nourishing facial oils.</p>
+                                <p className="sub-category-par">Formulations to supplement any regimen, from deep-cleansing masques to hydrating treatments and nourishing facial oils.</p>
                             </div>
                         </div>
                         <div className="sub-category-container">
@@ -90,11 +89,11 @@ class ProductIndex extends React.Component {
 
 
                 <div>
-                    <div className="sub-category-products">
+                    <div className="sub-category-products2">
                         <div className="sub-category-container">
                             <div>
                                 <h1>Tone</h1>
-                                <p>The ever-important connection between cleansing and hydrating, toning balances skin to ensure it derives maximum benefits from hydration.</p>
+                                <p className="sub-category-par">The ever-important connection between cleansing and hydrating, toning balances skin to ensure it derives maximum benefits from hydration.</p>
                             </div>
                         </div>
                         <div className="sub-category-container">
