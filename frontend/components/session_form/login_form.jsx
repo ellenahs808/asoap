@@ -50,7 +50,7 @@ class LoginForm extends React.Component {
 
 
     render() {
-        const { formType, errors, clearSessionErrors } = this.props; 
+        const { formType, errors } = this.props; 
 
         return (
             <div className="login-modal-form">

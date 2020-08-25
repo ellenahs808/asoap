@@ -1,0 +1,24 @@
+// Place all the styles related to the api/products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.product-idx-main-div {
+    padding-top: 10%;
+    background-color: #fffef2;
+}
+
+
+.product-idx-sub-header {
+    display: inline-block;
+    justify-content: space-around;
+    padding-left: 1%;
+    flex-direction: column;
+}
+
+
+.skin-subheader {
+    padding-left: 16%;
+    font-size: 35px;
+    padding-top: 18%;
+}

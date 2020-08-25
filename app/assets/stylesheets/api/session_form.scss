@@ -50,17 +50,18 @@ input {
 
 .login-greeting {
   color: black;
-  font-size: 18px;
+  font-size: 22px;
   margin-top: 10px;
-  margin-right: 40px;
+  margin-right: 30px;
   padding-top: 22px;
+  font-family: 'Work Sans', sans-serif;
 }
 
 
 .logout-btn-div {
   display: flex;
   padding-top: 10px;
-  margin-right: 10px;
+  margin-right: 24px;
   padding-top: 22px;
 }
 
@@ -69,6 +70,7 @@ input {
     background-color: #f6f5e3;
     cursor: pointer;
     border-width: 0.2px;
+    border-color: rgb(206, 206, 206);
 }
 
 

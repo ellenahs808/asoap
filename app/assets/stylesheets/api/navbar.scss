@@ -2,9 +2,10 @@
 
 .main-nav {
     display: flex;
-    background-color: #f6f5e3;
+    background-color: #fffef2;
     justify-content: space-between;
     padding-bottom: 25px;
+    border-bottom: 2px solid #ddddda;
 }
 
 
@@ -19,7 +20,7 @@ float: right;
 display: flex;
 padding-top: 30px;
 justify-content: space-evenly;
-width: 300px;
+width: 400px;
 }
 
 
@@ -33,22 +34,26 @@ justify-content: space-evenly;
 
 .shop-link {
 color: black;
-font-size: 16px;
+font-size: 20px;
+font-family: 'Work Sans', sans-serif;
 }
 
 .read-link {
 color: black;
-font-size: 16px;
+font-size: 20px;
+font-family: 'Work Sans', sans-serif;
 }
 
 .stores-link {
 color: black;
-font-size: 16px;
+font-size: 20px;
+font-family: 'Work Sans', sans-serif;
 }
 
 .search-link {
 color: black;
-font-size: 16px;
+font-size: 20px;
+font-family: 'Work Sans', sans-serif;
 }
 
 .shop-link:link {
@@ -148,7 +153,9 @@ justify-content: space-evenly;
 color: #000;
 }
 
- /* underline */
+
+
+// UNDERLINE START
 .login-link::after {
   content: '';
   width: 0px;
@@ -163,6 +170,7 @@ color: #000;
   width: 100%;
 }
 
+// UNDERLINE FINISH
 
 
 .signup-link::after {
@@ -199,14 +207,18 @@ color: #000;
 
 .signup-link {
     color: black;
-    font-size: 16px;
+    font-size: 20px;
+    font-family: 'Work Sans', sans-serif;
+    padding-bottom: 30px;
 }
 
 
 
 .login-link {
     color: black;
-    font-size: 16px;
+    font-size: 20px;
+    font-family: 'Work Sans', sans-serif;
+    padding-bottom: 30px;
 }
 
 
@@ -232,11 +244,193 @@ color: #000;
 }
 
 
-.sidebar {
+.category-sidebar {
     position: absolute;
     left: -100%;
     height: 100%;
-    background: whitesmoke;
+    top: 0;
+    bottom: 0;  
+    width: 300px;
+    transition: left 1.5s ease-in-out;
+    z-index: 999;
+}
+
+
+.category-sidebar-open {
+  left: 0%;  //!important;
+}
+
+
+
+
+
+//SIDEBAR START
+
+.first-sidebar {
+    height: 100%;
+    border: 0;
+    border-radius: 0.1em;
+    // transition-duration: 0.5s;
+    animation: fadein 0.5s, second 0.5s ease-in;
+    background-color: #fffef2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+    width: 200%;
+    z-index: 6;
+}
+
+.first-sidebar-nav-li-div {
+  display: flex;
+  float: left;
+  justify-content: space-evenly;
+  padding-top: 40px;
+  flex-basis: auto;
+  align-items: left;
+}
+
+
+
+
+
+
+.sidebar-nav-li {
+  display: flex;
+  justify-content: space-evenly;
+  width: 500px;
+  margin-right: 75px;
+  padding-bottom: 30%;
+}
+
+.sidebar-nav-li > li {
+  justify-content: space-evenly;
+}
+
+
+.sidebar-close-btn {
+  color: black;
+  font-size: 20px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+
+.sidebar-close-btn:link {
+  text-decoration: none;
+}
+
+
+.asoap-logo {
+  margin-left: 7%;
+  cursor: pointer;
+}
+
+
+.sidebar-category-li {
+  padding-top: 15%;
+}
+
+.skin-category {
+  padding: 1.3% 5%;
+  margin-left: 4%;
+}
+
+.skin-link {
+  color: black;
+  font-size: 40px;
+  font-family: 'Nunito Sans', sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.skin-link:link {
+  text-decoration: none;
+}
+
+.skin-link::after {
+  content: '';
+  width: 0px;
+  height: 2px;
+  display: block;
+  background: black;
+  transition: 300ms;
+}
+
+
+.skin-link:hover::after {
+  width: 15%;
+}
+
+
+.hair-category {
+  padding: 1.3% 5%;
+  margin-left: 4%;
+}
+
+.hair-link {
+  color: black;
+  font-size: 40px;
+  font-family: 'Nunito Sans', sans-serif;
+  text-decoration: none;
+}
+
+.hair-link:link {
+  text-decoration: none;
+}
+
+.hair-link::after {
+  content: '';
+  width: 0px;
+  height: 2px;
+  display: block;
+  background: black;
+  transition: 300ms;
+}
+
+
+.hair-link:hover::after {
+  width: 14%;
+}
+
+
+.body-category {
+  padding: 1.3% 5%;
+  margin-left: 4%;
+}
+
+.body-link {
+  color: black;
+  font-size: 40px;
+  font-family: 'Nunito Sans', sans-serif;
+  text-decoration: none;
+}
+
+.body-link:link {
+  text-decoration: none;
+}
+
+.body-link::after {
+  content: '';
+  width: 0px;
+  height: 2px;
+  display: block;
+  background: black;
+  transition: 300ms;
+}
+
+
+.body-link:hover::after {
+  width: 46%;
+}
+
+
+
+
+.sub-category-sidebar {
+    position: absolute;
+    left: -100%;
+    height: 100%;
+    background: rgb(163, 202, 165);
     top: 0;
     bottom: 0;  
     width: 300px;
@@ -244,8 +438,10 @@ color: #000;
     z-index: 999;
 }
 
-.sidebar-open {
-  left: 0%;
+.sub-category-sidebar-open {
+  left: 600px;
+  // left: -200%;
 }
 
-// !important
+
+

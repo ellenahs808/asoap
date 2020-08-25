@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 2020_08_21_201021) do
     t.string "sub_category", null: false
     t.text "description", null: false
     t.string "size", null: false
-    t.float "price", null: false
     t.text "how_to_use", null: false
     t.text "key_ingredients", null: false
     t.string "suited_to"
@@ -52,6 +51,7 @@ ActiveRecord::Schema.define(version: 2020_08_21_201021) do
     t.string "aroma"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "price"
     t.index ["category"], name: "index_products_on_category"
     t.index ["name"], name: "index_products_on_name", unique: true
     t.index ["sub_category"], name: "index_products_on_sub_category"
