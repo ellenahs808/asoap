@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ProductIndexItem from './product_index_item';
+import ProductIndexItem from '../product_index_item';
 // import ProductShowContainer from './product_show_container';
 
 
 
-class ProductIndex extends React.Component {
+class SkinIndex extends React.Component {
     constructor(props) {
         super(props)
         
@@ -111,4 +111,4 @@ class ProductIndex extends React.Component {
 };
 
 
-export default ProductIndex;
+export default SkinIndex;

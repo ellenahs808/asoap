@@ -23,7 +23,7 @@ amazing_face_cleanser = Product.create!(
     sub_category: "Cleanse",
     description: "A non-drying daily cleanser enhanced with purifying Mandarin Rind to effectively cleanse the skin without disturbing its natural balance.",
     size: "6.8 fl oz",
-    price: 33.00,
+    price: 49.00,
     suited_to: "Oily, combination and open-pored skin, for those in warm and humid climates",
     skin_feel: "Refreshed, balanced and scrupulously clean",
     key_ingredients: "Mandarin Rind, Ylang Ylang, Lavender Oil",

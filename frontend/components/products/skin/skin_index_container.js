@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { fetchProducts } from '../../actions/product_actions';
-import ProductIndex from './product_index';
+import { fetchProducts } from '../../../actions/product_actions';
+import SkinIndex from './skin_index';
 // import { skinCategory, skinSubCategory } from '../../../reducers/selectors';
 
 
@@ -20,4 +20,4 @@ const mapDTP = dispatch => ({
 
 
 
-export default connect(mapSTP, mapDTP)(ProductIndex);
+export default connect(mapSTP, mapDTP)(SkinIndex);

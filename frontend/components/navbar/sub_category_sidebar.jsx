@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { skinIndex } from '../products/product_index_container';
+import { skinIndex } from '../products/skin/skin_index';
 
 
 

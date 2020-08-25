@@ -5,7 +5,7 @@ import LeftNavbarContainer from './navbar/left_navbar_container';
 import RightNavbarContainer from './navbar/right_navbar_container';
 import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
-import SkinIndexContainer from './products/product_index_container';
+import SkinIndexContainer from './products/skin/skin_index_container';
 import Homepage from './homepage';
 import CategorySidebarContainer from "./navbar/category_sidebar_container"
 import SubCategorySidebarContainer from './navbar/sub_category_sidebar_container';
@@ -32,7 +32,8 @@ const App = () => (
             <AuthRoute path="/login" component={LoginFormContainer}/>
             <AuthRoute path="/signup" component={SignupFormContainer}/>
             <Route exact path="/skin" component={SkinIndexContainer}/>
-            <Route path='/products/:productId' component={ProductShowContainer} />
+            <Route exact path='/products/:productId' component={ProductShowContainer} />
+
     
     </div>
 );

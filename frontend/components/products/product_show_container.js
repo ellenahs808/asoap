@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import { fetchProducts, fetchProduct } from '../../actions/product_actions';
 import ProductShow from './product_show';
@@ -15,3 +14,6 @@ const mapDTP = (dispatch) => ({
 })
 
 export default connect(mapSTP, mapDTP)(ProductShow)
+
+
+
