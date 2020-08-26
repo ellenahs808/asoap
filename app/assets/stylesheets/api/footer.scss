@@ -1,0 +1,129 @@
+.display-footer {
+    display: flex;
+    padding-top: 250px;
+}
+
+
+.display-footer-info {
+    width: 40%;
+    padding: 0 120px;
+}
+
+
+.display-title {
+    font-size: 40px;
+}
+
+.display-detail {
+    padding-top: 60px;
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+.display-footer-img {
+    width: 60%;
+
+}
+
+
+.quote-footer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 200px;
+}
+
+
+.quote {
+    font-size: 45px;
+    padding: 30px;
+    font-family: 'Cedarville Cursive', cursive;
+}
+
+.quote-by {
+    font-size: 20px;
+    justify-content: center;
+    // font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Lora', serif;
+}
+
+
+.main-footer {
+    display: flex;
+    border-top: 1px solid #ddddda;
+}
+
+.footer-title {
+    padding-bottom: 40px;
+    font-size: 20px;
+    color: rgb(93, 92, 92);
+}
+
+
+.email-input {
+    padding-top: 30px;
+    font-size: 30px;
+    border-bottom: 1px solid #ddddda;
+    width: 89%;
+}
+
+
+.subscription-detail {
+    font-size: 18px;
+    color: rgb(93, 92, 92);
+    padding: 50px 0;
+    width: 94%;
+    line-height: 1.5;
+}
+
+.subscription {
+    width: 40%;
+    padding: 50px 40px;
+}
+
+
+.orders-footer {
+    width: 20%;
+    padding: 50px;
+}
+
+
+.about-footer {
+    width: 20%;
+    padding: 50px 20px;
+    margin-left: 60px;
+}
+
+
+.footer-links {
+    color: black;
+    line-height: 2.0;
+    font-size: 20px;
+}
+
+.footer-links:link {
+    text-decoration: none;
+}
+
+
+.social {
+    width: 20%;
+    padding: 50px 20px;
+}
+
+
+.base-footer {
+    height: 135px;
+    background-color: #252525;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.base-footer-info {
+    color: rgb(209, 209, 209);
+    padding: 50px 40px;
+    font-size: 22px;
+    letter-spacing: 1px;
+    // font-family: 'Nunito Sans', sans-serif;
+}

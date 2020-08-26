@@ -110,6 +110,7 @@ tea_tree_leaf_facial_exfoliant.photos.attach(io: skin4, filename: 'tea.png')
 
 
 
+
 purifying_facial_exfoliant_paste = Product.create!(
     name: "Purifying Facial Exfoliant Paste",
     category: "Skin",
@@ -129,6 +130,9 @@ purifying_facial_exfoliant_paste = Product.create!(
 
 skin5 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Skin/facial.png')
 purifying_facial_exfoliant_paste.photos.attach(io: skin5, filename: 'facial.png')
+
+
+
 
 
 
@@ -177,27 +181,6 @@ parsley_seed_anti_oxidant_facial_toner.photos.attach(io: skin7, filename: 'seed.
 
 
 
-# #Skin - Treat & Masque
-fabulous_face_oil = Product.create!(
-    name: "Fabulous Face Oil",
-    category: "Skin",
-    sub_category: "Treat & Masque",
-    description: "A concentrated hydrating formulation boosted with botanicals renowned for their purifying, balancing and skin-softening properties.",
-    size: "0.9 fl oz",
-    price: 57.00,
-    suited_to: "Normal, combination, congested and dull skin",
-    skin_feel: "Balanced and replenished with a smooth finish",
-    key_ingredients: "Juniper Berry, Ylang Ylang, Jasmine Petal",
-    how_to_use: "Morning and evening, massage into freshly cleansed and toned skin. Alternatively, blend with your preferred Aesop hydrating cream, serum or gel to intensify hydration.",
-    dosage: "Three to five drops",
-    texture: "Lightweight oil",
-    aroma: "Floral, herbaceous"
-)
-
-skin8 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Skin/fabulous.png')
-fabulous_face_oil.photos.attach(io: skin8, filename: 'fabulous.png')
-
-
 
 
 damascan_rose_facial_treatment = Product.create!(
@@ -216,31 +199,32 @@ damascan_rose_facial_treatment = Product.create!(
     aroma: "Floral, earthy, warm"
 )
 
-skin9 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Skin/damascan.png')
-damascan_rose_facial_treatment.photos.attach(io: skin9, filename: 'damascan.png')
+skin8 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Skin/damascan.png')
+damascan_rose_facial_treatment.photos.attach(io: skin8, filename: 'damascan.png')
 
 
 
 
 
-chamomile_concentrate_anti_blemish_masque = Product.create!(
-    name: "Chamomile Concentrate Anti-Blemish Masque",
+
+fabulous_face_oil = Product.create!(
+    name: "Fabulous Face Oil",
     category: "Skin",
     sub_category: "Treat & Masque",
-    description: "An astringent, clay-based masque with purifying ingredients and botanical extracts, for use on single blemishes or troubled skin.",
-    size: "2.1 fl oz",
-    price: 45.00,
-    suited_to: "Blemished, troubled skin",
-    skin_feel: "Clarified, calm and deeply cleansed",
-    key_ingredients: "Chamomile Bud, Tea Tree Leaf, Evening Primrose",
-    how_to_use: "Twice-weekly, apply a generous layer to freshly cleansed skin, or to single blemishes as needed. Leave for fifteen minutes, then rinse thoroughly.",
-    dosage: "One to two teaspoons",
-    texture: "Fine, smooth clay",
-    aroma: "Herbaceous, citrus, earthy"
+    description: "A concentrated hydrating formulation boosted with botanicals renowned for their purifying, balancing and skin-softening properties.",
+    size: "0.9 fl oz",
+    price: 57.00,
+    suited_to: "Normal, combination, congested and dull skin",
+    skin_feel: "Balanced and replenished with a smooth finish",
+    key_ingredients: "Juniper Berry, Ylang Ylang, Jasmine Petal",
+    how_to_use: "Morning and evening, massage into freshly cleansed and toned skin. Alternatively, blend with your preferred Aesop hydrating cream, serum or gel to intensify hydration.",
+    dosage: "Three to five drops",
+    texture: "Lightweight oil",
+    aroma: "Floral, herbaceous"
 )
 
-skin10 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Skin/cham.png')
-chamomile_concentrate_anti_blemish_masque.photos.attach(io: skin10, filename: 'cham.png')
+skin9 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Skin/fabulous.png')
+fabulous_face_oil.photos.attach(io: skin9, filename: 'fabulous.png')
 
 
 
@@ -311,23 +295,23 @@ calming_shampoo.photos.attach(io: hair3, filename: 'calming.png')
 
 
 
-volumising_shampoo = Product.create!(
-    name: "Volumising Shampoo",
-    category: "Hair",
-    sub_category: "Cleanse",
-    description: "A lifting formulation boosted with Polyquaternium 67 to assist the separation of hair shafts for volume and body, while botanical oils deliver hydration and lustre.",
-    size: "16.9 fl oz",
-    price: 45.00,
-    suited_to: "Thin, fine or limp hair",
-    key_ingredients: "Fennel Seed, Peppermint Leaf, Rosemary Leaf",
-    how_to_use: "Prior to shampooing, brush dry hair to loosen dirt and disentangle. Wet hair thoroughly, pour product into hands, then gently massage onto scalp. Rinse thoroughly, expelling excess water before applying your preferred Aesop conditioner.",
-    dosage: "One to two teaspoons",
-    texture: "Clear, low-foaming gel",
-    aroma: "Mint, herbaceous"
-)
+# volumising_shampoo = Product.create!(
+#     name: "Volumising Shampoo",
+#     category: "Hair",
+#     sub_category: "Cleanse",
+#     description: "A lifting formulation boosted with Polyquaternium 67 to assist the separation of hair shafts for volume and body, while botanical oils deliver hydration and lustre.",
+#     size: "16.9 fl oz",
+#     price: 45.00,
+#     suited_to: "Thin, fine or limp hair",
+#     key_ingredients: "Fennel Seed, Peppermint Leaf, Rosemary Leaf",
+#     how_to_use: "Prior to shampooing, brush dry hair to loosen dirt and disentangle. Wet hair thoroughly, pour product into hands, then gently massage onto scalp. Rinse thoroughly, expelling excess water before applying your preferred Aesop conditioner.",
+#     dosage: "One to two teaspoons",
+#     texture: "Clear, low-foaming gel",
+#     aroma: "Mint, herbaceous"
+# )
 
-hair4 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Hair/volumising.png')
-volumising_shampoo.photos.attach(io: hair4, filename: 'volumising.png')
+# hair6 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Hair/shampoo-volumising.png')
+# volumising_shampoo.photos.attach(io: hair6, filename: 'shampoo-volumising.png')
 
 
 
@@ -352,8 +336,8 @@ classic_conditioner = Product.create!(
 )
 
 
-hair5 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Hair/classic.png')
-classic_conditioner.photos.attach(io: hair5, filename: 'classic.png')
+hair4 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Hair/classic.png')
+classic_conditioner.photos.attach(io: hair4, filename: 'classic.png')
 
 
 
@@ -373,8 +357,8 @@ volumising_conditioner = Product.create!(
     aroma: "Mint, herbaceous"
 )
 
-hair6 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Hair/hair-volumising.png')
-volumising_conditioner.photos.attach(io: hair6, filename: 'hair-volumising.png')
+hair5 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Hair/volumising.png')
+volumising_conditioner.photos.attach(io: hair5, filename: 'volumising.png')
 
 
 

@@ -8,8 +8,8 @@ class Api::ProductsController < ApplicationController
 
     def show
         # debugger
-        @product = Product.with_attached_photos.find_by(id: params[:id])
-        # @product = Product.with_attached_photos.find(params[:id])
+        # @product = Product.with_attached_photos.find_by(id: params[:id])
+        @product = Product.with_attached_photos.find(params[:id])
         render :show
     end
 

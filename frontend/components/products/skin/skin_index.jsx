@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ProductIndexItem from '../product_index_item';
-// import ProductShowContainer from './product_show_container';
+
 
 
 
@@ -40,15 +40,17 @@ class SkinIndex extends React.Component {
                 <div>
                     <div className="sub-category-products1">
                         <div className="sub-category-container">
-                            <div>
-                                <h1>Cleanse</h1>
-                                <p className="sub-category-par">Cleansing skin of daily grime, sweat and other impurities forms the foundation of an intelligent skin care regimen.</p>
+                            <div className="sub-category-detail">
+                                <div className="sub-category-detail-div">
+                                    <h1 className="sub-category-name">Cleanse</h1>
+                                    <p className="sub-category-par">Cleansing skin of daily grime, sweat and other impurities forms the foundation of an intelligent skin care regimen.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="sub-category-container">
+                  
                             {cleanse.map((product) => (
                                 <ProductIndexItem product={product} key={product.id} />
-                            ))}
+                                ))}
+                  
                         </div>
                     </div>
                 </div>
@@ -57,15 +59,17 @@ class SkinIndex extends React.Component {
                 <div>
                     <div className="sub-category-products2">
                         <div className="sub-category-container">
-                            <div>
-                                <h1>Exfoliate</h1>
-                                <p className="sub-category-par">Effective exfoliation liberates skin of grime, excess oil and dead skin cells to reveal soft, fresh and smooth skin.</p>
+                            <div className="sub-category-detail">
+                                <div className="sub-category-detail-div">
+                                    <h1 className="sub-category-name">Exfoliate</h1>
+                                    <p className="sub-category-par">Effective exfoliation liberates skin of grime, excess oil and dead skin cells to reveal soft, fresh and smooth skin.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="sub-category-container">
+              
                             {exfoliate.map((product) => (
                                 <ProductIndexItem product={product} key={product.id} />
-                            ))}
+                                ))}
+                   
                         </div>
                     </div>
                 </div>
@@ -74,16 +78,19 @@ class SkinIndex extends React.Component {
                 <div>
                     <div className="sub-category-products1">
                         <div className="sub-category-container">
-                            <div>
-                                <h1>Treat & Masque</h1>
-                                <p className="sub-category-par">Formulations to supplement any regimen, from deep-cleansing masques to hydrating treatments and nourishing facial oils.</p>
+                            <div className="sub-category-detail">
+                                <div className="sub-category-detail-div">
+                                    <h1 className="sub-category-name">Treat & Masque</h1>
+                                    <p className="sub-category-par">Formulations to supplement any regimen, from deep-cleansing masques to hydrating treatments and nourishing facial oils.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="sub-category-container">
+                        
+
                             {treat.map((product) => (
                                 <ProductIndexItem product={product} key={product.id} />
                             ))}
                         </div>
+               
                     </div>
                 </div>
 
@@ -91,12 +98,14 @@ class SkinIndex extends React.Component {
                 <div>
                     <div className="sub-category-products2">
                         <div className="sub-category-container">
-                            <div>
-                                <h1>Tone</h1>
-                                <p className="sub-category-par">The ever-important connection between cleansing and hydrating, toning balances skin to ensure it derives maximum benefits from hydration.</p>
+                            <div className="sub-category-detail">
+                                <div className="sub-category-detail-div">
+                                    <h1 className="sub-category-name">Tone</h1>
+                                    <p className="sub-category-par">The ever-important connection between cleansing and hydrating, toning balances skin to ensure it derives maximum benefits from hydration.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="sub-category-container">
+                        
+                     
                             {toner.map((product) => (
                                 <ProductIndexItem product={product} key={product.id} />
                             ))}

@@ -54,46 +54,49 @@ class ProductShowItem extends React.Component {
 
         return (
             <div>
+                <div className='asoap-logo-show'><Link to="/"><img src={window.images.logo} /></Link></div>
+
                 <div className='main-show-container'>
-                <div>
-                    <div className='asoap-logo'><Link to="/"><img src={window.images.logo} /></Link></div>
-                    <div className="prod-show-img"><img src={photoUrls[0]} width="10%" height="10%" /></div>
-                </div>
-                <div>
-                    <div className='first-detail-container'>
-                        <h3>{category} - {sub_category}</h3>
-                        <div>{name}</div>
-                        <div>{description}</div>
+                    <div className="first-img-container">
+                            <div className="prod-show-img"><img src={photoUrls[0]} width="90%" height="90%" /></div>
                     </div>
-                    <div className='second-detail-container'>
-                        <div>
-                            <h3>{subCategoryDetail[0]}</h3>
-                            <p>{subCategoryDetail[1]}</p>
+                    <div className="detail-container">
+                        <div className='first-detail-container'>
+                            {/* <div className="detail1">{category} - {sub_category}</div> */}
+                            <div className="detail1">{name}</div>
+                            <div className="detail2">{description}</div>
                         </div>
-                        <div>
-                            <h3>Aroma</h3>
-                            <p>{aroma}</p>
+                        <div className='second-detail-container'>
+                            <div className="detail3">
+                                <h3>{subCategoryDetail[0]}</h3>
+                                <p>{subCategoryDetail[1]}</p>
+                            </div>
+                            <div className="detail4">
+                                <h3>Aroma</h3>
+                                <p>{aroma}</p>
+                            </div>
+                            <div className="detail5">
+                                <h3>Key Ingredients</h3>
+                                <p>{key_ingredients}</p>
+                            </div>
+                            <button className="cart-btn">Add to cart</button>
                         </div>
-                        <div>
-                            <h3>Key Ingredients</h3>
-                            <p>{key_ingredients}</p>
-                        </div>
-                        <button>Add to cart</button>
                     </div>
-                </div>
+                <div>
+            </div>
                 </div>
 
 
                 <div className='main-show-container'>
-                    <div>
+                    <div className="second-img-container">
                         <div><img src={prodImg}/></div>
                     </div>
-                    <div>
-                        <div>
+                    <div className="detail-container">
+                        <div className='first-detail-container'>
                             <h3>How to use</h3>
                             <p>{how_to_use}</p>
                         </div>
-                        <div>
+                        <div className='second-detail-container'>
                             <h3>Dosage</h3>
                             <p>{dosage}</p>
                         </div>
@@ -107,6 +110,8 @@ class ProductShowItem extends React.Component {
                         </div>
                     </div>
                 </div>
+
+
             </div>
         )
     }
@@ -121,20 +126,3 @@ export default ProductShowItem;
 
 
 
-
-// <ul>
-//     <img src={product.photoUrls[0]} />
-//     <li>{product.category}</li>
-//     <li>{product.sub_category}</li>
-//     <h3>{product.name}</h3>
-//     <li>{product.description}</li>
-//     <li>{product.size}</li>
-//     {/* <li>{product.price}</li>   add to your cart button  */}
-//     <li>{product.how_to_use}</li>
-//     <li>{product.key_ingredients}</li>
-//     <li>{product.suited_to}</li>
-//     <li>{product.skin_feel}</li>
-//     <li>{product.dosage}</li>
-//     <li>{product.texture}</li>
-//     <li>{product.aroma}</li>
-// </ul>

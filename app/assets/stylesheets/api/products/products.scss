@@ -4,7 +4,7 @@
 
 
 .product-idx-main-div {
-    padding-top: 10%;
+    padding-top: 7%;
     background-color: #fffef2;
 }
 
@@ -19,8 +19,9 @@
 
 .category-subheader {
     padding-left: 16%;
-    font-size: 35px;
-    padding-top: 18%;
+    font-size: 38px;
+    padding-top: 10%;
+    letter-spacing: 2px;
 }
 
 
@@ -28,8 +29,7 @@
 .sub-category-products1 {
     display: flex;
     flex-wrap: wrap;
-    // overflow-x: scroll; 
-    // overflow-y: hidden;
+
 }
 
 
@@ -42,31 +42,135 @@
 
 
 .sub-category-container {
-    padding: 2%;
-    flex-grow: 1;
-    flex-basis: 16%;
+    display: flex;
+    flex-direction: row;
+    padding-right: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 3%;
+}
+
+
+
+
+
+.sub-category-detail {
+    width: 25%;
+}
+
+
+
+.sub-category-detail-div {
+    padding-top: 50%;
+}
+
+
+.sub-category-name {
+    font-size: 35px;
+    padding-bottom: 25px;
+}
+
+.sub-category-par {
+    font-size: 19px;
+    line-height: 1.6;
+}
+
+
+.product-itm-link {
+    color: black;
+    text-align: center;
+    line-height: 2.6;
+}
+
+
+.product-itm-link:link {
+    text-decoration: none;
+}
+
+
+.prod-size-price {
+    color: rgb(93, 92, 92);
+}
+
+
+
+.testing {
+    padding-left: 12%;
+}
+
+
+
+.asoap-logo-show {
+    padding-left: 31px;
+    padding-top: 99px;
+    padding-bottom: 80px;
+}
+
+
+.main-show-container {
+    display: flex;
+    height: 50%;
+
+}
+
+
+.first-img-container {
+    display: flex;
+    width: 50%;
+    padding-left: 40%;
+}
+
+// .prod-show-img {
+//     min-height: 100%;
+// }
+
+.second-img-container {
     display: flex;
 }
 
 
-// .sub-category-container2 {
-//     padding: 2%;
-//     flex-grow: 1;
-//     flex-basis: 16%;
-//     display: flex;
-//     background-color: #ebeade;
-// }
+.detail-container {
+    // display: flex;
+    width: 50%;
+    float: left;
+    // padding: 2%;
+    padding-right: 15%;
+}
+
+
+.detail1 {
+    font-size: 40px;
+    padding-bottom: 28px;
+}
+
+.detail2 {
+    font-size: 20px;
+    line-height: 1.3;
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+}
+
+
+.detail3 {
+    font-size: 20px;
+    padding: 20px 0;
+    border-bottom: 2px solid #ddddda;
+}
 
 
 
 
-.sub-category-par {
-    font-size: medium;
-    width: 60%;
-    word-wrap: break-word;
-    padding: 10px;
-    margin: 0;
+.detail4 {
+    font-size: 20px;
+    padding: 20px 0;
+    border-bottom: 2px solid #ddddda;
+}
 
+
+.detail5 {
+    font-size: 20px;
+    padding: 20px 0;
+    
 }
 
 

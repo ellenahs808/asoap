@@ -12,6 +12,7 @@ import Homepage from './homepage';
 import CategorySidebarContainer from "./navbar/category_sidebar_container"
 import SubCategorySidebarContainer from './navbar/sub_category_sidebar_container';
 import ProductShowContainer from './products/product_show_container';
+import Footer from './footer';
 
 
 const App = () => (
@@ -28,7 +29,7 @@ const App = () => (
             </nav>
         </header>
 
-
+    
 
             <Route exact path="/" component={Homepage}/>
             <AuthRoute path="/login" component={LoginFormContainer}/>
@@ -38,6 +39,11 @@ const App = () => (
             <Route exact path="/body" component={BodyIndexContainer}/>
             <Route exact path='/products/:productId' component={ProductShowContainer} />
 
+
+
+            <footer>
+                <Footer />
+            </footer>
     
     </div>
 );
