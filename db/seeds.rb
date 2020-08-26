@@ -250,110 +250,131 @@ chamomile_concentrate_anti_blemish_masque.photos.attach(io: skin10, filename: 'c
 
 # # # Hair - Cleanse 
 
-# equalising_shampoo = Product.create!(
-#     name: "Equalising Shampoo",
-#     category: "Hair",
-#     sub_category: "Cleanse",
-#     description: "A balancing formulation of gently astringent botanicals that assist to remove excess oil without irritating the scalp, while delivering body and shine to hair.",
-#     size: "16.9 fl oz",
-#     price: 45.00,
-#     suited_to: "Oily scalps, those who lead active lifestyles and those who live in polluted urban environments",
-#     key_ingredients: "Fennel Fruit, Eucalyptus Leaf, Mistletoe Leaf",
-#     how_to_use: "Three to five times weekly, prior to shampooing, brush dry hair to loosen dirt and disentangle. Wet hair thoroughly, pour product into hands, then gently massage onto scalp. Rinse thoroughly.",
-#     dosage: "One to two teaspoons",
-#     texture: "Clear, low-foaming gel",
-#     aroma: "Camphorous, herbaceous, fresh"
-# )
+equalising_shampoo = Product.create!(
+    name: "Equalising Shampoo",
+    category: "Hair",
+    sub_category: "Cleanse",
+    description: "A balancing formulation of gently astringent botanicals that assist to remove excess oil without irritating the scalp, while delivering body and shine to hair.",
+    size: "16.9 fl oz",
+    price: 45.00,
+    suited_to: "Oily scalps, those who lead active lifestyles and those who live in polluted urban environments",
+    key_ingredients: "Fennel Fruit, Eucalyptus Leaf, Mistletoe Leaf",
+    how_to_use: "Three to five times weekly, prior to shampooing, brush dry hair to loosen dirt and disentangle. Wet hair thoroughly, pour product into hands, then gently massage onto scalp. Rinse thoroughly.",
+    dosage: "One to two teaspoons",
+    texture: "Clear, low-foaming gel",
+    aroma: "Camphorous, herbaceous, fresh"
+)
+
+hair1 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Hair/equalising.png')
+equalising_shampoo.photos.attach(io: hair1, filename: 'equalising.png')
 
 
 
-# nurturing_shampoo = Product.create!(
-#     name: "Nurturing Shampoo",
-#     category: "Hair",
-#     sub_category: "Cleanse",
-#     description: "A blend of nourishing and conditioning botanical extracts including Borage and Grape Seed Oils, hydrate and tame hair to leave it glossy and soft.",
-#     size: "16.9 fl oz",
-#     price: 45.00,
-#     suited_to: "Dry or flaky scalps; dry, damaged, belligerent hair",
-#     key_ingredients: "Grape Seed, Borage Seed, Fennel Seed",
-#     how_to_use: "Three to five times weekly, prior to shampooing, brush dry hair to loosen dirt and disentangle. Wet hair thoroughly, pour product into hands, then gently massage onto scalp. Rinse thoroughly.",
-#     dosage: "One to two teaspoons",
-#     texture: "Creamy, low-foaming gel",
-#     aroma: "Mint, herbaceous, nutty"
-# )
+nurturing_shampoo = Product.create!(
+    name: "Nurturing Shampoo",
+    category: "Hair",
+    sub_category: "Cleanse",
+    description: "A blend of nourishing and conditioning botanical extracts including Borage and Grape Seed Oils, hydrate and tame hair to leave it glossy and soft.",
+    size: "16.9 fl oz",
+    price: 45.00,
+    suited_to: "Dry or flaky scalps; dry, damaged, belligerent hair",
+    key_ingredients: "Grape Seed, Borage Seed, Fennel Seed",
+    how_to_use: "Three to five times weekly, prior to shampooing, brush dry hair to loosen dirt and disentangle. Wet hair thoroughly, pour product into hands, then gently massage onto scalp. Rinse thoroughly.",
+    dosage: "One to two teaspoons",
+    texture: "Creamy, low-foaming gel",
+    aroma: "Mint, herbaceous, nutty"
+)
+
+hair2 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Hair/nurturing.png')
+nurturing_shampoo.photos.attach(io: hair2, filename: 'nurturing.png')
 
 
 
-# calming_shampoo = Product.create!(
-#     name: "Calming Shampoo",
-#     category: "Hair",
-#     sub_category: "Cleanse",
-#     description: "A mild formulation containing botanicals known for their soothing and purifying properties to cleanse and refresh hair without irritating the scalp.",
-#     size: "16.9 fl oz",
-#     price: 45.00,
-#     suited_to: "Reactive, dry and distressed scalps",
-#     key_ingredients: "Sage Leaf, Chamomile Flower, Lemon Balm",
-#     how_to_use: "Prior to shampooing, brush dry hair to loosen dirt and disentangle. Wet hair thoroughly, pour product into hands, then gently massage onto scalp. Rinse thoroughly.",
-#     dosage: "One to two teaspoons",
-#     texture: "Clear, low-foaming gel",
-#     aroma: "Camphorous, mint, herbaceous"
-# )
+calming_shampoo = Product.create!(
+    name: "Calming Shampoo",
+    category: "Hair",
+    sub_category: "Cleanse",
+    description: "A mild formulation containing botanicals known for their soothing and purifying properties to cleanse and refresh hair without irritating the scalp.",
+    size: "16.9 fl oz",
+    price: 45.00,
+    suited_to: "Reactive, dry and distressed scalps",
+    key_ingredients: "Sage Leaf, Chamomile Flower, Lemon Balm",
+    how_to_use: "Prior to shampooing, brush dry hair to loosen dirt and disentangle. Wet hair thoroughly, pour product into hands, then gently massage onto scalp. Rinse thoroughly.",
+    dosage: "One to two teaspoons",
+    texture: "Clear, low-foaming gel",
+    aroma: "Camphorous, mint, herbaceous"
+)
+
+hair3 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Hair/calming.png')
+calming_shampoo.photos.attach(io: hair3, filename: 'calming.png')
 
 
 
 
-# volumising_shampoo = Product.create!(
-#     name: "Volumising Shampoo",
-#     category: "Hair",
-#     sub_category: "Cleanse",
-#     description: "A lifting formulation boosted with Polyquaternium 67 to assist the separation of hair shafts for volume and body, while botanical oils deliver hydration and lustre.",
-#     size: "16.9 fl oz",
-#     price: 45.00,
-#     suited_to: "Thin, fine or limp hair",
-#     key_ingredients: "Fennel Seed, Peppermint Leaf, Rosemary Leaf",
-#     how_to_use: "Prior to shampooing, brush dry hair to loosen dirt and disentangle. Wet hair thoroughly, pour product into hands, then gently massage onto scalp. Rinse thoroughly, expelling excess water before applying your preferred Aesop conditioner.",
-#     dosage: "One to two teaspoons",
-#     texture: "Clear, low-foaming gel",
-#     aroma: "Mint, herbaceous"
-# )
+volumising_shampoo = Product.create!(
+    name: "Volumising Shampoo",
+    category: "Hair",
+    sub_category: "Cleanse",
+    description: "A lifting formulation boosted with Polyquaternium 67 to assist the separation of hair shafts for volume and body, while botanical oils deliver hydration and lustre.",
+    size: "16.9 fl oz",
+    price: 45.00,
+    suited_to: "Thin, fine or limp hair",
+    key_ingredients: "Fennel Seed, Peppermint Leaf, Rosemary Leaf",
+    how_to_use: "Prior to shampooing, brush dry hair to loosen dirt and disentangle. Wet hair thoroughly, pour product into hands, then gently massage onto scalp. Rinse thoroughly, expelling excess water before applying your preferred Aesop conditioner.",
+    dosage: "One to two teaspoons",
+    texture: "Clear, low-foaming gel",
+    aroma: "Mint, herbaceous"
+)
+
+hair4 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Hair/volumising.png')
+volumising_shampoo.photos.attach(io: hair4, filename: 'volumising.png')
+
+
+
 
 
 
 # # # Hair - Condition
 
-# classic_conditioner = Product.create!(
-#     name: "Classic Conditioner",
-#     category: "Hair",
-#     sub_category: "Conditioner",
-#     description: "Botanical oils with impressive hydrating and hair-softening properties blend with Hydrolysed Vegetable Protein to lightly nourish, hydrate, disentangle and smooth hair.",
-#     size: "17 fl oz",
-#     price: 45.00,
-#     suited_to: "Most hair types, those who wash their hair frequently",
-#     key_ingredients: "Bergamot Mint, Cedarwood Bark, Lavender Stem",
-#     how_to_use: "Expel excess water from hair after shampooing. Dispense product into hands and apply to mid-lengths and ends of hair. Use a wide-toothed comb to ensure even distribution. Leave for two to three minutes before rinsing thoroughly.",
-#     dosage: "One to two teaspoons, more for longer hair lengths",
-#     texture: "Lightweight cream",
-#     aroma: "Camphorous, herbaceous, fresh"
-# )
+classic_conditioner = Product.create!(
+    name: "Classic Conditioner",
+    category: "Hair",
+    sub_category: "Conditioner",
+    description: "Botanical oils with impressive hydrating and hair-softening properties blend with Hydrolysed Vegetable Protein to lightly nourish, hydrate, disentangle and smooth hair.",
+    size: "17 fl oz",
+    price: 45.00,
+    suited_to: "Most hair types, those who wash their hair frequently",
+    key_ingredients: "Bergamot Mint, Cedarwood Bark, Lavender Stem",
+    how_to_use: "Expel excess water from hair after shampooing. Dispense product into hands and apply to mid-lengths and ends of hair. Use a wide-toothed comb to ensure even distribution. Leave for two to three minutes before rinsing thoroughly.",
+    dosage: "One to two teaspoons, more for longer hair lengths",
+    texture: "Lightweight cream",
+    aroma: "Camphorous, herbaceous, fresh"
+)
+
+
+hair5 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Hair/classic.png')
+classic_conditioner.photos.attach(io: hair5, filename: 'classic.png')
 
 
 
 
+volumising_conditioner = Product.create!(
+    name: "Volumising Conditioner",
+    category: "Hair",
+    sub_category: "Conditioner",
+    description: "A volume-lending blend of Polyquaternium-67 which lifts and separates hair shafts without unwanted build-up boosted with hydrating, hair-softening botanical oils.",
+    size: "17 fl oz",
+    price: 45.00,
+    suited_to: "Fine, flat or limp hair",
+    key_ingredients: "Bergamot Rind, Polyquaternium-67, Fennel Seed",
+    how_to_use: "Expel excess water from hair after shampooing. Dispense product into hands and apply to mid-lengths and ends of hair. Use a wide-toothed comb to ensure even distribution. Leave for two to three minutes before rinsing thoroughly.",
+    dosage: "One to two teaspoons, more for longer hair lengths",
+    texture: "Lightweight cream",
+    aroma: "Mint, herbaceous"
+)
 
-# nurturing_conditioner = Product.create!(
-#     name: "Nurturing Conditioner",
-#     category: "Hair",
-#     sub_category: "Conditioner",
-#     description: "A nourishing treatment enhanced with shea butter and Vitamin E that hydrates and tames belligerent hair to leave it glossy and remarkably soft.",
-#     size: "17 fl oz",
-#     price: 45.00,
-#     suited_to: "Dry, stressed, chemically treated hair",
-#     key_ingredients: "Tocopherol, Sweet Almond, Shea Butter",
-#     how_to_use: "Expel excess water from hair after shampooing. Dispense product into hands and apply to mid-lengths and ends of hair. Use a wide-toothed comb to ensure even distribution. Leave for two to three minutes before rinsing thoroughly.",
-#     dosage: "One to two teaspoons, more for longer hair lengths",
-#     texture: "Lightweight cream",
-#     aroma: "Mint, herbaceous, nutty"
-# )
+hair6 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Hair/hair-volumising.png')
+volumising_conditioner.photos.attach(io: hair6, filename: 'hair-volumising.png')
 
 
 
@@ -364,77 +385,85 @@ chamomile_concentrate_anti_blemish_masque.photos.attach(io: skin10, filename: 'c
 # # # Body & Hand - Hand
 
 
-# reverence_aromatique_hand_balm = Product.create!(
-#     name: "Reverence Aromatique Hand Balm",
-#     category: "Body & Hand",
-#     sub_category: "Hand",
-#     description: "A rich, skin-softening balm containing carefully selected emollient ingredients, including Potassium Lactate, to soften the skin and provide sustained hydration.",
-#     size: "2.6 fl oz",
-#     price: 30.00,
-#     skin_feel: "Exceptionally soft with a greaseless finish",
-#     suited_to: "Normal to dry, fragile and chemically treated hair",
-#     key_ingredients: "Bergamot Rind, Vetiver Root, Petitgrain",
-#     how_to_use: "Apply to clean hands as often as desired, paying close attention to cuticles.",
-#     dosage: "Half teaspoon",
-#     texture: "Concentrated cream",
-#     aroma: "Woody, earthy, smoky"
-# )
+reverence_aromatique_hand_balm = Product.create!(
+    name: "Reverence Aromatique Hand Balm",
+    category: "Body & Hand",
+    sub_category: "Hand",
+    description: "A rich, skin-softening balm containing carefully selected emollient ingredients, including Potassium Lactate, to soften the skin and provide sustained hydration.",
+    size: "2.6 fl oz",
+    price: 30.00,
+    skin_feel: "Exceptionally soft with a greaseless finish",
+    suited_to: "Normal to dry, fragile and chemically treated hair",
+    key_ingredients: "Bergamot Rind, Vetiver Root, Petitgrain",
+    how_to_use: "Apply to clean hands as often as desired, paying close attention to cuticles.",
+    dosage: "Half teaspoon",
+    texture: "Concentrated cream",
+    aroma: "Woody, earthy, smoky"
+)
+
+body1 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Body/reverence.png')
+reverence_aromatique_hand_balm.photos.attach(io: body1, filename: 'reverence.png')
+
+
+
+resurrection_aromatique_hand_balm = Product.create!(
+    name: "Resurrection Aromatique Hand Balm",
+    category: "Body & Hand",
+    sub_category: "Hand",
+    description: "A blend of fragrant botanicals and skin-softening emollients that delivers rich hydration to labour-wearied hands and cuticles.",
+    size: "2.6 fl oz",
+    price: 30.00,
+    skin_feel: "Nourished, supple, with a greaseless finish",
+    suited_to: "Normal to dry, fragile and chemically treated hair",
+    key_ingredients: "Mandarin Rind, Rosemary Leaf, Cedar Atlas",
+    how_to_use: "Apply to clean hands as often as desired, paying close attention to cuticles.",
+    dosage: "Half teaspoon",
+    texture: "Medium-weight cream",
+    aroma: "Citrus, woody, herbaceous"
+)
+
+body2 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Body/resurrection.png')
+resurrection_aromatique_hand_balm.photos.attach(io: body2, filename: 'resurrection.png')
 
 
 
 
+rind_concentrate_body_balm = Product.create!(
+    name: "Rind Concentrate Body Balm",
+    category: "Body & Hand",
+    sub_category: "Body",
+    description: "A citrus-based formulation with oils of Orange and Lemon Rind to cool and refresh the skin, and nut oil extracts to soften and lightly hydrate.",
+    size: "4.2 fl oz",
+    price: 37.00,
+    skin_feel: "Swiftly absorbed, lightly hydrated",
+    suited_to: "Normal to dry, fragile and chemically treated hair",
+    key_ingredients: "Pink Grapefruit, Orange Rind, Lemon Rind",
+    how_to_use: "Massage into freshly cleansed skin from neck to toe, particularly after sun exposure. Store in refrigerator through summer for boosted sensory pleasure.",
+    dosage: "Desired amount",
+    texture: "Medium-weight cream",
+    aroma: "Citrus, fresh"
+)
 
-# resurrection_aromatique_hand_balm = Product.create!(
-#     name: "Resurrection Aromatique Hand Balm",
-#     category: "Body & Hand",
-#     sub_category: "Hand",
-#     description: "A blend of fragrant botanicals and skin-softening emollients that delivers rich hydration to labour-wearied hands and cuticles.",
-#     size: "2.6 fl oz",
-#     price: 30.00,
-#     skin_feel: "Nourished, supple, with a greaseless finish",
-#     suited_to: "Normal to dry, fragile and chemically treated hair",
-#     key_ingredients: "Mandarin Rind, Rosemary Leaf, Cedar Atlas",
-#     how_to_use: "Apply to clean hands as often as desired, paying close attention to cuticles.",
-#     dosage: "Half teaspoon",
-#     texture: "Medium-weight cream",
-#     aroma: "Citrus, woody, herbaceous"
-# )
-
-
-
-
-
-
-# rind_concentrate_body_balm = Product.create!(
-#     name: "Rind Concentrate Body Balm",
-#     category: "Body & Hand",
-#     sub_category: "Body",
-#     description: "A citrus-based formulation with oils of Orange and Lemon Rind to cool and refresh the skin, and nut oil extracts to soften and lightly hydrate.",
-#     size: "4.2 fl oz",
-#     price: 37.00,
-#     skin_feel: "Swiftly absorbed, lightly hydrated",
-#     suited_to: "Normal to dry, fragile and chemically treated hair",
-#     key_ingredients: "Pink Grapefruit, Orange Rind, Lemon Rind",
-#     how_to_use: "Massage into freshly cleansed skin from neck to toe, particularly after sun exposure. Store in refrigerator through summer for boosted sensory pleasure.",
-#     dosage: "Desired amount",
-#     texture: "Medium-weight cream",
-#     aroma: "Citrus, fresh"
-# )
+body3 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Body/rind.png')
+rind_concentrate_body_balm.photos.attach(io: body3, filename: 'rind.png')
 
 
 
-# geranium_leaf_body_balm = Product.create!(
-#     name: "Geranium Leaf Body Balm",
-#     category: "Body & Hand",
-#     sub_category: "Body",
-#     description: "A rich blend of nourishing nut oils, skin-softening ingredients and Geranium Leaf and Citrus extracts to provide exceptional hydration.",
-#     size: "4.2 fl oz",
-#     price: 37.00,
-#     skin_feel: "Supple, soft, hydrated",
-#     suited_to: "Normal to dry, fragile and chemically treated hair",
-#     key_ingredients: "Geranium Leaf, Mandarin Rind, Bergamot Rind",
-#     how_to_use: "Morning and evening, massage into freshly cleansed skin from neck to toe, concentrating on dry areas such as elbows, knees and feet.",
-#     dosage: "Desired amount",
-#     texture: "Medium-weight cream",
-#     aroma: "Green, citrus, fresh"
-# )
+geranium_leaf_body_balm = Product.create!(
+    name: "Geranium Leaf Body Balm",
+    category: "Body & Hand",
+    sub_category: "Body",
+    description: "A rich blend of nourishing nut oils, skin-softening ingredients and Geranium Leaf and Citrus extracts to provide exceptional hydration.",
+    size: "4.2 fl oz",
+    price: 37.00,
+    skin_feel: "Supple, soft, hydrated",
+    suited_to: "Normal to dry, fragile and chemically treated hair",
+    key_ingredients: "Geranium Leaf, Mandarin Rind, Bergamot Rind",
+    how_to_use: "Morning and evening, massage into freshly cleansed skin from neck to toe, concentrating on dry areas such as elbows, knees and feet.",
+    dosage: "Desired amount",
+    texture: "Medium-weight cream",
+    aroma: "Green, citrus, fresh"
+)
+
+body4 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Body/geranium.png')
+geranium_leaf_body_balm.photos.attach(io: body4, filename: 'geranium.png')

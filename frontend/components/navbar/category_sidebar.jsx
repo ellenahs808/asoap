@@ -57,10 +57,10 @@ class CategorySidebar extends React.Component {
                         <div className="asoap-logo"><img src={window.images.logo}  onClick={this.close}/></div>
                                 <ul className="sidebar-category-li">
                                     <div className="skin-category-slidebar">
-                                        <li className="skin-category"><Link className="skin-link" onMouseEnter={this.handleHoverCategory("Skin")}  >Skin</Link></li>
+                                <li className="skin-category"><Link to="/skin" className="skin-link" onMouseEnter={this.handleHoverCategory("Skin")} onClick={this.close} >Skin</Link></li>
                                     </div>
-                                    <li className="hair-category"><Link className="hair-link">Hair</Link></li>
-                                    <li className="body-category"><Link className="body-link">Body & Hand</Link></li>
+                                    <li className="hair-category"><Link to="/hair" className="hair-link">Hair</Link></li>
+                                    <li className="body-category"><Link to="/body" className="body-link">Body & Hand</Link></li>
                                 </ul>
                          
                             </div>
@@ -80,3 +80,6 @@ export default CategorySidebar;
 {/* <li><Link onMouseEnter={this.handleHoverCategory("Skin")}>Skin</Link></li>
     <li><Link onMouseEnter={this.handleHoverCategory("Skin")}>Hair</Link></li>
     <li><Link onMouseEnter={this.handleHoverCategory("Skin")}>Body & Hand</Link></li> */}
+
+
+{/* <li className="skin-category"><Link to="/skin" className="skin-link" onMouseEnter={this.handleHoverCategory("Skin")}  >Skin</Link></li> */}

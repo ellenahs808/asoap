@@ -22,11 +22,11 @@ class SkinIndex extends React.Component {
         const { product, categories, products, skinCategory } = this.props;
         if (!products) return null;
 
-        let skinProducts = products.filter((product) => product.category === 'Skin')
-        let cleanse = skinProducts.filter((product) => product.sub_category === 'Cleanse')
-        let exfoliate = skinProducts.filter((product) => product.sub_category === 'Exfoliant')
-        let treat = skinProducts.filter((product) => product.sub_category === 'Treat & Masque')
-        let toner = skinProducts.filter((product) => product.sub_category === 'Toner')
+        const skinProducts = products.filter((product) => product.category === 'Skin')
+        const cleanse = skinProducts.filter((product) => product.sub_category === 'Cleanse')
+        const exfoliate = skinProducts.filter((product) => product.sub_category === 'Exfoliant')
+        const treat = skinProducts.filter((product) => product.sub_category === 'Treat & Masque')
+        const toner = skinProducts.filter((product) => product.sub_category === 'Toner')
 
 
 
@@ -34,7 +34,7 @@ class SkinIndex extends React.Component {
             <div className="product-idx-main-div">
                 <div className="product-idx-sub-header">
                     <div className="asoap-logo"><Link to="/"><img src={window.images.logo}  /></Link></div>
-                    <h1 className="skin-subheader">Skin</h1>
+                    <h1 className="category-subheader">Skin</h1>
                 </div>
                     
                 <div>
