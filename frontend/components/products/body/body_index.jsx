@@ -41,8 +41,8 @@ class BodyIndex extends React.Component {
                         <div className="sub-category-container">
                             <div className="sub-category-detail">
                                 <div className="sub-category-detail-div">
-                                    <h1 className="sub-category-name">Cleanse</h1>
-                                    <p className="sub-category-par">Gentle yet efficacious cleansing begins at the scalp, addressing skin at the hair root then along the hair shaft. Select a shampoo that meets specific needs, and cleanse hair as needed rather than daily.</p>
+                                    <h1 className="sub-category-name">Body</h1>
+                                    <p className="sub-category-par">Body cleansers, hydrators and elegant treatment oils enriched with skin-nourishing botanical ingredients ensure clean, soft and smooth skin throughout the seasons.</p>
                                 </div>
                             </div>
             
@@ -60,8 +60,8 @@ class BodyIndex extends React.Component {
                         <div className="sub-category-container">
                             <div className="sub-category-detail">
                                 <div className="sub-category-detail-div">
-                                    <h1 className="sub-category-name">Condition</h1>
-                                    <p className="sub-category-par">Our lightweight conditioners hydrate and strengthen hair without weighing it down. Formulations vary to meet the individual needs of coarse, curly, coloured, or chemically-treated hair.</p>
+                                    <h1 className="sub-category-name">Hand</h1>
+                                    <p className="sub-category-par">Modest instruments to which we owe our daily comforts, the hands deserve care befitting their unflinching service. Accordingly, consider richly aromatic cleansers and balms that hydrate, nourish and soften.</p>
                                 </div>
                             </div>
                    

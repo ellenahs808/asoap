@@ -369,6 +369,29 @@ volumising_conditioner.photos.attach(io: hair5, filename: 'volumising.png')
 # # # Body & Hand - Hand
 
 
+
+reverence_aromatique_hand_wash = Product.create!(
+    name: "Reverence Aromatique Hand Wash",
+    category: "Body & Hand",
+    sub_category: "Hand",
+    description: "An unorthodox aromatic blend with botanical extracts and finely milled Pumice, to gently cleanse, exfoliate, and leave the hands smooth, purified, and refreshed.",
+    size: "16.9 fl oz",
+    price: 37.00,
+    skin_feel: "Thoroughly cleansed, polished, supple",
+    suited_to: "Normal to dry, fragile and chemically treated hair",
+    key_ingredients: "Vetiver Root, Petitgrain, Bergamot Rind",
+    how_to_use: "Dispense into damp hands, lather, then rinse thoroughly.",
+    dosage: "Single pump",
+    texture: "Opaque, fine-grain gel",
+    aroma: "Woody, earthy, smoky"
+)
+
+body5 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Body/soap.png')
+reverence_aromatique_hand_wash.photos.attach(io: body5, filename: 'soap.png')
+
+
+
+
 reverence_aromatique_hand_balm = Product.create!(
     name: "Reverence Aromatique Hand Balm",
     category: "Body & Hand",
@@ -451,3 +474,9 @@ geranium_leaf_body_balm = Product.create!(
 
 body4 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Body/geranium.png')
 geranium_leaf_body_balm.photos.attach(io: body4, filename: 'geranium.png')
+
+
+
+
+
+
