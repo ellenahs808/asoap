@@ -119,7 +119,6 @@ class SignupForm extends React.Component {
             </div>
 
 
-
         )
     }
 };

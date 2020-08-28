@@ -114,7 +114,6 @@ class ProductShowItem extends React.Component {
                             <p className="product-val">{aroma}</p>
                         </div>
                     </div>
-    
                 </div>
 
                 <Footer />
