@@ -41,7 +41,7 @@ export const loginDemo = () => (
         method: `POST`,
         data: {
             user: {
-                email: 'test@testing.com',
+                email: 'soaplover@demo.com',
                 password: 'hunter12'
             }
         }

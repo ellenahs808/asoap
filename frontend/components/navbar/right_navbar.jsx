@@ -8,8 +8,8 @@ const RightNavbar = props => {
         <div className="right-nav">
             <div className="right-nav-greeting">
                 <h1 className="login-greeting">Hi, {props.currentUser.first_name} {props.currentUser.last_name}</h1>
-                <Link className="cart-link">Cart</Link>
-                <Link className="logout-link" onClick={props.logout}>Log Out</Link>
+                <Link to="/" className="cart-link">Cart</Link>
+                <Link to="/" className="logout-link" onClick={props.logout}>Log Out</Link>
             </div>
         </div>
     )
@@ -26,7 +26,7 @@ const RightNavbar = props => {
        </nav>
     )
 
-    return props.currentUser ? loggedIn() : loggedOut() ;
+    return props.currentUser ? loggedIn() : loggedOut();
 
 };
 

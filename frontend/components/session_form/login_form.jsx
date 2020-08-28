@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LeftNavbarContainer from '../navbar/left_navbar_container'
+import { closeModal } from '../../actions/modal_actions';
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -13,6 +14,7 @@ class LoginForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
+        // this.loginDemo = this.loginDemo.bind(this);
     };
 
 
@@ -27,10 +29,65 @@ class LoginForm extends React.Component {
 
     handleDemoSubmit(e) {
         e.preventDefault();
-        this.props.loginDemo()
-            .then(() => this.props.history.push('/'))
-
+        this.props.loginDemo(e)
+          
+          
     };
+
+
+
+
+    
+
+    // loginDemo(e) {
+    //     e.preventDefault();
+
+    //     const demoUser = { email: 'soaplover@demo.com', password: 'hunter12' }
+
+    //     let { email, password } = demoUser;
+    //     let interval = 150;
+    //     let login = () => {
+    //         this.props.login(this.state);
+    //         this.props.history.push("/")
+    
+    //     };
+    //     let closeModal = () => {
+    //         this.props.closeModal()
+    //     }
+
+
+    //     if (this.state.email !== email) {
+    //         let inputEmail = setInterval(() => {
+    //             if (this.state.email !== email) {
+    //                 let tempEmail = email.slice(0, this.state.email.length + 1);
+    //                 this.setState({ email: tempEmail });
+    //             } else {
+    //                 clearInterval(inputEmail);
+    //                 fillPassword();
+    //             }
+    //         }, interval);
+    //     }
+    //     let fillPassword = () => {
+    //         let inputPassword = setInterval(() => {
+    //             if (this.state.password !== password) {
+    //                 let tempPassword = password.slice(0, this.state.password.length + 1);
+    //                 this.setState({ password: tempPassword });
+    //             } else {
+    //                 clearInterval(inputPassword);
+    //                 login();
+    //                 closeModal();
+    //             }
+    //         }, interval);
+    //     };
+    // }
+
+
+
+
+
+
+
+
 
 
 
@@ -46,6 +103,8 @@ class LoginForm extends React.Component {
             this.setState({ [field]: e.currentTarget.value })
         }
     };
+
+
 
 
 
@@ -79,7 +138,7 @@ class LoginForm extends React.Component {
                     <ul className="session-errors-li">
                         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>
-                    <br/><br/>
+                    <br /><br />
                     <input
                         className="login-btn"
                         type="submit"
