@@ -18,6 +18,7 @@ class Api::CartsController < ApplicationController
                 new_quantity = @cart_item.quantity + params[:cart_item][:quantity].to_i
                 @cart_item.update(quantity: new_quantity)
                 render :index
+            end
         else
             render json: ['Please Sign In'], status: 422
         end
@@ -49,5 +50,6 @@ class Api::CartsController < ApplicationController
     def cart_item_params
         params.require(:cart_item).permit(:product_id, :quantity)
     end
+
 
 end
