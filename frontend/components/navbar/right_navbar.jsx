@@ -26,7 +26,7 @@ const RightNavbar = props => {
        </nav>
     )
 
-    return props.currentUser ? loggedIn() : loggedOut();
+    return props.currentUser ? loggedIn() : loggedOut() ;
 
 };
 
