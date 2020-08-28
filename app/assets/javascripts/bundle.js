@@ -1999,12 +1999,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapSTP = function mapSTP(state, ownProps) {
   return {
-    products: Object.values(state.entities.products) // skinCategory: skinCategory(state),
-    // skinSubCategory: skinSubCategory(state),
-    // product: state.entities.products[ownProps.match.params.productId],
-    // product: state.entities.products[productId]
-    // category: "Skin",
-
+    products: Object.values(state.entities.products)
   };
 };
 

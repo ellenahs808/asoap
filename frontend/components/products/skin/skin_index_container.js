@@ -6,11 +6,7 @@ import SkinIndex from './skin_index';
 
 const mapSTP = (state, ownProps) => ({
     products: Object.values(state.entities.products),
-    // skinCategory: skinCategory(state),
-    // skinSubCategory: skinSubCategory(state),
-    // product: state.entities.products[ownProps.match.params.productId],
-    // product: state.entities.products[productId]
-    // category: "Skin",
+
 });
 
 
