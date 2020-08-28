@@ -1,0 +1,129 @@
+
+.testing {
+    padding-left: 12%;
+}
+
+
+
+.asoap-logo-show {
+    padding-left: 31px;
+    padding-top: 99px;
+    padding-bottom: 80px;
+}
+
+
+.main-show-container {
+    display: flex;
+    // height: 50%;
+    padding: 50px 0;
+}
+
+
+.first-img-container {
+    display: flex;
+    width: 50%;
+    padding-left: 40%;
+}
+
+
+.second-img-container {
+    width:100%;
+    height: 883px;
+}
+
+
+
+.prod-img {
+    // display: flex;
+    // width: 50%;
+    width:100%;
+    height: 883px;
+}
+
+
+
+
+.detail-container {
+    width: 80%;
+    float: left;
+    // padding: 2%;
+    padding-right: 15%;
+}
+
+
+.product-key {
+    font-size: 18px;
+    font-weight: 1500;
+    padding-bottom: 15px;
+}
+
+
+.product-val {
+    font-size: 18px;
+    color: rgb(93, 92, 92);
+}
+
+
+.detail1 {
+    font-size: 30px;
+    padding-bottom: 32px;
+    line-height: 1.4;
+}
+
+.detail2 {
+    font-size: 18px;
+    line-height: 1.7;
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+}
+
+
+.detail3 {
+    padding: 20px 0;
+    border-bottom: 1px solid #a0a0a0;
+}
+
+
+
+
+.detail4 {
+    padding: 30px 0;
+}
+
+
+.cart-btn {
+    background-color: #333333;
+    color: rgb(255, 255, 255);
+    width: 100%;
+    height: 80px;
+    font-size: 18px;
+    letter-spacing: 1px; 
+}
+
+
+.cart-btn:hover {
+    background-color: black;
+    cursor: pointer;
+}
+
+
+.main-second-container {
+    width: 100%;
+    display: flex;
+    padding-top: 50px;
+}
+
+
+.third-detail-container {
+    padding-top: 80px;
+    padding-left:150px;
+    padding-right: 150px;
+    background-color: rgb(246, 245, 232);
+}
+
+
+.how-to-use {
+    font-family: 'Lora', serif;
+    font-size: 31px;
+    padding-top: 10px;
+}

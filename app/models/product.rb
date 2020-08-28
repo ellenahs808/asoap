@@ -8,7 +8,6 @@
 #  sub_category    :string           not null
 #  description     :text             not null
 #  size            :string           not null
-#  price           :float            not null
 #  how_to_use      :text             not null
 #  key_ingredients :text             not null
 #  suited_to       :string
@@ -18,11 +17,18 @@
 #  aroma           :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  price           :float
 #
 class Product < ApplicationRecord
     validates :name, presence: true, uniqueness: true
     validates :category, :sub_category, :description, :size, :price, :how_to_use, :key_ingredients, presence: true 
 
+    
     has_many_attached :photos
+
+
+    has_many :carts,
+        class_name: :Cart,
+        foreign_key: :product_id
     
 end

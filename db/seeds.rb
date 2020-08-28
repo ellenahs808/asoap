@@ -8,7 +8,7 @@
 
 User.destroy_all
 
-demo = { email: 'test@testing.com', password: 'hunter12', first_name: 'Mister', last_name: 'Clean' }
+demo = { email: 'soaplover@demo.com', password: 'hunter12', first_name: 'Mister', last_name: 'Clean' }
 User.create(demo)
 
 
@@ -165,8 +165,8 @@ parsley_seed_anti_oxidant_facial_toner = Product.create!(
     category: "Skin",
     sub_category: "Toner",
     description: "An alcohol-free, anti-oxidant rich formulation that soothes and balances the skin while preparing it for hydration.",
-    size: "6.8 fl oz",
-    price: 43.00,
+    size: "3.4 fl oz",
+    price: 35.00,
     suited_to: "Most skin types, including dry and mildly sensitive.",
     skin_feel: "Calm, soft and hydrated with a light finish",
     key_ingredients: "Parsley Seed, Lavender Stem, Blue Chamomile",
@@ -178,6 +178,54 @@ parsley_seed_anti_oxidant_facial_toner = Product.create!(
 
 skin7 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Skin/seed.png')
 parsley_seed_anti_oxidant_facial_toner.photos.attach(io: skin7, filename: 'seed.png')
+
+
+
+
+
+bitter_orange_astringent_toner = Product.create!(
+    name: "Bitter Orange Astringent Toner",
+    category: "Skin",
+    sub_category: "Toner",
+    description: "A citrus-based, non-drying formulation with impressive purifying properties that cleanses skin of sweat and grime while soothing and clarifying.",
+    size: "3.4 fl oz",
+    price: 35.00,
+    suited_to: "Most skin types, particularly oily or blemish-prone",
+    skin_feel: "Cool and clean with astringent finish",
+    key_ingredients: "Bitter Orange, Witch Hazel, Rosemary Leaf",
+    how_to_use: "Morning and evening, splash onto a cotton pad or directly into hands, and pat onto freshly cleansed face and neck.",
+    dosage: "Half a teaspoon",
+    texture: "Aqueous",
+    aroma: "Citrus, fresh"
+)
+
+skin8 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Skin/bitter.png')
+bitter_orange_astringent_toner.photos.attach(io: skin8, filename: 'bitter.png')
+
+
+
+
+
+# in_two_minds_facial_toner = Product.create!(
+#     name: "In Two Minds Facial Toner",
+#     category: "Skin",
+#     sub_category: "Toner",
+#     description: "A mildly astringent formulation to complete the cleansing process while also soothing and balancing the skin.",
+#     size: "3.4 fl oz",
+#     price: 35.00,
+#     suited_to: "Combination skin",
+#     skin_feel: "Soothed, balanced, refreshed",
+#     key_ingredients: "Witch Hazel, Niacinamide, Chamomile Bud",
+#     how_to_use: "After cleansing, splash onto a cotton pad or directly into the hands, and pat onto the face and neck.",
+#     dosage: "Half a teaspoon",
+#     texture: "Aqueous",
+#     aroma: "Floral, herbaceous"
+# )
+
+# skin9 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Skin/two.png')
+# in_two_minds_facial_toner.photos.attach(io: skin9, filename: 'two.png')
+
+
 
 
 
@@ -199,8 +247,8 @@ damascan_rose_facial_treatment = Product.create!(
     aroma: "Floral, earthy, warm"
 )
 
-skin8 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Skin/damascan.png')
-damascan_rose_facial_treatment.photos.attach(io: skin8, filename: 'damascan.png')
+skin10 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Skin/damascan.png')
+damascan_rose_facial_treatment.photos.attach(io: skin10, filename: 'damascan.png')
 
 
 
@@ -223,9 +271,74 @@ fabulous_face_oil = Product.create!(
     aroma: "Floral, herbaceous"
 )
 
-skin9 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Skin/fabulous.png')
-fabulous_face_oil.photos.attach(io: skin9, filename: 'fabulous.png')
+skin11 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Skin/fabulous.png')
+fabulous_face_oil.photos.attach(io: skin11, filename: 'fabulous.png')
 
+
+
+
+parsley_seed_anti_oxidant_facial_treatment = Product.create!(
+    name: "Parsley Seed Anti-Oxidant Facial Treatment",
+    category: "Skin",
+    sub_category: "Treat & Masque",
+    description: "A potent blend of oils enhanced with anti-oxidant rich botanicals and Vitamin E to nourish, fortify and revive the skin.",
+    size: "0.5 fl oz",
+    price: 59.00,
+    suited_to: "Normal, combination and dry skin",
+    skin_feel: "Replenished and supple with a sustained finish",
+    key_ingredients: "Parsley Seed, Blackcurrant Seed, Blue Chamomile",
+    how_to_use: "Three times weekly, massage into cleansed and toned skin. Alternatively, blend nightly with your preferred Aesop hydrator to intensify hydration.",
+    dosage: "Three to five drops",
+    texture: "Viscous oil",
+    aroma: "Herbaceous, floral, nutty"
+)
+
+skin12 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Skin/oxidant.png')
+parsley_seed_anti_oxidant_facial_treatment.photos.attach(io: skin12, filename: 'oxidant.png')
+
+
+
+
+remove = Product.create!(
+    name: "Remove",
+    category: "Skin",
+    sub_category: "Exfoliant",
+    description: "An oil-based makeup remover formulated for the delicate skin around the eyes. Dissolves stubborn makeup in a few gentle swipes.",
+    size: "2.0 fl oz",
+    price: 23.00,
+    suited_to: "All skin types, eye and lip makeup wearers",
+    skin_feel: "Calm, supple with sustained finish",
+    key_ingredients: "Grape Seed, Tocopherol, Blue Chamomile",
+    how_to_use: "Apply to a damp cotton pad and press into skin around the eyes, pausing to allow the makeup's oils to begin dissolving. Repeat with sweeping strokes.",
+    dosage: "Five to seven drops",
+    texture: "Lightweight oil",
+    aroma: "Herbaceous, floral, nutty"
+)
+
+skin13 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Skin/remove.png')
+remove.photos.attach(io: skin13, filename: 'remove.png')
+
+
+
+
+# parsley_seed_cleansing_masque = Product.create!(
+#     name: "Parsley Seed Cleansing Masque",
+#     category: "Skin",
+#     sub_category: "Treat & Masque",
+#     description: "A clay-based formulation that affords the skin a gentle but deep cleanse. Enhanced with Aloe Vera and botanical extracts rich in nourishing fatty acids.",
+#     size: "2.1 fl oz",
+#     price: 47.00,
+#     suited_to: "Most skin types, particularly dry skin",
+#     skin_feel: "Clarified, smooth and deeply cleansed",
+#     key_ingredients: "White Clay, Evening Primrose, Rosehip Seed",
+#     how_to_use: "Twice weekly, apply a layer to freshly cleansed and exfoliated skin. Leave for up to fifteen minutes, then rinse off with warm water.",
+#     dosage: "One to two teaspoons",
+#     texture: "Smooth, cool clay",
+#     aroma: "Herbaceous, floral, fresh"
+# )
+
+# skin12 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Skin/fabulous.png')
+# parsley_seed_cleansing_masque.photos.attach(io: skin12, filename: 'masque.png')
 
 
 
@@ -386,8 +499,8 @@ reverence_aromatique_hand_wash = Product.create!(
     aroma: "Woody, earthy, smoky"
 )
 
-body5 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Body/soap.png')
-reverence_aromatique_hand_wash.photos.attach(io: body5, filename: 'soap.png')
+body1 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Body/soap.png')
+reverence_aromatique_hand_wash.photos.attach(io: body1, filename: 'soap.png')
 
 
 
@@ -408,8 +521,8 @@ reverence_aromatique_hand_balm = Product.create!(
     aroma: "Woody, earthy, smoky"
 )
 
-body1 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Body/reverence.png')
-reverence_aromatique_hand_balm.photos.attach(io: body1, filename: 'reverence.png')
+body2 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Body/reverence.png')
+reverence_aromatique_hand_balm.photos.attach(io: body2, filename: 'reverence.png')
 
 
 
@@ -429,8 +542,31 @@ resurrection_aromatique_hand_balm = Product.create!(
     aroma: "Citrus, woody, herbaceous"
 )
 
-body2 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Body/resurrection.png')
-resurrection_aromatique_hand_balm.photos.attach(io: body2, filename: 'resurrection.png')
+body3 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Body/resurrection.png')
+resurrection_aromatique_hand_balm.photos.attach(io: body3, filename: 'resurrection.png')
+
+
+
+
+redemption_body_scrub = Product.create!(
+    name: "Redemption Body Scrub",
+    category: "Body & Hand",
+    sub_category: "Body",
+    description: "A bracing blend of finely milled Pumice, Bamboo Stem and aromatic Pine Needle oil that sloughs away tired cells to leave skin polished and refreshed, perfectly prepared for hydration.",
+    size: "6.1 fl oz",
+    price: 37.00,
+    skin_feel: "Soft, smooth, refreshed",
+    suited_to: "Normal to dry, fragile and chemically treated hair",
+    key_ingredients: "Bamboo Stem, Sage Leaf, Pine Needle",
+    how_to_use: "Once or twice weekly, massage onto soaked skin from neck to toe, then rinse thoroughly.",
+    dosage: "Desired amount",
+    texture: "Opaque, fine-grain gel",
+    aroma: "Fresh, alpine, camphoric"
+)
+
+body4 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Body/scrub.png')
+redemption_body_scrub.photos.attach(io: body4, filename: 'scrub.png')
+
 
 
 
@@ -451,8 +587,8 @@ rind_concentrate_body_balm = Product.create!(
     aroma: "Citrus, fresh"
 )
 
-body3 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Body/rind.png')
-rind_concentrate_body_balm.photos.attach(io: body3, filename: 'rind.png')
+body5 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Body/rind.png')
+rind_concentrate_body_balm.photos.attach(io: body5, filename: 'rind.png')
 
 
 
@@ -472,8 +608,9 @@ geranium_leaf_body_balm = Product.create!(
     aroma: "Green, citrus, fresh"
 )
 
-body4 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Body/geranium.png')
-geranium_leaf_body_balm.photos.attach(io: body4, filename: 'geranium.png')
+body6 = open('https://asoap-dev.s3-us-west-1.amazonaws.com/Body/geranium.png')
+geranium_leaf_body_balm.photos.attach(io: body6, filename: 'geranium.png')
+
 
 
 

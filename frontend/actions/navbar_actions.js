@@ -4,14 +4,14 @@ export const HOVER_CATEGORY = 'HOVER_CATEGORY';
 
 
 
-export const openMainSidebar = isOpen => ({
+export const openSidebar = isOpen => ({
     type: IS_OPEN,
     isOpen
 });
 
 
 
-export const closeMainSidebar = isClosed => ({
+export const closeSidebar = isClosed => ({
     type: IS_CLOSED,
     isClosed,
 });

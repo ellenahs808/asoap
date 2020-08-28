@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ProductIndexItem from '../product_index_item';
-
+import Footer from '../../footer';
 
 
 
@@ -45,11 +45,11 @@ class BodyIndex extends React.Component {
                                     <p className="sub-category-par">Body cleansers, hydrators and elegant treatment oils enriched with skin-nourishing botanical ingredients ensure clean, soft and smooth skin throughout the seasons.</p>
                                 </div>
                             </div>
-            
+
                             {body.map((product) => (
                                 <ProductIndexItem product={product} key={product.id} />
-                                ))}
-                    
+                            ))}
+
                         </div>
                     </div>
                 </div>
@@ -64,16 +64,16 @@ class BodyIndex extends React.Component {
                                     <p className="sub-category-par">Modest instruments to which we owe our daily comforts, the hands deserve care befitting their unflinching service. Accordingly, consider richly aromatic cleansers and balms that hydrate, nourish and soften.</p>
                                 </div>
                             </div>
-                   
+
                             {hand.map((product) => (
                                 <ProductIndexItem product={product} key={product.id} />
-                                ))}
-                    
+                            ))}
+
                         </div>
                     </div>
                 </div>
 
-
+                <Footer />
 
             </div>
         )

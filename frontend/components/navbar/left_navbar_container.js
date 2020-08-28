@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import LeftNavbar from './left_navbar';
-import { openMainSidebar } from '../../actions/navbar_actions';
+import { openSidebar } from '../../actions/navbar_actions';
 
 // const mapSTP = state => ({
  
@@ -8,7 +8,7 @@ import { openMainSidebar } from '../../actions/navbar_actions';
 
 
 const mapDTP = dispatch => ({
-    openMainSidebar: isOpen => dispatch(openMainSidebar(isOpen)),
+    openSidebar: isOpen => dispatch(openSidebar(isOpen)),
 });
 
 

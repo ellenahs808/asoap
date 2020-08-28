@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../footer';
 
 
 
@@ -18,7 +19,7 @@ class ProductShowItem extends React.Component {
     render() {
         
         if (!this.props.product) return null;
-        const { photoUrls, category, sub_category, name, description, key_ingredients, how_to_use, dosage, texture, aroma } = this.props.product;
+        const { photoUrls, category, sub_category, name, price, description, key_ingredients, how_to_use, dosage, texture, aroma } = this.props.product;
         
         const skinFeel = this.props.product.skin_feel
         let feelOrSuited;
@@ -54,11 +55,11 @@ class ProductShowItem extends React.Component {
 
         return (
             <div>
-                <div className='asoap-logo-show'><Link to="/"><img src={window.images.logo} /></Link></div>
+                <div className='asoap-logo-show'><Link to="/"><img src={window.images.logo}  /></Link></div>
 
                 <div className='main-show-container'>
                     <div className="first-img-container">
-                            <div className="prod-show-img"><img src={photoUrls[0]} width="90%" height="90%" /></div>
+                            <div className="prod-show-img"><img src={photoUrls[0]} width="200px" height="450px" /></div>
                     </div>
                     <div className="detail-container">
                         <div className='first-detail-container'>
@@ -68,18 +69,18 @@ class ProductShowItem extends React.Component {
                         </div>
                         <div className='second-detail-container'>
                             <div className="detail3">
-                                <h3>{subCategoryDetail[0]}</h3>
-                                <p>{subCategoryDetail[1]}</p>
+                                <h3 className="product-key">{subCategoryDetail[0]}</h3>
+                                <p className="product-val">{subCategoryDetail[1]}</p>
+                            </div>
+                            <div className="detail3">
+                                <h3 className="product-key">Aroma</h3>
+                                <p className="product-val">{aroma}</p>
                             </div>
                             <div className="detail4">
-                                <h3>Aroma</h3>
-                                <p>{aroma}</p>
+                                <h3 className="product-key">Key Ingredients</h3>
+                                <p className="product-val">{key_ingredients}</p>
                             </div>
-                            <div className="detail5">
-                                <h3>Key Ingredients</h3>
-                                <p>{key_ingredients}</p>
-                            </div>
-                            <button className="cart-btn">Add to cart</button>
+                                <button className="cart-btn">Add to your cart - ${price}.00</button>
                         </div>
                     </div>
                 <div>
@@ -87,31 +88,36 @@ class ProductShowItem extends React.Component {
                 </div>
 
 
-                <div className='main-show-container'>
+                <div className='main-second-container'>
                     <div className="second-img-container">
-                        <div><img src={prodImg}/></div>
+                        <img src={prodImg} className="prod-img" />
                     </div>
-                    <div className="detail-container">
-                        <div className='first-detail-container'>
-                            <h3>How to use</h3>
-                            <p>{how_to_use}</p>
+            
+                    <div className="third-detail-container">
+                        <div className="detail2">
+                            <h3 className="product-key">How to use</h3>
+                            <p className="how-to-use">{how_to_use}</p>
                         </div>
-                        <div className='second-detail-container'>
-                            <h3>Dosage</h3>
-                            <p>{dosage}</p>
+                    
+                    {/* <div className='second-detail-container'> */}
+                        <div className="detail3">
+                            <h3 className="product-key">Dosage</h3>
+                            <p className="product-val">{dosage}</p>
                         </div>
-                        <div>
-                            <h3>Texture</h3>
-                            <p>{texture}</p>
+                    {/* </div> */}
+                        <div className="detail3">
+                            <h3 className="product-key">Texture</h3>
+                            <p className="product-val">{texture}</p>
                         </div>
-                        <div>
-                            <h3>Aroma</h3>
-                            <p>{aroma}</p>
+                        <div className="detail4">
+                            <h3 className="product-key">Aroma</h3>
+                            <p className="product-val">{aroma}</p>
                         </div>
                     </div>
+    
                 </div>
 
-
+                <Footer />
             </div>
         )
     }

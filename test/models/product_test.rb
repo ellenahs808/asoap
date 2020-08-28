@@ -8,7 +8,6 @@
 #  sub_category    :string           not null
 #  description     :text             not null
 #  size            :string           not null
-#  price           :float            not null
 #  how_to_use      :text             not null
 #  key_ingredients :text             not null
 #  suited_to       :string
@@ -18,6 +17,7 @@
 #  aroma           :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  price           :float
 #
 require 'test_helper'
 

@@ -12,20 +12,20 @@ class LeftNavbar extends React.Component {
 
 
     open() {
-        this.props.openMainSidebar(true)
+        this.props.openSidebar(true)
     };
  
 
     render() {
-  
+
         return (
 
             <div>
                 <ul className="left-nav-li">
-                    <li><Link className="shop-link" onClick={this.open}>Shop</Link></li>
-                    <li><Link className="read-link" onClick={this.open}>Read</Link></li>
-                    <li><Link className="stores-link" onClick={this.open}>Stores</Link></li>
-                    <li><Link className="search-link" onClick={this.open}>Search</Link></li>
+                    <li className="shop-link" onClick={this.open}>Shop</li>
+                    <li className="read-link" onClick={this.open}>Read</li>
+                    <li className="stores-link" onClick={this.open}>Stores</li>
+                    <li className="search-link" onClick={this.open}>Search</li>
                 </ul>
             </div>
         )

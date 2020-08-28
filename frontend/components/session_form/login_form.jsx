@@ -1,5 +1,7 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LeftNavbarContainer from '../navbar/left_navbar_container'
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -27,7 +29,7 @@ class LoginForm extends React.Component {
         e.preventDefault();
         this.props.loginDemo()
             .then(() => this.props.history.push('/'))
-   
+
     };
 
 
@@ -41,7 +43,7 @@ class LoginForm extends React.Component {
 
     update(field) {
         return e => {
-            this.setState({ [field]: e.currentTarget.value  })
+            this.setState({ [field]: e.currentTarget.value })
         }
     };
 
@@ -50,22 +52,24 @@ class LoginForm extends React.Component {
 
 
     render() {
-        const { formType, errors } = this.props; 
+        const { formType, errors } = this.props;
+
 
         return (
+    
             <div className="login-modal-form">
                 <Link to="/" className="close-btn">x</Link>
                 <h1 className="login-header">Welcome back to Asõap</h1>
                 <form className="login-form" onSubmit={this.handleSubmit}>
                     <label className="login-email-label">
-                        <input 
+                        <input
                             type="text"
                             value={this.state.email}
                             onChange={this.update('email')}
                             placeholder="Email address"
-                            />
+                        />
                     </label>
-                    <br/><br/>
+                    <br /><br />
                     <label className="login-password-label">
                         <input
                             type="password"
@@ -74,27 +78,24 @@ class LoginForm extends React.Component {
                             placeholder="Password"
                         />
                     </label>
-                        <ul className="session-errors-li">
-                            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                        </ul>
+                    <ul className="session-errors-li">
+                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                    </ul>
                     <br/><br/>
-                    <input 
-                        className="login-btn" 
-                        type="submit" 
-                        value={formType} 
-                        />
-                    <button 
-                        className='demo-login-btn' 
+                    <input
+                        className="login-btn"
+                        type="submit"
+                        value={formType}
+                    />
+                    <button
+                        className='demo-login-btn'
                         onClick={this.handleDemoSubmit}>Demo Login</button>
                 </form>
-            </div>
-            
 
+            </div>
 
         )
     }
-
-
 
 };
 
