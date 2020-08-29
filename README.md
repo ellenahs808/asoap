@@ -13,7 +13,7 @@ This project is a clone of aesop.com, a high quality and minimalistic ecommerce 
 
 ![Main](demo/main.gif)
 
-User can login, sign up and logout
+User can login, sign up and logout securely. A demo login is available for demonstration purposes. 
 
 
 
