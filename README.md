@@ -31,7 +31,7 @@ The products table was created to include multiple display features. Users are a
 
 
 ## Moving Forward
--Implementing a cart feature to be able to add, update or delete items in a cart.
--Implementing a search feature to be able to search specific products.
--Implementing recent orders history from a user's account.
+* Implementing a cart feature to be able to add, update or delete items in a cart.
+* Implementing a search feature to be able to search specific products.
+* Implementing recent orders history from a user's account.
 
