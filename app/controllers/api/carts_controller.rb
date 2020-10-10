@@ -38,7 +38,7 @@ class Api::CartsController < ApplicationController
 
     
     def destroy
-        @cart_items = Cart.where(user_id: current_user.id)
+        # @cart_items = Cart.where(user_id: current_user.id)
         @cart_item = Cart.find(params[:id])
         @cart_item.destroy
         render :index 
