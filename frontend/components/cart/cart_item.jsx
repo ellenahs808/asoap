@@ -1,7 +1,6 @@
 import React from 'react'
 
-
-class Cart extends React.Component {
+class CartItem extends React.Component {
     constructor(props) {
         super(props)
         this.state = {}
@@ -17,4 +16,4 @@ class Cart extends React.Component {
 }
 
 
-export default Cart;
+export default CartItem
