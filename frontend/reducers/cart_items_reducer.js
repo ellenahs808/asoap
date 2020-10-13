@@ -4,7 +4,7 @@ import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from '../actions/session_ac
 
 const cartItemsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
-    let newState = Object.assign({}, state)
+    let newState = Object.assign({}, oldState)
 
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
@@ -32,3 +32,5 @@ const cartItemsReducer = (oldState = {}, action) => {
     }
 };
 
+
+export default cartItemsReducer;

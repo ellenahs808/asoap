@@ -2762,7 +2762,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
 /*!*************************************************!*\
   !*** ./frontend/reducers/cart_items_reducer.js ***!
   \*************************************************/
-/*! no exports provided */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2776,7 +2776,7 @@ var cartItemsReducer = function cartItemsReducer() {
   var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(oldState);
-  var newState = Object.assign({}, state);
+  var newState = Object.assign({}, oldState);
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_CURRENT_USER"]:
@@ -2807,6 +2807,8 @@ var cartItemsReducer = function cartItemsReducer() {
       return oldState;
   }
 };
+
+/* harmony default export */ __webpack_exports__["default"] = (cartItemsReducer);
 
 /***/ }),
 
