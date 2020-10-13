@@ -8,7 +8,10 @@ import Cart from './cart'
 
 const mapSTP = state => {
     return ({
-
+        products: state.entities.products,
+        currentUserId: state.session.id,
+        cartItems: Object.values(state.entities.cartItems),
+        checkoutItems: state.entities.cartItems
     })
 }
 
