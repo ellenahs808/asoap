@@ -9,8 +9,14 @@ class Cart extends React.Component {
 
     render() {
         return (
-            <div>
-
+            <div className="cart-div">
+                <h1>This is the cart component</h1>
+                <div className="cart-labels">
+                    <li>Cart</li>
+                    <li>Size</li>
+                    <li>Quantity</li>
+                    <li>X</li>
+                </div>
             </div>
         )
     }

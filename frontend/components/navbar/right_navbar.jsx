@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Cart from '../cart/cart'
 
 
 const RightNavbar = props => {
@@ -8,7 +9,8 @@ const RightNavbar = props => {
         <div className="right-nav">
             <div className="right-nav-greeting">
                 <h1 className="login-greeting">Hi, {props.currentUser.first_name} {props.currentUser.last_name}</h1>
-                <Link to="/" className="cart-link">Cart</Link>
+                <Link to="/cart" className="cart-link">Cart</Link>
+                {/* <button onClick={ <Cart /> }>Cart</button> */}
                 <Link to="/" className="logout-link" onClick={props.logout}>Log Out</Link>
             </div>
         </div>
