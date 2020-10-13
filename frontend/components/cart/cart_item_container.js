@@ -10,8 +10,8 @@ const mapSTP = state => {
     return ({
         products: state.entities.products,
         currentUserId: state.session.id,
-        cartItems: Object.values(state.entities.cartItems),
-        checkoutItems: state.entities.cartItems
+        cartItem: Object.values(state.entities.cartItem),
+        checkoutItems: state.entities.cartItem
     })
 }
 

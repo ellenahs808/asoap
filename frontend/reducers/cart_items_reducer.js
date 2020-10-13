@@ -1,4 +1,4 @@
-import { RECEIVE_CART_ITEM, DELETE_CART_ITEM } from '../actions/cart_actions';
+import { RECEIVE_CART_ITEM, RECEIVE_CART_ITEMS, REMOVE_CART_ITEM } from '../actions/cart_actions';
 import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from '../actions/session_actions';
 
 
@@ -21,7 +21,9 @@ const cartItemsReducer = (oldState = {}, action) => {
 
             newState[action.cartItem.id] = action.cartItem
             return newState
-        case DELETE_CART_ITEM:
+        case RECEIVE_CART_ITEMS:
+            return Object.assign({}, action.cartItems)
+        case REMOVE_CART_ITEM:
             // newState = merge({}, state)
             delete newState[action.cartItemId.id]
             return newState;
