@@ -12,17 +12,20 @@ class MainNavbar extends Component {
             open: false
         }
 
-        this.toggleOpen = this.toggleOpen.bind(this)
+        this.openToggle = this.openToggle.bind(this)
     }
 
 
-    toggleOpen() {
+    openToggle() {
         this.setState({ open: !this.state.open })
     }
 
     render() {
 
-        const cart = <CartItemContainer toggleOpen={this.toggleOpen} />
+        const cart = <CartItemContainer openToggle={this.openToggle} />
+
+        let testing1 = <div className="cart-open-none" onClick={this.openToggle}>Cart Open None</div>
+        let testing2 = <div className="cart-open" onClick={this.openToggle}>Cart Open</div>
 
         return (
             <div>
@@ -35,6 +38,9 @@ class MainNavbar extends Component {
                     <nav className="right-nav">
                         <RightNavbarContainer />
                     </nav>
+
+                    {testing1}
+                    {testing2}
                 </div>
             </div>
         )

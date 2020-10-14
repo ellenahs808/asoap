@@ -1,48 +1,71 @@
 import * as CartAPIUtil from '../util/cart_api_util';
 
 
-export const RECEIVE_CART_ITEMS = 'RECEIVE_CART_ITEMS';
-export const DELETE_CART_ITEM = 'DELETE_CART_ITEM';
+export const RECEIVE_CART_ITEM = 'RECEIVE_CART_ITEM'
+export const RECEIVE_CART_ITEMS = 'RECEIVE_CART_ITEMS'
+export const REMOVE_CART_ITEM = 'REMOVE_CART_ITEM'
+export const CLEAR_CART_ITEM = 'CLEAR_CART_ITEM'
+
+
+const receiveCartItem = cartItem => ({
+    type: RECEIVE_CART_ITEMS,
+    cartItem
+});
+
 
 
 const receiveCartItems = cartItems => ({
     type: RECEIVE_CART_ITEMS,
     cartItems
+})
+
+
+
+const removeCartItem = (cartItemId, allCartItems) => ({
+    type: REMOVE_CART_ITEM,
+    cartItemId,
+    allCartItems
 });
 
 
-const removeCartItem = cartItemId => ({
-    type: DELETE_CART_ITEM,
-    cartItemId
-});
+const clearCartItems = id => ({
+    type: CLEAR_CART_ITEM,
+    id
+})
 
 
 
 
-export const fetchCartItems = () => dispatch (
-    CartAPIUtil.fetchCartItems()
-        .then(cartItems => dispatch(receiveCartItems(cartItems)))
+export const fetchCartItem = () => dispatch (
+    CartAPIUtil.fetchCartItem()
+        .then(cartItem => dispatch(receiveCartItem(cartItem)))
 );
 
+
+export const fetchAllCartItems = () => dispatch (
+    CartAPIUtil.fetchAllCartItems()
+        .then(cartItems => dispatch(receiveCartItems(cartItems)))
+)
 
 
 export const createCartItem = cartItem => dispatch (
     CartAPIUtil.createCartItem(cartItem)
-        .then(cartItems => dispatch(receiveCartItems(cartItems)))
+        .then(cartItem => dispatch(receiveCartItem(cartItem)))
 );
 
 
 
 export const updateCartItem = cartItem => dispatch (
     CartAPIUtil.updateCartItem(cartItem)
-        .then(cartItems => dispatch(receiveCartItems(cartItems)))
+        .then(cartItem => dispatch(receiveCartItem(cartItem)))
 );
 
 
 
-export const deleteCartItem = id => dispatch (
-    CartAPIUtil.deleteCartItem(id)
-        .then(cartItemId => dispatch(removeCartItem(cartItemId)))
+export const deleteCartItem = cartItemId => dispatch (
+    CartAPIUtil.deleteCartItem(cartItemId)
+        .then(() => CartAPIUtil.fetchAllCartItems())
+        .then(allCartItems => dispatch(removeCartItem(cartItemId, allCartItems)))
 );
 
 
