@@ -1,4 +1,5 @@
 import React from 'react'
+import CartItem from './cart_item'
 
 
 class Cart extends React.Component {
@@ -12,10 +13,9 @@ class Cart extends React.Component {
             <div className="cart-div">
                 <h1>This is the cart component</h1>
                 <div className="cart-labels">
-                    <li>Cart</li>
-                    <li>Size</li>
-                    <li>Quantity</li>
-                    <li>X</li>
+                    <CartItem
+                        
+                    />
                 </div>
             </div>
         )

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 class CartItem extends React.Component {
     constructor(props) {
@@ -6,16 +7,23 @@ class CartItem extends React.Component {
         this.state = {
             id: props.cartId,
             product_id: props.productId,
-            qty: props.qty
+            quantity: props.quantity
         }
     }
 
     render() {
+        let { product, quantity, openToggle } = this.props
+        if (!product) return null;
+
         return (
             <div>
                 <div>
-                    <Link to={``}>
+                    <Link to={`/products/${product.id}`} onClick={openToggle}>
+                        { product.name }
                     </Link>
+                    <h2>{ product.size }</h2>
+                    <h2>{ quantity }</h2>
+                    <div>{ product.price }</div>
                 </div>
 
             </div>
