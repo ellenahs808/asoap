@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import Root from "./components/root";
 import configureStore from "./store/store";
 import { loginDemo } from './actions/session_actions';
-import * as cartActions from './actions/cart_actions';
+// import * as cartActions from './actions/cart_actions';
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -23,12 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     //for testing only
-    window.getState = store.getState
-    window.setState = store.setState
-    window.fetchCartItems = cartActions.fetchCartItems
-    window.createCartItem = cartActions.createCartItem
-    window.updateCartItem = cartActions.updateCartItem
-    window.deleteCartItem = cartActions.deleteCartItem
+    // window.getState = store.getState
+    // window.setState = store.setState
+    // window.fetchCartItems = cartActions.fetchCartItems
+    // window.createCartItem = cartActions.createCartItem
+    // window.updateCartItem = cartActions.updateCartItem
+    // window.deleteCartItem = cartActions.deleteCartItem
 
     //
     

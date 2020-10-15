@@ -7,23 +7,27 @@ import Footer from '../footer';
 class ProductShowItem extends React.Component {
     constructor(props) {
         super(props);
-
-        this.handleSubmit = this.handleSubmit.bind(this)
-    }
-
-    componentDidMount() {
-        // debugger
-        this.props.fetchProduct(this.props.match.params.productId);
-    }
-
-
-
-    handleSubmit() {
-        debugger
-        return() => {
-            this.props.createCartItem(this.state)
-                .then(console.log(this.state))
+        this.state = {
+            product_id: null,
+            quantity: 0
         }
+
+        this.handleClick = this.handleClick.bind(this)
+    }
+
+    // componentDidMount() {
+    //     // debugger
+    //     this.props.fetchProduct(this.props.match.params.productId);
+    //     this.props.fetchAllCartItems()
+    // }
+
+
+
+    handleClick() {
+        console.log(this.props)
+        return ( 
+            this.props.createCartItem(this.state)
+        )
     }
 
 
@@ -92,7 +96,7 @@ class ProductShowItem extends React.Component {
                                 <p className="product-val">{key_ingredients}</p>
                             </div>
                           
-                                <button className="cart-btn" onClick={this.handleSubmit}>Add to your cart - ${price}.00</button>
+                                <button className="cart-btn" onClick={this.handleClick}>Add to your cart - ${price}.00</button>
                             </div>
                     </div>
                 <div>

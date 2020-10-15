@@ -8,7 +8,7 @@ export const CLEAR_CART_ITEM = 'CLEAR_CART_ITEM'
 
 
 const receiveCartItem = cartItem => ({
-    type: RECEIVE_CART_ITEMS,
+    type: RECEIVE_CART_ITEM,
     cartItem
 });
 
@@ -50,7 +50,8 @@ export const fetchAllCartItems = () => dispatch (
 
 export const createCartItem = cartItem => dispatch (
     CartAPIUtil.createCartItem(cartItem)
-        .then(cartItem => dispatch(receiveCartItem(cartItem)))
+        // .then(cartItem => dispatch(receiveCartItem(cartItem)))
+        .then(console.log("TEST CART BTN"))
 );
 
 
