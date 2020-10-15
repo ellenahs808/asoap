@@ -1,7 +1,9 @@
 class Api::CartsController < ApplicationController
 
     def index
-        # @cart_items = Cart.where(user_id: current_user.id)
+        @cart_items = Cart.where(user_id: current_user.id)
+        debugger
+        
         if current_user 
             @cart_items = current_user.cart_items 
         else

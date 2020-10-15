@@ -136,31 +136,41 @@ var removeCartItem = function removeCartItem(cartItemId, allCartItems) {
 
 
 var fetchCartItem = function fetchCartItem() {
-  return dispatch(_util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchCartItem"]().then(function (cartItem) {
-    return dispatch(receiveCartItem(cartItem));
-  }));
+  return function (dispatch) {
+    return _util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchCartItem"]().then(function (cartItem) {
+      return dispatch(receiveCartItem(cartItem));
+    });
+  };
 };
 var fetchAllCartItems = function fetchAllCartItems() {
-  return dispatch(_util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllCartItems"]().then(function (cartItems) {
-    return dispatch(receiveCartItems(cartItems));
-  }));
+  return function (dispatch) {
+    return _util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllCartItems"]().then(function (cartItems) {
+      return dispatch(receiveCartItems(cartItems));
+    });
+  };
 };
 var createCartItem = function createCartItem(cartItem) {
-  return dispatch(_util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["createCartItem"](cartItem).then(function (cartItem) {
-    return dispatch(receiveCartItem(cartItem));
-  }).then(console.log("TEST CART BTN")));
+  return function (dispatch) {
+    return _util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["createCartItem"](cartItem).then(function (cartItem) {
+      return dispatch(receiveCartItem(cartItem));
+    }).then(console.log("TEST CART BTN"));
+  };
 };
 var updateCartItem = function updateCartItem(cartItem) {
-  return dispatch(_util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["updateCartItem"](cartItem).then(function (cartItem) {
-    return dispatch(receiveCartItem(cartItem));
-  }));
+  return function (dispatch) {
+    return _util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["updateCartItem"](cartItem).then(function (cartItem) {
+      return dispatch(receiveCartItem(cartItem));
+    });
+  };
 };
 var deleteCartItem = function deleteCartItem(cartItemId) {
-  return dispatch(_util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteCartItem"](cartItemId).then(function () {
-    return _util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllCartItems"]();
-  }).then(function (allCartItems) {
-    return dispatch(removeCartItem(cartItemId, allCartItems));
-  }));
+  return function (dispatch) {
+    return _util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteCartItem"](cartItemId).then(function () {
+      return _util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllCartItems"]();
+    }).then(function (allCartItems) {
+      return dispatch(removeCartItem(cartItemId, allCartItems));
+    });
+  };
 };
 
 /***/ }),
