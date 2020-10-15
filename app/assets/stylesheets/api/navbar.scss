@@ -61,7 +61,7 @@
 
 
 
-.cart-open-none {
+.cart-open {
     cursor: pointer;
     border-width: 0.2px;
     padding-top: 22px;
@@ -70,8 +70,29 @@
     font-size: 20px;
     font-family: 'Work Sans', sans-serif;
     color: black;
+
 }
 
+
+
+.cart-open::after {
+  content: '';
+  width: 0px;
+  height: 1.3px;
+  display: block;
+  background: black;
+  transition: 400ms;
+}
+
+
+.cart-open:hover::after {
+  width: 100%;
+}
+
+
+.cart-open:link {
+  text-decoration: none;
+}
 
 
 

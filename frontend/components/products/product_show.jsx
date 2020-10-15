@@ -7,6 +7,8 @@ import Footer from '../footer';
 class ProductShowItem extends React.Component {
     constructor(props) {
         super(props);
+
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     componentDidMount() {
@@ -14,6 +16,15 @@ class ProductShowItem extends React.Component {
         this.props.fetchProduct(this.props.match.params.productId);
     }
 
+
+
+    handleSubmit() {
+        debugger
+        return() => {
+            this.props.createCartItem(this.state)
+                .then(console.log(this.state))
+        }
+    }
 
 
     render() {
@@ -80,8 +91,9 @@ class ProductShowItem extends React.Component {
                                 <h3 className="product-key">Key Ingredients</h3>
                                 <p className="product-val">{key_ingredients}</p>
                             </div>
-                                <button className="cart-btn">Add to your cart - ${price}.00</button>
-                        </div>
+                          
+                                <button className="cart-btn" onClick={this.handleSubmit}>Add to your cart - ${price}.00</button>
+                            </div>
                     </div>
                 <div>
             </div>
