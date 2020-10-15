@@ -15,16 +15,16 @@ const cartItemsReducer = (oldState = {}, action) => {
             }
         case LOGOUT_CURRENT_USER:
             return {};
+
+
         case RECEIVE_CART_ITEM:
-            // newState = merge({}, state, action.cartItems);
-            // return action.cartItems;
 
             newState[action.cartItem.id] = action.cartItem
             return newState
         case RECEIVE_CART_ITEMS:
             return Object.assign({}, action.cartItems)
         case REMOVE_CART_ITEM:
-            // newState = merge({}, state)
+
             delete newState[action.cartItemId.id]
             return newState;
         default:

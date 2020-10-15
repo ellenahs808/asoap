@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import MainNavbar from './main_navbar'
-import { fetchCartItems } from '../../actions/cart_actions'
+import { fetchCartItem } from '../../actions/cart_actions'
 
 
 const mapSTP = state => {
@@ -12,7 +12,7 @@ const mapSTP = state => {
 
 const mapDTP = dispatch => {
     return {
-        fetchCartItems: () => dispatch(fetchCartItems())
+        fetchCartItem: () => dispatch(fetchCartItem())
     }
 }
 

@@ -4,7 +4,7 @@ import * as CartAPIUtil from '../util/cart_api_util';
 export const RECEIVE_CART_ITEM = 'RECEIVE_CART_ITEM'
 export const RECEIVE_CART_ITEMS = 'RECEIVE_CART_ITEMS'
 export const REMOVE_CART_ITEM = 'REMOVE_CART_ITEM'
-export const CLEAR_CART_ITEM = 'CLEAR_CART_ITEM'
+// export const CLEAR_CART_ITEM = 'CLEAR_CART_ITEM'
 
 
 const receiveCartItem = cartItem => ({
@@ -28,10 +28,10 @@ const removeCartItem = (cartItemId, allCartItems) => ({
 });
 
 
-const clearCartItems = id => ({
-    type: CLEAR_CART_ITEM,
-    id
-})
+// const clearCartItems = id => ({
+//     type: CLEAR_CART_ITEM,
+//     id
+// })
 
 
 
@@ -50,7 +50,7 @@ export const fetchAllCartItems = () => dispatch (
 
 export const createCartItem = cartItem => dispatch (
     CartAPIUtil.createCartItem(cartItem)
-        // .then(cartItem => dispatch(receiveCartItem(cartItem)))
+        .then(cartItem => dispatch(receiveCartItem(cartItem)))
         .then(console.log("TEST CART BTN"))
 );
 

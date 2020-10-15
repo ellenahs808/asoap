@@ -1,4 +1,13 @@
-export const fetchCartItems = () => (
+export const fetchCartItem = () => (
+    $.ajax({
+        method: `GET`,
+        url: `api/carts`,
+    })
+);
+
+
+
+export const fetchAllCartItems = () => (
     $.ajax({
         method: `GET`,
         url: `/api/carts`,
@@ -39,10 +48,10 @@ export const deleteCartItem = id => (
 
 
 
-export const deleteAllCartItems= cart_items => (
-    $.ajax({
-        method: 'DELETE',
-        url: `/api/carts`,
-        data: { cart_items }
-    })
-)
+// export const deleteAllCartItems= cart_items => (
+//     $.ajax({
+//         method: 'DELETE',
+//         url: `/api/carts`,
+//         data: { cart_items }
+//     })
+// )
