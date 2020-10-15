@@ -1324,24 +1324,40 @@ var MainNavbar = /*#__PURE__*/function (_Component) {
   var _super = _createSuper(MainNavbar);
 
   function MainNavbar(props) {
+    var _this;
+
     _classCallCheck(this, MainNavbar);
 
-    return _super.call(this, props); // this.state = {
-    //     open: false
-    // }
-    // this.openToggle = this.openToggle.bind(this)
-  } // openToggle() {
-  //     this.setState({ open: !this.state.open })
-  // }
-
+    _this = _super.call(this, props);
+    _this.state = {
+      open: false
+    };
+    _this.openToggle = _this.openToggle.bind(_assertThisInitialized(_this));
+    return _this;
+  }
 
   _createClass(MainNavbar, [{
+    key: "openToggle",
+    value: function openToggle() {
+      this.setState({
+        open: !this.state.open
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      // const cart = <CartItemContainer openToggle={this.openToggle} />
-      // let testing1 = <div className="cart-open-none" onClick={this.openToggle}>Cart Open None</div>
-      // let testing2 = <div className="cart-open" onClick={this.openToggle}>Cart Open</div>
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+      var cart = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_cart_cart_item_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        openToggle: this.openToggle
+      });
+      var shoppingCart = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "cart-open-none",
+        onClick: this.openToggle
+      }, "Cart");
+      var testing2 = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "cart-open",
+        onClick: this.openToggle
+      }, "Cart Open");
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.state.open && cart, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "banner"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_banner__WEBPACK_IMPORTED_MODULE_1__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "main-nav"
@@ -1349,7 +1365,9 @@ var MainNavbar = /*#__PURE__*/function (_Component) {
         className: "left-nav"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_left_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_category_sidebar_container__WEBPACK_IMPORTED_MODULE_3__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "right-nav"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_right_navbar_container__WEBPACK_IMPORTED_MODULE_4__["default"], null))));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "right-nav-greeting"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_right_navbar_container__WEBPACK_IMPORTED_MODULE_4__["default"], null), shoppingCart))));
     }
   }]);
 
@@ -1407,149 +1425,110 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _cart_cart_item_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../cart/cart_item_container */ "./frontend/components/cart/cart_item_container.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
-
-
-
-var RightNavbar = /*#__PURE__*/function (_React$Component) {
-  _inherits(RightNavbar, _React$Component);
-
-  var _super = _createSuper(RightNavbar);
-
-  function RightNavbar(props) {
-    var _this;
-
-    _classCallCheck(this, RightNavbar);
-
-    _this = _super.call(this, props);
-    _this.state = {
-      open: false
-    };
-    _this.openToggle = _this.openToggle.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(RightNavbar, [{
-    key: "openToggle",
-    value: function openToggle() {
-      this.setState({
-        open: !this.state.open
-      });
-    }
-  }, {
-    key: "loggedInOrOut",
-    value: function loggedInOrOut() {
-      if (this.props.loggedIn) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "right-nav"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "right-nav-greeting"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-          className: "login-greeting"
-        }, "Hi, ", this.props.currentUser.first_name, " ", this.props.currentUser.last_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-          className: "cart-link",
-          onClick: this.openToggle
-        }, "Cart"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-          to: "/",
-          className: "logout-link",
-          onClick: this.props.logout
-        }, "Log Out")));
-      } else {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-          className: "right-nav"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "logged-out"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-          className: "login-register"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-          className: "login-link",
-          to: "/login"
-        }, "Login"), " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-          className: "signup-link",
-          to: "/signup"
-        }, "Register")))));
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var currentUser = this.props.currentUser;
-      var cart = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_cart_cart_item_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        openToggle: this.openToggle
-      }); // const loggedIn = () => (
-      //     <div className="right-nav">
-      //         <div className="right-nav-greeting">
-      //             <h1 className="login-greeting">Hi, {currentUser.first_name} {props.currentUser.last_name}</h1>
-      //             <Link to="/cart" className="cart-link">Cart
-      //                 <div className="cart-open" onClick={this.openToggle}>Cart Open</div>
-      //             </Link>
-      //             <Link to="/" className="logout-link" onClick={props.logout}>Log Out</Link>
-      //         </div>
-      //     </div>
-      // )
-      // const loggedOut = () => (
-      //     <nav className="right-nav">
-      //         <div className="logged-out">
-      //             <ul className="login-register">
-      //                 <li><Link className="login-link" to="/login" >Login</Link> </li>
-      //                 <li><Link className="signup-link" to="/signup" >Register</Link></li>
-      //             </ul>
-      //         </div>
-      //    </nav>
-      // )
-
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.state.open && cart, this.loggedInOrOut());
-    }
-  }]);
-
-  return RightNavbar;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-; // const RightNavbar = props => {
-//     const loggedIn = () => (
-//         <div className="right-nav">
-//             <div className="right-nav-greeting">
-//                 <h1 className="login-greeting">Hi, {props.currentUser.first_name} {props.currentUser.last_name}</h1>
-//                 <Link to="/cart" className="cart-link">Cart</Link>
-//                 {/* <button onClick={ <Cart /> }>Cart</button> */}
-//                 <Link to="/" className="logout-link" onClick={props.logout}>Log Out</Link>
+ // class RightNavbar extends React.Component {
+//     constructor(props) {
+//         super(props)
+//         this.state = {
+//             open: false
+//         }
+//         this.openToggle = this.openToggle.bind(this)
+//     }
+//     openToggle() {
+//         this.setState({ open: !this.state.open })
+//     }
+//     loggedInOrOut() {
+//         if (this.props.loggedIn) {
+//             return (
+//                 <div className="right-nav">
+//                     <div className="right-nav-greeting">
+//                         <h1 className="login-greeting">Hi, {this.props.currentUser.first_name} {this.props.currentUser.last_name}</h1>
+//                         <p className="cart-link" onClick={this.openToggle}>Cart</p>
+//                         <Link to="/" className="logout-link" onClick={this.props.logout}>Log Out</Link>
+//                     </div>
+//                 </div>
+//             )
+//         } else {
+//             return (
+//                 <nav className="right-nav">
+//                     <div className="logged-out">
+//                         <ul className="login-register">
+//                             <li><Link className="login-link" to="/login" >Login</Link> </li>
+//                             <li><Link className="signup-link" to="/signup" >Register</Link></li>
+//                         </ul>
+//                     </div>
+//                 </nav>
+//             )
+//         }
+//     }
+//     render() {
+//         const { currentUser } = this.props
+//         const cart = <CartItemContainer openToggle={this.openToggle}/>
+//         // const loggedIn = () => (
+//         //     <div className="right-nav">
+//         //         <div className="right-nav-greeting">
+//         //             <h1 className="login-greeting">Hi, {currentUser.first_name} {props.currentUser.last_name}</h1>
+//         //             <Link to="/cart" className="cart-link">Cart
+//         //                 <div className="cart-open" onClick={this.openToggle}>Cart Open</div>
+//         //             </Link>
+//         //             <Link to="/" className="logout-link" onClick={props.logout}>Log Out</Link>
+//         //         </div>
+//         //     </div>
+//         // )
+//         // const loggedOut = () => (
+//         //     <nav className="right-nav">
+//         //         <div className="logged-out">
+//         //             <ul className="login-register">
+//         //                 <li><Link className="login-link" to="/login" >Login</Link> </li>
+//         //                 <li><Link className="signup-link" to="/signup" >Register</Link></li>
+//         //             </ul>
+//         //         </div>
+//         //    </nav>
+//         // )
+//         return (
+//             <div>
+//                 { this.state.open && cart }
+//                 {/* {currentUser ? loggedIn() : loggedOut()} */}
+//                 {this.loggedInOrOut()}
 //             </div>
-//         </div>
-//     )
-//     const loggedOut = () => (
-//         <nav className="right-nav">
-//             <div className="logged-out">
-//                 <ul className="login-register">
-//                     <li><Link className="login-link" to="/login" >Login</Link> </li>
-//                     <li><Link className="signup-link" to="/signup" >Register</Link></li>
-//                 </ul>
-//             </div>
-//         </nav>
-//     )
-//     return props.currentUser ? loggedIn() : loggedOut();
+//         )
+//     }
 // };
+
+var RightNavbar = function RightNavbar(props) {
+  var loggedIn = function loggedIn() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "right-nav"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "right-nav-greeting"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      className: "login-greeting"
+    }, "Hi, ", props.currentUser.first_name, " ", props.currentUser.last_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      to: "/",
+      className: "logout-link",
+      onClick: props.logout
+    }, "Log Out")));
+  };
+
+  var loggedOut = function loggedOut() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+      className: "right-nav"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "logged-out"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      className: "login-register"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      className: "login-link",
+      to: "/login"
+    }, "Login"), " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      className: "signup-link",
+      to: "/signup"
+    }, "Register")))));
+  };
+
+  return props.currentUser ? loggedIn() : loggedOut();
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (RightNavbar);
 
