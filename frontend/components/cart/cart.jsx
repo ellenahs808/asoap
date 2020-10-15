@@ -13,9 +13,7 @@ class Cart extends React.Component {
             <div className="cart-div">
                 <h1>This is the cart component</h1>
                 <div className="cart-labels">
-                    <CartItem
-                        
-                    />
+                    <CartItem/>
                 </div>
             </div>
         )

@@ -8,5 +8,34 @@
     color: rgb(176, 174, 174);
     // font-family: Assistant;
     padding: 29px 40px;
-    // animation: cart 1s ease-in; 
+    width: 100%;
 }
+
+
+// .cart-open {
+//     width: 24px;
+//     height: 24px;
+//     background: rgb(57, 56, 56);
+//     cursor: pointer;
+//     margin-left: 20px;
+//     margin-right: 20px;
+//     border-radius: 50%;
+//     color: white;
+//     display: flex;
+//     justify-content: center;
+    
+// }
+
+
+
+.cart-item {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background: rgb(35, 35, 35);
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+    // animation: cart 1s ease-in; 
+    }
