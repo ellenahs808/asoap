@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+
+import Banner from './banner'
 import LeftNavbarContainer from './left_navbar_container'
 import CategorySidebarContainer from "./category_sidebar_container"
 import RightNavbarContainer from './right_navbar_container'
@@ -24,23 +26,24 @@ class MainNavbar extends Component {
 
         const cart = <CartItemContainer openToggle={this.openToggle} />
 
-        let testing1 = <div className="cart-open-none" onClick={this.openToggle}>Cart Open None</div>
-        let testing2 = <div className="cart-open" onClick={this.openToggle}>Cart Open</div>
+        let shoppingCart = <div className="cart-open" onClick={this.openToggle}>Cart</div>
+        let testing2 = <div className="cart-open-none" onClick={this.openToggle}>Cart Open</div>
 
         return (
             <div>
-                {this.state.open && cart}  
+                {this.state.open && cart}
+                <nav className="banner"><Banner /></nav>
                 <div className="main-nav">
                     <nav className="left-nav">
                         <LeftNavbarContainer />
                         <CategorySidebarContainer />
                     </nav>
                     <nav className="right-nav">
-                        <RightNavbarContainer />
+                        <div className="right-nav-greeting">
+                            <RightNavbarContainer />
+                            {shoppingCart}
+                        </div>
                     </nav>
-
-                    {testing1}
-                    {testing2}
                 </div>
             </div>
         )

@@ -1,4 +1,5 @@
 class Api::CartsController < ApplicationController
+    before_action :require_logged_in
 
     def index
         @cart_items = Cart.where(user_id: current_user.id)
@@ -6,7 +7,8 @@ class Api::CartsController < ApplicationController
 
 
     def create
-        @cart_item = Cart.find_by(user_id: current_user.id, product_id: cart_item_params[:product.id])
+        @cart_items = Cart.where(user_id: current_user.id)
+        @cart_item = Cart.find_by(user_id: current_user.id, product_id: cart_item_params[:product_id])
 
         if current_user
             if @cart_item.nil?
@@ -15,7 +17,7 @@ class Api::CartsController < ApplicationController
                 @cart_item.save 
                 render :index
             else
-                new_quantity = @cart_item.quantity + params[:cart_item][:quantity].to_i
+                new_quantity = @cart_item.quantity + params[:cart_item][:quantity][:user_id].to_i
                 @cart_item.update(quantity: new_quantity)
                 render :index
             end

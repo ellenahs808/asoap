@@ -8,6 +8,7 @@ import RightNavbar from './right_navbar';
 
 const mapStateToProps = ({entities, session}) => {
     return {
+        loggedIn: session.id,
         currentUser: entities.users[session.id]
     }
 };

@@ -10,13 +10,14 @@ const mapSTP = state => {
     return ({
         products: state.entities.products,
         currentUserId: state.session.id,
-        cartItem: Object.values(state.entities.cartItem),
-        checkoutItems: state.entities.cartItem
+        cartItem: Object.values(state.entities.cartItems),
+        checkoutItems: state.entities.cartItems
     })
 }
 
 
 const mapDTP = dispatch => ({
+    
     fetchProducts: () => dispatch(fetchProducts()),
     fetchCartItems: () => dispatch(fetchCartItems()),
     updateCartItem: (cartItem) => dispatch(updateCartItem(cartItem)),
