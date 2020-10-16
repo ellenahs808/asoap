@@ -41,7 +41,7 @@ class Cart extends React.Component {
                         <li>Cart</li>
                         <li>Size</li>
                         <li>Quantity</li>
-                        <li>X</li>
+                        <li><strong>X</strong></li>
                     </div>
                     {cartStatus}
                 </div>

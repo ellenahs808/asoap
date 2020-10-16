@@ -78,10 +78,12 @@ class Api::CartsController < ApplicationController
 
     
     def destroy
-        # @cart_items = Cart.where(user_id: current_user.id)
+        # debugger
+        # @cart_item = Cart.where(user_id: current_user.id)
         @cart_item = Cart.find_by(id: params[:id])
         @cart_item.destroy
-        render :index 
+        # render :index 
+        render json: ["item removed"]
     end
 
 

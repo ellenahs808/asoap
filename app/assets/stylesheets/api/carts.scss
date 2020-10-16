@@ -6,9 +6,7 @@
 .cart-div {
     background: rgb(35, 35, 35);
     color: rgb(176, 174, 174);
-    // font-family: Assistant;
     padding: 29px 40px;
-    width: 100%;
 }
 
 
@@ -38,4 +36,11 @@
     padding: 16px 0px;
     border-bottom: 1px solid rgba(128, 128, 128, 0.5);
     // animation: cart 1s ease-in; 
+    }
+
+
+    .cart-labels {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
     }
