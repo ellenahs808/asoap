@@ -123,11 +123,10 @@ var receiveCartItems = function receiveCartItems(cartItems) {
   };
 };
 
-var removeCartItem = function removeCartItem(cartItemId, allCartItems) {
+var removeCartItem = function removeCartItem(cartItemId) {
   return {
     type: REMOVE_CART_ITEM,
-    cartItemId: cartItemId,
-    allCartItems: allCartItems
+    cartItemId: cartItemId
   };
 }; // const clearCartItems = id => ({
 //     type: CLEAR_CART_ITEM,
@@ -163,12 +162,10 @@ var updateCartItem = function updateCartItem(cartItem) {
     });
   };
 };
-var deleteCartItem = function deleteCartItem(cartItemId) {
+var deleteCartItem = function deleteCartItem(id) {
   return function (dispatch) {
-    return _util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteCartItem"](cartItemId).then(function () {
-      return _util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllCartItems"]();
-    }).then(function (allCartItems) {
-      return dispatch(removeCartItem(cartItemId, allCartItems));
+    return _util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteCartItem"](id).then(function (cartItemId) {
+      return dispatch(removeCartItem(cartItemId));
     });
   };
 };
@@ -433,7 +430,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // window.updateCartItem = cartActions.updateCartItem
   // window.deleteCartItem = cartActions.deleteCartItem
 
-  window.createCartItem = _util_cart_api_util__WEBPACK_IMPORTED_MODULE_5__["createCartItem"]; //
+  window.createCartItem = _util_cart_api_util__WEBPACK_IMPORTED_MODULE_5__["createCartItem"];
+  window.deleteCartItem = _util_cart_api_util__WEBPACK_IMPORTED_MODULE_5__["deleteCartItem"]; //
 
   var root = document.getElementById('root');
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -672,17 +670,19 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
       quantity: props.quantity
     };
     return _this;
-  } // componentDidMount() {
-  //     this.props.fetchAllCartItems();
-  // }
-  // componentDidUpdate(prevProps) {
-  //     if (Object.values(prevProps.cartItems).length !== Object.values(this.props.cartItems).length) {
-  //         this.props.fetchAllCartItems();
-  //     }
-  // }
-
+  }
 
   _createClass(CartItem, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchAllCartItems;
+    } // componentDidUpdate(prevProps) {
+    //     if (Object.values(prevProps.cartItems).length !== Object.values(this.props.cartItems).length) {
+    //         this.props.fetchAllCartItems();
+    //     }
+    // }
+
+  }, {
     key: "handleQuantity",
     value: function handleQuantity() {
       var _this2 = this;

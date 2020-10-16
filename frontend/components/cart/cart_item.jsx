@@ -13,9 +13,9 @@ class CartItem extends React.Component {
     }
 
 
-    // componentDidMount() {
-    //     this.props.fetchAllCartItems();
-    // }
+    componentDidMount() {
+        this.props.fetchAllCartItems;
+    }
 
 
     // componentDidUpdate(prevProps) {

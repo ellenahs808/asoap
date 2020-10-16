@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // window.updateCartItem = cartActions.updateCartItem
     // window.deleteCartItem = cartActions.deleteCartItem
     window.createCartItem = cart.createCartItem
+    window.deleteCartItem = cart.deleteCartItem
     //
     
 
