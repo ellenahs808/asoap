@@ -672,7 +672,15 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
       quantity: props.quantity
     };
     return _this;
-  }
+  } // componentDidMount() {
+  //     this.props.fetchAllCartItems();
+  // }
+  // componentDidUpdate(prevProps) {
+  //     if (Object.values(prevProps.cartItems).length !== Object.values(this.props.cartItems).length) {
+  //         this.props.fetchAllCartItems();
+  //     }
+  // }
+
 
   _createClass(CartItem, [{
     key: "handleQuantity",
@@ -692,7 +700,7 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
     value: function quantityDropDown() {
       var qty = [];
 
-      for (var i = 1; i <= 5; i++) {
+      for (var i = 1; i <= 10; i++) {
         qty.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           value: "".concat(i),
           key: i
@@ -700,21 +708,19 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
       }
 
       return qty;
-    }
-  }, {
-    key: "handleRemoveItem",
-    value: function handleRemoveItem() {
-      var _this3 = this;
+    } // handleRemoveItem() {
+    //     return(e) => {
+    //         e.preventDefault()
+    //         this.props.deleteCartItem(this.props.cartId)
+    //             .then(console.log("removed"))
+    //     }
+    // }
 
-      return function (e) {
-        e.preventDefault();
-
-        _this3.props.deleteCartItem(_this3.props.cartId).then(console.log("removed"));
-      };
-    }
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       var _this$props = this.props,
           product = _this$props.product,
           quantity = _this$props.quantity,
@@ -734,8 +740,10 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
       }, this.quantityDropDown()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "remove-cart-item"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.handleRemoveItem()
-      }, "Remove"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, quantity), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, product.price)));
+        onClick: function onClick() {
+          _this3.props.deleteCartItem(_this3.props.cartId);
+        }
+      }, "Remove"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, quantity), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "$", product.price, ".00")));
     }
   }]);
 
