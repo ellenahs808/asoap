@@ -2060,23 +2060,66 @@ var ProductShowItem = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      product_id: null,
-      quantity: 0
+      quantity: 1,
+      size: ''
     };
-    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this)); // this.addItem = this.addItem.bind(this);
+
     return _this;
   } // componentDidMount() {
   //     // debugger
   //     this.props.fetchProduct(this.props.match.params.productId);
   //     this.props.fetchAllCartItems()
   // }
+  // addItem(newItem) {
+  //     // debugger
+  //     this.props.createCartItem({
+  //         user_id: this.props.currentUserId,
+  //         // product_id: newItem.id,
+  //         product_id: Object.values(newItem)[0],
+  //         quantity: 1
+  //     })
+  //     this.props.history.push('/shoppingcart');
+  //     // window.location.reload(false);
+  // }
 
 
   _createClass(ProductShowItem, [{
     key: "handleClick",
-    value: function handleClick() {
-      console.log(this.props);
-      return this.props.createCartItem(this.state);
+    value: function handleClick(e) {
+      // console.log(this.props)
+      // return ( 
+      //     this.props.createCartItem(this.state)
+      // )
+      // e.preventDefault();
+      // // debugger
+      // if (this.props.currentUserId) {
+      //     let productIdArray = this.props.userCartItems.map(item => (
+      //         item.product_id
+      //     ))
+      //     if (!productIdArray.includes(this.props.product.id)) {
+      //         this.addItem(this.props.product);
+      //     } else {
+      //         return (
+      //             alert('Product already in cart!')
+      //         )
+      //     }
+      // } else {
+      //     this.props.history.push('/login')
+      // }
+      e.preventDefault();
+      var product = this.props.product;
+
+      if (this.props.currentUserId) {
+        product['quantity'] = this.state.quantity;
+        this.props.createCartItem({
+          cart_item: {
+            product: product
+          }
+        });
+      } else {
+        this.props.history.push("/login");
+      }
     }
   }, {
     key: "render",
@@ -2239,7 +2282,10 @@ var mapSTP = function mapSTP(state, ownProps) {
   return {
     product: state.entities.products[ownProps.match.params.productId],
     // userCartItems: Object.values(state.entities.cartItems)
-    cartItems: state.entities.cartItems
+    cartItems: state.entities.cartItems,
+    userCartItems: Object.values(state.entities.cartItems),
+    currentUserId: state.session.id // currentUser: state.session
+
   };
 };
 

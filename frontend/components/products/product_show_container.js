@@ -8,7 +8,10 @@ import ProductShow from './product_show';
 const mapSTP = (state, ownProps) => ({
     product: state.entities.products[ownProps.match.params.productId],
     // userCartItems: Object.values(state.entities.cartItems)
-    cartItems: state.entities.cartItems
+    cartItems: state.entities.cartItems,
+    userCartItems: Object.values(state.entities.cartItems),
+    currentUserId: state.session.id,
+    // currentUser: state.session
 })
 
 const mapDTP = (dispatch) => ({
