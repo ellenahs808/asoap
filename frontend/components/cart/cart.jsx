@@ -31,17 +31,22 @@ class Cart extends React.Component {
                 />
             )
         })
+        let cartStatus = cartItems.length === 0 ? emptyCart : itemsInCart
+
         return (
        
-            <div className="cart-div">
-                <h1>This is the cart component</h1>
-                <div className="cart-labels">
-                    <li>Cart</li>
-                    <li>Size</li>
-                    <li>Quantity</li>
-                    <li>X</li>
+            <main>
+                <div className="cart-div">
+                    <div className="cart-labels">
+                        <li>Cart</li>
+                        <li>Size</li>
+                        <li>Quantity</li>
+                        <li>X</li>
+                    </div>
+                    {cartStatus}
                 </div>
-            </div>
+
+            </main>
 
         )
     }
