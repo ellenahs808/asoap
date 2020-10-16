@@ -1,11 +1,11 @@
 class Api::CartsController < ApplicationController
 
     def index
-        @cart_items = Cart.where(user_id: current_user.id)
-        debugger
+        # @cart_items = Cart.where(user_id: current_user.id)
+        # debugger
         
         if current_user 
-            @cart_items = current_user.cart_items 
+            @cart_items = current_user.carts
         else
             @cart_items = []
         end 
@@ -45,11 +45,11 @@ class Api::CartsController < ApplicationController
         # debugger
       
         if @cart_item.save 
-            # render :show 
-            render json: @cart_item
+            render :show 
+            # render json: @cart_item
         else 
-            # render json: @cart_item.errors.full_messages, status: 422
-            render json: {message: "Failed to add cart"}, status: 422
+            render json: @cart_item.errors.full_messages, status: 422
+            # render json: {message: "Failed to add cart"}, status: 422
 
         end
 
