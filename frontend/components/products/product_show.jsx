@@ -13,28 +13,35 @@ class ProductShowItem extends React.Component {
         }
 
         this.handleClick = this.handleClick.bind(this)
-        // this.addItem = this.addItem.bind(this);
+        this.addItem = this.addItem.bind(this);
     }
 
-    // componentDidMount() {
-    //     // debugger
-    //     this.props.fetchProduct(this.props.match.params.productId);
-    //     this.props.fetchAllCartItems()
-    // }
+
+    componentDidMount() {
+        this.props.fetchProduct(this.props.match.params.productId);
+        this.props.fetchAllCartItems();
+    }
+
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.match.params.productId !== this.props.match.params.productId) {
+            this.props.fetchProduct(this.props.match.params.productId);
+        }
+    }
 
 
 
-    // addItem(newItem) {
-    //     // debugger
-    //     this.props.createCartItem({
-    //         user_id: this.props.currentUserId,
-    //         // product_id: newItem.id,
-    //         product_id: Object.values(newItem)[0],
-    //         quantity: 1
-    //     })
-    //     this.props.history.push('/shoppingcart');
-    //     // window.location.reload(false);
-    // }
+    addItem(newItem) {
+        // debugger
+        this.props.createCartItem({
+            user_id: this.props.currentUserId,
+            // product_id: newItem.id,
+            product_id: Object.values(newItem)[0],
+            quantity: 1
+        })
+        this.props.history.push('/shoppingcart');
+        // window.location.reload(false);
+    }
 
 
     handleClick(e) {
@@ -44,37 +51,37 @@ class ProductShowItem extends React.Component {
         // )
 
 
-        // e.preventDefault();
-        // // debugger
-        // if (this.props.currentUserId) {
-        //     let productIdArray = this.props.userCartItems.map(item => (
-        //         item.product_id
-        //     ))
-        //     if (!productIdArray.includes(this.props.product.id)) {
-        //         this.addItem(this.props.product);
-        //     } else {
-        //         return (
-        //             alert('Product already in cart!')
-        //         )
-        //     }
-
-
-        // } else {
-        //     this.props.history.push('/login')
-        // }
-
-
-
-        e.preventDefault()
-        let { product } = this.props
-
+        e.preventDefault();
+        // debugger
         if (this.props.currentUserId) {
-            product['quantity'] = this.state.quantity
-            this.props
-                .createCartItem({ cart_item: { product: product } })
+            let productIdArray = this.props.userCartItems.map(item => (
+                item.product_id
+            ))
+            // if (!productIdArray.includes(this.props.product.id)) {
+                this.addItem(this.props.product);
+            // } else {
+            //     return (
+            //         alert('Product already in cart!')
+            //     )
+            // }
+
+
         } else {
-            this.props.history.push("/login")
+            this.props.history.push('/login')
         }
+
+
+
+        // e.preventDefault()
+        // let { product } = this.props
+
+        // if (this.props.currentUserId) {
+        //     product['quantity'] = this.state.quantity
+        //     this.props
+        //         .createCartItem({ cart_item: { product: product } })
+        // } else {
+        //     this.props.history.push("/login")
+        // }
 
     }
 

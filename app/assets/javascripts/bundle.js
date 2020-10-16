@@ -568,13 +568,42 @@ var Cart = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(Cart, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchProducts();
+      this.props.fetchAllCartItems();
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
+      var _this$props = this.props,
+          currentUserId = _this$props.currentUserId,
+          products = _this$props.products,
+          cartItems = _this$props.cartItems,
+          updateCartItem = _this$props.updateCartItem,
+          deleteCartItem = _this$props.deleteCartItem;
+      var emptyCart = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "empty-cart"
+      }, "You have no items in your cart");
+      var itemsInCart = cartItems.map(function (item) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_cart_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          key: item.id,
+          product: products[item.product_id],
+          productId: item.productId,
+          cartId: item.id,
+          quantity: item.quantity,
+          updateCartItem: updateCartItem,
+          deleteCartItem: deleteCartItem,
+          toggleOpen: _this2.props.toggleOpen
+        });
+      });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "cart-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is the cart component"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "cart-labels"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_cart_item__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Cart"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Size"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Quantity"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "X")));
     }
   }]);
 
@@ -687,9 +716,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapSTP = function mapSTP(state) {
   return {
-    products: state.entities.products,
     currentUserId: state.session.id,
-    cartItem: Object.values(state.entities.cartItems),
+    products: state.entities.products,
+    cartItems: Object.values(state.entities.cartItems),
     checkoutItems: state.entities.cartItems
   };
 };
@@ -699,8 +728,8 @@ var mapDTP = function mapDTP(dispatch) {
     fetchProducts: function fetchProducts() {
       return dispatch(Object(_actions_product_actions__WEBPACK_IMPORTED_MODULE_1__["fetchProducts"])());
     },
-    fetchCartItem: function fetchCartItem() {
-      return dispatch(Object(_actions_cart_actions__WEBPACK_IMPORTED_MODULE_2__["fetchCartItem"])());
+    fetchAllCartItems: function fetchAllCartItems() {
+      return dispatch(Object(_actions_cart_actions__WEBPACK_IMPORTED_MODULE_2__["fetchAllCartItems"])());
     },
     updateCartItem: function updateCartItem(cartItem) {
       return dispatch(Object(_actions_cart_actions__WEBPACK_IMPORTED_MODULE_2__["updateCartItem"])(cartItem));
@@ -2063,63 +2092,67 @@ var ProductShowItem = /*#__PURE__*/function (_React$Component) {
       quantity: 1,
       size: ''
     };
-    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this)); // this.addItem = this.addItem.bind(this);
-
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    _this.addItem = _this.addItem.bind(_assertThisInitialized(_this));
     return _this;
-  } // componentDidMount() {
-  //     // debugger
-  //     this.props.fetchProduct(this.props.match.params.productId);
-  //     this.props.fetchAllCartItems()
-  // }
-  // addItem(newItem) {
-  //     // debugger
-  //     this.props.createCartItem({
-  //         user_id: this.props.currentUserId,
-  //         // product_id: newItem.id,
-  //         product_id: Object.values(newItem)[0],
-  //         quantity: 1
-  //     })
-  //     this.props.history.push('/shoppingcart');
-  //     // window.location.reload(false);
-  // }
-
+  }
 
   _createClass(ProductShowItem, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchProduct(this.props.match.params.productId);
+      this.props.fetchAllCartItems();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (prevProps.match.params.productId !== this.props.match.params.productId) {
+        this.props.fetchProduct(this.props.match.params.productId);
+      }
+    }
+  }, {
+    key: "addItem",
+    value: function addItem(newItem) {
+      // debugger
+      this.props.createCartItem({
+        user_id: this.props.currentUserId,
+        // product_id: newItem.id,
+        product_id: Object.values(newItem)[0],
+        quantity: 1
+      });
+      this.props.history.push('/shoppingcart'); // window.location.reload(false);
+    }
+  }, {
     key: "handleClick",
     value: function handleClick(e) {
       // console.log(this.props)
       // return ( 
       //     this.props.createCartItem(this.state)
       // )
-      // e.preventDefault();
-      // // debugger
-      // if (this.props.currentUserId) {
-      //     let productIdArray = this.props.userCartItems.map(item => (
-      //         item.product_id
-      //     ))
-      //     if (!productIdArray.includes(this.props.product.id)) {
-      //         this.addItem(this.props.product);
-      //     } else {
-      //         return (
-      //             alert('Product already in cart!')
-      //         )
-      //     }
-      // } else {
-      //     this.props.history.push('/login')
-      // }
-      e.preventDefault();
-      var product = this.props.product;
+      e.preventDefault(); // debugger
 
       if (this.props.currentUserId) {
-        product['quantity'] = this.state.quantity;
-        this.props.createCartItem({
-          cart_item: {
-            product: product
-          }
-        });
+        var productIdArray = this.props.userCartItems.map(function (item) {
+          return item.product_id;
+        }); // if (!productIdArray.includes(this.props.product.id)) {
+
+        this.addItem(this.props.product); // } else {
+        //     return (
+        //         alert('Product already in cart!')
+        //     )
+        // }
       } else {
-        this.props.history.push("/login");
-      }
+        this.props.history.push('/login');
+      } // e.preventDefault()
+      // let { product } = this.props
+      // if (this.props.currentUserId) {
+      //     product['quantity'] = this.state.quantity
+      //     this.props
+      //         .createCartItem({ cart_item: { product: product } })
+      // } else {
+      //     this.props.history.push("/login")
+      // }
+
     }
   }, {
     key: "render",
