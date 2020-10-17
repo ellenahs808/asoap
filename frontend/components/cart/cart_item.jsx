@@ -18,11 +18,6 @@ class CartItem extends React.Component {
     }
 
 
-    // componentDidUpdate(prevProps) {
-    //     if (Object.values(prevProps.cartItems).length !== Object.values(this.props.cartItems).length) {
-    //         this.props.fetchAllCartItems();
-    //     }
-    // }
 
 
     handleQuantity() {
@@ -35,19 +30,13 @@ class CartItem extends React.Component {
     quantityDropDown() {
         let qty = [];
         for (let i = 1; i <= 10; i++) {
-            qty.push(<option value={`${i}`} key={i} >{i}</option>)
+            qty.push(<option value={`${i}`} key={i} >{i}</option>) 
         }
         return qty;
     }
 
 
-    // handleRemoveItem() {
-    //     return(e) => {
-    //         e.preventDefault()
-    //         this.props.deleteCartItem(this.props.cartId)
-    //             .then(console.log("removed"))
-    //     }
-    // }
+
 
 
 
@@ -77,7 +66,7 @@ class CartItem extends React.Component {
                             {this.quantityDropDown()}
                         </select>
                         <div className="remove-cart-item">
-                            <button onClick={() => { this.props.deleteCartItem(this.props.cartId); }}>Remove</button>
+                            <button onClick={() =>  this.props.deleteCartItem(this.props.cartId) }>Remove</button>
                         </div>
                     </div>
                     <div>{quantity}</div>

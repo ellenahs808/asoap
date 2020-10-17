@@ -116,10 +116,10 @@ var receiveCartItem = function receiveCartItem(cartItem) {
   };
 };
 
-var receiveCartItems = function receiveCartItems(cartItems) {
+var receiveCartItems = function receiveCartItems(payload) {
   return {
     type: RECEIVE_CART_ITEMS,
-    cartItems: cartItems
+    payload: payload
   };
 };
 
@@ -134,17 +134,17 @@ var removeCartItem = function removeCartItem(cartItemId) {
 // })
 
 
-var fetchCartItem = function fetchCartItem() {
+var fetchCartItem = function fetchCartItem(id) {
   return function (dispatch) {
-    return _util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchCartItem"]().then(function (cartItem) {
+    return _util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchCartItem"](id).then(function (cartItem) {
       return dispatch(receiveCartItem(cartItem));
     });
   };
 };
 var fetchAllCartItems = function fetchAllCartItems() {
   return function (dispatch) {
-    return _util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllCartItems"]().then(function (cartItems) {
-      return dispatch(receiveCartItems(cartItems));
+    return _util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllCartItems"]().then(function (payload) {
+      return dispatch(receiveCartItems(payload));
     });
   };
 };
@@ -154,7 +154,15 @@ var createCartItem = function createCartItem(cartItem) {
       return dispatch(receiveCartItem(cartItem));
     }).then(console.log("TEST CART BTN"));
   };
-};
+}; //can also be written as:
+// export const createCartItem = cartItem => dispatch => {
+//     return (
+//         CartAPIUtil.createCartItem(cartItem)
+//         .then(cartItem => dispatch(receiveCartItem(cartItem)))
+//         .then(console.log("TEST CART BTN"))
+//     )
+// }
+
 var updateCartItem = function updateCartItem(cartItem) {
   return function (dispatch) {
     return _util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["updateCartItem"](cartItem).then(function (cartItem) {
@@ -676,12 +684,7 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchAllCartItems;
-    } // componentDidUpdate(prevProps) {
-    //     if (Object.values(prevProps.cartItems).length !== Object.values(this.props.cartItems).length) {
-    //         this.props.fetchAllCartItems();
-    //     }
-    // }
-
+    }
   }, {
     key: "handleQuantity",
     value: function handleQuantity() {
@@ -708,14 +711,7 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
       }
 
       return qty;
-    } // handleRemoveItem() {
-    //     return(e) => {
-    //         e.preventDefault()
-    //         this.props.deleteCartItem(this.props.cartId)
-    //             .then(console.log("removed"))
-    //     }
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
@@ -741,7 +737,7 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
         className: "remove-cart-item"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
-          _this3.props.deleteCartItem(_this3.props.cartId);
+          return _this3.props.deleteCartItem(_this3.props.cartId);
         }
       }, "Remove"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, quantity), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "$", product.price, ".00")));
     }
@@ -1430,6 +1426,17 @@ var MainNavbar = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(MainNavbar, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      console.log('test');
+
+      if (this.props.currentUser) {
+        this.props.fetchAllCartItems();
+      }
+
+      console.log(this.props.cartItems);
+    }
+  }, {
     key: "openToggle",
     value: function openToggle() {
       this.setState({
@@ -1489,14 +1496,18 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapSTP = function mapSTP(state) {
   return {
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    cartItems: state.entities.cartItems
   };
 };
 
 var mapDTP = function mapDTP(dispatch) {
   return {
-    fetchCartItem: function fetchCartItem() {
-      return dispatch(Object(_actions_cart_actions__WEBPACK_IMPORTED_MODULE_2__["fetchCartItem"])());
+    fetchCartItem: function fetchCartItem(id) {
+      return dispatch(Object(_actions_cart_actions__WEBPACK_IMPORTED_MODULE_2__["fetchCartItem"])(id));
+    },
+    fetchAllCartItems: function fetchAllCartItems() {
+      return dispatch(Object(_actions_cart_actions__WEBPACK_IMPORTED_MODULE_2__["fetchAllCartItems"])());
     }
   };
 };
@@ -2174,13 +2185,14 @@ var ProductShowItem = /*#__PURE__*/function (_React$Component) {
     key: "addItem",
     value: function addItem(newItem) {
       // debugger
+      console.log(this.props);
       this.props.createCartItem({
         user_id: this.props.currentUserId,
         // product_id: newItem.id,
         product_id: Object.values(newItem)[0],
         quantity: 1
       });
-      this.props.history.push('/shoppingcart'); // window.location.reload(false);
+      this.props.history.push('/'); // window.location.reload(false);
     }
   }, {
     key: "handleClick",
@@ -2390,8 +2402,8 @@ var mapDTP = function mapDTP(dispatch) {
     fetchProduct: function fetchProduct(productId) {
       return dispatch(Object(_actions_product_actions__WEBPACK_IMPORTED_MODULE_1__["fetchProduct"])(productId));
     },
-    fetchCartItem: function fetchCartItem() {
-      return dispatch(Object(_actions_cart_actions__WEBPACK_IMPORTED_MODULE_2__["fetchCartItem"])());
+    fetchCartItem: function fetchCartItem(id) {
+      return dispatch(Object(_actions_cart_actions__WEBPACK_IMPORTED_MODULE_2__["fetchCartItem"])(id));
     },
     fetchAllCartItems: function fetchAllCartItems() {
       return dispatch(Object(_actions_cart_actions__WEBPACK_IMPORTED_MODULE_2__["fetchAllCartItems"])());
@@ -3096,6 +3108,8 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/cart_actions */ "./frontend/actions/cart_actions.js");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -3117,11 +3131,16 @@ var cartItemsReducer = function cartItemsReducer() {
       return {};
 
     case _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CART_ITEM"]:
-      newState[action.cartItem.id] = action.cartItem;
-      return newState;
+      return Object.assign({}, oldState, _defineProperty({}, action.cartItem.id, action.cartItem));
+    // newState[action.cartItem.id] = action.cartItem
+    // return newState
 
     case _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CART_ITEMS"]:
-      return Object.assign({}, action.cartItems);
+      // return Object.assign({}, action.cartItems)
+      // return Object.assign({}, oldState, action.cart_items);
+      // newState = { ...newState, ...action.cart_items }; 
+      // return newState;
+      return Object.assign({}, oldState, action.payload.cart_items);
 
     case _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_CART_ITEM"]:
       delete newState[action.cartItemId.id];
@@ -3129,6 +3148,14 @@ var cartItemsReducer = function cartItemsReducer() {
 
     default:
       return oldState;
+    // case RECEIVE_CART_ITEMS:
+    //     return Object.assign({}, state, action.payload.cart_items);
+    // case RECEIVE_CART_ITEM:
+    //     return Object.assign({}, state, { [action.cartItem.id]: action.cartItem })
+    // case DELETE_CART_ITEM:
+    //     let newState = Object.assign({}, state);
+    //     delete newState[action.cartItem.id];
+    //     return newState;
   }
 };
 
@@ -3497,10 +3524,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createCartItem", function() { return createCartItem; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateCartItem", function() { return updateCartItem; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteCartItem", function() { return deleteCartItem; });
-var fetchCartItem = function fetchCartItem() {
+var fetchCartItem = function fetchCartItem(id) {
   return $.ajax({
     method: "GET",
-    url: "api/carts"
+    url: "api/carts/".concat(id)
   });
 };
 var fetchAllCartItems = function fetchAllCartItems() {
