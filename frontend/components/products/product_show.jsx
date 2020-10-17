@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Footer from '../footer';
+
 
 
 
@@ -33,13 +33,14 @@ class ProductShowItem extends React.Component {
 
     addItem(newItem) {
         // debugger
+        console.log(this.props)
         this.props.createCartItem({
             user_id: this.props.currentUserId,
             // product_id: newItem.id,
             product_id: Object.values(newItem)[0],
             quantity: 1
         })
-        this.props.history.push('/shoppingcart');
+        this.props.history.push('/');
         // window.location.reload(false);
     }
 
@@ -187,7 +188,7 @@ class ProductShowItem extends React.Component {
                     </div>
                 </div>
 
-                <Footer />
+   
             </div>
         )
     }

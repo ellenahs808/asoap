@@ -2,15 +2,18 @@ class Api::CartsController < ApplicationController
 
     def index
         # @cart_items = Cart.where(user_id: current_user.id)
-        # debugger
         
-        if current_user 
-            @cart_items = current_user.carts
-        else
-            @cart_items = []
-        end 
-
+        # if current_user 
+        #     @cart_items = current_user.carts
+        # else
+        #     @cart_items = []
+        # end 
+        
+        # render :index
+        
+        @cart_items = current_user.carts
         render :index
+        # debugger
     end
 
 
@@ -78,12 +81,11 @@ class Api::CartsController < ApplicationController
 
     
     def destroy
-        # debugger
         # @cart_item = Cart.where(user_id: current_user.id)
+        # debugger
         @cart_item = Cart.find_by(id: params[:id])
         @cart_item.destroy
-        # render :index 
-        render json: ["item removed"]
+        render :show
     end
 
 

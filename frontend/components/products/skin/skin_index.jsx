@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ProductIndexItem from '../product_index_item';
-import Footer from '../../footer';
+
 
 
 
@@ -113,8 +113,6 @@ class SkinIndex extends React.Component {
                         </div>
                     </div>
                 </div>
-
-                <Footer />
 
             </div>
 

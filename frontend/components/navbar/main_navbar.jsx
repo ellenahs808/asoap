@@ -17,6 +17,13 @@ class MainNavbar extends Component {
         this.openToggle = this.openToggle.bind(this)
     }
 
+    componentDidMount() {
+        console.log('test')
+        if (this.props.currentUser) {
+            this.props.fetchAllCartItems()
+        }
+        console.log(this.props.cartItems)
+    }
 
     openToggle() {
         this.setState({ open: !this.state.open })
