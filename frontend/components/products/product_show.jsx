@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Footer from '../footer';
+
 
 
 
@@ -188,7 +188,7 @@ class ProductShowItem extends React.Component {
                     </div>
                 </div>
 
-                {/* <Footer /> */}
+   
             </div>
         )
     }
