@@ -8,7 +8,7 @@ const Footer = props => (
             <div className='display-footer-info'>
                 <div className='display-title'>Cleansing, nourishing hand care</div>
                 <div className='display-detail'>Washing hands with vigour and rigour is an essential act. Just like the uneasy mind, hard-working hands deserve attentive nurturing.</div>
-                <div className='display-btn-div'><Link to='/skin' className='display-btn'>Explore Hand Care</Link></div>
+                <div className='display-btn-div'><Link to='/body' className='display-btn'>Explore Hand Care</Link></div>
             </div>
             <div className='display-footer-img'>
                 <img src={window.images.hands} width='100%'/>

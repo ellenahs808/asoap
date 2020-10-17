@@ -114,7 +114,8 @@ var receiveCartItem = function receiveCartItem(cartItem) {
     type: RECEIVE_CART_ITEM,
     cartItem: cartItem
   };
-};
+}; //payload contains all the cart items
+
 
 var receiveCartItems = function receiveCartItems(payload) {
   return {
@@ -152,7 +153,7 @@ var createCartItem = function createCartItem(cartItem) {
   return function (dispatch) {
     return _util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["createCartItem"](cartItem).then(function (cartItem) {
       return dispatch(receiveCartItem(cartItem));
-    }).then(console.log("TEST CART BTN"));
+    });
   };
 }; //can also be written as:
 // export const createCartItem = cartItem => dispatch => {
@@ -830,7 +831,7 @@ var Footer = function Footer(props) {
   }, "Washing hands with vigour and rigour is an essential act. Just like the uneasy mind, hard-working hands deserve attentive nurturing."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "display-btn-div"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/skin",
+    to: "/body",
     className: "display-btn"
   }, "Explore Hand Care"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "display-footer-img"
@@ -3095,10 +3096,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/cart_actions */ "./frontend/actions/cart_actions.js");
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
 
 
 var cartItemsReducer = function cartItemsReducer() {
@@ -3108,27 +3105,17 @@ var cartItemsReducer = function cartItemsReducer() {
   var newState = Object.assign({}, oldState);
 
   switch (action.type) {
-    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_CURRENT_USER"]:
-      if (action.currentUser.carts === undefined) {
-        return {};
-      } else {
-        return action.currentUser.carts;
-      }
-
-    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["LOGOUT_CURRENT_USER"]:
-      return {};
-
     case _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CART_ITEM"]:
-      return Object.assign({}, oldState, _defineProperty({}, action.cartItem.id, action.cartItem));
-    // newState[action.cartItem.id] = action.cartItem
-    // return newState
+      // return Object.assign({}, oldState, { [action.cartItem.id]: action.cartItem })
+      //more readable
+      newState[action.cartItem.id] = action.cartItem;
+      return newState;
 
     case _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CART_ITEMS"]:
-      // return Object.assign({}, action.cartItems)
-      // return Object.assign({}, oldState, action.cart_items);
-      // newState = { ...newState, ...action.cart_items }; 
-      // return newState;
-      return Object.assign({}, oldState, action.payload.cart_items);
+      // return Object.assign({}, oldState, action.payload.cart_items);
+      //more readable
+      newState = action.payload.cart_items;
+      return newState;
 
     case _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_CART_ITEM"]:
       delete newState[action.cartItemId.id];
@@ -3136,14 +3123,6 @@ var cartItemsReducer = function cartItemsReducer() {
 
     default:
       return oldState;
-    // case RECEIVE_CART_ITEMS:
-    //     return Object.assign({}, state, action.payload.cart_items);
-    // case RECEIVE_CART_ITEM:
-    //     return Object.assign({}, state, { [action.cartItem.id]: action.cartItem })
-    // case DELETE_CART_ITEM:
-    //     let newState = Object.assign({}, state);
-    //     delete newState[action.cartItem.id];
-    //     return newState;
   }
 };
 

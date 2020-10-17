@@ -13,7 +13,7 @@ const receiveCartItem = cartItem => ({
 });
 
 
-
+//payload contains all the cart items
 const receiveCartItems = payload => ({
     type: RECEIVE_CART_ITEMS,
     payload
@@ -50,7 +50,6 @@ export const fetchAllCartItems = () => dispatch => (
 export const createCartItem = cartItem => dispatch => (
     CartAPIUtil.createCartItem(cartItem)
         .then(cartItem => dispatch(receiveCartItem(cartItem)))
-        .then(console.log("TEST CART BTN"))
 );
 
 //can also be written as:
