@@ -114,7 +114,7 @@ class SkinIndex extends React.Component {
                     </div>
                 </div>
 
-                <Footer />
+                {/* <Footer /> */}
 
             </div>
 

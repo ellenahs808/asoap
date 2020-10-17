@@ -73,7 +73,7 @@ class BodyIndex extends React.Component {
                     </div>
                 </div>
 
-                <Footer />
+                {/* <Footer /> */}
 
             </div>
         )
