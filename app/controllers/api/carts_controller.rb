@@ -70,7 +70,9 @@ class Api::CartsController < ApplicationController
         #     render json: ['Something went wrong, please try again'], status: 422
         # end
 
+        # debugger
         @cart_item = Cart.find_by(id: params[:id])
+        # @cart_item = Cart.find(params[:id])
 
         if @cart_item.update(cart_item_params)
             render :show

@@ -18,11 +18,9 @@ class MainNavbar extends Component {
     }
 
     componentDidMount() {
-        console.log('test')
         if (this.props.currentUser) {
             this.props.fetchAllCartItems()
         }
-        console.log(this.props.cartItems)
     }
 
     openToggle() {
