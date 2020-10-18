@@ -1,16 +1,21 @@
 import { connect } from 'react-redux';
+import { closeModal } from '../../actions/modal_actions'
+import Modal from './modal'
 
 
-const mapStateToProps = state => {
+const mapSTP = state => {
     return {
         modal: state.ui.modal
     };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDTP = dispatch => {
     return {
         closeModal: () => dispatch(closeModal())
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default connect(mapSTP, mapDTP)(Modal);
+
+
+

@@ -39,8 +39,25 @@
     }
 
 
-    .cart-labels {
-        list-style: none;
-        display: flex;
-        justify-content: space-between;
-    }
+.cart-labels {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.x-btn {
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.cart-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.subtotal {
+    display: flex;
+    justify-content: space-between;
+}
