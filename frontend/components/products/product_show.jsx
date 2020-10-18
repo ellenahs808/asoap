@@ -8,12 +8,12 @@ class ProductShowItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            product_id: null,
             quantity: 1,
-            size: '',
         }
 
         this.handleClick = this.handleClick.bind(this)
-        // this.addItem = this.addItem.bind(this);
+        this.addItem = this.addItem.bind(this);
     }
 
 
@@ -37,37 +37,16 @@ class ProductShowItem extends React.Component {
         let cartItemsId = this.props.userCartItems
 
         let sameItem = cartItemsId.some((item) => item.product_id === newItem.id)
-        // let itemValues = cartItemsId.some((item) => {
-        //     item.product_id === newItemId
-        // })
+
 
         let currentItem = cartItemsId.find( (item) => {
             // debugger
-            return item.quantity
+            if (item.product_id === newItem.id) {
+                return item.quantity
+            }
         })
-        console.log(currentItem.quantity)
 
 
-
-        // const inventory = [
-        //     {name: 'apples', quantity: 2},
-        //     {name: 'bananas', quantity: 0},
-        //     {name: 'cherries', quantity: 5}
-        // ];
-
-        // const result = inventory.find( ({ name }) => name === 'cherries' );
-
-        // console.log(result) // { name: 'cherries', quantity: 5 }
-
-
-
-    
-        // console.log(newItemId)
-        // console.log(cartItemsId)
-        // console.log(sameItem)
-        // console.log(itemValues)
-        // console.log(newItem)
-        // console.log(itemValues)
         
         if (sameItem) {
             // debugger
@@ -87,60 +66,24 @@ class ProductShowItem extends React.Component {
         }
 
         this.props.history.push('/');
-        // window.location.reload(false);
     }
 
 
     handleClick(e) {
-        // console.log(this.props)
-        // return ( 
-        //     this.props.createCartItem(this.state)
-        // )
 
         e.preventDefault();
         // debugger
+
         if (this.props.currentUserId) {
-            let productIdArray = this.props.userCartItems.map(item => (
-                item.product_id
-            ))
-            // if (!productIdArray.includes(this.props.product.id)) {
-            this.addItem(this.props.product);
-
+            return this.addItem(this.props.product);
         } else {
-            this.props.history.push('/login')
+            return this.props.history.push('/login')
         }
-
-
-
-        // e.preventDefault()
-        // let { product } = this.props
-
-        // if (this.props.currentUserId) {
-        //     product['quantity'] = this.state.quantity
-        //     this.props
-        //         .createCartItem({ cart_item: { product: product } })
-        // } else {
-        //     this.props.history.push("/login")
-        // }
-
     }
 
 
 
-    // handleClick() {
-    //     let existingCartItem;
-    //     const cart = this.props.cartItems 
-    //     const { product } = this.props 
-    //     console.log(product)
 
-    //     // cart.forEach((item) => {
-    //     //     if (item.product_id === product.id) {
-    //     //         existingCartItem = item
-    //     //     }
-    //     // })
-
-    //     console.log(Object.values(cart).product_id)
-    // }
 
     render() {
         

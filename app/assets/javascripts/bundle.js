@@ -740,7 +740,7 @@ var CartItem = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this3.props.deleteCartItem(_this3.props.cartId);
         }
-      }, "Remove"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, quantity), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "$", product.price, ".00")));
+      }, "Remove"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, quantity), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "$", product.price * quantity, ".00")));
     }
   }]);
 
@@ -2147,11 +2147,11 @@ var ProductShowItem = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      quantity: 1,
-      size: ''
+      product_id: null,
+      quantity: 1
     };
-    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this)); // this.addItem = this.addItem.bind(this);
-
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    _this.addItem = _this.addItem.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2175,27 +2175,13 @@ var ProductShowItem = /*#__PURE__*/function (_React$Component) {
       var cartItemsId = this.props.userCartItems;
       var sameItem = cartItemsId.some(function (item) {
         return item.product_id === newItem.id;
-      }); // let itemValues = cartItemsId.some((item) => {
-      //     item.product_id === newItemId
-      // })
-
+      });
       var currentItem = cartItemsId.find(function (item) {
         // debugger
-        return item.quantity;
+        if (item.product_id === newItem.id) {
+          return item.quantity;
+        }
       });
-      console.log(currentItem.quantity); // const inventory = [
-      //     {name: 'apples', quantity: 2},
-      //     {name: 'bananas', quantity: 0},
-      //     {name: 'cherries', quantity: 5}
-      // ];
-      // const result = inventory.find( ({ name }) => name === 'cherries' );
-      // console.log(result) // { name: 'cherries', quantity: 5 }
-      // console.log(newItemId)
-      // console.log(cartItemsId)
-      // console.log(sameItem)
-      // console.log(itemValues)
-      // console.log(newItem)
-      // console.log(itemValues)
 
       if (sameItem) {
         // debugger
@@ -2213,48 +2199,19 @@ var ProductShowItem = /*#__PURE__*/function (_React$Component) {
         });
       }
 
-      this.props.history.push('/'); // window.location.reload(false);
+      this.props.history.push('/');
     }
   }, {
     key: "handleClick",
     value: function handleClick(e) {
-      // console.log(this.props)
-      // return ( 
-      //     this.props.createCartItem(this.state)
-      // )
       e.preventDefault(); // debugger
 
       if (this.props.currentUserId) {
-        var productIdArray = this.props.userCartItems.map(function (item) {
-          return item.product_id;
-        }); // if (!productIdArray.includes(this.props.product.id)) {
-
-        this.addItem(this.props.product);
+        return this.addItem(this.props.product);
       } else {
-        this.props.history.push('/login');
-      } // e.preventDefault()
-      // let { product } = this.props
-      // if (this.props.currentUserId) {
-      //     product['quantity'] = this.state.quantity
-      //     this.props
-      //         .createCartItem({ cart_item: { product: product } })
-      // } else {
-      //     this.props.history.push("/login")
-      // }
-
-    } // handleClick() {
-    //     let existingCartItem;
-    //     const cart = this.props.cartItems 
-    //     const { product } = this.props 
-    //     console.log(product)
-    //     // cart.forEach((item) => {
-    //     //     if (item.product_id === product.id) {
-    //     //         existingCartItem = item
-    //     //     }
-    //     // })
-    //     console.log(Object.values(cart).product_id)
-    // }
-
+        return this.props.history.push('/login');
+      }
+    }
   }, {
     key: "render",
     value: function render() {
@@ -3149,10 +3106,10 @@ var cartItemsReducer = function cartItemsReducer() {
 
   switch (action.type) {
     case _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CART_ITEM"]:
-      return Object.assign({}, oldState, _defineProperty({}, action.cartItem.id, action.cartItem)); //more readable
-      // newState[action.cartItem.id] = action.cartItem
-
-      return newState;
+      return Object.assign({}, oldState, _defineProperty({}, action.cartItem.id, action.cartItem));
+    //more readable
+    // newState[action.cartItem.id] = action.cartItem
+    // return newState
 
     case _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CART_ITEMS"]:
       // return Object.assign({}, oldState, action.payload.cart_items);

@@ -11,7 +11,7 @@ const cartItemsReducer = (oldState = {}, action) => {
             
             //more readable
             // newState[action.cartItem.id] = action.cartItem
-            return newState
+            // return newState
         case RECEIVE_CART_ITEMS:
             // return Object.assign({}, oldState, action.payload.cart_items);
 

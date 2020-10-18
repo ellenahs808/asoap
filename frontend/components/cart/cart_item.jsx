@@ -70,7 +70,7 @@ class CartItem extends React.Component {
                         </div>
                     </div>
                     <div>{quantity}</div>
-                    <div>${ product.price }.00</div>
+                    <div>${ product.price * quantity }.00</div>
                 </div>
 
             </div>
