@@ -65,9 +65,9 @@ export const createCartItem = cartItem => dispatch => (
 
 
 
-export const updateCartItem = cartItem => dispatch => (
-    CartAPIUtil.updateCartItem(cartItem)
-        .then(cartItem => dispatch(receiveCartItem(cartItem)))
+export const updateCartItem = cartItemId => dispatch => (
+    CartAPIUtil.updateCartItem(cartItemId)
+        .then(cartItemId => dispatch(receiveCartItem(cartItemId)))
 );
 
 

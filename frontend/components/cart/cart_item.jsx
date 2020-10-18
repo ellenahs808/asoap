@@ -38,8 +38,6 @@ class CartItem extends React.Component {
 
 
 
-
-
     render() {
         let { product, quantity, openToggle } = this.props
         if (!product) return null;
@@ -63,6 +61,8 @@ class CartItem extends React.Component {
                             <option value="8">8</option>
                             <option value="9">9</option>
                             <option value="10">10</option> */}
+
+                            {/* cleaner code: */}
                             {this.quantityDropDown()}
                         </select>
                         <div className="remove-cart-item">

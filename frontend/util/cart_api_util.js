@@ -28,14 +28,23 @@ export const createCartItem = cart_item => (
 
 
 
-export const updateCartItem = cart_item => (
-    $.ajax({
+// export const updateCartItem = cart_item => (
+//     $.ajax({
+//         method: `PATCH`,
+//         url: `/api/carts/${cart_item.id}`,
+//         data: { cart_item }
+//     })
+// );
+
+
+export const updateCartItem = (cart_item) => {
+    // debugger
+    return $.ajax ({
         method: `PATCH`,
         url: `/api/carts/${cart_item.id}`,
         data: { cart_item }
     })
-);
-
+}
 
 
 

@@ -13,7 +13,7 @@ class ProductShowItem extends React.Component {
         }
 
         this.handleClick = this.handleClick.bind(this)
-        this.addItem = this.addItem.bind(this);
+        // this.addItem = this.addItem.bind(this);
     }
 
 
@@ -33,13 +33,59 @@ class ProductShowItem extends React.Component {
 
     addItem(newItem) {
         // debugger
-        console.log(this.props)
-        this.props.createCartItem({
-            user_id: this.props.currentUserId,
-            // product_id: newItem.id,
-            product_id: Object.values(newItem)[0],
-            quantity: 1
+   
+        let cartItemsId = this.props.userCartItems
+
+        let sameItem = cartItemsId.some((item) => item.product_id === newItem.id)
+        // let itemValues = cartItemsId.some((item) => {
+        //     item.product_id === newItemId
+        // })
+
+        let currentItem = cartItemsId.find( (item) => {
+            // debugger
+            return item.quantity
         })
+        console.log(currentItem.quantity)
+
+
+
+        // const inventory = [
+        //     {name: 'apples', quantity: 2},
+        //     {name: 'bananas', quantity: 0},
+        //     {name: 'cherries', quantity: 5}
+        // ];
+
+        // const result = inventory.find( ({ name }) => name === 'cherries' );
+
+        // console.log(result) // { name: 'cherries', quantity: 5 }
+
+
+
+    
+        // console.log(newItemId)
+        // console.log(cartItemsId)
+        // console.log(sameItem)
+        // console.log(itemValues)
+        // console.log(newItem)
+        // console.log(itemValues)
+        
+        if (sameItem) {
+            // debugger
+            let updatedItem = {
+                user_id: this.props.currentUserId,
+                product_id: newItem.id,
+                quantity: currentItem.quantity + 1
+            }
+
+            this.props.updateCartItem(updatedItem)
+        } else {
+            this.props.createCartItem({
+                user_id: this.props.currentUserId,
+                product_id: newItem.id,
+                quantity: 1,
+            });
+        }
+
         this.props.history.push('/');
         // window.location.reload(false);
     }
@@ -51,7 +97,6 @@ class ProductShowItem extends React.Component {
         //     this.props.createCartItem(this.state)
         // )
 
-
         e.preventDefault();
         // debugger
         if (this.props.currentUserId) {
@@ -59,13 +104,7 @@ class ProductShowItem extends React.Component {
                 item.product_id
             ))
             // if (!productIdArray.includes(this.props.product.id)) {
-                this.addItem(this.props.product);
-            // } else {
-            //     return (
-            //         alert('Product already in cart!')
-            //     )
-            // }
-
+            this.addItem(this.props.product);
 
         } else {
             this.props.history.push('/login')
@@ -86,6 +125,22 @@ class ProductShowItem extends React.Component {
 
     }
 
+
+
+    // handleClick() {
+    //     let existingCartItem;
+    //     const cart = this.props.cartItems 
+    //     const { product } = this.props 
+    //     console.log(product)
+
+    //     // cart.forEach((item) => {
+    //     //     if (item.product_id === product.id) {
+    //     //         existingCartItem = item
+    //     //     }
+    //     // })
+
+    //     console.log(Object.values(cart).product_id)
+    // }
 
     render() {
         

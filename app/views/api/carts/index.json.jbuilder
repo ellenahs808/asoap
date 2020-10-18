@@ -15,6 +15,7 @@ json.cart_items do
 end
 
 
+
 json.products do 
     @cart_items.each do |item|
         json.set! item.product.id do 
