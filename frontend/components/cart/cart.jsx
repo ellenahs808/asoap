@@ -5,28 +5,19 @@ import CartItem from './cart_item'
 class Cart extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {}
-        
+
         this.handleCheckout = this.handleCheckout.bind(this)
     }
 
+
+    
     componentDidMount() {
         this.props.fetchProducts()
         this.props.fetchAllCartItems()
     }
 
 
-
-    // handleCheckout() {
-    //     return (e) => {
-    //         e.preventDefault();
-    //         if (this.props.currentUserId) {
-    //             // this.props.deleteAllCartItems(this.props.checkoutItems)
-    //             this.props.openModal("checkout");
-    //             //     .then(console.log("Checkout"))
-    //         }
-    //     }
-    // }
+    
 
     handleCheckout(){
         return(e) => {
@@ -78,7 +69,7 @@ class Cart extends React.Component {
                         <li>Quantity</li>
                         <li>
                             {/* doesnt work */}
-                            <div onClick={this.props.toggleOpen} className="x-btn"> 
+                            <div onClick={this.props.openToggle} className="x-btn"> 
                                 <strong>X</strong>
                             </div>
                         </li>

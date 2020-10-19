@@ -7,6 +7,8 @@
     background: rgb(35, 35, 35);
     color: rgb(176, 174, 174);
     padding: 29px 40px;
+    animation: fadein 0.5s, second 0.5s ease-in;
+    animation-fill-mode: forwards;
 }
 
 

@@ -120,8 +120,10 @@ const RightNavbar = props => {
         <nav className="right-nav">
             <div className="logged-out">
                 <ul className="login-register">
-                    <li><Link className="login-link" to="/login" >Login</Link> </li>
-                    <li><Link className="signup-link" to="/signup" >Register</Link></li>
+                    {/* <li><Link className="login-link" to="/login" >Login</Link> </li> */}
+                    <li><button className="login-link" onClick={() => props.openModal("login")}>Login</button></li>
+                    {/* <li><Link className="signup-link" to="/signup" >Register</Link></li> */}
+                    <li><button className="signup-link" onClick={() => props.openModal("signup")}>Register</button></li>
                 </ul>
             </div>
         </nav>
