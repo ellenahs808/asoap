@@ -400,6 +400,48 @@ var clearSessionErrors = function clearSessionErrors() {
 
 /***/ }),
 
+/***/ "./frontend/actions/sidebar_actions.js":
+/*!*********************************************!*\
+  !*** ./frontend/actions/sidebar_actions.js ***!
+  \*********************************************/
+/*! exports provided: OPEN_SIDE, CLOSE_SIDE, openSide, closeSide */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OPEN_SIDE", function() { return OPEN_SIDE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLOSE_SIDE", function() { return CLOSE_SIDE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "openSide", function() { return openSide; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeSide", function() { return closeSide; });
+var OPEN_SIDE = 'OPEN_SIDE';
+var CLOSE_SIDE = 'CLOSE_SIDE'; // export const HOVER_PRODUCT = 'HOVER_PRODUCT';
+// export const HOVER_CATEGORY = 'HOVER_CATEGORY';
+
+var openSide = function openSide(side) {
+  return {
+    type: OPEN_SIDE,
+    side: side
+  };
+};
+var closeSide = function closeSide() {
+  return {
+    type: CLOSE_SIDE
+  };
+}; // export const hoverProduct = (productId) => (
+//     {
+//         type: HOVER_PRODUCT,
+//         productId
+//     }
+// )
+// export const hoverCategory = (category) => (
+//     {
+//         type: HOVER_CATEGORY,
+//         category
+//     }
+// )
+
+/***/ }),
+
 /***/ "./frontend/asoap_entry.jsx":
 /*!**********************************!*\
   !*** ./frontend/asoap_entry.jsx ***!
@@ -2988,7 +3030,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
-      this.props.login(user); // this.props.closeModal() 
+      this.props.login(user);
     }
   }, {
     key: "handleDemoSubmit",
@@ -3226,7 +3268,8 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       password: '',
       confirm_password: '',
       first_name: '',
-      last_name: ''
+      last_name: '' // errors: {}
+
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
@@ -3244,8 +3287,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         alert("Passwords do not match");
       } else {
         var user = Object.assign({}, this.state);
-        this.props.signup(user);
-        this.props.closeModal();
+        this.props.signup(user); // this.props.closeModal();
       }
 
       ;
@@ -3334,10 +3376,12 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         className: "signup-btn",
         type: "submit",
         value: formType
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-footer",
-        to: "/login"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Do you already have an As\xF5ap account?"))));
+        onClick: function onClick() {
+          return _this3.props.openModal('login');
+        }
+      }, "Do you already have an As\xF5ap account?")));
     }
   }]);
 
@@ -3379,6 +3423,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
     signup: function signup(user) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["signup"])(user));
     },
+    openModal: function openModal(type) {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__["openModal"])(type));
+    },
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__["closeModal"])());
     },
@@ -3407,20 +3454,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var cartItemsReducer = function cartItemsReducer() {
-  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  Object.freeze(oldState);
-  var newState = Object.assign({}, oldState);
+  Object.freeze(state);
+  var newState = Object.assign({}, state);
 
   switch (action.type) {
     case _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CART_ITEM"]:
-      return Object.assign({}, oldState, _defineProperty({}, action.cartItem.id, action.cartItem));
+      return Object.assign({}, state, _defineProperty({}, action.cartItem.id, action.cartItem));
     //more readable
     // newState[action.cartItem.id] = action.cartItem
     // return newState
 
     case _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CART_ITEMS"]:
-      // return Object.assign({}, oldState, action.payload.cart_items);
+      // return Object.assign({}, state, action.payload.cart_items);
       //more readable
       newState = action.payload.cart_items;
       return newState;
@@ -3433,7 +3480,7 @@ var cartItemsReducer = function cartItemsReducer() {
       return {};
 
     default:
-      return oldState;
+      return state;
   }
 };
 
@@ -3530,11 +3577,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var navbarReducer = function navbarReducer() {
-  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
     isOpen: false
   };
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  Object.freeze(oldState);
+  Object.freeze(state);
 
   switch (action.type) {
     case _actions_navbar_actions__WEBPACK_IMPORTED_MODULE_0__["IS_OPEN"]:
@@ -3548,7 +3595,7 @@ var navbarReducer = function navbarReducer() {
       };
 
     default:
-      return oldState;
+      return state;
   }
 };
 
@@ -3569,10 +3616,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var productsReducer = function productsReducer() {
-  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  Object.freeze(oldState);
-  var newState = Object.assign({}, oldState);
+  Object.freeze(state);
+  var newState = Object.assign({}, state);
 
   switch (action.type) {
     case _actions_product_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_PRODUCTS"]:
@@ -3583,7 +3630,7 @@ var productsReducer = function productsReducer() {
       return newState;
 
     default:
-      return oldState;
+      return state;
   }
 };
 
@@ -3706,6 +3753,39 @@ var sessionReducer = function sessionReducer() {
 
 /***/ }),
 
+/***/ "./frontend/reducers/sidebar_reducer.js":
+/*!**********************************************!*\
+  !*** ./frontend/reducers/sidebar_reducer.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_sidebar_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/sidebar_actions */ "./frontend/actions/sidebar_actions.js");
+
+
+var sideBarReducer = function sideBarReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_sidebar_actions__WEBPACK_IMPORTED_MODULE_0__["OPEN_SIDE"]:
+      return action.side;
+
+    case _actions_sidebar_actions__WEBPACK_IMPORTED_MODULE_0__["CLOSE_SIDE"]:
+      return null;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (sideBarReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/ui_reducer.js":
 /*!*****************************************!*\
   !*** ./frontend/reducers/ui_reducer.js ***!
@@ -3718,12 +3798,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _navbar_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./navbar_reducer */ "./frontend/reducers/navbar_reducer.js");
 /* harmony import */ var _modal_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modal_reducer */ "./frontend/reducers/modal_reducer.js");
+/* harmony import */ var _sidebar_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sidebar_reducer */ "./frontend/reducers/sidebar_reducer.js");
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   navbar: _navbar_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  modal: _modal_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  modal: _modal_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  sideBar: _sidebar_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 }));
 
 /***/ }),
@@ -3741,10 +3824,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var usersReducer = function usersReducer() {
-  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  Object.freeze(oldState);
-  var nextState = Object.assign({}, oldState);
+  Object.freeze(state);
+  var nextState = Object.assign({}, state);
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
@@ -3752,7 +3835,7 @@ var usersReducer = function usersReducer() {
       return nextState;
 
     default:
-      return oldState;
+      return state;
   }
 };
 

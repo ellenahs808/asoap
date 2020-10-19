@@ -13,6 +13,7 @@ class SignupForm extends React.Component {
             confirm_password: '',
             first_name: '',
             last_name: '',
+            // errors: {}
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,10 +28,11 @@ class SignupForm extends React.Component {
         } else {
             const user = Object.assign({}, this.state);
             this.props.signup(user);
-            this.props.closeModal();
+            // this.props.closeModal();
         };
     }
- 
+
+
 
 
 
@@ -116,11 +118,11 @@ class SignupForm extends React.Component {
                             </div>
                         </ul>
                         <br/>
-                    <input className="signup-btn" type="submit" value={formType} />
+                        <input className="signup-btn" type="submit" value={formType} />
                         <br/>
-                        <Link className="signup-footer" to="/login">
-                            <p>Do you already have an Asõap account?</p>
-                        </Link>
+                        <div className="signup-footer" onClick={() => this.props.openModal('login')}>
+                            Do you already have an Asõap account?
+                        </div>
                     </form>
             </div>
 
