@@ -2,7 +2,7 @@ import React from "react";
 import { AuthRoute } from '../util/route_util';
 import { Link, Switch, Route } from 'react-router-dom';
 
-
+import ModalContainer from '../components/modal/modal_container'
 import MainNavbarContainer from './navbar/main_navbar_container'
 import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
@@ -17,7 +17,7 @@ import Cart from './cart/cart'
 
 const App = () => (
     <div>
-        
+        <div><ModalContainer /></div>
         <header><MainNavbarContainer /></header>
 
         <Route exact path="/" component={Homepage}/>

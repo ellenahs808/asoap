@@ -22,7 +22,7 @@ const mapDTP = dispatch => ({
     fetchAllCartItems: () => dispatch(fetchAllCartItems()),
     updateCartItem: (cartItemId) => dispatch(updateCartItem(cartItemId)),
     deleteCartItem: (id) => dispatch(deleteCartItem(id)),
-    openModal: () => dispatch(openModal())
+    openModal: (type) => dispatch(openModal(type))
 })
 
 

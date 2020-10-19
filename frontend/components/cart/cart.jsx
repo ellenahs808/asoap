@@ -15,16 +15,16 @@ class Cart extends React.Component {
 
 
 
-    handleCheckout() {
-        return (e) => {
-            e.preventDefault();
-            if (this.props.currentUserId) {
-                // this.props.deleteAllCartItems(this.props.checkoutItems)
-                this.props.openModal("checkout");
-                //     .then(console.log("Checkout"))
-            }
-        }
-    }
+    // handleCheckout() {
+    //     return (e) => {
+    //         e.preventDefault();
+    //         if (this.props.currentUserId) {
+    //             // this.props.deleteAllCartItems(this.props.checkoutItems)
+    //             this.props.openModal("checkout");
+    //             //     .then(console.log("Checkout"))
+    //         }
+    //     }
+    // }
 
 
 
@@ -82,7 +82,11 @@ class Cart extends React.Component {
                                 <p>Subtotal (Tax Excl.)</p>
                                 <div>${totalPrice}.00</div>
                             </div>
-                            <button className="checkout" onClick={this.handleCheckout()}>Checkout</button>
+                            <button className="checkout" onClick={() => {
+                                this.props.openModal('checkout')}
+                                }>   
+                                Checkout
+                            </button>
                             <div>
                                 <i class="fab fa-cc-visa"></i>
                                 <i class="fab fa-cc-mastercard"></i>

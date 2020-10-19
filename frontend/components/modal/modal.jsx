@@ -6,36 +6,32 @@ import LoginFormContainer from '../../components/session_form/login_form_contain
 import SignupFormContainer from '../../components/session_form/signup_form_container';
 // import CartContainer from '../cart/cart_container';
 // import SearchContainer from '../search/searchContainer'
-import Checkout from '../cart/cart_checkout'
+import CheckoutContainer from '../cart/cart_checkout_container'
 
 
 
-function Modal({ openModal, closeModal }) {
-    if (!openModal) {
+function Modal({ modal, closeModal }) {
+    if (!modal) {
         return null;
     }
     let component;
-    switch (openModal) {
+    switch (modal) {
         case 'login':
             component = <LoginFormContainer />;
             break;
         case 'signup':
             component = <SignupFormContainer />
             break;
-        // case 'search':
-        //     return (
-        //         <SearchContainer />
-        //     )
         case 'checkout':
-            component = <Checkout />
+            component = <CheckoutContainer />
             break;
         default:
             return null;
     }
 
     return (
-        <div className="modal-background" onClick={this.props.closeModal}>
-            <div className="modal-child" onClick={e => e.stopPropagation()}>
+        <div className="modal-screen" onClick={closeModal}>
+            <div className="modal-form" onClick={(e) => e.stopPropagation()}>
                 {component}
             </div>
         </div>
