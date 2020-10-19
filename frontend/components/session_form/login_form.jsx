@@ -14,14 +14,15 @@ class LoginForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
-        // this.loginDemo = this.loginDemo.bind(this);
+        // this.demoTyper = this.demoTyper.bind(this);
     };
 
 
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        this.props.login(user);
+        this.props.closeModal()
     };
 
 
@@ -29,9 +30,8 @@ class LoginForm extends React.Component {
 
     handleDemoSubmit(e) {
         e.preventDefault();
-        this.props.loginDemo(e)
-          
-          
+        this.props.loginDemo()
+            .then(this.props.closeModal())
     };
 
 
@@ -39,7 +39,7 @@ class LoginForm extends React.Component {
 
     
 
-    // loginDemo(e) {
+    // demoTyper(e) {
     //     e.preventDefault();
 
     //     const demoUser = { email: 'soaplover@demo.com', password: 'hunter12' }
@@ -115,7 +115,8 @@ class LoginForm extends React.Component {
         return (
     
             <div className="login-modal-form">
-                <Link to="/" className="close-btn">x</Link>
+                {/* <Link to="/" className="close-btn">x</Link> */}
+                <p onClick={() => this.props.closeModal()} className="close-btn">x</p>
                 <h1 className="login-header">Welcome back to Asõap</h1>
                 <form className="login-form" onSubmit={this.handleSubmit}>
                     <label className="login-email-label">

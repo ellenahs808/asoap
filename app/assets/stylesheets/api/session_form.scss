@@ -63,18 +63,17 @@ input {
 .close-btn {
     text-align: right;
     height: 30px;
-    width: 105%;
+    width: 100%;
     font-size: 30px;
     color: black;
     float: right;
-    // padding: 20px;
-}
-
-.close-btn:link {
-    text-decoration: none;
+    padding: 0;
 }
 
 
+.close-btn:hover {
+    cursor: pointer;
+}
 
 
 .right-header {
@@ -82,7 +81,6 @@ input {
   justify-content: space-between;
 
 }
-
 
 
 
@@ -144,7 +142,7 @@ input {
 
 
 .signup-modal-form {
-    padding: 40px;
+    padding: 10px 30px;
     position: fixed;
     border: 1px solid rgb(173, 172, 172);
     font-family: 'Lora', serif;
@@ -153,7 +151,7 @@ input {
     transform: translate(-50%, -50%);
     display: block;
     width: 550px;
-    height: 650px;
+    height: 670px;
     background-color: #FFFEF2;
     -webkit-animation: fadein 2s;
        -moz-animation: fadein 2s; /* Firefox < 16 */
@@ -169,8 +167,8 @@ input {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 10px;
-    margin: 20px auto 0;
+    padding: 5px;
+    margin: 10px auto 0;
     background-color: transparent;
 }
 
@@ -178,14 +176,19 @@ input {
 .signup-header {
     font-size: 30px;
     font-weight: 900;
-    padding: 30px 0px 20px 3px;
+    padding: 20px 0px 20px 3px;
     text-align: justify;
+}
+
+
+.signup-header > h2 {
+    padding: 5px;
 }
 
 
 
 .signup-par {
-    padding: 5px;
+    padding: 7px;
     font-size: 15px;
     color: #666;
 }

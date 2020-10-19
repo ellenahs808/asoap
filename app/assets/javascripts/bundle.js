@@ -1227,7 +1227,12 @@ function Modal(_ref) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-screen",
     onClick: closeModal
-  }, component);
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal-child",
+    onClick: function onClick(e) {
+      return e.stopPropagation();
+    }
+  }, component));
 }
 
 ;
@@ -2972,7 +2977,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
       password: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.handleDemoSubmit = _this.handleDemoSubmit.bind(_assertThisInitialized(_this)); // this.loginDemo = this.loginDemo.bind(this);
+    _this.handleDemoSubmit = _this.handleDemoSubmit.bind(_assertThisInitialized(_this)); // this.demoTyper = this.demoTyper.bind(this);
 
     return _this;
   }
@@ -2982,17 +2987,18 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
-      this.props.processForm(user);
+      this.props.login(user);
+      this.props.closeModal();
     }
   }, {
     key: "handleDemoSubmit",
     value: function handleDemoSubmit(e) {
       e.preventDefault();
-      this.props.loginDemo(e);
+      this.props.loginDemo().then(this.props.closeModal());
     }
   }, {
     key: "componentWillUnmount",
-    // loginDemo(e) {
+    // demoTyper(e) {
     //     e.preventDefault();
     //     const demoUser = { email: 'soaplover@demo.com', password: 'hunter12' }
     //     let { email, password } = demoUser;
@@ -3043,13 +3049,17 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       var _this$props = this.props,
           formType = _this$props.formType,
           errors = _this$props.errors;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-modal-form"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/",
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        onClick: function onClick() {
+          return _this3.props.closeModal();
+        },
         className: "close-btn"
       }, "x"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "login-header"
@@ -3122,7 +3132,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
   return {
-    processForm: function processForm(user) {
+    login: function login(user) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["login"])(user));
     },
     loginDemo: function loginDemo() {
@@ -3201,6 +3211,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       first_name: '',
       last_name: ''
     };
+    _this.greetings = _this.greetings.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -3217,7 +3228,8 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         alert("Passwords do not match");
       } else {
         var user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        this.props.signup(user);
+        this.props.closeModal();
       }
 
       ;
@@ -3237,6 +3249,23 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       this.props.clearSessionErrors();
     }
   }, {
+    key: "greetings",
+    value: function greetings() {
+      var date = new Date();
+      var hours = date.getHours();
+      var timeOfDay;
+
+      if (hours < 12) {
+        timeOfDay = "morning";
+      } else if (hours >= 12 && hours < 17) {
+        timeOfDay = "afternoon";
+      } else {
+        timeOfDay = "night";
+      }
+
+      return timeOfDay;
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -3247,9 +3276,9 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/",
         className: "close-btn"
-      }, "x"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      }, "x"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-header"
-      }, "Welcome to As\xF5ap"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "It seems you are new to us. "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Welcome to As\xF5ap")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "signup-par"
       }, "To create an account, please enter your details below"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
@@ -3328,7 +3357,9 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
-/* harmony import */ var _signup_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./signup_form */ "./frontend/components/session_form/signup_form.jsx");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+/* harmony import */ var _signup_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./signup_form */ "./frontend/components/session_form/signup_form.jsx");
+
 
 
 
@@ -3342,8 +3373,11 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
   return {
-    processForm: function processForm(user) {
+    signup: function signup(user) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["signup"])(user));
+    },
+    closeModal: function closeModal() {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__["closeModal"])());
     },
     clearSessionErrors: function clearSessionErrors() {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["clearSessionErrors"])());
@@ -3351,7 +3385,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_signup_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_signup_form__WEBPACK_IMPORTED_MODULE_3__["default"]));
 
 /***/ }),
 

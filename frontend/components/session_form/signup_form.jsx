@@ -15,6 +15,7 @@ class SignupForm extends React.Component {
             last_name: '',
         };
 
+        this.greetings = this.greetings.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this);
     };
 
@@ -26,7 +27,8 @@ class SignupForm extends React.Component {
             alert("Passwords do not match");
         } else {
             const user = Object.assign({}, this.state);
-            this.props.processForm(user);
+            this.props.signup(user);
+            this.props.closeModal();
         };
     }
  
@@ -47,14 +49,36 @@ class SignupForm extends React.Component {
 
 
 
+    greetings() {
+        const date = new Date()
+        const hours = date.getHours()
+        let timeOfDay;
+
+        if (hours < 12) {
+            timeOfDay = "morning"
+        } else if (hours >= 12 && hours < 17) {
+            timeOfDay = "afternoon"
+        } else {
+            timeOfDay = "night"
+        }
+
+        return timeOfDay;
+    }
+
+
+
     render() {
         const { formType, errors } = this.props;
 
         return (
             <div className="signup-modal-form">
                 <Link to="/" className="close-btn">x</Link>
-                <h1 className="signup-header">Welcome to Asõap</h1>
+                <div className="signup-header">
+                    <h2>It seems you are new to us. </h2>
+                    <h2>Welcome to Asõap</h2>
+                </div>
                     <p className="signup-par">To create an account, please enter your details below</p>
+                    
                     <form onSubmit={this.handleSubmit}>
                         <ul className="signup-form">
                             <label className="signup-email-label">
