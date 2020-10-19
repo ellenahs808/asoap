@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { openSidebar, closeSidebar, hoverCategory } from '../../actions/navbar_actions';
+import { openModal } from '../../actions/modal_actions'
 import CategorySidebar from './category_sidebar'
 //might add productsByCategory selectors here
 
@@ -19,6 +20,7 @@ const mapDTP = dispatch => ({
     openSidebar: isOpen => dispatch(openSidebar(isOpen)),
     closeSidebar: isClosed => dispatch(closeSidebar(isClosed)),
     hoverCategory: category => dispatch(hoverCategory(category)),
+    openModal: type => dispatch(openModal(type))
 });
 
 

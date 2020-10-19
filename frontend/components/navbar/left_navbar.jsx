@@ -8,8 +8,8 @@ class LeftNavbar extends React.Component {
         super(props)
 
         this.open = this.open.bind(this);
-        this.handleSlideAnimation = this.handleSlideAnimation.bind(this)
-        this.handleSearch = this.handleSearch.bind(this)
+        // this.handleSlideAnimation = this.handleSlideAnimation.bind(this)
+        // this.handleSearch = this.handleSearch.bind(this)
     };
 
 
@@ -18,22 +18,7 @@ class LeftNavbar extends React.Component {
     };
 
 
-    handleSlideAnimation(){
-        // let searchBody = document.getElementById('search-wrap');
-        // window.setTimeout(() => this.props.closeModal(), 300);
-        // searchBody.style.transition = "all 0.3s ease-in-out";
-        // searchBody.style.left = "-1000px";
 
-        let searchBody = document.getElementById("search-wrap")
-        searchBody.style.width = "500px";
-    }
-
-    handleSearch() {
-        return (
-            this.props.openModal('search'),
-            this.handleSlideAnimation()
-        )
-    }
  
 
     render() {
@@ -45,7 +30,7 @@ class LeftNavbar extends React.Component {
                     <li className="shop-link" onClick={this.open}>Shop</li>
                     <li className="read-link" onClick={this.open}>Read</li>
                     <li className="stores-link" onClick={this.open}>Stores</li>
-                    <li className="search-link" onClick={this.handleSearch()}>Search</li>
+                    <li className="search-link" onClick={() => this.props.openModal('search')}>Search</li>
                 </ul>
             </div>
         )
