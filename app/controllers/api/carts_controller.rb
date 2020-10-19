@@ -1,5 +1,7 @@
 class Api::CartsController < ApplicationController
 
+    before_action :require_logged_in, only: [:create, :update, :destroy]
+
     def index
         # @cart_items = Cart.where(user_id: current_user.id)
         
@@ -65,10 +67,20 @@ class Api::CartsController < ApplicationController
         # @cart_item = Cart.where(user_id: current_user.id)
         # debugger
         @cart_item = Cart.find_by(id: params[:id])
+        # @cart_item = Cart.find_by(user_id: current_user.id, product_id: cart_item_params[:product_id]);
         @cart_item.destroy
         render :show
+        # render json: "Destroyed"
     end
 
+
+
+    def destroy_all
+        @cart_items = Cart.where(user_id: current_user.id)
+
+        @cart_items.destroy_all
+        render :index
+    end 
 
 
 

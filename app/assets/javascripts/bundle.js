@@ -90,7 +90,7 @@
 /*!******************************************!*\
   !*** ./frontend/actions/cart_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_CART_ITEM, RECEIVE_CART_ITEMS, REMOVE_CART_ITEM, fetchCartItem, fetchAllCartItems, createCartItem, updateCartItem, deleteCartItem */
+/*! exports provided: RECEIVE_CART_ITEM, RECEIVE_CART_ITEMS, REMOVE_CART_ITEM, DELETE_ALL_CART_ITEMS, fetchCartItem, fetchAllCartItems, createCartItem, updateCartItem, deleteCartItem, deleteAllCartItems */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -98,16 +98,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CART_ITEM", function() { return RECEIVE_CART_ITEM; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CART_ITEMS", function() { return RECEIVE_CART_ITEMS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_CART_ITEM", function() { return REMOVE_CART_ITEM; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_ALL_CART_ITEMS", function() { return DELETE_ALL_CART_ITEMS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchCartItem", function() { return fetchCartItem; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllCartItems", function() { return fetchAllCartItems; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createCartItem", function() { return createCartItem; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateCartItem", function() { return updateCartItem; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteCartItem", function() { return deleteCartItem; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteAllCartItems", function() { return deleteAllCartItems; });
 /* harmony import */ var _util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/cart_api_util */ "./frontend/util/cart_api_util.js");
 
 var RECEIVE_CART_ITEM = 'RECEIVE_CART_ITEM';
 var RECEIVE_CART_ITEMS = 'RECEIVE_CART_ITEMS';
-var REMOVE_CART_ITEM = 'REMOVE_CART_ITEM'; // export const CLEAR_CART_ITEM = 'CLEAR_CART_ITEM'
+var REMOVE_CART_ITEM = 'REMOVE_CART_ITEM';
+var DELETE_ALL_CART_ITEMS = 'DELETE_ALL_CART_ITEMS';
 
 var receiveCartItem = function receiveCartItem(cartItem) {
   return {
@@ -129,11 +132,13 @@ var removeCartItem = function removeCartItem(cartItemId) {
     type: REMOVE_CART_ITEM,
     cartItemId: cartItemId
   };
-}; // const clearCartItems = id => ({
-//     type: CLEAR_CART_ITEM,
-//     id
-// })
+};
 
+var deleteCartItems = function deleteCartItems() {
+  return {
+    type: DELETE_ALL_CART_ITEMS
+  };
+};
 
 var fetchCartItem = function fetchCartItem(id) {
   return function (dispatch) {
@@ -175,6 +180,13 @@ var deleteCartItem = function deleteCartItem(id) {
   return function (dispatch) {
     return _util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteCartItem"](id).then(function (cartItemId) {
       return dispatch(removeCartItem(cartItemId));
+    });
+  };
+};
+var deleteAllCartItems = function deleteAllCartItems(cartItems) {
+  return function (dispatch) {
+    return _util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteAllCartItems"](cartItems).then(function () {
+      return dispatch(deleteCartItems());
     });
   };
 };
@@ -576,6 +588,7 @@ var Cart = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {};
+    _this.handleCheckout = _this.handleCheckout.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -596,9 +609,20 @@ var Cart = /*#__PURE__*/function (_React$Component) {
     // }
 
   }, {
+    key: "handleCheckout",
+    value: function handleCheckout() {
+      var _this2 = this;
+
+      return function (e) {
+        e.preventDefault();
+
+        _this2.props.deleteAllCartItems(_this2.props.cartItems).then(_this2.props.openModal('checkout'));
+      };
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var _this$props = this.props,
           currentUserId = _this$props.currentUserId,
@@ -618,7 +642,7 @@ var Cart = /*#__PURE__*/function (_React$Component) {
           quantity: item.quantity,
           updateCartItem: updateCartItem,
           deleteCartItem: deleteCartItem,
-          toggleOpen: _this2.props.toggleOpen
+          toggleOpen: _this3.props.toggleOpen
         });
       });
       var cartStatus = cartItems.length === 0 ? emptyCart : itemsInCart;
@@ -646,9 +670,7 @@ var Cart = /*#__PURE__*/function (_React$Component) {
         className: "subtotal"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Subtotal (Tax Excl.)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "$", totalPrice, ".00")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "checkout",
-        onClick: function onClick() {
-          _this2.props.openModal('checkout');
-        }
+        onClick: this.handleCheckout()
       }, "Checkout"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         "class": "fab fa-cc-visa"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -949,8 +971,8 @@ var mapDTP = function mapDTP(dispatch) {
     updateCartItem: function updateCartItem(cartItemId) {
       return dispatch(Object(_actions_cart_actions__WEBPACK_IMPORTED_MODULE_2__["updateCartItem"])(cartItemId));
     },
-    deleteCartItem: function deleteCartItem(id) {
-      return dispatch(Object(_actions_cart_actions__WEBPACK_IMPORTED_MODULE_2__["deleteCartItem"])(id));
+    deleteAllCartItems: function deleteAllCartItems() {
+      return dispatch(Object(_actions_cart_actions__WEBPACK_IMPORTED_MODULE_2__["deleteAllCartItems"])());
     },
     openModal: function openModal(type) {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["openModal"])(type));
@@ -3374,6 +3396,9 @@ var cartItemsReducer = function cartItemsReducer() {
       delete newState[action.cartItemId.id];
       return newState;
 
+    case _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__["DELETE_ALL_CART_ITEMS"]:
+      return {};
+
     default:
       return oldState;
   }
@@ -3734,7 +3759,7 @@ var configureStore = function configureStore() {
 /*!****************************************!*\
   !*** ./frontend/util/cart_api_util.js ***!
   \****************************************/
-/*! exports provided: fetchCartItem, fetchAllCartItems, createCartItem, updateCartItem, deleteCartItem */
+/*! exports provided: fetchCartItem, fetchAllCartItems, createCartItem, updateCartItem, deleteCartItem, deleteAllCartItems */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3744,6 +3769,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createCartItem", function() { return createCartItem; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateCartItem", function() { return updateCartItem; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteCartItem", function() { return deleteCartItem; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteAllCartItems", function() { return deleteAllCartItems; });
 var fetchCartItem = function fetchCartItem(id) {
   return $.ajax({
     method: "GET",
@@ -3787,13 +3813,16 @@ var deleteCartItem = function deleteCartItem(id) {
     method: "DELETE",
     url: "/api/carts/".concat(id)
   });
-}; // export const deleteAllCartItems= cart_items => (
-//     $.ajax({
-//         method: 'DELETE',
-//         url: `/api/carts`,
-//         data: { cart_items }
-//     })
-// )
+};
+var deleteAllCartItems = function deleteAllCartItems(cart_items) {
+  return $.ajax({
+    method: 'DELETE',
+    url: "/api/carts",
+    data: {
+      cart_items: cart_items
+    }
+  });
+};
 
 /***/ }),
 

@@ -6,6 +6,8 @@ class Cart extends React.Component {
     constructor(props) {
         super(props)
         this.state = {}
+        
+        this.handleCheckout = this.handleCheckout.bind(this)
     }
 
     componentDidMount() {
@@ -25,6 +27,16 @@ class Cart extends React.Component {
     //         }
     //     }
     // }
+
+    handleCheckout(){
+        return(e) => {
+            e.preventDefault();
+            this.props.deleteAllCartItems(this.props.cartItems)
+            .then(this.props.openModal('checkout'))
+        }
+
+        
+    }
 
 
 
@@ -82,9 +94,7 @@ class Cart extends React.Component {
                                 <p>Subtotal (Tax Excl.)</p>
                                 <div>${totalPrice}.00</div>
                             </div>
-                            <button className="checkout" onClick={() => {
-                                this.props.openModal('checkout')}
-                                }>   
+                            <button className="checkout" onClick={this.handleCheckout()}>   
                                 Checkout
                             </button>
                             <div>

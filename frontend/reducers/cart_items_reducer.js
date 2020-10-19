@@ -1,4 +1,4 @@
-import { RECEIVE_CART_ITEM, RECEIVE_CART_ITEMS, REMOVE_CART_ITEM } from '../actions/cart_actions';
+import { RECEIVE_CART_ITEM, RECEIVE_CART_ITEMS, REMOVE_CART_ITEM, DELETE_ALL_CART_ITEMS } from '../actions/cart_actions';
 
 
 const cartItemsReducer = (oldState = {}, action) => {
@@ -21,6 +21,8 @@ const cartItemsReducer = (oldState = {}, action) => {
         case REMOVE_CART_ITEM:
             delete newState[action.cartItemId.id]
             return newState;
+        case DELETE_ALL_CART_ITEMS:
+            return {};
         default:
             return oldState;
 
