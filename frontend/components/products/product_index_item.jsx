@@ -18,7 +18,7 @@ class ProductIndexItem extends React.Component {
 
             <div className="testing">
                 <div className="sub-category-container">
-                    <Link to={`/products/${id}`} className="product-link" className="product-itm-link">
+                    <Link to={`/products/${name}/${id}`} className="product-link" className="product-itm-link">
 
                         <div><img src={photoUrls[0]} width="150px" height="380px" /></div>
                         <h2>{name}</h2>

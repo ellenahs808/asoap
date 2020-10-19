@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 import LoginFormContainer from '../../components/session_form/login_form_container';
 import SignupFormContainer from '../../components/session_form/signup_form_container';
 // import CartContainer from '../cart/cart_container';
-// import SearchContainer from '../search/searchContainer'
 import CheckoutContainer from '../cart/cart_checkout_container'
+import SearchContainer from '../search/search_container'
 
 
 
@@ -24,6 +24,9 @@ function Modal({ modal, closeModal }) {
             break;
         case 'checkout':
             component = <CheckoutContainer />
+            break;
+        case 'search':
+            component = <SearchContainer />
             break;
         default:
             return null;

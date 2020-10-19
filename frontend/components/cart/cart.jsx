@@ -10,7 +10,7 @@ class Cart extends React.Component {
     }
 
 
-    
+
     componentDidMount() {
         this.props.fetchProducts()
         this.props.fetchAllCartItems()
@@ -45,7 +45,7 @@ class Cart extends React.Component {
                     quantity={item.quantity}
                     updateCartItem={updateCartItem}
                     deleteCartItem={deleteCartItem}
-                    toggleOpen={this.props.toggleOpen}
+                    openToggle={this.props.openToggle}
                 />
             )
         })

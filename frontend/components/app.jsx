@@ -26,7 +26,7 @@ const App = () => (
         <Route exact path="/skin" component={SkinIndexContainer}/>
         <Route exact path="/hair" component={HairIndexContainer}/>
         <Route exact path="/body" component={BodyIndexContainer}/>
-        <Route exact path='/products/:productId' component={ProductShowContainer} />
+        <Route exact path='/products/:productName/:productId' component={ProductShowContainer} />
         <Route exact path='/cart' component={Cart} />
 
 
