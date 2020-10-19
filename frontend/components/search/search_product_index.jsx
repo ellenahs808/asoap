@@ -107,11 +107,12 @@ class SearchProducts extends React.Component {
 
             
                     <div className="asoap-logo"><Link to="/"><img src={window.images.logo} onClick={this.close}/></Link>
+                        <br /><br /><br /><br />
                         <div className='search-form-wrap'>
                             <input type="text" value={ this.state.search } onChange={this.handleInput()} className="search-input" />
 
-                            <ul className='search-results'>
-                                {filtered}
+                            <ul onClick={() => this.props.closeModal()}>
+                                <li>{filtered}</li>
                             </ul>
 
                         </div>

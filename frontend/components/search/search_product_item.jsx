@@ -9,7 +9,7 @@ const SearchProductItem = (props) => {
 
     return(
         <div className='searched-item-container'>
-            <Link className='search-link' to={`/products/${product.name}/${product.id}`}>
+            <Link className="searched-item-link" to={`/products/${product.name}/${product.id}`}>
                 <span className='searched-item'>
                     {product.name}
                 </span>
