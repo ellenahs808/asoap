@@ -2977,7 +2977,8 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
       password: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.handleDemoSubmit = _this.handleDemoSubmit.bind(_assertThisInitialized(_this)); // this.demoTyper = this.demoTyper.bind(this);
+    _this.handleDemoSubmit = _this.handleDemoSubmit.bind(_assertThisInitialized(_this));
+    _this.greetings = _this.greetings.bind(_assertThisInitialized(_this)); // this.demoTyper = this.demoTyper.bind(this);
 
     return _this;
   }
@@ -2987,8 +2988,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
-      this.props.login(user);
-      this.props.closeModal();
+      this.props.login(user); // this.props.closeModal() 
     }
   }, {
     key: "handleDemoSubmit",
@@ -3047,6 +3047,23 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
       };
     }
   }, {
+    key: "greetings",
+    value: function greetings() {
+      var date = new Date();
+      var hours = date.getHours();
+      var timeOfDay;
+
+      if (hours < 12) {
+        timeOfDay = "morning";
+      } else if (hours >= 12 && hours < 17) {
+        timeOfDay = "afternoon";
+      } else {
+        timeOfDay = "evening";
+      }
+
+      return timeOfDay;
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this3 = this;
@@ -3061,9 +3078,9 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
           return _this3.props.closeModal();
         },
         className: "close-btn"
-      }, "x"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      }, "x"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-header"
-      }, "Welcome back to As\xF5ap"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Good ", this.greetings(), "."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Welcome back to As\xF5ap")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "login-form",
         onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -3211,7 +3228,6 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       first_name: '',
       last_name: ''
     };
-    _this.greetings = _this.greetings.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -3249,32 +3265,19 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       this.props.clearSessionErrors();
     }
   }, {
-    key: "greetings",
-    value: function greetings() {
-      var date = new Date();
-      var hours = date.getHours();
-      var timeOfDay;
-
-      if (hours < 12) {
-        timeOfDay = "morning";
-      } else if (hours >= 12 && hours < 17) {
-        timeOfDay = "afternoon";
-      } else {
-        timeOfDay = "night";
-      }
-
-      return timeOfDay;
-    }
-  }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       var _this$props = this.props,
           formType = _this$props.formType,
           errors = _this$props.errors;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-modal-form"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/",
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        onClick: function onClick() {
+          return _this3.props.closeModal();
+        },
         className: "close-btn"
       }, "x"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-header"
