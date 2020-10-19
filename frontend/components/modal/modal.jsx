@@ -31,9 +31,7 @@ function Modal({ modal, closeModal }) {
 
     return (
         <div className="modal-screen" onClick={closeModal}>
-            <div className="modal-form" onClick={(e) => e.stopPropagation()}>
-                {component}
-            </div>
+            {component}
         </div>
     )
 };

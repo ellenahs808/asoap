@@ -1216,12 +1216,7 @@ function Modal(_ref) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-screen",
     onClick: closeModal
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "modal-form",
-    onClick: function onClick(e) {
-      return e.stopPropagation();
-    }
-  }, component));
+  }, component);
 }
 
 ;
