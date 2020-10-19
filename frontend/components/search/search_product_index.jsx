@@ -71,6 +71,7 @@ class SearchProducts extends React.Component {
             }
         })
 
+        
 
         let filtered;
         if (!products.length) {
