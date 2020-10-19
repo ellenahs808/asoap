@@ -1,5 +1,7 @@
 class Api::CartsController < ApplicationController
 
+    before_action :require_logged_in, only: [:create, :update, :destroy]
+
     def index
         # @cart_items = Cart.where(user_id: current_user.id)
         
@@ -24,60 +26,39 @@ class Api::CartsController < ApplicationController
 
 
     def create
-        # @cart_items = Cart.where(user_id: current_user.id)
-        # @cart_item = Cart.find_by(user_id: current_user.id, product_id: cart_item_params[:product_id])
-
-        # if current_user
-        #     if @cart_item.nil?
-        #         @cart_item = Cart.new(cart_item_params)
-        #         debugger
-        #         @cart_item.user_id = current_user.id
-        #         @cart_item.save 
-        #         # render :index
-        #         console.log("Cart Created")
-        #     else
-        #         new_quantity = @cart_item.quantity + params[:cart_item][:quantity][:user_id].to_i
-        #         @cart_item.update(quantity: new_quantity)
-        #         render :index
-        #     end
-        # else
-        #     render json: ['Please Sign In'], status: 422
-        # end
-
+        @cart_items = Cart.where(user_id: current_user.id)
         @cart_item = Cart.new(cart_item_params)
-        # debugger
-      
+        
         if @cart_item.save 
             render :show 
             # render json: @cart_item
         else 
             render json: @cart_item.errors.full_messages, status: 422
-            # render json: {message: "Failed to add cart"}, status: 422
-
         end
 
+
+        # debugger
     end
     
 
     def update
-        # @cart_items = Cart.where(user_id: current_user.id)
-
-        # @cart_item = Cart.find(params[:id])
-
-        # if @cart_item.update(cart_item_params)
-        #     render :index
-        # else
-        #     render json: ['Something went wrong, please try again'], status: 422
-        # end
-
         # debugger
-        @cart_item = Cart.find_by(id: params[:id])
-        # @cart_item = Cart.find(params[:id])
+        # @cart_item = Cart.find_by(id: params[:id])
+        @cart_item = Cart.find_by(user_id: current_user.id, product_id: cart_item_params[:product_id]);
 
-        if @cart_item.update(cart_item_params)
-            render :show
-        else 
-            render json: @cart_item.errors.full_messages, status: 422
+        if @cart_item
+            if @cart_item.update(cart_item_params)
+                render :show
+            else 
+                render json: @cart_item.errors.full_messages, status: 422
+            end
+        else
+            @cart_item = Cart.find_by(id: params[:id])
+                if @cart_item.update(cart_item_params)
+                    render :show
+                else 
+                    render json: @cart_item.errors.full_messages, status: 422
+                end
         end
     end
 
@@ -86,10 +67,20 @@ class Api::CartsController < ApplicationController
         # @cart_item = Cart.where(user_id: current_user.id)
         # debugger
         @cart_item = Cart.find_by(id: params[:id])
+        # @cart_item = Cart.find_by(user_id: current_user.id, product_id: cart_item_params[:product_id]);
         @cart_item.destroy
         render :show
+        # render json: "Destroyed"
     end
 
+
+
+    def destroy_all
+        @cart_items = Cart.where(user_id: current_user.id)
+
+        @cart_items.destroy_all
+        render :index
+    end 
 
 
 

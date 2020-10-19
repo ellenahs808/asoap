@@ -56,15 +56,15 @@ class CategorySidebar extends React.Component {
 
 
                     
-                        <div className="asoap-logo"><Link to="/"><img src={window.images.logo} onClick={this.close}/></Link></div>
-                                <ul className="sidebar-category-li">
-                                    <li className="skin-category"><Link to="/skin" className="skin-link" onMouseEnter={this.handleHoverCategory("Skin")} onClick={this.close} >Skin</Link></li>
-                                    <li className="hair-category"><Link to="/hair" className="hair-link" onClick={this.close} >Hair</Link></li>
-                                    <li className="body-category"><Link to="/body" className="body-link" onClick={this.close} >Body & Hand</Link></li>
-                                </ul>
+                            <div className="asoap-logo"><Link to="/"><img src={window.images.logo} onClick={this.close}/></Link></div>
+                                    <ul className="sidebar-category-li">
+                                        <li className="skin-category"><Link to="/skin" className="skin-link" onMouseEnter={this.handleHoverCategory("Skin")} onClick={this.close} >Skin</Link></li>
+                                        <li className="hair-category"><Link to="/hair" className="hair-link" onClick={this.close} >Hair</Link></li>
+                                        <li className="body-category"><Link to="/body" className="body-link" onClick={this.close} >Body & Hand</Link></li>
+                                    </ul>
                          
-                            </div>
                         </div>
+                    </div>
                 
             </div>
         )

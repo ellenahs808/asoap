@@ -25,7 +25,7 @@ class LeftNavbar extends React.Component {
                     <li className="shop-link" onClick={this.open}>Shop</li>
                     <li className="read-link" onClick={this.open}>Read</li>
                     <li className="stores-link" onClick={this.open}>Stores</li>
-                    <li className="search-link" onClick={this.open}>Search</li>
+                    <li className="search-link" onClick={() => this.props.openModal('search')}>Search</li>
                 </ul>
             </div>
         )

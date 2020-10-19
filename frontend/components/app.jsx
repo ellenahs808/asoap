@@ -2,7 +2,7 @@ import React from "react";
 import { AuthRoute } from '../util/route_util';
 import { Link, Switch, Route } from 'react-router-dom';
 
-
+import ModalContainer from '../components/modal/modal_container'
 import MainNavbarContainer from './navbar/main_navbar_container'
 import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
@@ -17,7 +17,7 @@ import Cart from './cart/cart'
 
 const App = () => (
     <div>
-        
+        <div><ModalContainer /></div>
         <header><MainNavbarContainer /></header>
 
         <Route exact path="/" component={Homepage}/>
@@ -26,7 +26,7 @@ const App = () => (
         <Route exact path="/skin" component={SkinIndexContainer}/>
         <Route exact path="/hair" component={HairIndexContainer}/>
         <Route exact path="/body" component={BodyIndexContainer}/>
-        <Route exact path='/products/:productId' component={ProductShowContainer} />
+        <Route exact path='/products/:productName/:productId' component={ProductShowContainer} />
         <Route exact path='/cart' component={Cart} />
 
 

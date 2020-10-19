@@ -1,14 +1,14 @@
 import { IS_OPEN, IS_CLOSED } from '../actions/navbar_actions';
 
-const navbarReducer = (oldState = {isOpen: false}, action) => {
-    Object.freeze(oldState);
+const navbarReducer = (state = {isOpen: false}, action) => {
+    Object.freeze(state);
     switch (action.type) {
         case IS_OPEN:
             return { isOpen: action.isOpen }
         case IS_CLOSED:
             return { isClosed: action.isClosed }
         default:
-            return oldState;
+            return state;
     }
 };
 

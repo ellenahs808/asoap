@@ -13,6 +13,7 @@ class SignupForm extends React.Component {
             confirm_password: '',
             first_name: '',
             last_name: '',
+            // errors: {}
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,10 +27,12 @@ class SignupForm extends React.Component {
             alert("Passwords do not match");
         } else {
             const user = Object.assign({}, this.state);
-            this.props.processForm(user);
+            this.props.signup(user);
+            // this.props.closeModal();
         };
     }
- 
+
+
 
 
 
@@ -47,14 +50,19 @@ class SignupForm extends React.Component {
 
 
 
+
     render() {
         const { formType, errors } = this.props;
 
         return (
             <div className="signup-modal-form">
-                <Link to="/" className="close-btn">x</Link>
-                <h1 className="signup-header">Welcome to Asõap</h1>
+                <p onClick={() => this.props.closeModal()} className="close-btn">x</p>
+                <div className="signup-header">
+                    <h2>It seems you are new to us. </h2>
+                    <h2>Welcome to Asõap</h2>
+                </div>
                     <p className="signup-par">To create an account, please enter your details below</p>
+                    
                     <form onSubmit={this.handleSubmit}>
                         <ul className="signup-form">
                             <label className="signup-email-label">
@@ -110,11 +118,11 @@ class SignupForm extends React.Component {
                             </div>
                         </ul>
                         <br/>
-                    <input className="signup-btn" type="submit" value={formType} />
+                        <input className="signup-btn" type="submit" value={formType} />
                         <br/>
-                        <Link className="signup-footer" to="/login">
-                            <p>Do you already have an Asõap account?</p>
-                        </Link>
+                        <div className="signup-footer" onClick={() => this.props.openModal('login')}>
+                            Do you already have an Asõap account?
+                        </div>
                     </form>
             </div>
 

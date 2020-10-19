@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy, :show]
     resources :products, only: [:index, :show]
     resources :carts, only: [:index, :create, :update, :destroy, :show]
+    delete '/carts', to: 'carts#destroy_all'
   end
 
   

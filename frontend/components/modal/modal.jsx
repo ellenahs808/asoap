@@ -1,35 +1,39 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { openModal, closeModal } from '../../actions/modal_actions';
+
+
 import LoginFormContainer from '../../components/session_form/login_form_container';
 import SignupFormContainer from '../../components/session_form/signup_form_container';
 // import CartContainer from '../cart/cart_container';
-// import SearchContainer from '../search/searchContainer'
+import CheckoutContainer from '../cart/cart_checkout_container'
+import SearchContainer from '../search/search_container'
 
 
 
-
-function Modal({ openModal, closeModal }) {
-    if (!openModal) {
+function Modal({ modal, closeModal }) {
+    if (!modal) {
         return null;
     }
     let component;
-    switch (openModal) {
+    switch (modal) {
         case 'login':
             component = <LoginFormContainer />;
             break;
         case 'signup':
             component = <SignupFormContainer />
             break;
-        // case 'search':
-        //     return (
-        //         <SearchContainer />
-        //     )
+        case 'checkout':
+            component = <CheckoutContainer />
+            break;
+        case 'search':
+            component = <SearchContainer />
+            break;
         default:
             return null;
     }
+
     return (
-        <div className="modal-background" onClick={closeModal}>
+        <div className="modal-screen" onClick={closeModal}>
             <div className="modal-child" onClick={e => e.stopPropagation()}>
                 {component}
             </div>
@@ -38,3 +42,4 @@ function Modal({ openModal, closeModal }) {
 };
 
 
+export default Modal;

@@ -45,7 +45,7 @@ class CartItem extends React.Component {
         return (
             <div>
                 <div className="cart-item">
-                    <Link to={`/products/${product.id}`} onClick={openToggle}>
+                    <Link to={`/products/${product.name}/${product.id}`} onClick={openToggle}>
                         { product.name }
                     </Link>
                     <h2>{ product.size }</h2>
@@ -70,7 +70,7 @@ class CartItem extends React.Component {
                         </div>
                     </div>
                     <div>{quantity}</div>
-                    <div>${ product.price }.00</div>
+                    <div>${ product.price * quantity }.00</div>
                 </div>
 
             </div>
