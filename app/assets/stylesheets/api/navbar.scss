@@ -452,7 +452,7 @@ color: #000;
 }
 
 .first-sidebar-nav-li-div {
-  // display: block;
+  // display: flex;
   float: left;
   justify-content: space-evenly;
   padding-top: 40px;
@@ -487,13 +487,6 @@ color: #000;
   background-color: transparent;
   outline: none;
   cursor: pointer;
-
-  
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
 
 }
 
