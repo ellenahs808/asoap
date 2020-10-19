@@ -66,7 +66,7 @@ class CartItem extends React.Component {
                             {this.quantityDropDown()}
                         </select>
                         <div className="remove-cart-item">
-                            <button onClick={() =>  this.props.deleteCartItem(this.props.cartId) }>Remove</button>
+                            <button onClick={() => this.props.deleteCartItem(this.props.cartId) }>Remove</button>
                         </div>
                     </div>
                     <div>{quantity}</div>

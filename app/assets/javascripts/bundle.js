@@ -1033,6 +1033,9 @@ var mapDTP = function mapDTP(dispatch) {
     updateCartItem: function updateCartItem(cartItemId) {
       return dispatch(Object(_actions_cart_actions__WEBPACK_IMPORTED_MODULE_2__["updateCartItem"])(cartItemId));
     },
+    deleteCartItem: function deleteCartItem(cartItemId) {
+      return dispatch(Object(_actions_cart_actions__WEBPACK_IMPORTED_MODULE_2__["deleteCartItem"])(cartItemId));
+    },
     deleteAllCartItems: function deleteAllCartItems() {
       return dispatch(Object(_actions_cart_actions__WEBPACK_IMPORTED_MODULE_2__["deleteAllCartItems"])());
     },

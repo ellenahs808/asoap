@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { fetchProducts } from '../../actions/product_actions'
-import { fetchAllCartItems, updateCartItem, deleteAllCartItems } from '../../actions/cart_actions'
+import { fetchAllCartItems, updateCartItem, deleteCartItem, deleteAllCartItems } from '../../actions/cart_actions'
 import { openModal } from '../../actions/modal_actions'
 import Cart from './cart'
 
@@ -20,9 +20,10 @@ const mapDTP = dispatch => ({
 
     fetchProducts: () => dispatch(fetchProducts()),
     fetchAllCartItems: () => dispatch(fetchAllCartItems()),
-    updateCartItem: (cartItemId) => dispatch(updateCartItem(cartItemId)),
+    updateCartItem: cartItemId => dispatch(updateCartItem(cartItemId)),
+    deleteCartItem: cartItemId => dispatch(deleteCartItem(cartItemId)),
     deleteAllCartItems: () => dispatch(deleteAllCartItems()),
-    openModal: (type) => dispatch(openModal(type))
+    openModal: type => dispatch(openModal(type))
 })
 
 
