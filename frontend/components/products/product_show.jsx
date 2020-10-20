@@ -16,7 +16,7 @@ class ProductShowItem extends React.Component {
 
         this.handleClick = this.handleClick.bind(this)
         this.addItem = this.addItem.bind(this)
-        this.openToggle = this.openToggle.bind(this)
+
     }
 
 
@@ -85,7 +85,7 @@ class ProductShowItem extends React.Component {
 
     handleClick(e) {
 
-        e.preventDefault();
+        // e.preventDefault();
         // debugger
 
         if (this.props.currentUserId) {
@@ -96,9 +96,10 @@ class ProductShowItem extends React.Component {
             return (
                 this.addItem(this.props.product),
                 // this.props.history.push('/cart')
-                this.props.history.goBack(),
+                // this.addedToCart()
+                this.props.history.goBack()
                 // this.props.history.goBack()
-                this.openToggle()
+                
             )
         } else {
             this.props.openModal('login')
@@ -177,7 +178,9 @@ class ProductShowItem extends React.Component {
                             </div>
                           
                                 <button className="cart-btn" onClick={this.handleClick}>Add to your cart - ${price}.00</button>
+
                             </div>
+                            <div className="quantity-added-to-cart"> Item added to cart</div>
                     </div>
                 <div>
             </div>

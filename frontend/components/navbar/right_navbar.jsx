@@ -30,15 +30,6 @@ class RightNavbar extends React.Component {
     loggedInOrOut() {
         if (this.props.loggedIn) {
             return (
-                // <div className="right-nav">
-                //     <div className="right-nav-greeting">
-                //         <h1 className="login-greeting">Hi, {this.props.currentUser.first_name} {this.props.currentUser.last_name}</h1>
-
-
-                //         <Link to="/" className="logout-link" onClick={this.handleLogout()}>Log Out</Link>
-                //     </div>
-                // </div>
-
 
                 <div className="right-nav">
                     <div className="right-nav-greeting">
@@ -51,15 +42,6 @@ class RightNavbar extends React.Component {
             )
         } else {
             return (
-                // <nav className="right-nav">
-                //     <div className="logged-out">
-                //         <ul className="login-register">
-                //             <li><Link className="login-link" to="/login" >Login</Link> </li>
-                //             <li><Link className="signup-link" to="/signup" >Register</Link></li>
-                //         </ul>
-                //     </div>
-                // </nav>
-
 
                 <nav className="right-nav">
                     <div className="logged-out">
@@ -70,7 +52,6 @@ class RightNavbar extends React.Component {
                     </div>
                 </nav>
 
-
             )
         }
     }
@@ -78,32 +59,7 @@ class RightNavbar extends React.Component {
 
 
     render() {
-        const { currentUser } = this.props
-        // const cart = <CartItemContainer openToggle={this.openToggle}/>
 
-        // const loggedIn = () => (
-        //     <div className="right-nav">
-        //         <div className="right-nav-greeting">
-        //             <h1 className="login-greeting">Hi, {currentUser.first_name} {props.currentUser.last_name}</h1>
-        //             <Link to="/cart" className="cart-link">Cart
-        //                 <div className="cart-open" onClick={this.openToggle}>Cart Open</div>
-        //             </Link>
-        //             <Link to="/" className="logout-link" onClick={props.logout}>Log Out</Link>
-        //         </div>
-        //     </div>
-        // )
-
-
-        // const loggedOut = () => (
-        //     <nav className="right-nav">
-        //         <div className="logged-out">
-        //             <ul className="login-register">
-        //                 <li><Link className="login-link" to="/login" >Login</Link> </li>
-        //                 <li><Link className="signup-link" to="/signup" >Register</Link></li>
-        //             </ul>
-        //         </div>
-        //    </nav>
-        // )
         return (
             <div>
 

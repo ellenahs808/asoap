@@ -36,17 +36,27 @@ class MainNavbar extends Component {
 
     render() {
 
-
+        // debugger
         const cart = <CartItemContainer openToggle={this.openToggle} />
+
+        let totalQty = 0
+        this.props.cartItems.forEach((item) => {
+            totalQty += item.quantity
+        })
+
+        let showQty = this.props.cartItems.length ? <div className="show-qty-div"><p className="show-qty">{totalQty}</p></div> : null
+        
 
         // let shoppingCart = <div className="cart-open" onClick={this.openToggle}>Cart</div>
 
-        let shoppingCart = this.props.currentUser ? <div className="cart-open" onClick={this.openToggle}>Cart</div> : null
+        let shoppingCart = this.props.currentUser ? <div className="cart-display"><div className="cart-open" onClick={this.openToggle}>Cart</div>{showQty}</div> : null
+        {/* <div className="show-qty-div"><p className="show-qty">{showQty}</p></div> */}
 
         // let testing2 = <div className="cart-open-none" onClick={this.openToggle}>Cart Open</div>
 
         return (
             <div>
+                {/* <p>{totalQty}</p> */}
                 {this.state.open && cart}
                 <nav className="banner"><Banner /></nav>
                 <div className="main-nav">

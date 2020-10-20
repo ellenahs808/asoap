@@ -226,30 +226,35 @@ var closeModal = function closeModal() {
 /*!********************************************!*\
   !*** ./frontend/actions/navbar_actions.js ***!
   \********************************************/
-/*! exports provided: IS_OPEN, IS_CLOSED, HOVER_CATEGORY, openSidebar, closeSidebar, hoverCategory */
+/*! exports provided: HOVER_PRODUCT, HOVER_CATEGORY, hoverProduct, hoverCategory */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IS_OPEN", function() { return IS_OPEN; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IS_CLOSED", function() { return IS_CLOSED; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HOVER_PRODUCT", function() { return HOVER_PRODUCT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HOVER_CATEGORY", function() { return HOVER_CATEGORY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "openSidebar", function() { return openSidebar; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeSidebar", function() { return closeSidebar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hoverProduct", function() { return hoverProduct; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hoverCategory", function() { return hoverCategory; });
-var IS_OPEN = 'IS_OPEN';
-var IS_CLOSED = 'IS_CLOSED';
-var HOVER_CATEGORY = 'HOVER_CATEGORY';
-var openSidebar = function openSidebar(isOpen) {
+// export const IS_OPEN = 'IS_OPEN';
+// export const IS_CLOSED = 'IS_CLOSED';
+var HOVER_PRODUCT = 'HOVER_PRODUCT';
+var HOVER_CATEGORY = 'HOVER_CATEGORY'; // export const openSidebar = isOpen => ({
+//     type: IS_OPEN,
+//     isOpen
+// });
+// export const closeSidebar = isClosed => ({
+//     type: IS_CLOSED,
+//     isClosed,
+// });
+// export const hoverCategory = category => ({
+//     type: HOVER_CATEGORY,
+//     category
+// });
+
+var hoverProduct = function hoverProduct(productId) {
   return {
-    type: IS_OPEN,
-    isOpen: isOpen
-  };
-};
-var closeSidebar = function closeSidebar(isClosed) {
-  return {
-    type: IS_CLOSED,
-    isClosed: isClosed
+    type: HOVER_PRODUCT,
+    productId: productId
   };
 };
 var hoverCategory = function hoverCategory(category) {
@@ -1586,18 +1591,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- //might add productsByCategory selectors here
-// const mapSTP = state => {
+ // const mapSTP = state => {
 //     // console.log(state)
 //     return {isOpen: state.entities.navbar.isOpen, skinCategory} 
 // };
-
-var mapSTP = function mapSTP(state) {
-  return {
-    isOpen: state.ui.navbar.isOpen // skinCategory: productsByCategory(state, "Skin")  
-
-  };
-};
+// const mapSTP = state => ({
+// })
 
 var mapDTP = function mapDTP(dispatch) {
   return {
@@ -1619,7 +1618,7 @@ var mapDTP = function mapDTP(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapSTP, mapDTP)(_category_sidebar__WEBPACK_IMPORTED_MODULE_3__["default"])); // const mSTP = (state) => ({
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(null, mapDTP)(_category_sidebar__WEBPACK_IMPORTED_MODULE_3__["default"])); // const mSTP = (state) => ({
 //     is_open: state.entities.navBar.isOpen,
 //     currentUser: state.session.id
 // })
@@ -1861,14 +1860,29 @@ var MainNavbar = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      // debugger
       var cart = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_cart_cart_item_container__WEBPACK_IMPORTED_MODULE_5__["default"], {
         openToggle: this.openToggle
-      }); // let shoppingCart = <div className="cart-open" onClick={this.openToggle}>Cart</div>
+      });
+      var totalQty = 0;
+      this.props.cartItems.forEach(function (item) {
+        totalQty += item.quantity;
+      });
+      var showQty = this.props.cartItems.length ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "show-qty-div"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "show-qty"
+      }, totalQty)) : null; // let shoppingCart = <div className="cart-open" onClick={this.openToggle}>Cart</div>
 
       var shoppingCart = this.props.currentUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "cart-display"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "cart-open",
         onClick: this.openToggle
-      }, "Cart") : null; // let testing2 = <div className="cart-open-none" onClick={this.openToggle}>Cart Open</div>
+      }, "Cart"), showQty) : null;
+      {
+        /* <div className="show-qty-div"><p className="show-qty">{showQty}</p></div> */
+      } // let testing2 = <div className="cart-open-none" onClick={this.openToggle}>Cart Open</div>
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.state.open && cart, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "banner"
@@ -1910,7 +1924,7 @@ __webpack_require__.r(__webpack_exports__);
 var mapSTP = function mapSTP(state) {
   return {
     currentUser: state.entities.users[state.session.id],
-    cartItems: state.entities.cartItems
+    cartItems: Object.values(state.entities.cartItems)
   };
 };
 
@@ -2005,85 +2019,42 @@ var RightNavbar = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       if (this.props.loggedIn) {
-        return (
-          /*#__PURE__*/
-          // <div className="right-nav">
-          //     <div className="right-nav-greeting">
-          //         <h1 className="login-greeting">Hi, {this.props.currentUser.first_name} {this.props.currentUser.last_name}</h1>
-          //         <Link to="/" className="logout-link" onClick={this.handleLogout()}>Log Out</Link>
-          //     </div>
-          // </div>
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "right-nav"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "right-nav-greeting"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-            className: "login-greeting"
-          }, "Hi, ", this.props.currentUser.first_name, " ", this.props.currentUser.last_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-            to: "/",
-            className: "logout-link",
-            onClick: function onClick() {
-              return _this2.props.logout();
-            }
-          }, "Log Out")))
-        );
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "right-nav"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "right-nav-greeting"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+          className: "login-greeting"
+        }, "Hi, ", this.props.currentUser.first_name, " ", this.props.currentUser.last_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          to: "/",
+          className: "logout-link",
+          onClick: function onClick() {
+            return _this2.props.logout();
+          }
+        }, "Log Out")));
       } else {
-        return (
-          /*#__PURE__*/
-          // <nav className="right-nav">
-          //     <div className="logged-out">
-          //         <ul className="login-register">
-          //             <li><Link className="login-link" to="/login" >Login</Link> </li>
-          //             <li><Link className="signup-link" to="/signup" >Register</Link></li>
-          //         </ul>
-          //     </div>
-          // </nav>
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-            className: "right-nav"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "logged-out"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-            className: "login-register"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-            className: "login-link",
-            onClick: function onClick() {
-              return _this2.props.openModal("login");
-            }
-          }, "Login")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-            className: "signup-link",
-            onClick: function onClick() {
-              return _this2.props.openModal("signup");
-            }
-          }, "Register")))))
-        );
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+          className: "right-nav"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "logged-out"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+          className: "login-register"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "login-link",
+          onClick: function onClick() {
+            return _this2.props.openModal("login");
+          }
+        }, "Login")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "signup-link",
+          onClick: function onClick() {
+            return _this2.props.openModal("signup");
+          }
+        }, "Register")))));
       }
     }
   }, {
     key: "render",
     value: function render() {
-      var currentUser = this.props.currentUser; // const cart = <CartItemContainer openToggle={this.openToggle}/>
-      // const loggedIn = () => (
-      //     <div className="right-nav">
-      //         <div className="right-nav-greeting">
-      //             <h1 className="login-greeting">Hi, {currentUser.first_name} {props.currentUser.last_name}</h1>
-      //             <Link to="/cart" className="cart-link">Cart
-      //                 <div className="cart-open" onClick={this.openToggle}>Cart Open</div>
-      //             </Link>
-      //             <Link to="/" className="logout-link" onClick={props.logout}>Log Out</Link>
-      //         </div>
-      //     </div>
-      // )
-      // const loggedOut = () => (
-      //     <nav className="right-nav">
-      //         <div className="logged-out">
-      //             <ul className="login-register">
-      //                 <li><Link className="login-link" to="/login" >Login</Link> </li>
-      //                 <li><Link className="signup-link" to="/signup" >Register</Link></li>
-      //             </ul>
-      //         </div>
-      //    </nav>
-      // )
-
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.loggedInOrOut());
     }
   }]);
@@ -2642,7 +2613,6 @@ var ProductShowItem = /*#__PURE__*/function (_React$Component) {
     };
     _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
     _this.addItem = _this.addItem.bind(_assertThisInitialized(_this));
-    _this.openToggle = _this.openToggle.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2703,15 +2673,16 @@ var ProductShowItem = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleClick",
     value: function handleClick(e) {
-      e.preventDefault(); // debugger
-
+      // e.preventDefault();
+      // debugger
       if (this.props.currentUserId) {
         // return this.addItem(this.props.product);
         // return this.props.history.goBack();
         //janky :/
         return this.addItem(this.props.product), // this.props.history.push('/cart')
-        this.props.history.goBack(), // this.props.history.goBack()
-        this.openToggle();
+        // this.addedToCart()
+        this.props.history.goBack() // this.props.history.goBack()
+        ;
       } else {
         this.props.openModal('login');
       }
@@ -2810,7 +2781,9 @@ var ProductShowItem = /*#__PURE__*/function (_React$Component) {
       }, key_ingredients)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "cart-btn",
         onClick: this.handleClick
-      }, "Add to your cart - $", price, ".00"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Add to your cart - $", price, ".00")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "quantity-added-to-cart"
+      }, " Item added to cart")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "main-second-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "second-img-container"
@@ -4007,45 +3980,6 @@ function modalReducer() {
 
 /***/ }),
 
-/***/ "./frontend/reducers/navbar_reducer.js":
-/*!*********************************************!*\
-  !*** ./frontend/reducers/navbar_reducer.js ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions_navbar_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/navbar_actions */ "./frontend/actions/navbar_actions.js");
-
-
-var navbarReducer = function navbarReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
-    isOpen: false
-  };
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-  Object.freeze(state);
-
-  switch (action.type) {
-    case _actions_navbar_actions__WEBPACK_IMPORTED_MODULE_0__["IS_OPEN"]:
-      return {
-        isOpen: action.isOpen
-      };
-
-    case _actions_navbar_actions__WEBPACK_IMPORTED_MODULE_0__["IS_CLOSED"]:
-      return {
-        isClosed: action.isClosed
-      };
-
-    default:
-      return state;
-  }
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (navbarReducer);
-
-/***/ }),
-
 /***/ "./frontend/reducers/products_reducer.js":
 /*!***********************************************!*\
   !*** ./frontend/reducers/products_reducer.js ***!
@@ -4234,22 +4168,35 @@ var sessionReducer = function sessionReducer() {
 /*!**********************************************!*\
   !*** ./frontend/reducers/sidebar_reducer.js ***!
   \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_navbar_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/navbar_actions */ "./frontend/actions/navbar_actions.js");
 // import { OPEN_SIDE, CLOSE_SIDE } from '../actions/sidebar_actions';
-// const sideBarReducer = (state = null, action) => {
-//     Object.freeze(state);
-//     switch (action.type) {
-//         case OPEN_SIDE:
-//             return action.side;
-//         case CLOSE_SIDE:
-//             return null;
-//         default:
-//             return state;
-//     }
-// };
-// export default sideBarReducer;
+
+
+var sideBarReducer = function sideBarReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_navbar_actions__WEBPACK_IMPORTED_MODULE_0__["HOVER_PRODUCT"]:
+      // return action.side;
+      return action.productId;
+
+    case _actions_navbar_actions__WEBPACK_IMPORTED_MODULE_0__["HOVER_CATEGORY"]:
+      // return null;
+      return action.category;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (sideBarReducer);
 
 /***/ }),
 
@@ -4263,18 +4210,14 @@ var sessionReducer = function sessionReducer() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _navbar_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./navbar_reducer */ "./frontend/reducers/navbar_reducer.js");
-/* harmony import */ var _modal_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modal_reducer */ "./frontend/reducers/modal_reducer.js");
-/* harmony import */ var _sidebar_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sidebar_reducer */ "./frontend/reducers/sidebar_reducer.js");
-/* harmony import */ var _sidebar_reducer__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_sidebar_reducer__WEBPACK_IMPORTED_MODULE_3__);
-
+/* harmony import */ var _modal_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modal_reducer */ "./frontend/reducers/modal_reducer.js");
+/* harmony import */ var _sidebar_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sidebar_reducer */ "./frontend/reducers/sidebar_reducer.js");
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  navbar: _navbar_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  modal: _modal_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
-  sideBar: _sidebar_reducer__WEBPACK_IMPORTED_MODULE_3___default.a
+  modal: _modal_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  sideBar: _sidebar_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 }));
 
 /***/ }),
