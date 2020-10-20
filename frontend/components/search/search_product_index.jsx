@@ -14,21 +14,10 @@ class SearchProducts extends React.Component {
         }
 
         this.handleInput = this.handleInput.bind(this);
-        // this.closeSearchAnimation = this.closeSearchAnimation.bind(this);
     }
 
 
 
-
-    //doesnt work??
-    handleSlideAnimation(){
-        let searchBody = document.getElementById('search-wrap');
-        window.setTimeout(() => this.props.closeModal(), 300);
-        searchBody.style.transition = "all 0.3s ease-in-out";
-        searchBody.style.left = "-1000px";
-
-        document.getElementById("mySidenav").style.width = "500px";
-    }
 
 
     handleInput() {
@@ -38,10 +27,7 @@ class SearchProducts extends React.Component {
     }
 
 
-    // closeSearchAnimation() {
-    //     let searchBody = document.getElementById("search-wrap")
-    //     searchBody.style.width = "0";
-    // }
+
 
 
     render() {
@@ -94,9 +80,8 @@ class SearchProducts extends React.Component {
         }
 
         return (
-            <div>
-                
-                <div className="modal-background" onClick={()=>this.handleSlide()}></div>
+            <div id="slider" className="slide-in">
+
                 <div id="search-wrap">
                     <div className="first-sidebar-nav-li-div">
                         <div className="sidebar-nav-li">
@@ -116,13 +101,8 @@ class SearchProducts extends React.Component {
                             </ul>
 
                         </div>
-                    
-                    
                     </div>
                         
-               
-
-
                 </div>
 
             </div>

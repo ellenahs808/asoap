@@ -7,6 +7,7 @@ class Cart extends React.Component {
         super(props)
 
         this.handleCheckout = this.handleCheckout.bind(this)
+        // this.handleToggle = this.handleToggle.bind(this)
     }
 
 
@@ -28,6 +29,21 @@ class Cart extends React.Component {
 
         
     }
+
+
+
+    // handleToggle() {
+    //     var $slider = document.getElementById('slider');
+    //     var $toggle = document.getElementById('toggle');
+
+    //     $toggle.addEventListener('click', function() {
+    //         var isOpen = $slider.classList.contains('slide-in');
+
+    //         $slider.setAttribute('class', isOpen ? 'slide-out' : 'slide-in');
+    //     });
+
+    //     this.openToggle()
+    // }
 
 
 
@@ -62,6 +78,7 @@ class Cart extends React.Component {
         return (
        
             <main>
+         
                 <div className="cart-div">
                     <div className="cart-labels">
                         <li>Cart</li>
@@ -89,13 +106,13 @@ class Cart extends React.Component {
                                 Checkout
                             </button>
                             <div>
-                                <i class="fab fa-cc-visa"></i>
-                                <i class="fab fa-cc-mastercard"></i>
-                                <i class="fab fa-cc-amex"></i>
-                                <i class="fab fa-cc-diners-club"></i>
-                                <i class="fab fa-cc-discover"></i>
-                                <i class="fab fa-cc-paypal"></i>
-                                <i class="fab fa-alipay"></i>
+                                <i className="fab fa-cc-visa"></i>
+                                <i className="fab fa-cc-mastercard"></i>
+                                <i className="fab fa-cc-amex"></i>
+                                <i className="fab fa-cc-diners-club"></i>
+                                <i className="fab fa-cc-discover"></i>
+                                <i className="fab fa-cc-paypal"></i>
+                                <i className="fab fa-alipay"></i>
                             </div>
                         </div>
 

@@ -27,7 +27,6 @@ export const createCartItem = cart_item => (
 
 
 
-
 // export const updateCartItem = cart_item => (
 //     $.ajax({
 //         method: `PATCH`,
