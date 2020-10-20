@@ -13,9 +13,9 @@ class CartCheckout extends React.Component {
                 <p>Thank you for your purchase</p>
                 <p>Please Visit My Recent Projects!</p>
                 <div>
-                    <i class="fab fa-github"></i>
-                    <i class="fab fa-linkedin"></i>
-                    <i class="fab fa-angellist"></i>
+                    <i className="fab fa-github"></i>
+                    <i className="fab fa-linkedin"></i>
+                    <i className="fab fa-angellist"></i>
                 </div>
             </div>
         )

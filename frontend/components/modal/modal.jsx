@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 
 import LoginFormContainer from '../../components/session_form/login_form_container';
 import SignupFormContainer from '../../components/session_form/signup_form_container';
-// import CartContainer from '../cart/cart_container';
 import CheckoutContainer from '../cart/cart_checkout_container'
+import CategorySidebarContainer from '../navbar/category_sidebar_container'
 import SearchContainer from '../search/search_container'
 
 
@@ -72,6 +72,9 @@ class Modal extends React.Component {
             case 'checkout':
                 component = <CheckoutContainer />
                 break;
+            case 'sidebar':
+                component = <CategorySidebarContainer />
+                break;
             case 'search':
                 component = <SearchContainer />
                 break;
@@ -79,6 +82,7 @@ class Modal extends React.Component {
                 return null;
         }
 
+        
         return (
             <div className="modal-screen" onClick={closeModal}>
                 <div className="modal-child" onClick={e => e.stopPropagation()}>

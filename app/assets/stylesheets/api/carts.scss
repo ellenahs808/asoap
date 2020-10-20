@@ -7,24 +7,12 @@
     background: rgb(35, 35, 35);
     color: rgb(176, 174, 174);
     padding: 29px 40px;
-    animation: fadein 0.5s, second 0.5s ease-in;
-    animation-fill-mode: forwards;
+    // animation: ease-in-out 0.4s;
+    // transition: 1.5s ease-in-out;
+    // animation-fill-mode: forwards;
+
 }
 
-
-// .cart-open {
-//     width: 24px;
-//     height: 24px;
-//     background: rgb(57, 56, 56);
-//     cursor: pointer;
-//     margin-left: 20px;
-//     margin-right: 20px;
-//     border-radius: 50%;
-//     color: white;
-//     display: flex;
-//     justify-content: center;
-    
-// }
 
 
 
@@ -37,8 +25,9 @@
     align-items: center;
     padding: 16px 0px;
     border-bottom: 1px solid rgba(128, 128, 128, 0.5);
-    // animation: cart 1s ease-in; 
-    }
+
+}
+
 
 
 .cart-labels {
@@ -48,15 +37,20 @@
 }
 
 
+
 .x-btn {
     font-size: 15px;
     cursor: pointer;
 }
 
+
+
 .cart-bottom {
     display: flex;
     justify-content: space-between;
 }
+
+
 
 
 .subtotal {

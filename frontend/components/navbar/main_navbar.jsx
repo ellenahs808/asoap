@@ -17,21 +17,32 @@ class MainNavbar extends Component {
         this.openToggle = this.openToggle.bind(this)
     }
 
+
+    
     componentDidMount() {
         if (this.props.currentUser) {
             this.props.fetchAllCartItems()
         }
     }
 
+
+
     openToggle() {
         this.setState({ open: !this.state.open })
     }
 
+
+
+
     render() {
+
 
         const cart = <CartItemContainer openToggle={this.openToggle} />
 
+
         let shoppingCart = <div className="cart-open" onClick={this.openToggle}>Cart</div>
+
+
         let testing2 = <div className="cart-open-none" onClick={this.openToggle}>Cart Open</div>
 
         return (
