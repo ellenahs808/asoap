@@ -39,11 +39,11 @@ class MainNavbar extends Component {
 
         const cart = <CartItemContainer openToggle={this.openToggle} />
 
+        // let shoppingCart = <div className="cart-open" onClick={this.openToggle}>Cart</div>
 
-        let shoppingCart = <div className="cart-open" onClick={this.openToggle}>Cart</div>
+        let shoppingCart = this.props.currentUser ? <div className="cart-open" onClick={this.openToggle}>Cart</div> : null
 
-
-        let testing2 = <div className="cart-open-none" onClick={this.openToggle}>Cart Open</div>
+        // let testing2 = <div className="cart-open-none" onClick={this.openToggle}>Cart Open</div>
 
         return (
             <div>

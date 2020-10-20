@@ -85,7 +85,7 @@ class Cart extends React.Component {
                         <li>Size</li>
                         <li>Quantity</li>
                         <li>
-                            {/* doesnt work */}
+
                             <div onClick={this.props.openToggle} className="x-btn"> 
                                 <strong>X</strong>
                             </div>
