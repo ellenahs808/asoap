@@ -51,9 +51,6 @@ class CategorySidebar extends React.Component {
                                     <li className="shop-link" onClick={() => this.props.openModal('sidebar')}>Shop</li>
                                     <li><Link to="/category" className="read-link">Read</Link></li>
                                     <li><Link to="/category" className="read-link">Stores</Link></li>
-
-
-
                                     <li className="search-link" onClick={() => this.props.openModal('search')}>Search</li>
                                     <li className="sidebar-close-btn" onClick={() => this.props.closeModal()}>X</li>
                                 </ul>
