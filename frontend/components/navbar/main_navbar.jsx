@@ -52,7 +52,7 @@ class MainNavbar extends Component {
                 <div className="main-nav">
                     <nav className="left-nav">
                         <LeftNavbarContainer />
-                        <CategorySidebarContainer />
+                        {/* <CategorySidebarContainer /> */}
                     </nav>
                     <nav className="right-nav">
                         <div className="right-nav-greeting">

@@ -413,15 +413,15 @@ color: #000;
 
 
 
-.backdrop {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(68, 88, 69, 0.5);
-    height: 350%;
-}
+// .backdrop {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     background: rgba(68, 88, 69, 0.5);
+//     height: 350%;
+// }
 
 
 
@@ -507,7 +507,7 @@ color: #000;
     width: 500px;
     z-index: 15;
     opacity: 1;
-    background-color: #4cdb7c;
+    background-color: #fffef2;
     height: 350%;
     border: 0;
     border-radius: 0.1em;
@@ -518,25 +518,7 @@ color: #000;
 
 
 
-
-// .first-sidebar {
-//     height: 150%;
-//     border: 0;
-//     border-radius: 0.1em;
-//     animation: fadein 0.5s, second 0.5s ease-in;
-//     background-color: red;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: flex-start;
-//     align-items: left;
-//     width: 53.33%;
-//     // position: absolute;
-// }
-
-
-
-
-.first-sidebar-nav-li-div {
+.first-sidebar {
   float: left;
   justify-content: space-evenly;
   padding-top: 40px;
@@ -555,6 +537,7 @@ color: #000;
   justify-content: space-evenly;
   width: 500px;
   margin-right: 75px;
+  padding-top: 40px;
   padding-bottom: 30%;
 }
 
