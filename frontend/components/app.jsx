@@ -24,8 +24,8 @@ const App = () => (
         <Route exact path="/" component={Homepage}/>
         <AuthRoute path="/login" component={LoginFormContainer}/>
         <AuthRoute path="/signup" component={SignupFormContainer}/>
-        <Route exact path="/category" component={SkinIndexContainer}/>
-        <Route exact path="/skin" component={CategorySidebarContainer}/>
+        {/* <Route exact path="/category" component={SkinIndexContainer}/> */}
+        <Route exact path="/skin" component={SkinIndexContainer}/>
         <Route exact path="/hair" component={HairIndexContainer}/>
         <Route exact path="/body" component={BodyIndexContainer}/>
         <Route exact path='/products/:productName/:productId' component={ProductShowContainer} />

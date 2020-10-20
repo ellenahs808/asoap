@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from "react-router";
 
 
 
@@ -75,9 +76,16 @@ class ProductShowItem extends React.Component {
         // debugger
 
         if (this.props.currentUserId) {
-            return this.addItem(this.props.product);
+            // return this.addItem(this.props.product);
+            // return this.props.history.goBack();
+
+            //janky :/
+            return (
+                this.addItem(this.props.product),
+                this.props.history.goBack()
+            )
         } else {
-            return this.props.history.push('/login')
+            this.props.openModal('login')
         }
     }
 

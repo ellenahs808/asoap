@@ -45,7 +45,7 @@ class CategorySidebar extends React.Component {
             <div id="slider2" className="slide-in2">
                     <div className="category-div">
                   
-                            <div className="first-sidebar-nav-li-div">
+                            <div>
                                 <ul className="sidebar-nav-li">
                                     <li className="shop-link" onClick={() => this.props.openModal('sidebar')}>Shop</li>
                                     <li className="read-link">Read</li>
