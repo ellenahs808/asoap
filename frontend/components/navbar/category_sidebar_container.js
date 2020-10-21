@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { openSidebar, closeSidebar, hoverCategory } from '../../actions/navbar_actions';
 import { openModal, closeModal } from '../../actions/modal_actions'
 import CategorySidebar from './category_sidebar'
 
@@ -10,22 +9,20 @@ import CategorySidebar from './category_sidebar'
 //     return {isOpen: state.entities.navbar.isOpen, skinCategory} 
 // };
 
-// const mapSTP = state => ({
-   
-// })
+
+const mapSTP = state => ({
+   products: Object.values(state.entities.products)
+})
 
 
 const mapDTP = dispatch => ({
-    openSidebar: isOpen => dispatch(openSidebar(isOpen)),
-    closeSidebar: isClosed => dispatch(closeSidebar(isClosed)),
-    hoverCategory: category => dispatch(hoverCategory(category)),
     openModal: type => dispatch(openModal(type)),
     closeModal: () => dispatch(closeModal())
 });
 
 
 
-export default connect(null, mapDTP)(CategorySidebar);
+export default connect(mapSTP, mapDTP)(CategorySidebar);
 
 
 

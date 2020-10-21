@@ -130,7 +130,7 @@
 .show-qty {
   width: 24px;
   height: 24px;
-  background: rgb(57, 56, 56);
+  background: rgb(121, 121, 121);
   cursor: pointer;
   margin-left: 22px;
   margin-right: 22px;
@@ -140,6 +140,13 @@
   justify-content: center;
   align-items: center;
 }
+
+
+.show-qty:hover {
+  background-color: rgb(22, 22, 22);
+  transition: ease-in-out 0.5s;
+}
+
 
 
 

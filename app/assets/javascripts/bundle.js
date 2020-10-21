@@ -193,6 +193,50 @@ var deleteAllCartItems = function deleteAllCartItems(cartItems) {
 
 /***/ }),
 
+/***/ "./frontend/actions/hover_actions.js":
+/*!*******************************************!*\
+  !*** ./frontend/actions/hover_actions.js ***!
+  \*******************************************/
+/*! exports provided: HOVER_CATEGORY, HOVER_PRODUCT, hoverCategory, hoverProduct */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HOVER_CATEGORY", function() { return HOVER_CATEGORY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HOVER_PRODUCT", function() { return HOVER_PRODUCT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hoverCategory", function() { return hoverCategory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hoverProduct", function() { return hoverProduct; });
+// export const IS_OPEN = 'IS_OPEN';
+// export const IS_CLOSED = 'IS_CLOSED';
+var HOVER_CATEGORY = 'HOVER_CATEGORY';
+var HOVER_PRODUCT = 'HOVER_PRODUCT'; // export const openSidebar = isOpen => ({
+//     type: IS_OPEN,
+//     isOpen
+// });
+// export const closeSidebar = isClosed => ({
+//     type: IS_CLOSED,
+//     isClosed,
+// });
+// export const hoverCategory = category => ({
+//     type: HOVER_CATEGORY,
+//     category
+// });
+
+var hoverCategory = function hoverCategory(category) {
+  return {
+    type: HOVER_CATEGORY,
+    category: category
+  };
+};
+var hoverProduct = function hoverProduct(productId) {
+  return {
+    type: HOVER_PRODUCT,
+    productId: productId
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/modal_actions.js":
 /*!*******************************************!*\
   !*** ./frontend/actions/modal_actions.js ***!
@@ -217,50 +261,6 @@ var openModal = function openModal(modal) {
 var closeModal = function closeModal() {
   return {
     type: CLOSE_MODAL
-  };
-};
-
-/***/ }),
-
-/***/ "./frontend/actions/navbar_actions.js":
-/*!********************************************!*\
-  !*** ./frontend/actions/navbar_actions.js ***!
-  \********************************************/
-/*! exports provided: HOVER_PRODUCT, HOVER_CATEGORY, hoverProduct, hoverCategory */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HOVER_PRODUCT", function() { return HOVER_PRODUCT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HOVER_CATEGORY", function() { return HOVER_CATEGORY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hoverProduct", function() { return hoverProduct; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hoverCategory", function() { return hoverCategory; });
-// export const IS_OPEN = 'IS_OPEN';
-// export const IS_CLOSED = 'IS_CLOSED';
-var HOVER_PRODUCT = 'HOVER_PRODUCT';
-var HOVER_CATEGORY = 'HOVER_CATEGORY'; // export const openSidebar = isOpen => ({
-//     type: IS_OPEN,
-//     isOpen
-// });
-// export const closeSidebar = isClosed => ({
-//     type: IS_CLOSED,
-//     isClosed,
-// });
-// export const hoverCategory = category => ({
-//     type: HOVER_CATEGORY,
-//     category
-// });
-
-var hoverProduct = function hoverProduct(productId) {
-  return {
-    type: HOVER_PRODUCT,
-    productId: productId
-  };
-};
-var hoverCategory = function hoverCategory(category) {
-  return {
-    type: HOVER_CATEGORY,
-    category: category
   };
 };
 
@@ -587,6 +587,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _cart_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cart_item */ "./frontend/components/cart/cart_item.jsx");
+/* harmony import */ var _cart_item_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cart_item_container */ "./frontend/components/cart/cart_item_container.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -612,6 +613,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var Cart = /*#__PURE__*/function (_React$Component) {
   _inherits(Cart, _React$Component);
 
@@ -623,8 +625,10 @@ var Cart = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Cart);
 
     _this = _super.call(this, props);
-    _this.handleCheckout = _this.handleCheckout.bind(_assertThisInitialized(_this)); // this.handleToggle = this.handleToggle.bind(this)
-
+    _this.state = {
+      open: true
+    };
+    _this.handleCheckout = _this.handleCheckout.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -642,18 +646,9 @@ var Cart = /*#__PURE__*/function (_React$Component) {
       return function (e) {
         e.preventDefault();
 
-        _this2.props.deleteAllCartItems(_this2.props.cartItems).then(_this2.props.openModal('checkout'));
+        _this2.props.deleteAllCartItems(_this2.props.cartItems).then(_this2.props.openToggle()).then(_this2.props.openModal('checkout'));
       };
-    } // handleToggle() {
-    //     var $slider = document.getElementById('slider');
-    //     var $toggle = document.getElementById('toggle');
-    //     $toggle.addEventListener('click', function() {
-    //         var isOpen = $slider.classList.contains('slide-in');
-    //         $slider.setAttribute('class', isOpen ? 'slide-out' : 'slide-in');
-    //     });
-    //     this.openToggle()
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
@@ -1585,40 +1580,33 @@ var CategorySidebar = /*#__PURE__*/function (_React$Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_navbar_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/navbar_actions */ "./frontend/actions/navbar_actions.js");
-/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
-/* harmony import */ var _category_sidebar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./category_sidebar */ "./frontend/components/navbar/category_sidebar.jsx");
-
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+/* harmony import */ var _category_sidebar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./category_sidebar */ "./frontend/components/navbar/category_sidebar.jsx");
 
 
  // const mapSTP = state => {
 //     // console.log(state)
 //     return {isOpen: state.entities.navbar.isOpen, skinCategory} 
 // };
-// const mapSTP = state => ({
-// })
+
+var mapSTP = function mapSTP(state) {
+  return {
+    products: Object.values(state.entities.products)
+  };
+};
 
 var mapDTP = function mapDTP(dispatch) {
   return {
-    openSidebar: function openSidebar(isOpen) {
-      return dispatch(Object(_actions_navbar_actions__WEBPACK_IMPORTED_MODULE_1__["openSidebar"])(isOpen));
-    },
-    closeSidebar: function closeSidebar(isClosed) {
-      return dispatch(Object(_actions_navbar_actions__WEBPACK_IMPORTED_MODULE_1__["closeSidebar"])(isClosed));
-    },
-    hoverCategory: function hoverCategory(category) {
-      return dispatch(Object(_actions_navbar_actions__WEBPACK_IMPORTED_MODULE_1__["hoverCategory"])(category));
-    },
     openModal: function openModal(type) {
-      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__["openModal"])(type));
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__["openModal"])(type));
     },
     closeModal: function closeModal() {
-      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__["closeModal"])());
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__["closeModal"])());
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(null, mapDTP)(_category_sidebar__WEBPACK_IMPORTED_MODULE_3__["default"])); // const mSTP = (state) => ({
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapSTP, mapDTP)(_category_sidebar__WEBPACK_IMPORTED_MODULE_2__["default"])); // const mSTP = (state) => ({
 //     is_open: state.entities.navBar.isOpen,
 //     currentUser: state.session.id
 // })
@@ -1869,7 +1857,8 @@ var MainNavbar = /*#__PURE__*/function (_Component) {
         totalQty += item.quantity;
       });
       var showQty = this.props.cartItems.length ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "show-qty-div"
+        className: "show-qty-div",
+        onClick: this.openToggle
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "show-qty"
       }, totalQty)) : null; // let shoppingCart = <div className="cart-open" onClick={this.openToggle}>Cart</div>
@@ -1880,10 +1869,6 @@ var MainNavbar = /*#__PURE__*/function (_Component) {
         className: "cart-open",
         onClick: this.openToggle
       }, "Cart"), showQty) : null;
-      {
-        /* <div className="show-qty-div"><p className="show-qty">{showQty}</p></div> */
-      } // let testing2 = <div className="cart-open-none" onClick={this.openToggle}>Cart Open</div>
-
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.state.open && cart, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "banner"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_banner__WEBPACK_IMPORTED_MODULE_1__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3950,6 +3935,42 @@ var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"]
 
 /***/ }),
 
+/***/ "./frontend/reducers/hover_reducer.js":
+/*!********************************************!*\
+  !*** ./frontend/reducers/hover_reducer.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_hover_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/hover_actions */ "./frontend/actions/hover_actions.js");
+// import { OPEN_SIDE, CLOSE_SIDE } from '../actions/sidebar_actions';
+
+
+var hoverReducer = function hoverReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_hover_actions__WEBPACK_IMPORTED_MODULE_0__["HOVER_PRODUCT"]:
+      // return action.side;
+      return action.productId;
+
+    case _actions_hover_actions__WEBPACK_IMPORTED_MODULE_0__["HOVER_CATEGORY"]:
+      // return null;
+      return action.category;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (hoverReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/modal_reducer.js":
 /*!********************************************!*\
   !*** ./frontend/reducers/modal_reducer.js ***!
@@ -4164,42 +4185,6 @@ var sessionReducer = function sessionReducer() {
 
 /***/ }),
 
-/***/ "./frontend/reducers/sidebar_reducer.js":
-/*!**********************************************!*\
-  !*** ./frontend/reducers/sidebar_reducer.js ***!
-  \**********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions_navbar_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/navbar_actions */ "./frontend/actions/navbar_actions.js");
-// import { OPEN_SIDE, CLOSE_SIDE } from '../actions/sidebar_actions';
-
-
-var sideBarReducer = function sideBarReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-  Object.freeze(state);
-
-  switch (action.type) {
-    case _actions_navbar_actions__WEBPACK_IMPORTED_MODULE_0__["HOVER_PRODUCT"]:
-      // return action.side;
-      return action.productId;
-
-    case _actions_navbar_actions__WEBPACK_IMPORTED_MODULE_0__["HOVER_CATEGORY"]:
-      // return null;
-      return action.category;
-
-    default:
-      return state;
-  }
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (sideBarReducer);
-
-/***/ }),
-
 /***/ "./frontend/reducers/ui_reducer.js":
 /*!*****************************************!*\
   !*** ./frontend/reducers/ui_reducer.js ***!
@@ -4211,13 +4196,13 @@ var sideBarReducer = function sideBarReducer() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _modal_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modal_reducer */ "./frontend/reducers/modal_reducer.js");
-/* harmony import */ var _sidebar_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sidebar_reducer */ "./frontend/reducers/sidebar_reducer.js");
+/* harmony import */ var _hover_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./hover_reducer */ "./frontend/reducers/hover_reducer.js");
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   modal: _modal_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  sideBar: _sidebar_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  hover: _hover_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 }));
 
 /***/ }),

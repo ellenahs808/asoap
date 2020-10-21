@@ -1,23 +1,23 @@
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions'
+import { hoverProduct } from '../../actions/hover_actions'
 import Sidebar from './sidebar'
 
 
-const mSTP = (state) => {
+const mapSTP = (state) => {
     return ({
-        side: state.ui.side,
+        hover: state.ui.hover,
         products: Object.values(state.entities.products)
     });
 };
 
 
-const mDTP = (dispatch) => {
+const mapDTP = (dispatch) => {
     return ({
-        closeSide: () => dispatch(closeSide()),
         fetchProducts: () => dispatch(fetchProducts()),
-        openSide: (side) => dispatch(openSide(side)),
-        closeModal: () => dispatch(closeModal())
+        closeModal: () => dispatch(closeModal()),
+        hoverProduct: productId => dispatch(hoverProduct)
     });
 };
 
-export default connect(mSTP, mDTP)(Sidebar);
+export default connect(mapSTP, mapDTP)(Sidebar);

@@ -9,14 +9,15 @@ class CartCheckout extends React.Component {
 
     render() {
         return (
-            <div className="checkout-form" onClick={e => e.stopPropagation()}>
-                <p>Thank you for your purchase</p>
-                <p>Please Visit My Recent Projects!</p>
-                <div>
-                    <i className="fab fa-github"></i>
-                    <i className="fab fa-linkedin"></i>
-                    <i className="fab fa-angellist"></i>
-                </div>
+            <div className="checkout-form" 
+                onClick={e => e.stopPropagation() }>
+                    <p>Thank you for your purchase</p>
+                    <p>Please Visit My Recent Projects!</p>
+                    <div>
+                        <i className="fab fa-github"></i>
+                        <i className="fab fa-linkedin"></i>
+                        <i className="fab fa-angellist"></i>
+                    </div>
             </div>
         )
     }
