@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from "react-router";
 
 
 
@@ -10,10 +11,12 @@ class ProductShowItem extends React.Component {
         this.state = {
             product_id: null,
             quantity: 1,
+            open: false
         }
 
         this.handleClick = this.handleClick.bind(this)
-        this.addItem = this.addItem.bind(this);
+        this.addItem = this.addItem.bind(this)
+
     }
 
 
@@ -69,15 +72,37 @@ class ProductShowItem extends React.Component {
     }
 
 
+
+
+    openToggle() {
+        this.setState({ open: !this.state.open })
+        this.props.openModal('cart')
+
+    }
+
+
+
+
     handleClick(e) {
 
-        e.preventDefault();
+        // e.preventDefault();
         // debugger
 
         if (this.props.currentUserId) {
-            return this.addItem(this.props.product);
+            // return this.addItem(this.props.product);
+            // return this.props.history.goBack();
+
+            //janky :/
+            return (
+                this.addItem(this.props.product),
+                // this.props.history.push('/cart')
+                // this.addedToCart()
+                this.props.history.goBack()
+                // this.props.history.goBack()
+                
+            )
         } else {
-            return this.props.history.push('/login')
+            this.props.openModal('login')
         }
     }
 
@@ -89,6 +114,8 @@ class ProductShowItem extends React.Component {
         
         if (!this.props.product) return null;
         const { photoUrls, category, sub_category, name, price, description, key_ingredients, how_to_use, dosage, texture, aroma } = this.props.product;
+
+
         
         const skinFeel = this.props.product.skin_feel
         let feelOrSuited;
@@ -151,7 +178,9 @@ class ProductShowItem extends React.Component {
                             </div>
                           
                                 <button className="cart-btn" onClick={this.handleClick}>Add to your cart - ${price}.00</button>
+
                             </div>
+                            <div className="quantity-added-to-cart"> Item added to cart</div>
                     </div>
                 <div>
             </div>

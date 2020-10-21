@@ -1,8 +1,10 @@
 import { connect } from 'react-redux';
-import { openSidebar, closeSidebar, hoverCategory } from '../../actions/navbar_actions';
 import { openModal, closeModal } from '../../actions/modal_actions'
+import { hoverCategory } from '../../actions/hover_actions'
+import { fetchProducts } from '../../actions/product_actions'
 import CategorySidebar from './category_sidebar'
-//might add productsByCategory selectors here
+import { filterProductsByCategory } from '../feature/filter'
+
 
 
 // const mapSTP = state => {
@@ -10,18 +12,19 @@ import CategorySidebar from './category_sidebar'
 //     return {isOpen: state.entities.navbar.isOpen, skinCategory} 
 // };
 
+
 const mapSTP = state => ({
-    isOpen: state.ui.navbar.isOpen,
-    // skinCategory: productsByCategory(state, "Skin")  
+    skinCategory: filterProductsByCategory(state, "Skin"),
+    hairCategory: filterProductsByCategory(state, "Hair"),
+    bodyCategory: filterProductsByCategory(state, "Body & Hand")
 })
 
 
 const mapDTP = dispatch => ({
-    openSidebar: isOpen => dispatch(openSidebar(isOpen)),
-    closeSidebar: isClosed => dispatch(closeSidebar(isClosed)),
-    hoverCategory: category => dispatch(hoverCategory(category)),
     openModal: type => dispatch(openModal(type)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    hoverCategory: category => dispatch(hoverCategory(category)),
+    fetchProducts: () => dispatch(fetchProducts())
 });
 
 

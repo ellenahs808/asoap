@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-import LeftNavbar from '../navbar/left_navbar'
 import SearchProductItem from './search_product_item'
 
 
@@ -25,6 +24,7 @@ class SearchProducts extends React.Component {
             this.setState({ search: e.target.value })
         };
     }
+
 
 
 
@@ -84,10 +84,15 @@ class SearchProducts extends React.Component {
 
                 <div id="search-wrap">
                     <div className="first-sidebar-nav-li-div">
-                        <div className="sidebar-nav-li">
-                            <LeftNavbar />
-                            <p className="close-btn-nav"><button className="sidebar-close-btn" onClick={() => this.props.closeModal()}>X</button></p>
-                        </div>
+           
+                        <ul className="sidebar-nav-li">
+                            <li className="shop-link" onClick={() => this.props.openModal('sidebar')}>Shop</li>
+                            <li className="read-link">Read</li>
+                            <li className="read-link">Stores</li>
+                            <li className="search-link" onClick={() => this.props.openModal('search')}>Search</li>
+                            <li className="sidebar-close-btn" onClick={() => this.props.closeModal()}>X</li>
+                        </ul>
+
                     </div>
 
             

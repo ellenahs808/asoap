@@ -1,13 +1,16 @@
 import React from 'react'
 import CartItem from './cart_item'
+import CartItemContainer from './cart_item_container'
 
 
 class Cart extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            open: true
+        }
 
         this.handleCheckout = this.handleCheckout.bind(this)
-        // this.handleToggle = this.handleToggle.bind(this)
     }
 
 
@@ -18,12 +21,15 @@ class Cart extends React.Component {
     }
 
 
+
+
     
 
     handleCheckout(){
         return(e) => {
             e.preventDefault();
             this.props.deleteAllCartItems(this.props.cartItems)
+            .then(this.props.openToggle())
             .then(this.props.openModal('checkout'))
         }
 
@@ -32,18 +38,6 @@ class Cart extends React.Component {
 
 
 
-    // handleToggle() {
-    //     var $slider = document.getElementById('slider');
-    //     var $toggle = document.getElementById('toggle');
-
-    //     $toggle.addEventListener('click', function() {
-    //         var isOpen = $slider.classList.contains('slide-in');
-
-    //         $slider.setAttribute('class', isOpen ? 'slide-out' : 'slide-in');
-    //     });
-
-    //     this.openToggle()
-    // }
 
 
 
@@ -85,7 +79,7 @@ class Cart extends React.Component {
                         <li>Size</li>
                         <li>Quantity</li>
                         <li>
-                            {/* doesnt work */}
+
                             <div onClick={this.props.openToggle} className="x-btn"> 
                                 <strong>X</strong>
                             </div>

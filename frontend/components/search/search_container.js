@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { closeModal } from '../../actions/modal_actions'
+import { openModal, closeModal } from '../../actions/modal_actions'
 import SearchProducts from './search_product_index';
 
 
@@ -16,6 +16,7 @@ const mapSTP = (state) => {
 }
 
 const mapDTP = dispatch => ({
+    openModal: type => dispatch(openModal(type)),
     closeModal: () => dispatch(closeModal())
 })
 

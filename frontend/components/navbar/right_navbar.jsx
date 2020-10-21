@@ -5,131 +5,111 @@ import CartItemContainer from '../cart/cart_item_container'
 
 
 
-// class RightNavbar extends React.Component {
-//     constructor(props) {
-//         super(props)
-//         this.state = {
-//             open: false
-//         }
+class RightNavbar extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            open: false
+        }
 
-//         this.openToggle = this.openToggle.bind(this)
-//     }
-
-
-//     openToggle() {
-//         this.setState({ open: !this.state.open })
-//     }
+        this.openToggle = this.openToggle.bind(this)
+        this.handleLogout = this.handleLogout.bind(this)
+    }
 
 
-//     loggedInOrOut() {
-//         if (this.props.loggedIn) {
-//             return (
-//                 <div className="right-nav">
-//                     <div className="right-nav-greeting">
-//                         <h1 className="login-greeting">Hi, {this.props.currentUser.first_name} {this.props.currentUser.last_name}</h1>
+    openToggle() {
+        this.setState({ open: !this.state.open })
+    }
 
-//                         <p className="cart-link" onClick={this.openToggle}>Cart</p>
-                       
-                    
-//                         <Link to="/" className="logout-link" onClick={this.props.logout}>Log Out</Link>
-//                     </div>
-//                 </div>
-//             )
-//         } else {
-//             return (
-//                 <nav className="right-nav">
-//                     <div className="logged-out">
-//                         <ul className="login-register">
-//                             <li><Link className="login-link" to="/login" >Login</Link> </li>
-//                             <li><Link className="signup-link" to="/signup" >Register</Link></li>
-//                         </ul>
-//                     </div>
-//                 </nav>
-//             )
-//         }
-//     }
+    handleLogout() {
+        this.props.logout(),
+        this.openToggle()
+    }
 
 
+    loggedInOrOut() {
+        if (this.props.loggedIn) {
+            return (
 
-//     render() {
-//         const { currentUser } = this.props
-//         const cart = <CartItemContainer openToggle={this.openToggle}/>
-
-//         // const loggedIn = () => (
-//         //     <div className="right-nav">
-//         //         <div className="right-nav-greeting">
-//         //             <h1 className="login-greeting">Hi, {currentUser.first_name} {props.currentUser.last_name}</h1>
-//         //             <Link to="/cart" className="cart-link">Cart
-//         //                 <div className="cart-open" onClick={this.openToggle}>Cart Open</div>
-//         //             </Link>
-//         //             <Link to="/" className="logout-link" onClick={props.logout}>Log Out</Link>
-//         //         </div>
-//         //     </div>
-//         // )
+                <div className="right-nav">
+                    <div className="right-nav-greeting">
+                        <h1 className="login-greeting">Hi, {this.props.currentUser.first_name} {this.props.currentUser.last_name}</h1>
+                        <Link to="/" className="logout-link" onClick={() => this.props.logout()}>Log Out</Link>
+                    </div>
+                </div>
 
 
-//         // const loggedOut = () => (
-//         //     <nav className="right-nav">
-//         //         <div className="logged-out">
-//         //             <ul className="login-register">
-//         //                 <li><Link className="login-link" to="/login" >Login</Link> </li>
-//         //                 <li><Link className="signup-link" to="/signup" >Register</Link></li>
-//         //             </ul>
-//         //         </div>
-//         //    </nav>
-//         // )
-//         return (
-//             <div>
-//                 { this.state.open && cart }
-                
-//                 {/* {currentUser ? loggedIn() : loggedOut()} */}
-//                 {this.loggedInOrOut()}
+            )
+        } else {
+            return (
 
-//             </div>
+                <nav className="right-nav">
+                    <div className="logged-out">
+                        <ul className="login-register">
+                            <li><button className="login-link" onClick={() => this.props.openModal("login")}>Login</button></li>
+                            <li><button className="signup-link" onClick={() => this.props.openModal("signup")}>Register</button></li>
+                        </ul>
+                    </div>
+                </nav>
 
-//         )
-//     }
-
-
-// };
+            )
+        }
+    }
 
 
 
+    render() {
 
+        return (
+            <div>
 
+                {this.loggedInOrOut()}
 
-
-
-
-
-
-
-const RightNavbar = props => {
-
-    const loggedIn = () => (
-        <div className="right-nav">
-            <div className="right-nav-greeting">
-                <h1 className="login-greeting">Hi, {props.currentUser.first_name} {props.currentUser.last_name}</h1>
-                <Link to="/" className="logout-link" onClick={props.logout}>Log Out</Link>
             </div>
-        </div>
-    )
 
+        )
+    }
 
-    const loggedOut = () => (
-        <nav className="right-nav">
-            <div className="logged-out">
-                <ul className="login-register">
-                    <li><button className="login-link" onClick={() => props.openModal("login")}>Login</button></li>
-                    <li><button className="signup-link" onClick={() => props.openModal("signup")}>Register</button></li>
-                </ul>
-            </div>
-        </nav>
-    )
-
-    return props.currentUser ? loggedIn() : loggedOut();
 
 };
+
+
+
+
+
+
+
+
+
+
+
+
+// const RightNavbar = props => {
+
+//     const loggedIn = () => (
+        // <div className="right-nav">
+        //     <div className="right-nav-greeting">
+        //         <h1 className="login-greeting">Hi, {props.currentUser.first_name} {props.currentUser.last_name}</h1>
+        //         <Link to="/" className="logout-link" onClick={props.logout}>Log Out</Link>
+        //     </div>
+        // </div>
+//     )
+
+
+//     const loggedOut = () => (
+        // <nav className="right-nav">
+        //     <div className="logged-out">
+        //         <ul className="login-register">
+        //             <li><button className="login-link" onClick={() => props.openModal("login")}>Login</button></li>
+        //             <li><button className="signup-link" onClick={() => props.openModal("signup")}>Register</button></li>
+        //         </ul>
+        //     </div>
+        // </nav>
+//     )
+
+//     return props.currentUser ? loggedIn() : loggedOut();
+
+// };
 
 
 

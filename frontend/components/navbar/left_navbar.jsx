@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 
 
@@ -21,14 +20,15 @@ class LeftNavbar extends React.Component {
 
 
     handleSidebar() {
-        var $slider2 = document.getElementById('slider2');
+        var slider2 = document.getElementById('slider2');
         var $toggle = document.getElementById('toggle');
 
         $toggle.addEventListener('click', function() {
-            var isOpen2 = $slider.classList.contains('slide-in2');
+            var isOpen2 = slider2.classList.contains('slide-in2');
 
-            $slider2.setAttribute('className', isOpen2 ? 'slide-out2' : 'slide-in2');
+            slider2.setAttribute('className', isOpen2 ? 'slide-out2' : 'slide-in2');
         });
+
 
         this.props.openModal('sidebar')
     }
@@ -37,13 +37,13 @@ class LeftNavbar extends React.Component {
 
 
     handleSearch() {
-        var $slider = document.getElementById('slider');
+        var slider1 = document.getElementById('slider');
         var $toggle = document.getElementById('toggle');
 
         $toggle.addEventListener('click', function() {
-            var isOpen = $slider.classList.contains('slide-in');
+            var isOpen = slider1.classList.contains('slide-in');
 
-            $slider.setAttribute('className', isOpen ? 'slide-out' : 'slide-in');
+            slider1.setAttribute('className', isOpen ? 'slide-out' : 'slide-in');
         });
 
         this.props.openModal('search')

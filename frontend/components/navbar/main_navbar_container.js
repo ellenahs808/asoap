@@ -6,7 +6,7 @@ import { fetchCartItem, fetchAllCartItems } from '../../actions/cart_actions'
 const mapSTP = state => {
     return {
         currentUser: state.entities.users[state.session.id],
-        cartItems: state.entities.cartItems
+        cartItems: Object.values(state.entities.cartItems),
     }
 }
 

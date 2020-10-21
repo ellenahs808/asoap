@@ -36,30 +36,38 @@ class MainNavbar extends Component {
 
     render() {
 
-
+        // debugger
         const cart = <CartItemContainer openToggle={this.openToggle} />
 
+        let totalQty = 0
+        this.props.cartItems.forEach((item) => {
+            totalQty += item.quantity
+        })
 
-        let shoppingCart = <div className="cart-open" onClick={this.openToggle}>Cart</div>
+        let showQty = this.props.cartItems.length ? <div className="show-qty-div" onClick={this.openToggle}><p className="show-qty">{totalQty}</p></div> : null
+        
 
+        // let shoppingCart = <div className="cart-open" onClick={this.openToggle}>Cart</div>
 
-        let testing2 = <div className="cart-open-none" onClick={this.openToggle}>Cart Open</div>
+        let shoppingCart = this.props.currentUser ? <div className="cart-display"><div className="cart-open" onClick={this.openToggle}>Cart</div>{showQty}</div> : null
 
         return (
             <div>
+      
                 {this.state.open && cart}
                 <nav className="banner"><Banner /></nav>
                 <div className="main-nav">
                     <nav className="left-nav">
                         <LeftNavbarContainer />
-                        <CategorySidebarContainer />
                     </nav>
+
                     <nav className="right-nav">
                         <div className="right-nav-greeting">
                             <RightNavbarContainer />
                             {shoppingCart}
                         </div>
                     </nav>
+
                 </div>
             </div>
         )

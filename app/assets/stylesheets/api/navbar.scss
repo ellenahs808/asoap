@@ -58,22 +58,45 @@
 }
 
 
+.cart-display {
+  display: flex;
+}
+
+
+
+.cart-display::after {
+  content: '';
+  width: 0px;
+  height: 1.3px;
+  display: block;
+  background: black;
+  transition: 400ms;
+}
+
+
+.cart-display:hover::after {
+  width: 100%;
+}
 
 
 
 .cart-open {
-    cursor: pointer;
-    border-width: 0.2px;
-    padding-top: 22px;
-    padding-right: 38px;
-    padding-left: 10px;
-    font-size: 20px;
-    font-family: 'Work Sans', sans-serif;
-    color: black;
-    margin-bottom: 0;
-    padding-bottom: 0;
+  cursor: pointer;
+  border-width: 0.2px;
+  padding-top: 22px;
+  padding-right: 10px;
+  // padding-left: 10px;
+  font-size: 20px;
+  font-family: 'Work Sans', sans-serif;
+  color: black;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  // display: flex;
+
 
 }
+
+
 
 
 
@@ -96,6 +119,33 @@
   text-decoration: none;
 }
 
+
+.show-qty-div {
+  padding-top: 20px;
+  padding-left: 0;
+}
+
+
+
+.show-qty {
+  width: 24px;
+  height: 24px;
+  background: rgb(121, 121, 121);
+  cursor: pointer;
+  margin-left: 22px;
+  margin-right: 22px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.show-qty:hover {
+  background-color: rgb(22, 22, 22);
+  transition: ease-in-out 0.5s;
+}
 
 
 
@@ -125,14 +175,6 @@ font-family: 'Work Sans', sans-serif;
 .shop-link:hover {
   cursor: pointer;
 }
-
-
-// .shop-link > Link {
-//   display: none;
-//   text-decoration: none;
-// }
-
-
 
 
 
@@ -413,15 +455,15 @@ color: #000;
 
 
 
-.backdrop {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(68, 88, 69, 0.5);
-    height: 350%;
-}
+// .backdrop {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     background: rgba(68, 88, 69, 0.5);
+//     height: 350%;
+// }
 
 
 
@@ -507,7 +549,7 @@ color: #000;
     width: 500px;
     z-index: 15;
     opacity: 1;
-    background-color: #4cdb7c;
+    background-color: #fffef2;
     height: 350%;
     border: 0;
     border-radius: 0.1em;
@@ -518,25 +560,7 @@ color: #000;
 
 
 
-
-// .first-sidebar {
-//     height: 150%;
-//     border: 0;
-//     border-radius: 0.1em;
-//     animation: fadein 0.5s, second 0.5s ease-in;
-//     background-color: red;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: flex-start;
-//     align-items: left;
-//     width: 53.33%;
-//     // position: absolute;
-// }
-
-
-
-
-.first-sidebar-nav-li-div {
+.first-sidebar {
   float: left;
   justify-content: space-evenly;
   padding-top: 40px;
@@ -555,6 +579,7 @@ color: #000;
   justify-content: space-evenly;
   width: 500px;
   margin-right: 75px;
+  padding-top: 40px;
   padding-bottom: 30%;
 }
 
