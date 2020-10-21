@@ -9,30 +9,20 @@ class CategorySidebar extends React.Component {
     constructor(props) {
         super(props)
 
-        // this.close = this.close.bind(this)
-        // this.open = this.open.bind(this)
-        // this.handleHoverCategory = this.handleHoverCategory.bind(this)
+        this.handleHoverCategory = this.handleHoverCategory.bind(this)
     };
 
 
-    // close() {
-    //     this.props.closeSidebar(false)
-    // };
-
-
-    // open() {
-    //     this.props.openSidebar(true)
-    // };
 
 
 
-    // handleHoverCategory(category) {
-    //     return e => {
-    //         e.preventDefault();
-    //         this.props.openSidebar(CategorySidebar)
-    //         this.props.hoverCategory(category)
-    //     }
-    // };
+
+    handleHoverCategory(category) {
+        return e => {
+            e.preventDefault();
+            this.props.hoverCategory(category)
+        }
+    };
 
 
 
@@ -59,7 +49,17 @@ class CategorySidebar extends React.Component {
                     
                             <div className="asoap-logo"><Link to="/"><img src={window.images.logo} onClick={() => this.props.closeModal()}/></Link></div>
                                     <ul className="sidebar-category-li">
-                                        <li className="skin-category"><Link to="/skin" className="skin-link" onClick={() => this.props.closeModal()} >Skin</Link></li>
+                                        <li className="skin-category">
+                                            <Link 
+                                                to="/skin" 
+                                                className="skin-link" 
+                                                onClick={() => this.props.closeModal()}
+                                                onMouseEnter={this.handleHoverCategory("Skin")}
+                                                >Skin
+                                            
+                                            </Link>
+                                        
+                                        </li>
                                         <li className="hair-category"><Link to="/hair" className="hair-link" onClick={() => this.props.closeModal()} >Hair</Link></li>
                                         <li className="body-category"><Link to="/body" className="body-link" onClick={() => this.props.closeModal()} >Body & Hand</Link></li>
 

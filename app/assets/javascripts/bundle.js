@@ -1017,6 +1017,70 @@ var mapDTP = function mapDTP(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/feature/filter.js":
+/*!***********************************************!*\
+  !*** ./frontend/components/feature/filter.js ***!
+  \***********************************************/
+/*! exports provided: allSkinProducts, allHairProducts, allBodyProducts, filterProductsByCategory */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "allSkinProducts", function() { return allSkinProducts; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "allHairProducts", function() { return allHairProducts; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "allBodyProducts", function() { return allBodyProducts; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filterProductsByCategory", function() { return filterProductsByCategory; });
+var allSkinProducts = function allSkinProducts(state) {
+  return Object.values(state.entities.products).filter(function (product) {
+    return product.category === "Skin";
+  });
+};
+var allHairProducts = function allHairProducts(state) {
+  return Object.values(state.entities.products).filter(function (product) {
+    return product.category === "Hair";
+  });
+};
+var allBodyProducts = function allBodyProducts(state) {
+  return Object.values(state.entities.products).filter(function (product) {
+    return product.category === "Body & Hand";
+  });
+};
+var filterProductsByCategory = function filterProductsByCategory(state, category) {
+  return Object.values(state.entities.products).filter(function (product) {
+    return product.category === category;
+  });
+}; // export const skinCategory = state =>
+//     Object.values(state.entities.products).filter((product) =>
+//         product.category === 'Skin'
+//     )
+// export const skinSubCategory = state => 
+//     Object.values(state.entities.products).filter((product) => 
+//         product.sub_category === 'Skin Cleanse' ||
+//         product.sub_category === 'Exfoliate' ||
+//         product.sub_category === 'Treat' ||
+//         product.sub_category === 'Tone' 
+//     )
+// export const hairCategory = state =>
+//     Object.values(state.entities.products).filter((product) =>
+//         product.category === 'Hair'
+//     )
+// export const hairSubCategory = state =>
+//     Object.values(state.entities.products).filter((product) =>
+//         product.sub_category === 'Hair Cleanse' ||
+//         product.sub_category === 'Condition'
+//     )
+// export const bodyCategory = state =>
+//     Object.values(state.entities.products).filter((product) =>
+//         product.category === 'Body'
+//     )
+// export const bodySubCategory = state =>
+//     Object.values(state.entities.products).filter((product) =>
+//         product.sub_category === 'Hand' ||
+//         product.sub_category === 'Body'
+//     )
+
+/***/ }),
+
 /***/ "./frontend/components/footer.jsx":
 /*!****************************************!*\
   !*** ./frontend/components/footer.jsx ***!
@@ -1459,30 +1523,30 @@ var CategorySidebar = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(CategorySidebar);
 
   function CategorySidebar(props) {
+    var _this;
+
     _classCallCheck(this, CategorySidebar);
 
-    return _super.call(this, props); // this.close = this.close.bind(this)
-    // this.open = this.open.bind(this)
-    // this.handleHoverCategory = this.handleHoverCategory.bind(this)
+    _this = _super.call(this, props);
+    _this.handleHoverCategory = _this.handleHoverCategory.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(CategorySidebar, [{
+    key: "handleHoverCategory",
+    value: function handleHoverCategory(category) {
+      var _this2 = this;
+
+      return function (e) {
+        e.preventDefault();
+
+        _this2.props.hoverCategory(category);
+      };
+    }
+  }, {
     key: "render",
-    // close() {
-    //     this.props.closeSidebar(false)
-    // };
-    // open() {
-    //     this.props.openSidebar(true)
-    // };
-    // handleHoverCategory(category) {
-    //     return e => {
-    //         e.preventDefault();
-    //         this.props.openSidebar(CategorySidebar)
-    //         this.props.hoverCategory(category)
-    //     }
-    // };
     value: function render() {
-      var _this = this;
+      var _this3 = this;
 
       // const { isOpen } = this.props;
       // let openShow = isOpen ? "category-sidebar-open" : ""
@@ -1496,7 +1560,7 @@ var CategorySidebar = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "shop-link",
         onClick: function onClick() {
-          return _this.props.openModal('sidebar');
+          return _this3.props.openModal('sidebar');
         }
       }, "Shop"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "read-link"
@@ -1505,12 +1569,12 @@ var CategorySidebar = /*#__PURE__*/function (_React$Component) {
       }, "Stores"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "search-link",
         onClick: function onClick() {
-          return _this.props.openModal('search');
+          return _this3.props.openModal('search');
         }
       }, "Search"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "sidebar-close-btn",
         onClick: function onClick() {
-          return _this.props.closeModal();
+          return _this3.props.closeModal();
         }
       }, "X"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "asoap-logo"
@@ -1519,7 +1583,7 @@ var CategorySidebar = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: window.images.logo,
         onClick: function onClick() {
-          return _this.props.closeModal();
+          return _this3.props.closeModal();
         }
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "sidebar-category-li"
@@ -1529,15 +1593,16 @@ var CategorySidebar = /*#__PURE__*/function (_React$Component) {
         to: "/skin",
         className: "skin-link",
         onClick: function onClick() {
-          return _this.props.closeModal();
-        }
+          return _this3.props.closeModal();
+        },
+        onMouseEnter: this.handleHoverCategory("Skin")
       }, "Skin")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "hair-category"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/hair",
         className: "hair-link",
         onClick: function onClick() {
-          return _this.props.closeModal();
+          return _this3.props.closeModal();
         }
       }, "Hair")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "body-category"
@@ -1545,7 +1610,7 @@ var CategorySidebar = /*#__PURE__*/function (_React$Component) {
         to: "/body",
         className: "body-link",
         onClick: function onClick() {
-          return _this.props.closeModal();
+          return _this3.props.closeModal();
         }
       }, "Body & Hand")))));
     }
@@ -1581,7 +1646,13 @@ var CategorySidebar = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
-/* harmony import */ var _category_sidebar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./category_sidebar */ "./frontend/components/navbar/category_sidebar.jsx");
+/* harmony import */ var _actions_hover_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/hover_actions */ "./frontend/actions/hover_actions.js");
+/* harmony import */ var _actions_product_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/product_actions */ "./frontend/actions/product_actions.js");
+/* harmony import */ var _category_sidebar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./category_sidebar */ "./frontend/components/navbar/category_sidebar.jsx");
+/* harmony import */ var _feature_filter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../feature/filter */ "./frontend/components/feature/filter.js");
+
+
+
 
 
  // const mapSTP = state => {
@@ -1591,7 +1662,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapSTP = function mapSTP(state) {
   return {
-    products: Object.values(state.entities.products)
+    skinCategory: Object(_feature_filter__WEBPACK_IMPORTED_MODULE_5__["filterProductsByCategory"])(state, "Skin"),
+    hairCategory: Object(_feature_filter__WEBPACK_IMPORTED_MODULE_5__["filterProductsByCategory"])(state, "Hair"),
+    bodyCategory: Object(_feature_filter__WEBPACK_IMPORTED_MODULE_5__["filterProductsByCategory"])(state, "Body & Hand")
   };
 };
 
@@ -1602,11 +1675,17 @@ var mapDTP = function mapDTP(dispatch) {
     },
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__["closeModal"])());
+    },
+    hoverCategory: function hoverCategory(category) {
+      return dispatch(Object(_actions_hover_actions__WEBPACK_IMPORTED_MODULE_2__["hoverCategory"])(category));
+    },
+    fetchProducts: function fetchProducts() {
+      return dispatch(Object(_actions_product_actions__WEBPACK_IMPORTED_MODULE_3__["fetchProducts"])());
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapSTP, mapDTP)(_category_sidebar__WEBPACK_IMPORTED_MODULE_2__["default"])); // const mSTP = (state) => ({
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapSTP, mapDTP)(_category_sidebar__WEBPACK_IMPORTED_MODULE_4__["default"])); // const mSTP = (state) => ({
 //     is_open: state.entities.navBar.isOpen,
 //     currentUser: state.session.id
 // })

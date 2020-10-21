@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
 import { openModal, closeModal } from '../../actions/modal_actions'
+import { hoverCategory } from '../../actions/hover_actions'
+import { fetchProducts } from '../../actions/product_actions'
 import CategorySidebar from './category_sidebar'
+import { filterProductsByCategory } from '../feature/filter'
 
 
 
@@ -11,13 +14,17 @@ import CategorySidebar from './category_sidebar'
 
 
 const mapSTP = state => ({
-   products: Object.values(state.entities.products)
+    skinCategory: filterProductsByCategory(state, "Skin"),
+    hairCategory: filterProductsByCategory(state, "Hair"),
+    bodyCategory: filterProductsByCategory(state, "Body & Hand")
 })
 
 
 const mapDTP = dispatch => ({
     openModal: type => dispatch(openModal(type)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    hoverCategory: category => dispatch(hoverCategory(category)),
+    fetchProducts: () => dispatch(fetchProducts())
 });
 
 
