@@ -14,11 +14,28 @@ class SubCategorySidebar extends React.Component {
 
     render() {
 
-        const { products } = this.props;
+        const { products, category, skinCategory, hairCategory, bodyCategory } = this.props;
 
         let subCategory = products.map((product) => {
-            return product.sub_category
+            // product.sub_category
+            // debugger
+            if (category === 'Skin') {
+                // return product.sub_category
+                console.log(skinCategory)
+                skinCategory.map((skin) => {
+                    console.log(skin.subcategory)
+                })
+            } else if ({category} === 'Hair') {
+                // return product.sub_category
+                console.log('hairCategory')
+            } else {
+                // return product.sub_category
+                console.log('bodyCategory')
+            }
         })
+
+
+
 
         return (
             <main className="main-subcategory">
@@ -27,10 +44,13 @@ class SubCategorySidebar extends React.Component {
                     <div>
                         <h1>THIS IS THE SUB CATEGORY</h1>
                         <h1>See All</h1>
-                        <ul>
-                            <li>{subCategory}</li>
+                        {/* <ol>
+                            <li>{skinCategory}</li>
 
-                        </ul>
+                        </ol> */}
+                        <div>
+                            {subCategory}
+                        </div>
                     </div>
 
                 </div>

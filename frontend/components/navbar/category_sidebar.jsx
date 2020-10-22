@@ -21,8 +21,8 @@ class CategorySidebar extends React.Component {
         // debugger
         return e => {
             e.preventDefault();
-            this.props.openSidebar('subcategory'),
-            this.props.hoverCategory(category)
+            this.props.hoverCategory(category),
+            this.props.openSidebar('subcategory')
 
         }
     };
