@@ -21,14 +21,18 @@ class SubCategorySidebar extends React.Component {
         })
 
         return (
-            <main>
-                <div>X</div>
-                <div>
-                    <h1>See All</h1>
-                    <ul>
-                        <li>{subCategory}</li>
+            <main className="main-subcategory">
+                <div className="subcategory-div">
+                    <div>X</div>
+                    <div>
+                        <h1>THIS IS THE SUB CATEGORY</h1>
+                        <h1>See All</h1>
+                        <ul>
+                            <li>{subCategory}</li>
 
-                    </ul>
+                        </ul>
+                    </div>
+
                 </div>
             </main>
         )

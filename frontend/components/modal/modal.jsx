@@ -1,12 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
 
 import LoginFormContainer from '../../components/session_form/login_form_container';
 import SignupFormContainer from '../../components/session_form/signup_form_container';
 import CartContainer from '../cart/cart_item_container';
 import CheckoutContainer from '../cart/cart_checkout_container'
 import CategorySidebarContainer from '../navbar/category_sidebar_container'
+import SubCategorySidebarContainer from '../navbar/sub_category_sidebar_container'
 import SearchContainer from '../search/search_container'
 
 
@@ -50,6 +49,9 @@ class Modal extends React.Component {
             case 'search':
                 component = <SearchContainer />
                 break;
+            case 'subcategory':
+                component = <SubCategorySidebarContainer />;
+            break;
             default:
                 return null;
         }

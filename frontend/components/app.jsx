@@ -3,6 +3,7 @@ import { AuthRoute } from '../util/route_util';
 import { Link, Switch, Route } from 'react-router-dom';
 
 import Homepage from './homepage';
+import SideContainer from '../components/modal/sidebar.container'
 import ModalContainer from '../components/modal/modal_container'
 import MainNavbarContainer from './navbar/main_navbar_container'
 import LoginFormContainer from './session_form/login_form_container';
@@ -17,8 +18,9 @@ import Footer from './footer';
 
 const App = () => (
     <div>
-        <div><ModalContainer /></div>
-        <header><MainNavbarContainer /></header>
+        <ModalContainer />
+        <SideContainer />
+        <MainNavbarContainer />
 
         <Route exact path="/" component={Homepage}/>
         <AuthRoute path="/login" component={LoginFormContainer}/>
