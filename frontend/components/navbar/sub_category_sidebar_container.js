@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
-import { hoverCategory } from '../../actions/hover_actions';
+import { hoverCategory } from '../../actions/sidebar_actions';
 import { openModal, closeModal } from '../../actions/modal_actions'
+import { fetchProducts } from '../../actions/product_actions'
 import SubCategorySidebar from './sub_category_sidebar'
 
 
@@ -18,7 +19,8 @@ const mapSTP = state => ({
 const mapDTP = dispatch => ({
     hoverCategory: category => dispatch(hoverCategory(category)),
     openModal: type => dispatch(openModal(type)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    fetchProducts: () => dispatch(fetchProducts())
 });
 
 

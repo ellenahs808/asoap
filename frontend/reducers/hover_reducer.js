@@ -1,5 +1,5 @@
 // import { OPEN_SIDE, CLOSE_SIDE } from '../actions/sidebar_actions';
-import { HOVER_PRODUCT, HOVER_CATEGORY } from '../actions/hover_actions'
+import { HOVER_PRODUCT, HOVER_CATEGORY } from '../actions/sidebar_actions'
 
 
 const hoverReducer = (state = null, action) => {

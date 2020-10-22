@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions'
-import { hoverProduct } from '../../actions/hover_actions'
+import { openSidebar, closeSidebar, hoverCategory, hoverProduct } from '../../actions/sidebar_actions'
+import { fetchProducts } from '../../actions/product_actions'
 import Sidebar from './sidebar'
 
 
@@ -16,6 +17,9 @@ const mapDTP = (dispatch) => {
     return ({
         fetchProducts: () => dispatch(fetchProducts()),
         closeModal: () => dispatch(closeModal()),
+        openSidebar: type => dispatch(openSidebar(type)),
+        closeSidebar: () => dispatch(closeSidebar()),
+        hoverCategory: category => dispatch(hoverCategory(category)),
         hoverProduct: productId => dispatch(hoverProduct)
     });
 };

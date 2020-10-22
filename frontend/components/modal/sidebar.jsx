@@ -1,6 +1,4 @@
-
 import React from 'react';
-import { connect } from "react-redux";
 
 
 // import SideFormContainer from '../session_form/side_form_container';
@@ -25,8 +23,8 @@ class Sidebar extends React.Component {
 
     render() {
     
-        const { hover, hoverProduct, closeModal } = this.props
-        if (!hover) {
+        const { side, closeSidebar, openSidebar, hoverCategory, hoverProduct, closeModal } = this.props
+        if (!side) {
             return null;
         }
 
@@ -34,32 +32,16 @@ class Sidebar extends React.Component {
         // let nextComponent;
         // let thirdComponent;
         
-        switch (hover) {
-            case 'sub-category':
+        switch (side) {
+            case 'subcategory':
                 component = <SubCategorySidebarContainer />;
                 break;
-            // case 'second':
-            //     component = <SideFormContainer />;
-            //     nextComponent = <SecondSideFormContainer />;
-            //     break;
-            // case 'third':
-            //     component = <SideFormContainer />;
-            //     nextComponent = <SecondSideFormContainer />;
-            //     thirdComponent = <ThirdSideFormContainer />;
-            //     break;
-            // case 'search':
-            //         component = <SideFormContainer products={ this.props.products } openSide={ openSide } />;
-            //     break;
-            // case 'result':
-            //     component = <SideFormContainer products={this.props.products} openSide={openSide} />;
-            //     nextComponent = <SecondResultContainer />;
-            //     break;
             default:
                 return null;
         }
 
         return (
-            <div className="outsideModal" onClick={ closeModal }>
+            <div className="outsideModal" onClick={ closeSidebar }>
                 {component}
                 {/* {nextComponent}
                 {thirdComponent} */}

@@ -18,9 +18,12 @@ class CategorySidebar extends React.Component {
 
 
     handleHoverCategory(category) {
+        debugger
         return e => {
             e.preventDefault();
+            this.props.openSidebar('subcategory'),
             this.props.hoverCategory(category)
+            // this.props.openModal('subcategory')
         }
     };
 
@@ -52,11 +55,9 @@ class CategorySidebar extends React.Component {
                                         <li className="skin-category">
                                             <Link 
                                                 to="/skin" 
-                                                className="skin-link" 
                                                 onClick={() => this.props.closeModal()}
-                                                onMouseEnter={this.handleHoverCategory("Skin")}
-                                                >Skin
-                                            
+                                                className="skin-link" onMouseEnter={this.handleHoverCategory("Skin")}>
+                                                Skin
                                             </Link>
                                         
                                         </li>
