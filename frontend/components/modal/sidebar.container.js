@@ -6,22 +6,22 @@ import Sidebar from './sidebar'
 
 
 const mapSTP = (state) => {
-    return ({
-        hover: state.ui.hover,
+    return {
+        side: state.ui.side,
         products: Object.values(state.entities.products)
-    });
+    };
 };
 
 
 const mapDTP = (dispatch) => {
-    return ({
+    return {
         fetchProducts: () => dispatch(fetchProducts()),
         closeModal: () => dispatch(closeModal()),
-        openSidebar: type => dispatch(openSidebar(type)),
+        openSidebar: side => dispatch(openSidebar(side)),
         closeSidebar: () => dispatch(closeSidebar()),
         hoverCategory: category => dispatch(hoverCategory(category)),
-        hoverProduct: productId => dispatch(hoverProduct)
-    });
+        hoverProduct: productId => dispatch(hoverProduct(productId))
+    };
 };
 
 export default connect(mapSTP, mapDTP)(Sidebar);

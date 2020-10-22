@@ -13,7 +13,7 @@ const hoverReducer = (state = null, action) => {
             // return null;
             return action.category;
         default:
-            return state;
+            return null;
     }
 };
 

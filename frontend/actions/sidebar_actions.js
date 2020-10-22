@@ -5,10 +5,12 @@ export const HOVER_PRODUCT = 'HOVER_PRODUCT';
 
 
 
-export const openSidebar = type => ({
-    type: OPEN_SIDE,
-    type
-});
+export const openSidebar = side => {
+    return {
+        type: OPEN_SIDE,
+        side
+    }
+};
 
 
 

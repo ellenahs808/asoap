@@ -18,21 +18,18 @@ class CategorySidebar extends React.Component {
 
 
     handleHoverCategory(category) {
-        debugger
+        // debugger
         return e => {
             e.preventDefault();
             this.props.openSidebar('subcategory'),
             this.props.hoverCategory(category)
-            // this.props.openModal('subcategory')
+
         }
     };
 
 
 
     render() {
-        // const { isOpen } = this.props;
-        // let openShow = isOpen ? "category-sidebar-open" : ""
-
 
         return (
             <div id="slider2" className="slide-in2">

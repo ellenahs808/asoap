@@ -409,16 +409,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeSidebar", function() { return closeSidebar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hoverCategory", function() { return hoverCategory; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hoverProduct", function() { return hoverProduct; });
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var OPEN_SIDE = 'OPEN_SIDE';
 var CLOSE_SIDE = 'CLOSE_SIDE';
 var HOVER_CATEGORY = 'HOVER_CATEGORY';
 var HOVER_PRODUCT = 'HOVER_PRODUCT';
-var openSidebar = function openSidebar(type) {
-  return _defineProperty({
-    type: OPEN_SIDE
-  }, "type", type);
+var openSidebar = function openSidebar(side) {
+  return {
+    type: OPEN_SIDE,
+    side: side
+  };
 };
 var closeSidebar = function closeSidebar() {
   return {
@@ -1311,7 +1310,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cart_cart_item_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../cart/cart_item_container */ "./frontend/components/cart/cart_item_container.js");
 /* harmony import */ var _cart_cart_checkout_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../cart/cart_checkout_container */ "./frontend/components/cart/cart_checkout_container.js");
 /* harmony import */ var _navbar_category_sidebar_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../navbar/category_sidebar_container */ "./frontend/components/navbar/category_sidebar_container.js");
-/* harmony import */ var _search_search_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../search/search_container */ "./frontend/components/search/search_container.js");
+/* harmony import */ var _navbar_sub_category_sidebar_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../navbar/sub_category_sidebar_container */ "./frontend/components/navbar/sub_category_sidebar_container.js");
+/* harmony import */ var _search_search_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../search/search_container */ "./frontend/components/search/search_container.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1339,7 +1339,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
- // import SubCategorySidebarContainer from '../navbar/sub_category_sidebar_container'
+
 
 
 
@@ -1394,11 +1394,12 @@ var Modal = /*#__PURE__*/function (_React$Component) {
           break;
 
         case 'search':
-          component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_6__["default"], null);
+          component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_7__["default"], null);
           break;
-        // case 'subcategory':
-        //     component = <SubCategorySidebarContainer />;
-        // break;
+
+        case 'subcategory':
+          component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_sub_category_sidebar_container__WEBPACK_IMPORTED_MODULE_6__["default"], null);
+          break;
 
         default:
           return null;
@@ -1485,7 +1486,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapSTP = function mapSTP(state) {
   return {
-    hover: state.ui.hover,
+    side: state.ui.side,
     products: Object.values(state.entities.products)
   };
 };
@@ -1498,8 +1499,8 @@ var mapDTP = function mapDTP(dispatch) {
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__["closeModal"])());
     },
-    openSidebar: function openSidebar(type) {
-      return dispatch(Object(_actions_sidebar_actions__WEBPACK_IMPORTED_MODULE_2__["openSidebar"])(type));
+    openSidebar: function openSidebar(side) {
+      return dispatch(Object(_actions_sidebar_actions__WEBPACK_IMPORTED_MODULE_2__["openSidebar"])(side));
     },
     closeSidebar: function closeSidebar() {
       return dispatch(Object(_actions_sidebar_actions__WEBPACK_IMPORTED_MODULE_2__["closeSidebar"])());
@@ -1508,7 +1509,7 @@ var mapDTP = function mapDTP(dispatch) {
       return dispatch(Object(_actions_sidebar_actions__WEBPACK_IMPORTED_MODULE_2__["hoverCategory"])(category));
     },
     hoverProduct: function hoverProduct(productId) {
-      return dispatch(_actions_sidebar_actions__WEBPACK_IMPORTED_MODULE_2__["hoverProduct"]);
+      return dispatch(Object(_actions_sidebar_actions__WEBPACK_IMPORTED_MODULE_2__["hoverProduct"])(productId));
     }
   };
 };
@@ -1529,6 +1530,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _navbar_sub_category_sidebar_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../navbar/sub_category_sidebar_container */ "./frontend/components/navbar/sub_category_sidebar_container.js");
+/* harmony import */ var _search_search_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../search/search_container */ "./frontend/components/search/search_container.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1551,10 +1553,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
- // import SideFormContainer from '../session_form/side_form_container';
-// import SecondSideFormContainer from '../session_form/second_side_form_container';
-// import ThirdSideFormContainer from '../session_form/third_side_form_container';
-// import SecondResultContainer from '../session_form/second_result_container';
+
 
 
 
@@ -1567,10 +1566,7 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Sidebar);
 
     return _super.call(this, props);
-  } // updateHoveredProduct (product) {
-  //     this.setState({ hoveredProduct: product })
-  // }
-
+  }
 
   _createClass(Sidebar, [{
     key: "componentDidMount",
@@ -1592,12 +1588,15 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
         return null;
       }
 
-      var component; // let nextComponent;
-      // let thirdComponent;
+      var component;
 
       switch (side) {
         case 'subcategory':
           component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_sub_category_sidebar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null);
+          break;
+
+        case 'search':
+          component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_2__["default"], null);
           break;
 
         default:
@@ -1704,10 +1703,10 @@ var CategorySidebar = /*#__PURE__*/function (_React$Component) {
     value: function handleHoverCategory(category) {
       var _this2 = this;
 
-      debugger;
+      // debugger
       return function (e) {
         e.preventDefault();
-        _this2.props.openSidebar('subcategory'), _this2.props.hoverCategory(category); // this.props.openModal('subcategory')
+        _this2.props.openSidebar('subcategory'), _this2.props.hoverCategory(category);
       };
     }
   }, {
@@ -1715,8 +1714,6 @@ var CategorySidebar = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      // const { isOpen } = this.props;
-      // let openShow = isOpen ? "category-sidebar-open" : ""
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "slider2",
         className: "slide-in2"
@@ -4338,7 +4335,7 @@ var hoverReducer = function hoverReducer() {
       return action.category;
 
     default:
-      return state;
+      return null;
   }
 };
 

@@ -1,21 +1,13 @@
 import React from 'react';
 
-
-// import SideFormContainer from '../session_form/side_form_container';
-// import SecondSideFormContainer from '../session_form/second_side_form_container';
-// import ThirdSideFormContainer from '../session_form/third_side_form_container';
-// import SecondResultContainer from '../session_form/second_result_container';
-
 import SubCategorySidebarContainer from '../navbar/sub_category_sidebar_container'
+import SearchContainer from '../search/search_container'
 
 class Sidebar extends React.Component {
     constructor(props) {
         super(props);
     }
 
-    // updateHoveredProduct (product) {
-    //     this.setState({ hoveredProduct: product })
-    // }
 
     componentDidMount() {
         this.props.fetchProducts()
@@ -29,12 +21,13 @@ class Sidebar extends React.Component {
         }
 
         let component;
-        // let nextComponent;
-        // let thirdComponent;
         
         switch (side) {
             case 'subcategory':
                 component = <SubCategorySidebarContainer />;
+                break;
+            case 'search':
+                component = <SearchContainer />
                 break;
             default:
                 return null;
@@ -43,8 +36,7 @@ class Sidebar extends React.Component {
         return (
             <div className="outsideModal" onClick={ closeSidebar }>
                 {component}
-                {/* {nextComponent}
-                {thirdComponent} */}
+   
             </div>
         );
     }
