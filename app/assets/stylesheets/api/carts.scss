@@ -2,14 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.empty-cart {
+    padding: 35px 0;
+    letter-spacing: 1px;
+    font-size: 20px;
+    color: rgb(215, 214, 214);
+}
+
+
+
 
 .cart-div {
     background: rgb(35, 35, 35);
     color: rgb(176, 174, 174);
     padding: 29px 40px;
-    // animation: ease-in-out 0.4s;
-    // transition: 1.5s ease-in-out;
-    // animation-fill-mode: forwards;
+    // font-family: Assistant;
+    animation: cart 1s ease-in; 
 
 }
 
@@ -34,6 +42,11 @@
     list-style: none;
     display: flex;
     justify-content: space-between;
+    flex-direction: row;
+    padding-bottom: 20px;
+    letter-spacing: 1.2px;
+    border-bottom: solid 0.5px rgba(136, 136, 136, 0.863);
+
 }
 
 
@@ -48,36 +61,90 @@
 .cart-bottom {
     display: flex;
     justify-content: space-between;
+    padding-top: 20px;
+
+
+    .cart-bottom-left {
+            flex: 1;
+            height: 148px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-bottom: 52px;
+            letter-spacing: 1px;
+    }
+
+    .cart-bottom-right {
+            width: 33%;
+            display: flex;
+            flex-direction: column;
+
+            p {
+                padding-bottom: 15px;
+            }
+    }
+
+
+    .subtotal {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 10px;
+
+        p {
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        div {     
+            font-size: 28px;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+            color: rgb(233, 229, 229);
+        }
+    }
+
+
+    .checkout {
+        background-color: #efefef;
+        border: none;
+        color: black;
+        padding: 15px;
+        text-align: center;
+        font-size: 16px;
+        width: 100%;
+        transition: 0.3s;
+        display: inline-block;
+        text-decoration: none;
+        cursor: pointer;
+        right: 210px;
+        top: 0px;
+        outline: none;
+        letter-spacing: 1.4px;
+    }
+
+
+    .pay-icons {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 10px;
+
+        i {
+            height: 100%;
+            width: 100%;
+            padding: 13px;
+        }
+
+    }
+
 }
 
 
 
 
-.subtotal {
-    display: flex;
-    justify-content: space-between;
-}
 
 
-
-.checkout {
-    background-color: #efefef;
-    border: none;
-    color: black;
-    padding: 15px;
-    text-align: center;
-    font-size: 16px;
-    width: 100%;
-    // margin: 4px 2px;
-    // opacity: 0.6;
-    transition: 0.3s;
-    display: inline-block;
-    text-decoration: none;
-    cursor: pointer;
-    right: 210px;
-    top: 0px;
-    outline: none;
-}
 
 
 

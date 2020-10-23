@@ -46,7 +46,7 @@ class Feature extends React.Component {
 
     render() {
         // debugger
-        const { products, skinCategory, hairCategory, bodyCategory } = this.props;
+        const { products } = this.props;
 
 
         let filteredProducts;

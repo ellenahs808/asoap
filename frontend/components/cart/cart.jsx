@@ -71,15 +71,13 @@ class Cart extends React.Component {
 
         return (
        
-            <main>
-         
-                <div className="cart-div">
+            // <main>
+                <main className="cart-div">
                     <div className="cart-labels">
-                        <li>Cart</li>
-                        <li>Size</li>
-                        <li>Quantity</li>
+                        <li><strong>Cart</strong></li>
+                        <li><strong>Size</strong></li>
+                        <li><strong>Quantity</strong></li>
                         <li>
-
                             <div onClick={this.props.openToggle} className="x-btn"> 
                                 <strong>X</strong>
                             </div>
@@ -93,13 +91,13 @@ class Cart extends React.Component {
                         <div className="cart-bottom-right">
                             <p>Enjoy complimentary standard shipping on all orders.</p>
                             <div className="subtotal">
-                                <p>Subtotal (Tax Excl.)</p>
+                                <p><strong>Subtotal</strong> (Tax Excl.)</p>
                                 <div>${totalPrice}.00</div>
                             </div>
                             <button className="checkout" onClick={this.handleCheckout()}>   
                                 Checkout
                             </button>
-                            <div>
+                            <div className="pay-icons">
                                 <i className="fab fa-cc-visa"></i>
                                 <i className="fab fa-cc-mastercard"></i>
                                 <i className="fab fa-cc-amex"></i>
@@ -107,13 +105,15 @@ class Cart extends React.Component {
                                 <i className="fab fa-cc-discover"></i>
                                 <i className="fab fa-cc-paypal"></i>
                                 <i className="fab fa-alipay"></i>
+                                <i class="fab fa-apple-pay"></i>
+                                <i class="fab fa-amazon-pay"></i>
                             </div>
                         </div>
 
                     </div>
-                </div>
+                </main>
 
-            </main>
+            // </main>
 
         )
     }
