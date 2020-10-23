@@ -1882,16 +1882,12 @@ var Feature = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(Feature);
 
   function Feature(props) {
-    var _this;
-
     _classCallCheck(this, Feature);
 
-    _this = _super.call(this, props); // debugger
-
-    _this.state = {
-      hover: _this.props.hover
-    };
-    return _this;
+    return _super.call(this, props); // debugger
+    // this.state = {
+    //     hover: this.props.hover
+    // }
   }
 
   _createClass(Feature, [{
@@ -1919,7 +1915,7 @@ var Feature = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this = this;
 
       // debugger
       var _this$props = this.props,
@@ -1945,7 +1941,7 @@ var Feature = /*#__PURE__*/function (_React$Component) {
       // console.log(products[0])
 
 
-      var randomize = Math.floor(Math.random() * filteredProducts.length + 1);
+      var randomize = Math.floor(Math.random() * filteredProducts.length - 1 + 1);
       var product = filteredProducts[randomize];
       var caption = product.skin_feel || product.aroma; // console.log(randomize)
       // console.log(products)
@@ -1964,9 +1960,9 @@ var Feature = /*#__PURE__*/function (_React$Component) {
         className: "feature-close-btn"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         onClick: function onClick() {
-          _this2.props.closeModal();
+          _this.props.closeModal();
 
-          _this2.props.closeSidebar();
+          _this.props.closeSidebar();
         }
       }, "X")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "product-name"
@@ -1975,9 +1971,9 @@ var Feature = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/products/".concat(product.name, "/").concat(product.id),
         onClick: function onClick() {
-          _this2.props.closeModal();
+          _this.props.closeModal();
 
-          _this2.props.closeSidebar();
+          _this.props.closeSidebar();
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: product.photoUrls[0],

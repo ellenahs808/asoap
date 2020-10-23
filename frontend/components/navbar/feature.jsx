@@ -6,9 +6,9 @@ class Feature extends React.Component {
     constructor(props) {
         super(props)
         // debugger
-        this.state = {
-            hover: this.props.hover
-        }
+        // this.state = {
+        //     hover: this.props.hover
+        // }
     }
 
 
@@ -63,7 +63,7 @@ class Feature extends React.Component {
         // console.log(products[0])
   
 
-        let randomize = Math.floor((Math.random() * filteredProducts.length) + 1)
+        let randomize = Math.floor((Math.random() * filteredProducts.length - 1) + 1)
         let product = filteredProducts[randomize]
         let caption = product.skin_feel || product.aroma
 
