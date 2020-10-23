@@ -1,0 +1,94 @@
+// .main-feature {
+    // position: fixed;
+    // left: 0;
+    // overflow: hidden;
+    // box-sizing: border-box;
+    // width: 500px;
+    // z-index: 15;
+    // opacity: 1;
+    // background-color: #fffef2;
+    // height: 350%;
+    // border: 0;
+    // border-radius: 0.1em;
+// }
+
+
+.main-feature-container {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+
+    // position: static;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 500px;
+    z-index: 15;
+    opacity: 1;
+    background-color: #fffef2;
+    border: 0;
+    border-radius: 0.1em;
+}
+
+
+.feature-div {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 500px;
+    width: 500px;
+    height: 350%;
+    border: 0;
+    border-radius: 0.1em;
+    background-color: #FFFEF2;
+    border-left: 1px solid #c4c4c0;
+    border-right: 1px solid #c4c4c0;
+    // display: flex;
+    z-index: 100;
+
+    // animation
+    -webkit-animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadein 2s, second 1s ease-in;
+}
+
+
+
+.feature-close-btn {
+    text-align: right;
+    cursor: pointer;
+    padding-bottom: 20px;
+
+    p {
+        padding-right: 25px;
+        padding-top: 36px;
+        color: rgba(0, 0, 0, 0.835);
+        font-size: 20px;
+        font-family: 'Work Sans', sans-serif;
+    }
+}
+
+
+
+.product-name {
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: rgb(70, 69, 69);
+}
+
+
+.feature-img {
+    padding: 30px
+}
+
+.feature-img:hover {
+    color: #ebeade;
+}
+
+.caption {
+    font-family: 'Dancing Script', cursive;
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: rgb(70, 69, 69);
+}

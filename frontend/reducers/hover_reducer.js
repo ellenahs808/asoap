@@ -6,9 +6,9 @@ const hoverReducer = (state = null, action) => {
     Object.freeze(state);
 
     switch (action.type) {
-        case HOVER_PRODUCT:
+        // case HOVER_PRODUCT:
             // return action.side;
-            return action.productId;
+            // return action.productId;
         case HOVER_CATEGORY:
             // return null;
             return action.category;

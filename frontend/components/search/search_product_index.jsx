@@ -32,7 +32,7 @@ class SearchProducts extends React.Component {
 
     render() {
 
-        const { products } = this.props;
+        const { products, openModal, closeModal, hoverProduct, openSidebar } = this.props;
 
         let filteredProducts = products.filter((product) => {
             let userInput = this.state.search.toLowerCase();
@@ -66,13 +66,12 @@ class SearchProducts extends React.Component {
             filtered = (
                 filteredProducts.map((product) => {
                     return (
-                        // <div key={product.id} onClick={() => this.props.closeModal()}>
-                        //     <SearchProductItem product={product}/>
-                        // </div>
                         <SearchProductItem 
                             key={product.id}
                             product={product}
-                            onClick={() => this.props.closeModal()}
+                            onClick={() => closeModal}
+                            hoverProduct={hoverProduct}
+                            openSidebar={openSidebar}
                         />
                     )
                 })
@@ -86,22 +85,22 @@ class SearchProducts extends React.Component {
                     <div className="first-sidebar-nav-li-div">
            
                         <ul className="sidebar-nav-li">
-                            <li className="shop-link" onClick={() => this.props.openModal('sidebar')}>Shop</li>
+                            <li className="shop-link" onClick={() => openModal('sidebar')}>Shop</li>
                             <li className="read-link">Read</li>
                             <li className="read-link">Stores</li>
-                            <li className="search-link" onClick={() => this.props.openModal('search')}>Search</li>
-                            <li className="sidebar-close-btn" onClick={() => this.props.closeModal()}>X</li>
+                            <li className="search-link" onClick={() => openModal('search')}>Search</li>
+                            <li className="sidebar-close-btn" onClick={() => closeModal()}>X</li>
                         </ul>
 
                     </div>
 
             
-                    <div className="asoap-logo"><Link to="/"><img src={window.images.logo} onClick={this.close}/></Link>
+                    <div className="asoap-logo"><Link to="/"><img src={window.images.logo} onClick={() => closeModal()}/></Link>
                         <br /><br /><br /><br />
                         <div className='search-form-wrap'>
                             <input type="text" value={ this.state.search } onChange={this.handleInput()} className="search-input" />
 
-                            <ul onClick={() => this.props.closeModal()}>
+                            <ul onClick={() => closeModal()}>
                                 <li>{filtered}</li>
                             </ul>
 

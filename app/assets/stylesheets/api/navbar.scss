@@ -589,7 +589,7 @@ color: #000;
 
 
 .sidebar-close-btn {
-  color: black;
+  color: rgba(0, 0, 0, 0.835);
   font-size: 20px;
   font-family: 'Work Sans', sans-serif;
   border: none;
@@ -621,7 +621,7 @@ color: #000;
 }
 
 .skin-link {
-  color: black;
+  color: rgb(58, 58, 58);
   font-size: 40px;
   font-family: 'Nunito Sans', sans-serif;
   text-decoration: none;
@@ -632,19 +632,7 @@ color: #000;
   text-decoration: none;
 }
 
-.skin-link::after {
-  content: '';
-  width: 0px;
-  height: 2px;
-  display: block;
-  background: black;
-  transition: 500ms;
-}
 
-
-.skin-link:hover::after {
-  width: 15%;
-}
 
 
 .hair-category {
@@ -653,7 +641,7 @@ color: #000;
 }
 
 .hair-link {
-  color: black;
+  color: rgb(58, 58, 58);
   font-size: 40px;
   font-family: 'Nunito Sans', sans-serif;
   text-decoration: none;
@@ -663,19 +651,7 @@ color: #000;
   text-decoration: none;
 }
 
-.hair-link::after {
-  content: '';
-  width: 0px;
-  height: 2px;
-  display: block;
-  background: black;
-  transition: 500ms;
-}
 
-
-.hair-link:hover::after {
-  width: 14%;
-}
 
 
 .body-category {
@@ -684,7 +660,7 @@ color: #000;
 }
 
 .body-link {
-  color: black;
+  color: rgb(58, 58, 58);
   font-size: 40px;
   font-family: 'Nunito Sans', sans-serif;
   text-decoration: none;
@@ -694,19 +670,6 @@ color: #000;
   text-decoration: none;
 }
 
-.body-link::after {
-  content: '';
-  width: 0px;
-  height: 2px;
-  display: block;
-  background: black;
-  transition: 700ms;
-}
-
-
-.body-link:hover::after {
-  width: 46%;
-}
 
 
 

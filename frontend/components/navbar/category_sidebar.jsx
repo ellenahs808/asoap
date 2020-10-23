@@ -9,11 +9,17 @@ class CategorySidebar extends React.Component {
     constructor(props) {
         super(props)
 
+
         this.handleHoverCategory = this.handleHoverCategory.bind(this)
+
     };
 
 
 
+
+        // this.setState((prevState) => {
+        //     return { sideDrawerOpen: !prevState.sideDrawerOpen }
+        // });
 
 
 
@@ -21,11 +27,11 @@ class CategorySidebar extends React.Component {
         // debugger
         return e => {
             e.preventDefault();
-            this.props.openSidebar('subcategory'),
+            this.props.openSidebar('feature')
             this.props.hoverCategory(category)
-
         }
     };
+
 
 
 
@@ -41,7 +47,7 @@ class CategorySidebar extends React.Component {
                                     <li className="read-link">Read</li>
                                     <li className="read-link">Stores</li>
                                     <li className="search-link" onClick={() => this.props.openModal('search')}>Search</li>
-                                    <li className="sidebar-close-btn" onClick={() => this.props.closeModal()}>X</li>
+                                    <li className="sidebar-close-btn" onClick={ () => {this.props.closeModal(); this.props.closeSidebar();} }>X</li>
                                 </ul>
                             </div>
 
@@ -52,14 +58,30 @@ class CategorySidebar extends React.Component {
                                         <li className="skin-category">
                                             <Link 
                                                 to="/skin" 
-                                                onClick={() => this.props.closeModal()}
-                                                className="skin-link" onMouseEnter={this.handleHoverCategory("Skin")}>
+                                                className="skin-link"
+                                                onClick={() => {this.props.closeModal(); this.props.closeSidebar()}}
+                                                onMouseEnter={this.handleHoverCategory("Skin")}>
                                                 Skin
-                                            </Link>
-                                        
+                                            </Link>         
                                         </li>
-                                        <li className="hair-category"><Link to="/hair" className="hair-link" onClick={() => this.props.closeModal()} >Hair</Link></li>
-                                        <li className="body-category"><Link to="/body" className="body-link" onClick={() => this.props.closeModal()} >Body & Hand</Link></li>
+                                        <li className="hair-category">
+                                            <Link 
+                                                to="/hair" 
+                                                className="hair-link" 
+                                                onClick={() => {this.props.closeModal(); this.props.closeSidebar()}}
+                                                onMouseEnter={this.handleHoverCategory("Hair")}>
+                                                Hair
+                                            </Link>
+                                        </li>
+                                        <li className="body-category">
+                                            <Link 
+                                                to="/body" 
+                                                className="body-link" 
+                                                onClick={() => {this.props.closeModal(); this.props.closeSidebar()}}
+                                                onMouseEnter={this.handleHoverCategory("Body & Hand")}>
+                                                Body & Hand
+                                            </Link>
+                                        </li>
 
                                     </ul>
                          

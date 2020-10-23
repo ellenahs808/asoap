@@ -112,16 +112,17 @@
 
 
 .main-show-container {
-    display: flex;
+    // display: flex;
+   
     padding-top: 5px;
     padding-bottom: 50px;
 }
 
 
 .first-img-container {
-    display: flex;
-    width: 50%;
-    padding-left: 40%;
+    width: 40%;
+    align-items: center;
+    padding-left: 20%;
 }
 
 
@@ -143,10 +144,11 @@
 
 
 .detail-container {
-    width: 80%;
+    width: 90%;
     float: left;
     // padding: 2%;
     padding-right: 15%;
+    padding-left: 50px;
 }
 
 
@@ -222,6 +224,7 @@
     padding-right: 150px;
     background-color: rgb(246, 245, 232);
     width: 75%;
+    
 }
 
 
@@ -232,6 +235,9 @@
 }
 
 
+
+
 .prod-show-img {
     padding-top: 70px;
 }
+

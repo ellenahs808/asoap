@@ -5,7 +5,7 @@ import sideReducer from './sidebar_reducer'
 
 
 
-export default combineReducers({
+export default combineReducers ({
     modal: modalReducer,
     hover: hoverReducer,
     side: sideReducer

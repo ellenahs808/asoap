@@ -20,14 +20,14 @@ class LeftNavbar extends React.Component {
 
 
     handleSidebar() {
-        var slider2 = document.getElementById('slider2');
-        var $toggle = document.getElementById('toggle');
+        // var slider2 = document.getElementById('slider2');
+        // var $toggle = document.getElementById('toggle');
 
-        $toggle.addEventListener('click', function() {
-            var isOpen2 = slider2.classList.contains('slide-in2');
+        // $toggle.addEventListener('click', function() {
+        //     var isOpen2 = slider2.classList.contains('slide-in2');
 
-            slider2.setAttribute('className', isOpen2 ? 'slide-out2' : 'slide-in2');
-        });
+        //     slider2.setAttribute('className', isOpen2 ? 'slide-out2' : 'slide-in2');
+        // });
 
 
         this.props.openModal('sidebar')
@@ -37,14 +37,14 @@ class LeftNavbar extends React.Component {
 
 
     handleSearch() {
-        var slider1 = document.getElementById('slider');
-        var $toggle = document.getElementById('toggle');
+        // var slider1 = document.getElementById('slider');
+        // var $toggle = document.getElementById('toggle');
 
-        $toggle.addEventListener('click', function() {
-            var isOpen = slider1.classList.contains('slide-in');
+        // $toggle.addEventListener('click', function() {
+        //     var isOpen = slider1.classList.contains('slide-in');
 
-            slider1.setAttribute('className', isOpen ? 'slide-out' : 'slide-in');
-        });
+        //     slider1.setAttribute('className', isOpen ? 'slide-out' : 'slide-in');
+        // });
 
         this.props.openModal('search')
     }

@@ -2,20 +2,50 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
+class SearchProductItem extends React.Component {
+    constructor(props) {
+        super(props)
 
-const SearchProductItem = (props) => {
-    
-    let { product } = props;
+        this.handleMouseEnter = this.handleMouseEnter.bind(this)
+    }
 
-    return(
-        <div className='searched-item-container'>
-            <Link className="searched-item-link" to={`/products/${product.name}/${product.id}`}>
-                <span className='searched-item'>
-                    {product.name}
-                </span>
-            </Link>
-        </div>
-    )
+
+    // updateHoveredProduct(product) {
+    //     this.setState({ hoveredProduct: product })
+    // }
+
+    handleMouseEnter(productId) {
+
+        return (e) => {
+            e.preventDefault();
+            this.props.hoverProduct(productId),
+            this.props.openSidebar('searchResult')
+        }
+    }
+
+
+
+    render() {
+        const { product } = this.props;
+
+        return (
+            <div className='searched-item-container'>
+                <Link 
+                    onMouseEnter={() => {this.props.hoverProduct(product.id); this.props.openSidebar('searchResult')}} 
+                    className="searched-item-link" to={`/products/${product.name}/${product.id}`}>
+                    <div>
+                        <span className='searched-item'>
+                            {product.name}
+                        </span>
+                    </div>
+                </Link>
+            </div>
+        )
+    }
 }
+
+
+
+
 
 export default SearchProductItem;

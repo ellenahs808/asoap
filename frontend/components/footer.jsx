@@ -55,9 +55,9 @@ const Footer = props => (
             <div className='social'>
                 <div className='footer-title'>Social Media</div>
                 <ul>
-                    <Link to="https://github.com/ellenahs808" className='footer-links'><li>Github <i className="fab fa-github"></i></li></Link>
-                    <Link to="https://www.linkedin.com/in/shanelle-valencia/" className='footer-links'><li>LinkedIn <i className="fab fa-linkedin"></i></li></Link>
-                    <Link to="https://angel.co/u/shanelle-valencia" className='footer-links'><li>AngelList <i className="fab fa-angellist"></i></li></Link>
+                    <a href="https://github.com/ellenahs808" className='footer-links'><li>Github <i className="fab fa-github"></i></li></a>
+                    <a href="https://www.linkedin.com/in/shanelle-valencia/" className='footer-links'><li>LinkedIn <i className="fab fa-linkedin"></i></li></a>
+                    <a href="https://angel.co/u/shanelle-valencia" className='footer-links'><li>AngelList <i className="fab fa-angellist"></i></li></a>
                 </ul>
             </div>
         </div>
