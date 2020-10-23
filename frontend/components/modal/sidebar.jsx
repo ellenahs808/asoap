@@ -9,6 +9,8 @@ import SearchResultContainer from '../search/search_result_container'
 class Sidebar extends React.Component {
     constructor(props) {
         super(props);
+
+        this.refreshPage = this.refreshPage.bind(this)
     }
 
 
@@ -19,6 +21,13 @@ class Sidebar extends React.Component {
     componentDidMount() {
         this.props.fetchProducts()
     }
+
+
+    refreshPage() {
+        this.props.closeSidebar()
+        window.location.reload(false);
+    }
+
 
     render() {
     
@@ -41,7 +50,7 @@ class Sidebar extends React.Component {
         }
 
         return (
-            <div className="side-screen" onClick={closeSidebar}>
+            <div className="side-screen" onClick={this.refreshPage}>
                 {/* <div className="modal-child" onClick={e => e.stopPropagation()}> */}
                     {component}
                 {/* </div> */}

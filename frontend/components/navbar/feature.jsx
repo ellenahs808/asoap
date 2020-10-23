@@ -15,6 +15,8 @@ class Feature extends React.Component {
     // }
 
 
+
+
     // componentDidUpdate(prevProps, prevState) {
     // // only update chart if the data has changed
     //     // debugger
@@ -36,9 +38,10 @@ class Feature extends React.Component {
 
 
 
+
     render() {
         // debugger
-        const { closeSidebar, skinCategory, hairCategory, bodyCategory } = this.props;
+        const { skinCategory, hairCategory, bodyCategory } = this.props;
 
 
         let products;
@@ -57,33 +60,27 @@ class Feature extends React.Component {
 
         let randomize = Math.floor((Math.random() * products.length) + 1)
         let product = products[randomize]
-
-        // let caption = product.skin_feel || product.aroma
+        let caption = product.skin_feel || product.aroma
 
         return (
             <div className="blahh">
                 <main className="main-feature-container">
                     <div className="feature-div">
-                        <div className="feature-close-btn"><p>X</p></div>
-                        {/* <div className="feature-title"><h1>Featured Product</h1></div> */}
+                        <div className="feature-close-btn"><p onClick={ () => {this.props.closeModal(); this.props.closeSidebar();} }>X</p></div>
+   
+                        <h1 className="product-name">{product.name}</h1>
                         <div className="feature-img">
-                            <Link to={`/products/${product.name}/${product.id}`}>
-                                <img src={ product.photoUrls[0] } alt="Photo" 
-                                height="460px"
-                                width="200px"/>
+                            <Link 
+                                to={`/products/${product.name}/${product.id}`} 
+                                onClick={ () => {this.props.closeModal(); this.props.closeSidebar();} }>
+                                    <img src={ product.photoUrls[0] } alt="Photo" 
+                                    height="450px"
+                                    width="190px"/>
                             </Link>
                         </div>
 
     
-                        <div className="featured-product">
-                            <Link to={`/products/${product.name}/${product.id}`} 
-                                to={`/products/${product.name}/${product.id}`} className="product-itm-link" onClick={() => closeSidebar}>
-                            
-                                    <p>{product.name}</p>
-                                    {/* <p>{caption}</p> */}
-                        
-                            </Link>
-                        </div>
+                        <div><p className="caption">{caption}</p></div>
             
                 
 

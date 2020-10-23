@@ -16,7 +16,7 @@
 .main-feature-container {
     display: flex;
     text-align: center;
-
+    justify-content: space-between;
 
     // position: static;
     overflow: hidden;
@@ -58,6 +58,7 @@
 .feature-close-btn {
     text-align: right;
     cursor: pointer;
+    padding-bottom: 20px;
 
     p {
         padding-right: 20px;
@@ -70,33 +71,24 @@
 
 
 
-// .feature-title {
-//     text-align: center;
-
-//     h1 {
-//         font-size: 32px;
-//         font-family: 'Work Sans', sans-serif;
-//         color: rgb(39, 39, 39);
-//     }
-// }
-
+.product-name {
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: rgb(70, 69, 69);
+}
 
 
 .feature-img {
-    padding: 20px
+    padding: 30px
 }
 
 .feature-img:hover {
     color: #ebeade;
 }
 
-// .product-itm-link {
-//     color: black;
-//     text-align: center;
-//     line-height: 2.6;
-// }
-
-
-// .product-itm-link:link {
-//     text-decoration: none;
-// }
+.caption {
+    font-family: 'Dancing Script', cursive;
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: rgb(70, 69, 69);
+}

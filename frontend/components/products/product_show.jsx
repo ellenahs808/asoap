@@ -214,8 +214,6 @@ class ProductShowItem extends React.Component {
                         </div>
                     </div>
                 </div>
-
-   
             </div>
         )
     }
