@@ -16,7 +16,8 @@ import { filterProductsByCategory } from '../feature/filter'
 const mapSTP = state => ({
     skinCategory: filterProductsByCategory(state, "Skin"),
     hairCategory: filterProductsByCategory(state, "Hair"),
-    bodyCategory: filterProductsByCategory(state, "Body & Hand")
+    bodyCategory: filterProductsByCategory(state, "Body & Hand"),
+    hover: state.ui.hover
 })
 
 

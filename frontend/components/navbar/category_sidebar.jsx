@@ -9,11 +9,20 @@ class CategorySidebar extends React.Component {
     constructor(props) {
         super(props)
 
+        this.state = {
+            hover: null
+        }
+
         this.handleHoverCategory = this.handleHoverCategory.bind(this)
+        // this.handleChange = this.handleChange.bind(this)
     };
 
 
 
+
+        // this.setState((prevState) => {
+        //     return { sideDrawerOpen: !prevState.sideDrawerOpen }
+        // });
 
 
 
@@ -21,8 +30,8 @@ class CategorySidebar extends React.Component {
         // debugger
         return e => {
             e.preventDefault();
-            this.props.hoverCategory(category),
             this.props.openSidebar('subcategory')
+            this.props.hoverCategory(category)
 
         }
     };
@@ -53,7 +62,9 @@ class CategorySidebar extends React.Component {
                                             <Link 
                                                 to="/skin" 
                                                 onClick={() => this.props.closeModal()}
-                                                className="skin-link" onMouseEnter={this.handleHoverCategory("Skin")}>
+                                                className="skin-link"
+                                                onMouseEnter={this.handleHoverCategory("Skin")}>
+                                                {/* // onChange={ this.handleChange() }> */}
                                                 Skin
                                             </Link>
                                         

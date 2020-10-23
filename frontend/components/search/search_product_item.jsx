@@ -10,8 +10,13 @@ class SearchProductItem extends React.Component {
     }
 
 
+    // updateHoveredProduct(product) {
+    //     this.setState({ hoveredProduct: product })
+    // }
+
     handleMouseEnter(productId) {
-        return () => {
+
+        return (e) => {
             e.preventDefault();
             this.props.hoverProduct(productId),
             this.props.openSidebar('searchResult')
@@ -25,7 +30,9 @@ class SearchProductItem extends React.Component {
 
         return (
             <div className='searched-item-container'>
-                <Link onMouseEnter={this.handleMouseEnter(product.id)} className="searched-item-link" to={`/products/${product.name}/${product.id}`}>
+                <Link 
+                    onMouseEnter={() => {this.props.hoverProduct(product.id); this.props.openSidebar('searchResult')}} 
+                    className="searched-item-link" to={`/products/${product.name}/${product.id}`}>
                     <div>
                         <span className='searched-item'>
                             {product.name}
@@ -40,21 +47,5 @@ class SearchProductItem extends React.Component {
 
 
 
-
-
-// const SearchProductItem = (props) => {
-    
-//     let { product } = props;
-
-//     return(
-//         <div className='searched-item-container'>
-//             <Link className="searched-item-link" to={`/products/${product.name}/${product.id}`}>
-//                 <span className='searched-item'>
-//                     {product.name}
-//                 </span>
-//             </Link>
-//         </div>
-//     )
-// }
 
 export default SearchProductItem;

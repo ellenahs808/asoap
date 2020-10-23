@@ -69,9 +69,9 @@ class SearchProducts extends React.Component {
                         <SearchProductItem 
                             key={product.id}
                             product={product}
-                            onClick={() => this.props.closeModal()}
-                            hoverProduct={this.hoverProduct}
-                            openSidebar={this.openSidebar}
+                            onClick={() => closeModal}
+                            hoverProduct={hoverProduct}
+                            openSidebar={openSidebar}
                         />
                     )
                 })

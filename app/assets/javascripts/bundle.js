@@ -1529,9 +1529,11 @@ var mapDTP = function mapDTP(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _navbar_sub_category_sidebar_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../navbar/sub_category_sidebar_container */ "./frontend/components/navbar/sub_category_sidebar_container.js");
-/* harmony import */ var _search_search_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../search/search_container */ "./frontend/components/search/search_container.js");
-/* harmony import */ var _search_search_result_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../search/search_result_container */ "./frontend/components/search/search_result_container.js");
+/* harmony import */ var _navbar_category_sidebar_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../navbar/category_sidebar_container */ "./frontend/components/navbar/category_sidebar_container.js");
+/* harmony import */ var _navbar_sub_category_sidebar_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../navbar/sub_category_sidebar_container */ "./frontend/components/navbar/sub_category_sidebar_container.js");
+/* harmony import */ var _search_search_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../search/search_container */ "./frontend/components/search/search_container.js");
+/* harmony import */ var _search_search_result_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../search/search_result_container */ "./frontend/components/search/search_result_container.js");
+/* harmony import */ var _search_search_result_container__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_search_search_result_container__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1559,6 +1561,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var Sidebar = /*#__PURE__*/function (_React$Component) {
   _inherits(Sidebar, _React$Component);
 
@@ -1568,7 +1571,10 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Sidebar);
 
     return _super.call(this, props);
-  }
+  } // updateHoveredProduct(product) {
+  //     this.setState({ hoveredProduct: product })
+  // }
+
 
   _createClass(Sidebar, [{
     key: "componentDidMount",
@@ -1592,18 +1598,20 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
       }
 
       var component;
+      var nextComponent;
 
       switch (side) {
         case 'subcategory':
-          component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_sub_category_sidebar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null);
+          component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_sub_category_sidebar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null);
           break;
 
         case 'search':
-          component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_2__["default"], null);
+          component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_3__["default"], null);
           break;
 
         case 'searchResult':
-          component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_result_container__WEBPACK_IMPORTED_MODULE_3__["default"], null);
+          // component = < CategorySidebarContainer products={this.props.products} openSidebar={openSidebar}/>
+          component = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_result_container__WEBPACK_IMPORTED_MODULE_4___default.a, null);
           break;
 
         default:
@@ -1613,7 +1621,7 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "outsideModal",
         onClick: closeSidebar
-      }, component);
+      }, component, nextComponent);
     }
   }]);
 
@@ -1701,19 +1709,29 @@ var CategorySidebar = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, CategorySidebar);
 
     _this = _super.call(this, props);
-    _this.handleHoverCategory = _this.handleHoverCategory.bind(_assertThisInitialized(_this));
+    _this.state = {
+      hover: null
+    };
+    _this.handleHoverCategory = _this.handleHoverCategory.bind(_assertThisInitialized(_this)); // this.handleChange = this.handleChange.bind(this)
+
     return _this;
   }
 
   _createClass(CategorySidebar, [{
     key: "handleHoverCategory",
+    // this.setState((prevState) => {
+    //     return { sideDrawerOpen: !prevState.sideDrawerOpen }
+    // });
     value: function handleHoverCategory(category) {
       var _this2 = this;
 
       // debugger
       return function (e) {
         e.preventDefault();
-        _this2.props.hoverCategory(category), _this2.props.openSidebar('subcategory');
+
+        _this2.props.openSidebar('subcategory');
+
+        _this2.props.hoverCategory(category);
       };
     }
   }, {
@@ -1835,7 +1853,8 @@ var mapSTP = function mapSTP(state) {
   return {
     skinCategory: Object(_feature_filter__WEBPACK_IMPORTED_MODULE_5__["filterProductsByCategory"])(state, "Skin"),
     hairCategory: Object(_feature_filter__WEBPACK_IMPORTED_MODULE_5__["filterProductsByCategory"])(state, "Hair"),
-    bodyCategory: Object(_feature_filter__WEBPACK_IMPORTED_MODULE_5__["filterProductsByCategory"])(state, "Body & Hand")
+    bodyCategory: Object(_feature_filter__WEBPACK_IMPORTED_MODULE_5__["filterProductsByCategory"])(state, "Body & Hand"),
+    hover: state.ui.hover
   };
 };
 
@@ -1931,23 +1950,23 @@ var LeftNavbar = /*#__PURE__*/function (_React$Component) {
     //     this.props.openSidebar(true)
     // };
     value: function handleSidebar() {
-      var slider2 = document.getElementById('slider2');
-      var $toggle = document.getElementById('toggle');
-      $toggle.addEventListener('click', function () {
-        var isOpen2 = slider2.classList.contains('slide-in2');
-        slider2.setAttribute('className', isOpen2 ? 'slide-out2' : 'slide-in2');
-      });
+      // var slider2 = document.getElementById('slider2');
+      // var $toggle = document.getElementById('toggle');
+      // $toggle.addEventListener('click', function() {
+      //     var isOpen2 = slider2.classList.contains('slide-in2');
+      //     slider2.setAttribute('className', isOpen2 ? 'slide-out2' : 'slide-in2');
+      // });
       this.props.openModal('sidebar');
     }
   }, {
     key: "handleSearch",
     value: function handleSearch() {
-      var slider1 = document.getElementById('slider');
-      var $toggle = document.getElementById('toggle');
-      $toggle.addEventListener('click', function () {
-        var isOpen = slider1.classList.contains('slide-in');
-        slider1.setAttribute('className', isOpen ? 'slide-out' : 'slide-in');
-      });
+      // var slider1 = document.getElementById('slider');
+      // var $toggle = document.getElementById('toggle');
+      // $toggle.addEventListener('click', function() {
+      //     var isOpen = slider1.classList.contains('slide-in');
+      //     slider1.setAttribute('className', isOpen ? 'slide-out' : 'slide-in');
+      // });
       this.props.openModal('search');
     }
   }, {
@@ -2389,6 +2408,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2413,6 +2433,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var SubCategorySidebar = /*#__PURE__*/function (_React$Component) {
   _inherits(SubCategorySidebar, _React$Component);
 
@@ -2421,47 +2442,84 @@ var SubCategorySidebar = /*#__PURE__*/function (_React$Component) {
   function SubCategorySidebar(props) {
     _classCallCheck(this, SubCategorySidebar);
 
-    return _super.call(this, props);
-  }
+    return _super.call(this, props); // debugger
+  } // componentDidMount () {
+  //     this.props.fetchProducts();
+  // }
+  // componentDidUpdate(prevProps, prevState) {
+  // // only update chart if the data has changed
+  //     // debugger
+  //     if (prevProps.hover !== this.props.hover) {
+  //         // console.log("hover has changed!")
+  //         this.setState((prevProps) => {
+  //             return { hover: prevProps.hover }
+  //         });
+  //         console.log(this.state.hover)
+  //     }
+  //     // console.log("prevProps")
+  //     // console.log(prevProps.hover)
+  //     // console.log(prevState)
+  // }
+  // category() {
+  //     if (props.hover === "Skin") {
+  //         // return this.props.skinCategory
+  //         console.log("category = skin") 
+  //     } else if (props.hover === "Hair") {
+  //         // return this.props.hairCategory
+  //         console.log("category = hair") 
+  //     } else {
+  //         // return this.props.bodyCategory
+  //         console.log("category = body") 
+  //     }
+  // }
+
 
   _createClass(SubCategorySidebar, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchProducts();
-    }
-  }, {
     key: "render",
     value: function render() {
+      // debugger
       var _this$props = this.props,
-          products = _this$props.products,
-          category = _this$props.category,
+          closeSidebar = _this$props.closeSidebar,
           skinCategory = _this$props.skinCategory,
           hairCategory = _this$props.hairCategory,
-          bodyCategory = _this$props.bodyCategory;
-      var subCategory = products.map(function (product) {
-        // product.sub_category
-        // debugger
-        if (category === 'Skin') {
-          // return product.sub_category
-          console.log(skinCategory);
-          skinCategory.map(function (skin) {
-            console.log(skin.subcategory);
-          });
-        } else if ({
-          category: category
-        } === 'Hair') {
-          // return product.sub_category
-          console.log('hairCategory');
-        } else {
-          // return product.sub_category
-          console.log('bodyCategory');
-        }
-      });
+          bodyCategory = _this$props.bodyCategory; // console.log(category())
+      // let skin = console.log(this.props.skinCategory)
+      // let hair = console.log(this.props.hairCategory)
+      // let body = console.log(this.props.bodyCategory)
+      // let hover = console.log(this.props.hover)
+
+      var products;
+
+      if (this.props.hover === "Skin") {
+        products = skinCategory;
+      } else if (this.props.hover === "Hair") {
+        products = hairCategory;
+      } else {
+        products = bodyCategory;
+      }
+
+      console.log("THIS");
+      console.log(products[0]);
+      var randomize = Math.floor(Math.random() * products.length + 1);
+      var product = products[randomize];
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
         className: "main-subcategory"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "subcategory-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "X"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "THIS IS THE SUB CATEGORY"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "See All"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, subCategory))));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "X"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "THIS IS THE SUB CATEGORY"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "IS THIS WORKING"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "second-drawer-list"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "single-product"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: product.photoUrls[0],
+        alt: "Photo"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/products/".concat(product.name, "/").concat(product.id),
+        className: "link-product",
+        onClick: function onClick() {
+          return closeSidebar;
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, product.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, product.size, " / $", product.price))))))));
     }
   }]);
 
@@ -2499,11 +2557,13 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapSTP = function mapSTP(state) {
   return {
-    products: Object.values(state.entities.products),
+    // products: Object.values(state.entities.products),
     skinCategory: Object(_feature_filter__WEBPACK_IMPORTED_MODULE_5__["filterProductsByCategory"])(state, "Skin"),
     hairCategory: Object(_feature_filter__WEBPACK_IMPORTED_MODULE_5__["filterProductsByCategory"])(state, "Hair"),
     bodyCategory: Object(_feature_filter__WEBPACK_IMPORTED_MODULE_5__["filterProductsByCategory"])(state, "Body & Hand"),
-    category: state.ui.hover
+    // category: state.ui.hover,
+    // products: filterProductsByCategory(state, state.ui.side),
+    hover: state.ui.hover
   };
 };
 
@@ -2511,6 +2571,9 @@ var mapDTP = function mapDTP(dispatch) {
   return {
     hoverCategory: function hoverCategory(category) {
       return dispatch(Object(_actions_sidebar_actions__WEBPACK_IMPORTED_MODULE_1__["hoverCategory"])(category));
+    },
+    closeSidebar: function closeSidebar() {
+      return dispatch(Object(_actions_sidebar_actions__WEBPACK_IMPORTED_MODULE_1__["closeSidebar"])());
     },
     openModal: function openModal(type) {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__["openModal"])(type));
@@ -3687,10 +3750,10 @@ var SearchProducts = /*#__PURE__*/function (_React$Component) {
             key: product.id,
             product: product,
             onClick: function onClick() {
-              return _this3.props.closeModal();
+              return closeModal;
             },
-            hoverProduct: _this3.hoverProduct,
-            openSidebar: _this3.openSidebar
+            hoverProduct: hoverProduct,
+            openSidebar: openSidebar
           });
         });
       }
@@ -3804,14 +3867,17 @@ var SearchProductItem = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.handleMouseEnter = _this.handleMouseEnter.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } // updateHoveredProduct(product) {
+  //     this.setState({ hoveredProduct: product })
+  // }
+
 
   _createClass(SearchProductItem, [{
     key: "handleMouseEnter",
     value: function handleMouseEnter(productId) {
       var _this2 = this;
 
-      return function () {
+      return function (e) {
         e.preventDefault();
         _this2.props.hoverProduct(productId), _this2.props.openSidebar('searchResult');
       };
@@ -3819,11 +3885,17 @@ var SearchProductItem = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       var product = this.props.product;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "searched-item-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        onMouseEnter: this.handleMouseEnter(product.id),
+        onMouseEnter: function onMouseEnter() {
+          _this3.props.hoverProduct(product.id);
+
+          _this3.props.openSidebar('searchResult');
+        },
         className: "searched-item-link",
         to: "/products/".concat(product.name, "/").concat(product.id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -3833,107 +3905,9 @@ var SearchProductItem = /*#__PURE__*/function (_React$Component) {
   }]);
 
   return SearchProductItem;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); // const SearchProductItem = (props) => {
-//     let { product } = props;
-//     return(
-//         <div className='searched-item-container'>
-//             <Link className="searched-item-link" to={`/products/${product.name}/${product.id}`}>
-//                 <span className='searched-item'>
-//                     {product.name}
-//                 </span>
-//             </Link>
-//         </div>
-//     )
-// }
-
-
-/* harmony default export */ __webpack_exports__["default"] = (SearchProductItem);
-
-/***/ }),
-
-/***/ "./frontend/components/search/search_result.jsx":
-/*!******************************************************!*\
-  !*** ./frontend/components/search/search_result.jsx ***!
-  \******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-var SearchResult = /*#__PURE__*/function (_React$Component) {
-  _inherits(SearchResult, _React$Component);
-
-  var _super = _createSuper(SearchResult);
-
-  function SearchResult(props) {
-    _classCallCheck(this, SearchResult);
-
-    return _super.call(this, props);
-  }
-
-  _createClass(SearchResult, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchProducts();
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          currentUserId = _this$props.currentUserId,
-          product = _this$props.product,
-          closeSidebar = _this$props.closeSidebar;
-      if (!product) return null;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "search-result-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "result-close-btn",
-        onClick: function onClick() {
-          return closeSidebar();
-        }
-      }, "X"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: product.photoUrls[0],
-        alt: "Photo"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Link, {
-        to: "/products/".concat(product.name, "/").concat(product.id),
-        className: "link-product",
-        onClick: function onClick() {
-          return closeSidebar;
-        }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, product.name))));
-    }
-  }]);
-
-  return SearchResult;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (SearchResult);
+/* harmony default export */ __webpack_exports__["default"] = (SearchProductItem);
 
 /***/ }),
 
@@ -3941,47 +3915,30 @@ var SearchResult = /*#__PURE__*/function (_React$Component) {
 /*!***************************************************************!*\
   !*** ./frontend/components/search/search_result_container.js ***!
   \***************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_sidebar_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/sidebar_actions */ "./frontend/actions/sidebar_actions.js");
-/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
-/* harmony import */ var _actions_product_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/product_actions */ "./frontend/actions/product_actions.js");
-/* harmony import */ var _search_result__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./search_result */ "./frontend/components/search/search_result.jsx");
-
-
-
-
-
-
-var mapSTP = function mapSTP(state) {
-  return {
-    currentUserId: state.session.id,
-    product: state.entities.products[state.ui.hover]
-  };
-};
-
-var mapDTP = function mapDTP(dispatch) {
-  return {
-    closeSidebar: function closeSidebar() {
-      return dispatch(Object(_actions_sidebar_actions__WEBPACK_IMPORTED_MODULE_1__["closeSidebar"])());
-    },
-    hoverProduct: function hoverProduct(productId) {
-      return dispatch(Object(_actions_sidebar_actions__WEBPACK_IMPORTED_MODULE_1__["hoverProduct"])(productId));
-    },
-    openModal: function openModal(modal) {
-      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__["openModal"])(modal));
-    },
-    fetchProducts: function fetchProducts() {
-      return dispatch(Object(_actions_product_actions__WEBPACK_IMPORTED_MODULE_3__["fetchProducts"])());
-    }
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapSTP, mapDTP)(_search_result__WEBPACK_IMPORTED_MODULE_4__["default"]));
+// import { connect } from 'react-redux'
+// import { closeSidebar, openSidebar, hoverProduct } from '../../actions/sidebar_actions'
+// import { openModal } from '../../actions/modal_actions'
+// import { fetchProducts } from '../../actions/product_actions'
+// import SearchResult from './search_result'
+// const mapSTP = state => {
+//     return {
+//         currentUserId: state.session.id,
+//         product: state.entities.products[state.ui.hover],
+//     }
+// }
+// const mapDTP = dispatch => {
+//     return {
+//         closeSidebar: () => dispatch(closeSidebar()),
+//         openSidebar: side => dispatch(openSidebar(side)),
+//         hoverProduct: productId => dispatch(hoverProduct(productId)),
+//         openModal: modal => dispatch(openModal(modal)),
+//         fetchProducts: () => dispatch(fetchProducts())
+//     }
+// }
+// export default connect(mapSTP, mapDTP)(SearchResult);
 
 /***/ }),
 
@@ -4490,10 +4447,11 @@ var cartItemsReducer = function cartItemsReducer() {
     // return newState
 
     case _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CART_ITEMS"]:
-      // return Object.assign({}, state, action.payload.cart_items);
-      //more readable
-      newState = action.payload.cart_items;
-      return newState;
+      return Object.assign({}, state, action.payload.cart_items);
+    // return Object.assign({}, state, action.payload);
+    //more readable
+    // newState = action.payload.cart_items
+    // return newState
 
     case _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_CART_ITEM"]:
       delete newState[action.cartItemId.id];
@@ -4579,10 +4537,9 @@ var hoverReducer = function hoverReducer() {
   Object.freeze(state);
 
   switch (action.type) {
-    case _actions_sidebar_actions__WEBPACK_IMPORTED_MODULE_0__["HOVER_PRODUCT"]:
-      // return action.side;
-      return action.productId;
-
+    // case HOVER_PRODUCT:
+    // return action.side;
+    // return action.productId;
     case _actions_sidebar_actions__WEBPACK_IMPORTED_MODULE_0__["HOVER_CATEGORY"]:
       // return null;
       return action.category;
