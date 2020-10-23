@@ -24,17 +24,6 @@
 
 
 
-.cart-item {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    background: rgb(35, 35, 35);
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 0px;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
-
-}
 
 
 
@@ -55,6 +44,93 @@
     font-size: 15px;
     cursor: pointer;
 }
+
+
+
+
+
+.cart-item {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background: rgb(35, 35, 35);
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+
+
+    .item {
+        min-width: 320px;
+        width: 39.5%;
+
+        .item-link {
+            color: white;
+            text-decoration: none;
+            // letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+    }
+
+    p {
+        flex-grow: 1;
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+
+
+    .qty-price-div {
+        flex-grow: 1;
+        // height: 15px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .update-qty {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+
+            select {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none; 
+                padding: 8px 8px;
+                border-radius: 1px;
+                background: inherit;
+                border: 1px solid rgba(128, 128, 128, 0.5);
+                color: white;
+                cursor: pointer;
+                font-size: 12px;
+                outline: none;
+               
+            }
+
+
+            button {
+                font-size: 14px;
+                letter-spacing: 1px;
+                background: inherit;
+                color: rgb(174, 174, 174);
+                border: none;
+                margin-left: 8px;
+                cursor: pointer;
+            }
+
+
+        }
+    }
+
+}
+
+
+
+
+
+
 
 
 
@@ -108,6 +184,7 @@
     .checkout {
         background-color: #efefef;
         border: none;
+        border-radius: 2px;
         color: black;
         padding: 15px;
         text-align: center;
@@ -128,7 +205,7 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
-        padding-top: 10px;
+        // padding-top: 10px;
 
         i {
             height: 100%;

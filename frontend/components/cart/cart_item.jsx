@@ -43,12 +43,18 @@ class CartItem extends React.Component {
         if (!product) return null;
 
         return (
-            <div>
-                <div className="cart-item">
-                    <Link to={`/products/${product.name}/${product.id}`} onClick={openToggle}>
-                        { product.name }
+
+            <div className="cart-item">
+                <div className="item">
+                    <Link 
+                        to={`/products/${product.name}/${product.id}`} 
+                        onClick={openToggle}
+                        className="item-link">
+                            { product.name }
                     </Link>
-                    <h2>{ product.size }</h2>
+                </div>
+                <p>{ product.size }</p>
+                <div className="qty-price-div">
                     <div className="update-qty">
                         <select id="cart" value={quantity} onChange={this.handleQuantity()} >
                             {/* <option value="1">1</option>
@@ -65,15 +71,15 @@ class CartItem extends React.Component {
                             {/* cleaner code: */}
                             {this.quantityDropDown()}
                         </select>
-                        <div className="remove-cart-item">
+                        {/* <div className="remove-cart-item"> */}
                             <button onClick={() => this.props.deleteCartItem(this.props.cartId) }>Remove</button>
-                        </div>
+                        {/* </div> */}
                     </div>
-                    <div>{quantity}</div>
                     <div>${ product.price * quantity }.00</div>
                 </div>
-
             </div>
+
+
         )
     }
 }
