@@ -5,7 +5,7 @@ import SignupFormContainer from '../../components/session_form/signup_form_conta
 import CartContainer from '../cart/cart_item_container';
 import CheckoutContainer from '../cart/cart_checkout_container'
 import CategorySidebarContainer from '../navbar/category_sidebar_container'
-import SubCategorySidebarContainer from '../navbar/sub_category_sidebar_container'
+import SubCategorySidebarContainer from '../navbar/feature_container'
 import SearchContainer from '../search/search_container'
 
 
