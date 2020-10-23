@@ -6,13 +6,15 @@ class Feature extends React.Component {
     constructor(props) {
         super(props)
         // debugger
-
+        this.state = {
+            hover: this.props.hover
+        }
     }
 
 
-    // componentDidMount () {
-    //     this.props.fetchProducts();
-    // }
+    componentDidMount () {
+        this.props.fetchProducts();
+    }
 
 
 
@@ -35,32 +37,43 @@ class Feature extends React.Component {
     //     // console.log(prevState)
     // }
 
+    // componentDidUpdate() {
+    //     if (this.props.)
+    // }
 
 
 
 
     render() {
         // debugger
-        const { skinCategory, hairCategory, bodyCategory } = this.props;
+        const { products, skinCategory, hairCategory, bodyCategory } = this.props;
 
 
-        let products;
+        let filteredProducts;
        
         if (this.props.hover === "Skin") {
-            products = skinCategory
+            filteredProducts = products.filter((product) => product.category === "Skin")
         } else if (this.props.hover === "Hair") {
-            products = hairCategory
+            filteredProducts = products.filter((product) => product.category === "Hair")
         } else {
-            products = bodyCategory
+            filteredProducts = products.filter((product) => product.category === "Body & Hand")
         }
 
         // console.log("THIS")
         // console.log(products[0])
   
 
-        let randomize = Math.floor((Math.random() * products.length) + 1)
-        let product = products[randomize]
+        let randomize = Math.floor((Math.random() * filteredProducts.length) + 1)
+        let product = filteredProducts[randomize]
         let caption = product.skin_feel || product.aroma
+
+        // console.log(randomize)
+        // console.log(products)
+        // console.log(product)
+        // console.log(this.props)
+        // console.log(product.skin_feel)
+        // console.log(product.caption)
+        
 
         return (
             <div className="blahh">
@@ -78,14 +91,9 @@ class Feature extends React.Component {
                                     width="190px"/>
                             </Link>
                         </div>
-
     
                         <div><p className="caption">{caption}</p></div>
             
-                
-
-
-
                         </div>
 
                     

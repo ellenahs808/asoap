@@ -23,7 +23,7 @@ class Modal extends React.Component {
 
 
     render() {
-        const { modal, closeModal } = this.props;
+        const { modal } = this.props;
 
         if (!modal) {
             return null;
@@ -58,7 +58,7 @@ class Modal extends React.Component {
 
         
         return (
-            <div className="modal-screen" onClick={closeModal}>
+            <div className="modal-screen" onClick={() => {this.props.closeModal(); this.props.closeSidebar()}}>
                 <div className="modal-child" onClick={e => e.stopPropagation()}>
                     {component}
                 </div>

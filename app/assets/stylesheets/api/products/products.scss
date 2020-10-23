@@ -112,16 +112,17 @@
 
 
 .main-show-container {
-    display: flex;
+    // display: flex;
+   
     padding-top: 5px;
     padding-bottom: 50px;
 }
 
 
 .first-img-container {
-    display: flex;
-    width: 50%;
-    padding-left: 40%;
+    width: 40%;
+    align-items: center;
+    padding-left: 20%;
 }
 
 
@@ -143,10 +144,11 @@
 
 
 .detail-container {
-    width: 80%;
+    width: 90%;
     float: left;
     // padding: 2%;
     padding-right: 15%;
+    padding-left: 50px;
 }
 
 
@@ -233,6 +235,9 @@
 }
 
 
+
+
 .prod-show-img {
     padding-top: 70px;
 }
+

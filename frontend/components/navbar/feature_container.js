@@ -3,7 +3,7 @@ import { hoverCategory, closeSidebar } from '../../actions/sidebar_actions';
 import { openModal, closeModal } from '../../actions/modal_actions'
 import { fetchProducts } from '../../actions/product_actions'
 import Feature from './feature'
-import { filterProductsByCategory } from '../feature/filter'
+
 
 
 // const mapSTP = state => {
@@ -12,12 +12,7 @@ import { filterProductsByCategory } from '../feature/filter'
 // };
 
 const mapSTP = state => ({
-    // products: Object.values(state.entities.products),
-    skinCategory: filterProductsByCategory(state, "Skin"),
-    hairCategory: filterProductsByCategory(state, "Hair"),
-    bodyCategory: filterProductsByCategory(state, "Body & Hand"),
-    // category: state.ui.hover,
-    // products: filterProductsByCategory(state, state.ui.side),
+    products: Object.values(state.entities.products),
     hover: state.ui.hover
 })
 

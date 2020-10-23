@@ -155,7 +155,9 @@ class ProductShowItem extends React.Component {
 
                 <div className='main-show-container'>
                     <div className="first-img-container">
-                            <div className="prod-show-img"><img src={photoUrls[0]} width="200px" height="450px" /></div>
+
+                        <img src={photoUrls[0]} width="200px" height="450px" className="prod-show-img" />
+ 
                     </div>
                     <div className="detail-container">
                         <div className='first-detail-container'>
@@ -176,9 +178,7 @@ class ProductShowItem extends React.Component {
                                 <h3 className="product-key">Key Ingredients</h3>
                                 <p className="product-val">{key_ingredients}</p>
                             </div>
-                          
-                                <button className="cart-btn" onClick={this.handleClick}>Add to your cart - ${price}.00</button>
-
+                            <button className="cart-btn" onClick={this.handleClick}>Add to your cart - ${price}.00</button>
                             </div>
                             <div className="quantity-added-to-cart"> Item added to cart</div>
                     </div>

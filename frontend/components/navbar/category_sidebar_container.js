@@ -3,7 +3,7 @@ import { openModal, closeModal } from '../../actions/modal_actions'
 import { openSidebar, closeSidebar, hoverCategory } from '../../actions/sidebar_actions'
 import { fetchProducts } from '../../actions/product_actions'
 import CategorySidebar from './category_sidebar'
-import { filterProductsByCategory } from '../feature/filter'
+
 
 
 
@@ -14,9 +14,6 @@ import { filterProductsByCategory } from '../feature/filter'
 
 
 const mapSTP = state => ({
-    skinCategory: filterProductsByCategory(state, "Skin"),
-    hairCategory: filterProductsByCategory(state, "Hair"),
-    bodyCategory: filterProductsByCategory(state, "Body & Hand"),
     hover: state.ui.hover
 })
 

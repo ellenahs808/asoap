@@ -1026,70 +1026,6 @@ var mapDTP = function mapDTP(dispatch) {
 
 /***/ }),
 
-/***/ "./frontend/components/feature/filter.js":
-/*!***********************************************!*\
-  !*** ./frontend/components/feature/filter.js ***!
-  \***********************************************/
-/*! exports provided: allSkinProducts, allHairProducts, allBodyProducts, filterProductsByCategory */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "allSkinProducts", function() { return allSkinProducts; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "allHairProducts", function() { return allHairProducts; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "allBodyProducts", function() { return allBodyProducts; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filterProductsByCategory", function() { return filterProductsByCategory; });
-var allSkinProducts = function allSkinProducts(state) {
-  return Object.values(state.entities.products).filter(function (product) {
-    return product.category === "Skin";
-  });
-};
-var allHairProducts = function allHairProducts(state) {
-  return Object.values(state.entities.products).filter(function (product) {
-    return product.category === "Hair";
-  });
-};
-var allBodyProducts = function allBodyProducts(state) {
-  return Object.values(state.entities.products).filter(function (product) {
-    return product.category === "Body & Hand";
-  });
-};
-var filterProductsByCategory = function filterProductsByCategory(state, category) {
-  return Object.values(state.entities.products).filter(function (product) {
-    return product.category === category;
-  });
-}; // export const skinCategory = state =>
-//     Object.values(state.entities.products).filter((product) =>
-//         product.category === 'Skin'
-//     )
-// export const skinSubCategory = state => 
-//     Object.values(state.entities.products).filter((product) => 
-//         product.sub_category === 'Skin Cleanse' ||
-//         product.sub_category === 'Exfoliate' ||
-//         product.sub_category === 'Treat' ||
-//         product.sub_category === 'Tone' 
-//     )
-// export const hairCategory = state =>
-//     Object.values(state.entities.products).filter((product) =>
-//         product.category === 'Hair'
-//     )
-// export const hairSubCategory = state =>
-//     Object.values(state.entities.products).filter((product) =>
-//         product.sub_category === 'Hair Cleanse' ||
-//         product.sub_category === 'Condition'
-//     )
-// export const bodyCategory = state =>
-//     Object.values(state.entities.products).filter((product) =>
-//         product.category === 'Body'
-//     )
-// export const bodySubCategory = state =>
-//     Object.values(state.entities.products).filter((product) =>
-//         product.sub_category === 'Hand' ||
-//         product.sub_category === 'Body'
-//     )
-
-/***/ }),
-
 /***/ "./frontend/components/footer.jsx":
 /*!****************************************!*\
   !*** ./frontend/components/footer.jsx ***!
@@ -1362,9 +1298,9 @@ var Modal = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this$props = this.props,
-          modal = _this$props.modal,
-          closeModal = _this$props.closeModal;
+      var _this = this;
+
+      var modal = this.props.modal;
 
       if (!modal) {
         return null;
@@ -1407,7 +1343,11 @@ var Modal = /*#__PURE__*/function (_React$Component) {
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-screen",
-        onClick: closeModal
+        onClick: function onClick() {
+          _this.props.closeModal();
+
+          _this.props.closeSidebar();
+        }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-child",
         onClick: function onClick(e) {
@@ -1435,8 +1375,10 @@ var Modal = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
-/* harmony import */ var _actions_product_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/product_actions */ "./frontend/actions/product_actions.js");
-/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modal */ "./frontend/components/modal/modal.jsx");
+/* harmony import */ var _actions_sidebar_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/sidebar_actions */ "./frontend/actions/sidebar_actions.js");
+/* harmony import */ var _actions_product_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/product_actions */ "./frontend/actions/product_actions.js");
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modal */ "./frontend/components/modal/modal.jsx");
+
 
 
 
@@ -1454,13 +1396,16 @@ var mapDTP = function mapDTP(dispatch) {
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__["closeModal"])());
     },
+    closeSidebar: function closeSidebar() {
+      return dispatch(Object(_actions_sidebar_actions__WEBPACK_IMPORTED_MODULE_2__["closeSidebar"])());
+    },
     fetchProducts: function fetchProducts() {
-      return dispatch(Object(_actions_product_actions__WEBPACK_IMPORTED_MODULE_2__["fetchProducts"])());
+      return dispatch(Object(_actions_product_actions__WEBPACK_IMPORTED_MODULE_3__["fetchProducts"])());
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapSTP, mapDTP)(_modal__WEBPACK_IMPORTED_MODULE_3__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapSTP, mapDTP)(_modal__WEBPACK_IMPORTED_MODULE_4__["default"]));
 
 /***/ }),
 
@@ -1845,8 +1790,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_sidebar_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/sidebar_actions */ "./frontend/actions/sidebar_actions.js");
 /* harmony import */ var _actions_product_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/product_actions */ "./frontend/actions/product_actions.js");
 /* harmony import */ var _category_sidebar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./category_sidebar */ "./frontend/components/navbar/category_sidebar.jsx");
-/* harmony import */ var _feature_filter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../feature/filter */ "./frontend/components/feature/filter.js");
-
 
 
 
@@ -1858,9 +1801,6 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapSTP = function mapSTP(state) {
   return {
-    skinCategory: Object(_feature_filter__WEBPACK_IMPORTED_MODULE_5__["filterProductsByCategory"])(state, "Skin"),
-    hairCategory: Object(_feature_filter__WEBPACK_IMPORTED_MODULE_5__["filterProductsByCategory"])(state, "Hair"),
-    bodyCategory: Object(_feature_filter__WEBPACK_IMPORTED_MODULE_5__["filterProductsByCategory"])(state, "Body & Hand"),
     hover: state.ui.hover
   };
 };
@@ -1942,53 +1882,78 @@ var Feature = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(Feature);
 
   function Feature(props) {
+    var _this;
+
     _classCallCheck(this, Feature);
 
-    return _super.call(this, props); // debugger
-  } // componentDidMount () {
-  //     this.props.fetchProducts();
-  // }
-  // componentDidUpdate(prevProps, prevState) {
-  // // only update chart if the data has changed
-  //     // debugger
-  //     if (prevProps.hover !== this.props.hover) {
-  //         // console.log("hover has changed!")
-  //         this.setState((prevProps) => {
-  //             return { hover: prevProps.hover }
-  //         });
-  //         console.log(this.state.hover)
-  //     }
-  //     // console.log("prevProps")
-  //     // console.log(prevProps.hover)
-  //     // console.log(prevState)
-  // }
+    _this = _super.call(this, props); // debugger
 
+    _this.state = {
+      hover: _this.props.hover
+    };
+    return _this;
+  }
 
   _createClass(Feature, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchProducts();
+    } // componentDidUpdate(prevProps, prevState) {
+    // // only update chart if the data has changed
+    //     // debugger
+    //     if (prevProps.hover !== this.props.hover) {
+    //         // console.log("hover has changed!")
+    //         this.setState((prevProps) => {
+    //             return { hover: prevProps.hover }
+    //         });
+    //         console.log(this.state.hover)
+    //     }
+    //     // console.log("prevProps")
+    //     // console.log(prevProps.hover)
+    //     // console.log(prevState)
+    // }
+    // componentDidUpdate() {
+    //     if (this.props.)
+    // }
+
+  }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
       // debugger
       var _this$props = this.props,
+          products = _this$props.products,
           skinCategory = _this$props.skinCategory,
           hairCategory = _this$props.hairCategory,
           bodyCategory = _this$props.bodyCategory;
-      var products;
+      var filteredProducts;
 
       if (this.props.hover === "Skin") {
-        products = skinCategory;
+        filteredProducts = products.filter(function (product) {
+          return product.category === "Skin";
+        });
       } else if (this.props.hover === "Hair") {
-        products = hairCategory;
+        filteredProducts = products.filter(function (product) {
+          return product.category === "Hair";
+        });
       } else {
-        products = bodyCategory;
+        filteredProducts = products.filter(function (product) {
+          return product.category === "Body & Hand";
+        });
       } // console.log("THIS")
       // console.log(products[0])
 
 
-      var randomize = Math.floor(Math.random() * products.length + 1);
-      var product = products[randomize];
-      var caption = product.skin_feel || product.aroma;
+      var randomize = Math.floor(Math.random() * filteredProducts.length + 1);
+      var product = filteredProducts[randomize];
+      var caption = product.skin_feel || product.aroma; // console.log(randomize)
+      // console.log(products)
+      // console.log(product)
+      // console.log(this.props)
+      // console.log(product.skin_feel)
+      // console.log(product.caption)
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "blahh"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
@@ -1999,9 +1964,9 @@ var Feature = /*#__PURE__*/function (_React$Component) {
         className: "feature-close-btn"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         onClick: function onClick() {
-          _this.props.closeModal();
+          _this2.props.closeModal();
 
-          _this.props.closeSidebar();
+          _this2.props.closeSidebar();
         }
       }, "X")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "product-name"
@@ -2010,9 +1975,9 @@ var Feature = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/products/".concat(product.name, "/").concat(product.id),
         onClick: function onClick() {
-          _this.props.closeModal();
+          _this2.props.closeModal();
 
-          _this.props.closeSidebar();
+          _this2.props.closeSidebar();
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: product.photoUrls[0],
@@ -2046,8 +2011,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
 /* harmony import */ var _actions_product_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/product_actions */ "./frontend/actions/product_actions.js");
 /* harmony import */ var _feature__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./feature */ "./frontend/components/navbar/feature.jsx");
-/* harmony import */ var _feature_filter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../feature/filter */ "./frontend/components/feature/filter.js");
-
 
 
 
@@ -2059,12 +2022,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapSTP = function mapSTP(state) {
   return {
-    // products: Object.values(state.entities.products),
-    skinCategory: Object(_feature_filter__WEBPACK_IMPORTED_MODULE_5__["filterProductsByCategory"])(state, "Skin"),
-    hairCategory: Object(_feature_filter__WEBPACK_IMPORTED_MODULE_5__["filterProductsByCategory"])(state, "Hair"),
-    bodyCategory: Object(_feature_filter__WEBPACK_IMPORTED_MODULE_5__["filterProductsByCategory"])(state, "Body & Hand"),
-    // category: state.ui.hover,
-    // products: filterProductsByCategory(state, state.ui.side),
+    products: Object.values(state.entities.products),
     hover: state.ui.hover
   };
 };
@@ -3203,13 +3161,12 @@ var ProductShowItem = /*#__PURE__*/function (_React$Component) {
         className: "main-show-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "first-img-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "prod-show-img"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: photoUrls[0],
         width: "200px",
-        height: "450px"
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        height: "450px",
+        className: "prod-show-img"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "detail-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "first-detail-container"
