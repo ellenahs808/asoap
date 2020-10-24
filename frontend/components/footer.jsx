@@ -30,26 +30,26 @@ const Footer = props => (
             <div className='orders-footer'>
                 <div className='footer-title'>Orders and support</div>
                 <ul>
-                    <Link to='/' className='footer-links'><li>Contact Us</li></Link>
-                    <Link to='/' className='footer-links'><li>FAQs</li></Link>
-                    <Link to='/' className='footer-links'><li>Delivery and returns</li></Link>
-                    <Link to='/' className='footer-links'><li>Track your order</li></Link>
-                    <Link to='/' className='footer-links'><li>Check gift card balance</li></Link>
-                    <Link to='/' className='footer-links'><li>Terms and conditions</li></Link>
-                    <Link to='/' className='footer-links'><li>Accessibility</li></Link>
+                    <li>Contact Us</li>
+                    <li>FAQs</li>
+                    <li>Delivery and returns</li>
+                    <li>Track your order</li>
+                    <li>Check gift card balance</li>
+                    <li>Terms and conditions</li>
+                    <li>Accessibility</li>
                 </ul>
             </div>
             <div className='about-footer'>
                 <div className='footer-title'>About</div>
                 <ul>
-                    <Link to='/' className='footer-links'><li>Our Story</li></Link>
-                    <Link to='/' className='footer-links'><li>Careers</li></Link>
-                    <Link to='/' className='footer-links'><li>Foundation</li></Link>
-                    <Link to='/' className='footer-links'><li>Press</li></Link>
-                    <Link to='/' className='footer-links'><li>Corporate gifts</li></Link>
-                    <Link to='/' className='footer-links'><li>Regulatory policies</li></Link>
-                    <Link to='/' className='footer-links'><li>Privacy policy</li></Link>
-                    <Link to='/' className='footer-links'><li>Sustainability</li></Link>
+                    <li>Our Story</li>
+                    <li>Careers</li>
+                    <li>Foundation</li>
+                    <li>Press</li>
+                    <li>Corporate gifts</li>
+                    <li>Regulatory policies</li>
+                    <li>Privacy policy</li>
+                    <li>Sustainability</li>
                 </ul>
             </div>
             <div className='social'>
