@@ -8,7 +8,7 @@
 
 User.destroy_all
 
-demo = { email: 'soaplover@demo.com', password: 'hunter12', first_name: 'Mister', last_name: 'Clean' }
+demo = { email: 'soaplover@demo.com', password: 'hunter12', first_name: 'Soap', last_name: 'Lover' }
 User.create(demo)
 
 

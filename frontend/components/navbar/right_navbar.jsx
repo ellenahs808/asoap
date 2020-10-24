@@ -27,6 +27,7 @@ class RightNavbar extends React.Component {
     }
 
 
+
     loggedInOrOut() {
         if (this.props.loggedIn) {
             return (
@@ -72,7 +73,6 @@ class RightNavbar extends React.Component {
 
 
 };
-
 
 
 

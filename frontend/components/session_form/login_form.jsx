@@ -22,7 +22,8 @@ class LoginForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.login(user);
+        this.props.login(user)
+
     };
 
 
@@ -31,7 +32,8 @@ class LoginForm extends React.Component {
     handleDemoSubmit(e) {
         e.preventDefault();
         this.props.loginDemo()
-            .then(this.props.closeModal())
+        this.props.closeModal()
+        // this.demoTyper(e)
     };
 
 
