@@ -65,7 +65,8 @@ input {
     height: 30px;
     width: 100%;
     font-size: 30px;
-    color: black;
+    color: rgb(63, 63, 63);
+    font-size: 26px;
     float: right;
     padding: 0;
 }
@@ -94,6 +95,8 @@ input {
 
 .login-header > h2 {
     padding: 10px;
+    letter-spacing: 1.2px;
+    color: rgb(63, 63, 63);
 }
 
 .login-form {
@@ -131,6 +134,13 @@ input {
 
 
 
+.login-btn:hover {
+    background-color: rgb(172, 171, 171);
+    transition: ease-in-out 0.4s;
+}
+
+
+
 .demo-login-btn {
     background-color: #999;
     color: white;
@@ -141,6 +151,12 @@ input {
     width: 100%;
     font-size: 17px;
     outline: none;
+}
+
+
+.demo-login-btn:hover {
+    background-color: rgb(172, 171, 171);
+    transition: ease-in-out 0.4s;
 }
 
 
@@ -188,6 +204,7 @@ input {
 
 .signup-header > h2 {
     letter-spacing: 1.2px;
+    color: rgb(63, 63, 63);
     padding: 10px;
 }
 
@@ -256,7 +273,17 @@ input {
     cursor: pointer;
     width: 100%;
     font-size: 17px;
+
 }
+
+
+
+.signup-btn:hover {
+    background-color: rgb(172, 171, 171);
+    transition: ease-in-out 0.4s;
+}
+
+
 
 .signup-footer {
     text-align: center;
