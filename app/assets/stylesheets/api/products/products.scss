@@ -21,7 +21,9 @@
     padding-left: 16%;
     font-size: 38px;
     padding-top: 10%;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
+    font-family: 'Nunito Sans', sans-serif;
+    color: #363636;
 }
 
 
@@ -68,18 +70,27 @@
 .sub-category-name {
     font-size: 35px;
     padding-bottom: 25px;
+    letter-spacing: 2.5px;
+    font-family: 'Nunito Sans', sans-serif;
+    color: #363636;
 }
 
 .sub-category-par {
     font-size: 19px;
     line-height: 1.6;
+
+    letter-spacing: 0.5px;
+    font-family: 'Nunito Sans', sans-serif;
+    color: #252525;
 }
 
 
 .product-itm-link {
-    color: black;
     text-align: center;
     line-height: 2.6;
+
+    letter-spacing: 1px;
+    color: #363636;
 }
 
 
@@ -89,7 +100,8 @@
 
 
 .prod-size-price {
-    color: rgb(93, 92, 92);
+    color: rgb(109, 109, 109);
+    letter-spacing: 0.9px;
 }
 
 
