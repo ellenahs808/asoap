@@ -48,7 +48,6 @@
         }
     
     
-    
     }
 
 }
@@ -83,9 +82,8 @@
         width: 39.5%;
 
         .item-link {
-            color: white;
+            color: rgb(233, 229, 229);
             text-decoration: none;
-            // letter-spacing: 1px;
             cursor: pointer;
         }
 
@@ -189,6 +187,7 @@
         p {
             font-size: 18px;
             letter-spacing: 1px;
+            color: rgb(233, 229, 229);
         }
 
         div {     
@@ -217,8 +216,13 @@
         top: 0px;
         outline: none;
         letter-spacing: 1.4px;
-    }
 
+    }
+    
+    .checkout:hover {
+        background-color: rgb(197, 197, 197);
+        transition: 0.4s;
+    }
 
     .pay-icons {
         width: 100%;
