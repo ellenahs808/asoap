@@ -456,28 +456,62 @@
   margin-right: 75px;
   padding-top: 40px;
   padding-bottom: 30%;
+
+
+  li {
+    display: inline;
+    position: relative;
+    overflow: hidden;
+    justify-content: space-evenly;
+    letter-spacing: 1px;
+
+    color: rgb(54, 54, 54);
+    font-size: 18px;
+    font-family: 'Work Sans', sans-serif;
+  }
+
+
+  .sidebar-link:hover {
+    cursor: pointer;
+  }
+
+  .sidebar-link::after {
+    content: '';
+    width: 0px;
+    height: 1.1px;
+    display: block;
+    background: rgba(0, 0, 0, 0.637);
+    transition: 400ms;
+  }
+
+  .sidebar-link:hover::after {
+    width: 100%;
+  }
+
+
+
+  .sidebar-close-btn {
+    color: rgba(0, 0, 0, 0.835);
+    font-size: 20px;
+    font-family: 'Work Sans', sans-serif;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+
+    color: rgb(54, 54, 54);
+    font-size: 18px;
+    font-family: 'Work Sans', sans-serif;
+
+
+    .sidebar-close-btn:link {
+      text-decoration: none;
+    }
+  }
+
 }
 
-.sidebar-nav-li > li {
-  justify-content: space-evenly;
-}
 
-
-.sidebar-close-btn {
-  color: rgba(0, 0, 0, 0.835);
-  font-size: 20px;
-  font-family: 'Work Sans', sans-serif;
-  border: none;
-  background-color: transparent;
-  outline: none;
-  cursor: pointer;
-
-}
-
-
-.sidebar-close-btn:link {
-  text-decoration: none;
-}
 
 
 .asoap-logo {
@@ -486,64 +520,89 @@
 }
 
 
+
 .sidebar-category-li {
   padding-top: 15%;
+
+
+  li {
+    padding: 1.5% 5%;
+    margin-left: 4%;
+
+
+    .side-link {
+      color: rgb(54, 54, 54);
+      font-size: 40px;
+      letter-spacing: 1.5px;
+      font-family: 'Nunito Sans', sans-serif;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  
+    .side-link:link {
+      text-decoration: none;
+    }
+
+  }
+
+
+
 }
 
-.skin-category {
-  padding: 1.5% 5%;
-  margin-left: 4%;
-}
+// .skin-category {
+//   padding: 1.5% 5%;
+//   margin-left: 4%;
+// }
 
-.skin-link {
-  color: rgb(58, 58, 58);
-  font-size: 40px;
-  font-family: 'Nunito Sans', sans-serif;
-  text-decoration: none;
-  cursor: pointer;
-}
+// .skin-link {
+//   color: rgb(58, 58, 58);
+//   font-size: 40px;
+//   font-family: 'Nunito Sans', sans-serif;
+//   text-decoration: none;
+//   cursor: pointer;
+// }
 
-.skin-link:link {
-  text-decoration: none;
-}
-
-
-
-
-.hair-category {
-  padding: 1.5% 5%;
-  margin-left: 4%;
-}
-
-.hair-link {
-  color: rgb(58, 58, 58);
-  font-size: 40px;
-  font-family: 'Nunito Sans', sans-serif;
-  text-decoration: none;
-}
-
-.hair-link:link {
-  text-decoration: none;
-}
+// .skin-link:link {
+//   text-decoration: none;
+// }
 
 
 
 
-.body-category {
-  padding: 1.5% 5%;
-  margin-left: 4%;
-}
+// .hair-category {
+//   padding: 1.5% 5%;
+//   margin-left: 4%;
+// }
 
-.body-link {
-  color: rgb(58, 58, 58);
-  font-size: 40px;
-  font-family: 'Nunito Sans', sans-serif;
-  text-decoration: none;
-}
+// .hair-link {
+//   color: rgb(58, 58, 58);
+//   font-size: 40px;
+//   font-family: 'Nunito Sans', sans-serif;
+//   text-decoration: none;
+// }
 
-.body-link:link {
-  text-decoration: none;
-}
+// .hair-link:link {
+//   text-decoration: none;
+// }
+
+
+
+
+// .body-category {
+//   padding: 1.5% 5%;
+//   margin-left: 4%;
+// }
+
+// .body-link {
+//   color: rgb(58, 58, 58);
+//   font-size: 40px;
+//   font-family: 'Nunito Sans', sans-serif;
+//   text-decoration: none;
+// }
+
+// .body-link:link {
+//   text-decoration: none;
+// }
 
 
 

@@ -82,6 +82,7 @@ class Feature extends React.Component {
                         <div className="feature-close-btn"><p onClick={ () => {this.props.closeModal(); this.props.closeSidebar();} }>X</p></div>
    
                         <h1 className="product-name">{product.name}</h1>
+
                         <div className="feature-img">
                             <Link 
                                 to={`/products/${product.name}/${product.id}`} 

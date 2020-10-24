@@ -1721,16 +1721,16 @@ var CategorySidebar = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "sidebar-nav-li"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "shop-link",
+        className: "sidebar-link",
         onClick: function onClick() {
           return _this3.props.openModal('sidebar');
         }
       }, "Shop"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "read-link"
+        className: "sidebar-link"
       }, "Read"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "read-link"
+        className: "sidebar-link"
       }, "Stores"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "search-link",
+        className: "sidebar-link",
         onClick: function onClick() {
           return _this3.props.openModal('search');
         }
@@ -1756,7 +1756,7 @@ var CategorySidebar = /*#__PURE__*/function (_React$Component) {
         className: "skin-category"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/skin",
-        className: "skin-link",
+        className: "side-link",
         onClick: function onClick() {
           _this3.props.closeModal();
 
@@ -1767,7 +1767,7 @@ var CategorySidebar = /*#__PURE__*/function (_React$Component) {
         className: "hair-category"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/hair",
-        className: "hair-link",
+        className: "side-link",
         onClick: function onClick() {
           _this3.props.closeModal();
 
@@ -1778,7 +1778,7 @@ var CategorySidebar = /*#__PURE__*/function (_React$Component) {
         className: "body-category"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/body",
-        className: "body-link",
+        className: "side-link",
         onClick: function onClick() {
           _this3.props.closeModal();
 
