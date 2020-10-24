@@ -105,8 +105,8 @@ class Cart extends React.Component {
                                 <i className="fab fa-cc-discover"></i>
                                 <i className="fab fa-cc-paypal"></i>
                                 <i className="fab fa-alipay"></i>
-                                <i class="fab fa-apple-pay"></i>
-                                <i class="fab fa-amazon-pay"></i>
+                                <i className="fab fa-apple-pay"></i>
+                                <i className="fab fa-amazon-pay"></i>
                             </div>
                         </div>
 

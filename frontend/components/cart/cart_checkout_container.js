@@ -3,7 +3,7 @@ import { closeModal } from '../../actions/modal_actions';
 import Checkout from './cart_checkout'
 
 const mapSTP = (state) =>({
-    currentUser: state.entities.users
+    currentUser: Object.values(state.entities.users)[0]
 })
 
 const mapDTP = dispatch =>({
