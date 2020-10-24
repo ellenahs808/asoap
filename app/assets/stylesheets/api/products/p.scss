@@ -52,15 +52,22 @@
 
 
 .product-key {
-    font-size: 18px;
+    font-size: 21px;
     font-weight: 1500;
     padding-bottom: 15px;
+
+        letter-spacing: 1.5px;
+    // font-family: 'Nunito Sans', sans-serif;
+    color: #252525;
 }
 
 
 .product-val {
     font-size: 18px;
-    color: rgb(93, 92, 92);
+    color: rgb(117, 117, 117);
+
+    letter-spacing: 0.5px;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 
@@ -68,19 +75,27 @@
     font-size: 30px;
     padding-bottom: 32px;
     line-height: 1.4;
+
+    letter-spacing: 0.5px;
+    font-family: 'Nunito Sans', sans-serif;
+    color: #252525;
 }
 
 .detail2 {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.7;
     padding-bottom: 20px;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #252525;;
+
+    letter-spacing: 0.5px;
+    font-family: 'Nunito Sans', sans-serif;
+    color: #252525;
 }
 
 
 .detail3 {
     padding: 20px 0;
-    border-bottom: 1px solid #a0a0a0;
+    border-bottom: 1px solid #252525;;
 }
 
 
@@ -150,6 +165,9 @@
     font-family: 'Lora', serif;
     font-size: 31px;
     padding-top: 10px;
+
+    letter-spacing: 0.5px;
+    color: #252525;
 }
 
 
