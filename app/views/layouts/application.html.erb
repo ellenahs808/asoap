@@ -14,6 +14,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= favicon_link_tag asset_path('favicon.png')%>
     <script type="text/javascript">
       window.images = {
         logo: "<%= image_url('logo.png')%>",
@@ -23,7 +24,8 @@
         paste: "<%= image_url('paste.png')%>",
         powder: "<%= image_url('powder.png')%>",
         hands: "<%= image_url('hands.png')%>",
-        checkout: "<%= image_url('checkout.png')%>"
+        checkout: "<%= image_url('checkout.png')%>",
+        // favicon: "<%= image_url('favicon.png')%>%"
       }
     </script>
 
