@@ -70,51 +70,47 @@ class Cart extends React.Component {
         })
 
         return (
-       
-            // <main>
-                <main className="cart-div">
-                    <div className="cart-labels">
-                        <li><strong>Cart</strong></li>
-                        <li><strong>Size</strong></li>
-                        <li><strong>Quantity</strong></li>
-                        <li>
-                            <div onClick={this.props.openToggle} className="x-btn"> 
-                                <strong>X</strong>
-                            </div>
-                        </li>
-                    </div>
-                    {cartStatus}
-                    <div className="cart-bottom">
-                        <div className="cart-bottom-left">
-                            <p>Shipping to the United States.</p>
+    
+            <main className="cart-div">
+                <div className="cart-labels">
+                    <li><strong>Cart</strong></li>
+                    <li><strong>Size</strong></li>
+                    <li><strong>Quantity</strong></li>
+                    <li>
+                        <div onClick={this.props.openToggle} className="x-btn"> 
+                            <strong>X</strong>
                         </div>
-                        <div className="cart-bottom-right">
-                            <p>Enjoy complimentary standard shipping on all orders.</p>
-                            <div className="subtotal">
-                                <p><strong>Subtotal</strong> (Tax Excl.)</p>
-                                <div>${totalPrice}.00</div>
-                            </div>
-                            <button className="checkout" onClick={this.handleCheckout()}>   
-                                Checkout
-                            </button>
-                            <div className="pay-icons">
-                                <i className="fab fa-cc-visa"></i>
-                                <i className="fab fa-cc-mastercard"></i>
-                                <i className="fab fa-cc-amex"></i>
-                                <i className="fab fa-cc-diners-club"></i>
-                                <i className="fab fa-cc-discover"></i>
-                                <i className="fab fa-cc-paypal"></i>
-                                <i className="fab fa-alipay"></i>
-                                <i class="fab fa-apple-pay"></i>
-                                <i class="fab fa-amazon-pay"></i>
-                            </div>
-                        </div>
-
+                    </li>
+                </div>
+                {cartStatus}
+                <div className="cart-bottom">
+                    <div className="cart-bottom-left">
+                        <p>Shipping to the United States.</p>
                     </div>
-                </main>
+                    <div className="cart-bottom-right">
+                        <p>Enjoy complimentary standard shipping on all orders.</p>
+                        <div className="subtotal">
+                            <p><strong>Subtotal</strong> (Tax Excl.)</p>
+                            <div>${totalPrice}.00</div>
+                        </div>
+                        <button className="checkout" onClick={this.handleCheckout()}>   
+                            Checkout
+                        </button>
+                        <div className="pay-icons">
+                            <i className="fab fa-cc-visa"></i>
+                            <i className="fab fa-cc-mastercard"></i>
+                            <i className="fab fa-cc-amex"></i>
+                            <i className="fab fa-cc-diners-club"></i>
+                            <i className="fab fa-cc-discover"></i>
+                            <i className="fab fa-cc-paypal"></i>
+                            <i className="fab fa-alipay"></i>
+                            <i className="fab fa-apple-pay"></i>
+                            <i className="fab fa-amazon-pay"></i>
+                        </div>
+                    </div>
 
-            // </main>
-
+                </div>
+            </main>
         )
     }
 }
