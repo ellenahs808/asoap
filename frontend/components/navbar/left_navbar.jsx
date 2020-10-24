@@ -59,10 +59,10 @@ class LeftNavbar extends React.Component {
         return (
 
             <ul className="left-nav-li" id="toggle" >
-                <li className="shop-link" onClick={() => this.handleSidebar()}>Shop</li>
-                <li className="read-link" onClick={() => this.handleSidebar()}>Read</li>
-                <li className="stores-link" onClick={() => this.handleSidebar()}>Stores</li>
-                <li className="search-link" onClick={() => this.handleSearch()}>Search</li>
+                <li onClick={() => this.handleSidebar()}>Shop</li>
+                <li onClick={() => this.handleSidebar()}>Read</li>
+                <li onClick={() => this.handleSidebar()}>Stores</li>
+                <li onClick={() => this.handleSearch()}>Search</li>
             </ul>
         )
     }

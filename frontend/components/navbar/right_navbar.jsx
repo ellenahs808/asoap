@@ -33,7 +33,7 @@ class RightNavbar extends React.Component {
 
                 <div className="right-nav">
                     <div className="right-nav-greeting">
-                        <h1 className="login-greeting">Hi, {this.props.currentUser.first_name} {this.props.currentUser.last_name}</h1>
+                        <h1>Hi, {this.props.currentUser.first_name} {this.props.currentUser.last_name}</h1>
                         <Link to="/" className="logout-link" onClick={() => this.props.logout()}>Log Out</Link>
                     </div>
                 </div>
@@ -44,12 +44,12 @@ class RightNavbar extends React.Component {
             return (
 
                 <nav className="right-nav">
-                    <div className="logged-out">
+                    {/* <div className="logged-out"> */}
                         <ul className="login-register">
-                            <li><button className="login-link" onClick={() => this.props.openModal("login")}>Login</button></li>
-                            <li><button className="signup-link" onClick={() => this.props.openModal("signup")}>Register</button></li>
+                            <li onClick={() => this.props.openModal("login")}>Login</li>
+                            <li onClick={() => this.props.openModal("signup")}>Register</li>
                         </ul>
-                    </div>
+                    {/* </div> */}
                 </nav>
 
             )
