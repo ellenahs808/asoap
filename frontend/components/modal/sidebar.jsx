@@ -3,7 +3,7 @@ import React from 'react';
 import FeatureContainer from '../navbar/feature_container'
 import CategorySidebarContainer from '../navbar/category_sidebar_container'
 import SearchContainer from '../search/search_container'
-import SearchResultContainer from '../search/search_result_container'
+
 
 
 class Sidebar extends React.Component {
@@ -14,9 +14,6 @@ class Sidebar extends React.Component {
     }
 
 
-    // updateHoveredProduct(product) {
-    //     this.setState({ hoveredProduct: product })
-    // }
 
     componentDidMount() {
         this.props.fetchProducts()

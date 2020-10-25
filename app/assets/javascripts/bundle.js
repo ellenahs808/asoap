@@ -1459,8 +1459,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _navbar_feature_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../navbar/feature_container */ "./frontend/components/navbar/feature_container.js");
 /* harmony import */ var _navbar_category_sidebar_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../navbar/category_sidebar_container */ "./frontend/components/navbar/category_sidebar_container.js");
 /* harmony import */ var _search_search_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../search/search_container */ "./frontend/components/search/search_container.js");
-/* harmony import */ var _search_search_result_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../search/search_result_container */ "./frontend/components/search/search_result_container.js");
-/* harmony import */ var _search_search_result_container__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_search_search_result_container__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1488,7 +1486,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
 var Sidebar = /*#__PURE__*/function (_React$Component) {
   _inherits(Sidebar, _React$Component);
 
@@ -1502,10 +1499,7 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.refreshPage = _this.refreshPage.bind(_assertThisInitialized(_this));
     return _this;
-  } // updateHoveredProduct(product) {
-  //     this.setState({ hoveredProduct: product })
-  // }
-
+  }
 
   _createClass(Sidebar, [{
     key: "componentDidMount",
@@ -3834,17 +3828,6 @@ var SearchProductItem = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (SearchProductItem);
-
-/***/ }),
-
-/***/ "./frontend/components/search/search_result_container.js":
-/*!***************************************************************!*\
-  !*** ./frontend/components/search/search_result_container.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/Users/shanellevalencia/Desktop/Asoap/Aesop/frontend/components/search/search_result_container.js'");
 
 /***/ }),
 
