@@ -3844,27 +3844,7 @@ var SearchProductItem = /*#__PURE__*/function (_React$Component) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// import { connect } from 'react-redux'
-// import { closeSidebar, openSidebar, hoverProduct } from '../../actions/sidebar_actions'
-// import { openModal } from '../../actions/modal_actions'
-// import { fetchProducts } from '../../actions/product_actions'
-// import SearchResult from './search_result'
-// const mapSTP = state => {
-//     return {
-//         currentUserId: state.session.id,
-//         product: state.entities.products[state.ui.hover],
-//     }
-// }
-// const mapDTP = dispatch => {
-//     return {
-//         closeSidebar: () => dispatch(closeSidebar()),
-//         openSidebar: side => dispatch(openSidebar(side)),
-//         hoverProduct: productId => dispatch(hoverProduct(productId)),
-//         openModal: modal => dispatch(openModal(modal)),
-//         fetchProducts: () => dispatch(fetchProducts())
-//     }
-// }
-// export default connect(mapSTP, mapDTP)(SearchResult);
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/Users/shanellevalencia/Desktop/Asoap/Aesop/frontend/components/search/search_result_container.js'");
 
 /***/ }),
 
