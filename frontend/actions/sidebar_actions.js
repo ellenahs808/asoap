@@ -37,10 +37,10 @@ export const hoverCategory = (category) => (
 
 
 
-export const hoverProduct = (productId) => (
-    {
-        type: HOVER_PRODUCT,
-        productId
-    }
-)
+// export const hoverProduct = (productId) => (
+//     {
+//         type: HOVER_PRODUCT,
+//         productId
+//     }
+// )
 

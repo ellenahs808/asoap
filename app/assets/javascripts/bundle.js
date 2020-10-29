@@ -396,7 +396,7 @@ var clearSessionErrors = function clearSessionErrors() {
 /*!*********************************************!*\
   !*** ./frontend/actions/sidebar_actions.js ***!
   \*********************************************/
-/*! exports provided: OPEN_SIDE, CLOSE_SIDE, HOVER_CATEGORY, HOVER_PRODUCT, openSidebar, closeSidebar, hoverCategory, hoverProduct */
+/*! exports provided: OPEN_SIDE, CLOSE_SIDE, HOVER_CATEGORY, HOVER_PRODUCT, openSidebar, closeSidebar, hoverCategory */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -408,7 +408,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "openSidebar", function() { return openSidebar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeSidebar", function() { return closeSidebar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hoverCategory", function() { return hoverCategory; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hoverProduct", function() { return hoverProduct; });
 var OPEN_SIDE = 'OPEN_SIDE';
 var CLOSE_SIDE = 'CLOSE_SIDE';
 var HOVER_CATEGORY = 'HOVER_CATEGORY';
@@ -433,13 +432,12 @@ var hoverCategory = function hoverCategory(category) {
     type: HOVER_CATEGORY,
     category: category
   };
-};
-var hoverProduct = function hoverProduct(productId) {
-  return {
-    type: HOVER_PRODUCT,
-    productId: productId
-  };
-};
+}; // export const hoverProduct = (productId) => (
+//     {
+//         type: HOVER_PRODUCT,
+//         productId
+//     }
+// )
 
 /***/ }),
 
@@ -1692,7 +1690,9 @@ var CategorySidebar = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: window.images.logo,
         onClick: function onClick() {
-          return _this3.props.closeModal();
+          _this3.props.closeModal();
+
+          _this3.props.closeSidebar();
         }
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "sidebar-category-li"

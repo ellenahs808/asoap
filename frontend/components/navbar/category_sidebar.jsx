@@ -53,7 +53,7 @@ class CategorySidebar extends React.Component {
 
 
                     
-                            <div className="asoap-logo"><Link to="/"><img src={window.images.logo} onClick={() => this.props.closeModal()}/></Link></div>
+                            <div className="asoap-logo"><Link to="/"><img src={window.images.logo} onClick={() => {this.props.closeModal(); this.props.closeSidebar()}}/></Link></div>
                                     <ul className="sidebar-category-li">
                                         <li className="skin-category">
                                             <Link 
