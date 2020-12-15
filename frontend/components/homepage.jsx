@@ -7,7 +7,7 @@ class Homepage extends React.Component {
         return (
             <div>
                 <div className="splash-image">
-                    <img src={window.images.splash_img} height='100%' width='100%'/>
+                    <img src={window.images.splash_img} height='80%' width='100%'/>
                 </div>
 
             </div>
