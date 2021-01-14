@@ -17,12 +17,13 @@ class Sidebar extends React.Component {
 
     componentDidMount() {
         this.props.fetchProducts()
+        window.scrollTo(0, 0)
     }
 
 
     refreshPage() {
         this.props.closeSidebar()
-        window.location.reload(false);
+        // window.location.reload(false);
     }
 
 

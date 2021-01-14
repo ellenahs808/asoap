@@ -23,6 +23,7 @@ class MainNavbar extends Component {
         if (this.props.currentUser) {
             this.props.fetchAllCartItems()
         }
+        window.scrollTo(0, 0)
     }
 
 
