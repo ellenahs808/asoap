@@ -18,7 +18,7 @@ class SearchProductItem extends React.Component {
 
         return (e) => {
             e.preventDefault();
-            this.props.hoverProduct(productId),
+            // this.props.hoverProduct(productId),
             this.props.openSidebar('searchResult')
         }
     }
@@ -31,7 +31,8 @@ class SearchProductItem extends React.Component {
         return (
             <div className='searched-item-container'>
                 <Link 
-                    onMouseEnter={() => {this.props.hoverProduct(product.id); this.props.openSidebar('searchResult')}} 
+                    // onMouseEnter={() => {this.props.hoverProduct(product.id); this.props.openSidebar('searchResult')}} can add as a feature where hover sidebar also pops when hovering on searched items 
+                    onMouseEnter={() => {this.props.openSidebar('searchResult')}} 
                     className="searched-item-link" to={`/products/${product.name}/${product.id}`}>
                     <div>
                         <span className='searched-item'>

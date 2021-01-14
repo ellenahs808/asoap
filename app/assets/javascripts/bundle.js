@@ -1674,7 +1674,9 @@ var CategorySidebar = /*#__PURE__*/function (_React$Component) {
       }, "Stores"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "sidebar-link",
         onClick: function onClick() {
-          return _this3.props.openModal('search');
+          _this3.props.openModal('search');
+
+          _this3.props.closeSidebar();
         }
       }, "Search"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "sidebar-close-btn",
@@ -3792,8 +3794,9 @@ var SearchProductItem = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       return function (e) {
-        e.preventDefault();
-        _this2.props.hoverProduct(productId), _this2.props.openSidebar('searchResult');
+        e.preventDefault(); // this.props.hoverProduct(productId),
+
+        _this2.props.openSidebar('searchResult');
       };
     }
   }, {
@@ -3804,10 +3807,9 @@ var SearchProductItem = /*#__PURE__*/function (_React$Component) {
       var product = this.props.product;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "searched-item-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"] // onMouseEnter={() => {this.props.hoverProduct(product.id); this.props.openSidebar('searchResult')}} can add as a feature where hover sidebar also pops when hovering on searched items 
+      , {
         onMouseEnter: function onMouseEnter() {
-          _this3.props.hoverProduct(product.id);
-
           _this3.props.openSidebar('searchResult');
         },
         className: "searched-item-link",
