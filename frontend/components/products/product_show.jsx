@@ -23,6 +23,7 @@ class ProductShowItem extends React.Component {
     componentDidMount() {
         this.props.fetchProduct(this.props.match.params.productId);
         this.props.fetchAllCartItems();
+        window.scrollTo(0, 0)
     }
 
 

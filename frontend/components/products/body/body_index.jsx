@@ -11,10 +11,13 @@ class BodyIndex extends React.Component {
 
     };
 
-
+    
     componentDidMount() {
         this.props.fetchProducts();
+        window.scrollTo(0, 0)
     };
+
+
 
 
 
