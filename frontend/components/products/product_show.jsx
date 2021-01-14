@@ -38,9 +38,7 @@ class ProductShowItem extends React.Component {
         // debugger
    
         let cartItemsId = this.props.userCartItems
-
         let sameItem = cartItemsId.some((item) => item.product_id === newItem.id)
-
 
         let currentItem = cartItemsId.find( (item) => {
             // debugger
@@ -48,8 +46,6 @@ class ProductShowItem extends React.Component {
                 return item.quantity
             }
         })
-
-
         
         if (sameItem) {
             // debugger
@@ -58,7 +54,6 @@ class ProductShowItem extends React.Component {
                 product_id: newItem.id,
                 quantity: currentItem.quantity + 1
             }
-
             this.props.updateCartItem(updatedItem)
         } else {
             this.props.createCartItem({
@@ -67,8 +62,6 @@ class ProductShowItem extends React.Component {
                 quantity: 1,
             });
         }
-
-        this.props.history.push('/');
     }
 
 
@@ -85,22 +78,11 @@ class ProductShowItem extends React.Component {
 
     handleClick(e) {
 
-        // e.preventDefault();
+        e.preventDefault();
         // debugger
 
         if (this.props.currentUserId) {
-            // return this.addItem(this.props.product);
-            // return this.props.history.goBack();
-
-            //janky :/
-            return (
-                this.addItem(this.props.product),
-                // this.props.history.push('/cart')
-                // this.addedToCart()
-                this.props.history.goBack()
-                // this.props.history.goBack()
-                
-            )
+            this.addItem(this.props.product)
         } else {
             this.props.openModal('login')
         }

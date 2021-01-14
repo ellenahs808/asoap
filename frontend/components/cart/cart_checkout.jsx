@@ -21,9 +21,7 @@ class CartCheckout extends React.Component {
     render() {
 
         const { first_name, last_name } = this.props.currentUser;
-
         let orderNumber = Math.floor((Math.random() * 100000) + 1)
-
 
         return (
             <div className="checkout-form" 
