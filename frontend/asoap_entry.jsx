@@ -24,14 +24,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     //for testing only
-    window.getState = store.getState
-    window.setState = store.setState
+    // window.getState = store.getState
+    // window.setState = store.setState
     // window.fetchCartItems = cartActions.fetchCartItems
     // window.createCartItem = cartActions.createCartItem
     // window.updateCartItem = cartActions.updateCartItem
     // window.deleteCartItem = cartActions.deleteCartItem
-    window.createCartItem = cart.createCartItem
-    window.deleteCartItem = cart.deleteCartItem
+    // window.createCartItem = cart.createCartItem
+    // window.deleteCartItem = cart.deleteCartItem
     //
     
 

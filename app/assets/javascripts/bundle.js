@@ -484,16 +484,16 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
   } //for testing only
-
-
-  window.getState = store.getState;
-  window.setState = store.setState; // window.fetchCartItems = cartActions.fetchCartItems
+  // window.getState = store.getState
+  // window.setState = store.setState
+  // window.fetchCartItems = cartActions.fetchCartItems
   // window.createCartItem = cartActions.createCartItem
   // window.updateCartItem = cartActions.updateCartItem
   // window.deleteCartItem = cartActions.deleteCartItem
+  // window.createCartItem = cart.createCartItem
+  // window.deleteCartItem = cart.deleteCartItem
+  //
 
-  window.createCartItem = _util_cart_api_util__WEBPACK_IMPORTED_MODULE_5__["createCartItem"];
-  window.deleteCartItem = _util_cart_api_util__WEBPACK_IMPORTED_MODULE_5__["deleteCartItem"]; //
 
   var root = document.getElementById('root');
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -1196,7 +1196,7 @@ var Homepage = /*#__PURE__*/function (_React$Component) {
         className: "splash-image"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: window.images.splash_img,
-        height: "800px",
+        height: "100%",
         width: "100%"
       })));
     }
