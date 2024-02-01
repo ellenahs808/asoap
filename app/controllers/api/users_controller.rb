@@ -1,6 +1,8 @@
 class Api::UsersController < ApplicationController
 
     def create
+        # render plain: params[:post].inspect
+
         @user = User.new(user_params)
         if @user.save
             login!(@user)

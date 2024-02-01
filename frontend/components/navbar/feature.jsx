@@ -95,7 +95,7 @@ class Feature extends React.Component {
     
                         <div><p className="caption">{caption}</p></div>
             
-                        </div>
+                    </div>
 
                     
                 </main>
