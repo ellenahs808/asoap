@@ -2,7 +2,7 @@ class Api::CartsController < ApplicationController
 
     before_action :require_logged_in, only: [:create, :update, :destroy]
 
-    def index // read
+    def index # read
         # @cart_items = Cart.where(user_id: current_user.id)
         
         # if current_user 
@@ -19,7 +19,7 @@ class Api::CartsController < ApplicationController
     end
 
 
-    def show //read
+    def show # read
         @cart_item = Cart.find(params[:id])
         render :show
     end
