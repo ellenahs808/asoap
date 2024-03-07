@@ -19,3 +19,4 @@ bundle.js
 /yarn-error.log
 
 .byebug_history
+node_modules
