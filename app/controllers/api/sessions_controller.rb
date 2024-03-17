@@ -10,7 +10,7 @@ class Api::SessionsController < ApplicationController
         @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
         if @user
             login!(@user)
-            # render json: ["You are logged in!"]
+#             render json: ["You are logged in!"]
             render "api/users/show"
             
         else
