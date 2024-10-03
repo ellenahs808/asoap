@@ -47,3 +47,6 @@ Featured products are randomly displayed when hovering over the main categories 
 
 * Implementing recent orders history from a user's account.
 
+
+Heroku notes:
+Include Heroku Postgres Database as add-on
